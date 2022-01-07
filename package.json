@@ -11,6 +11,7 @@
 		"clean": "rm -rf node_modules/.vite",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+		"publish": "npm run package && cd package && npm publish",
 		"lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
 		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
 	},
@@ -25,10 +26,11 @@
 		"prettier": "2",
 		"prettier-plugin-svelte": "2",
 		"slate": "0.72",
-		"slate-history": "^0.66.0",
+		"slate-history": "0",
 		"svelte": "3",
 		"svelte-check": "2",
 		"svelte-preprocess": "4",
+		"svelte2tsx": "0",
 		"tslib": "2",
 		"typescript": "4"
 	},
