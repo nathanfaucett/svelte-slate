@@ -8,6 +8,11 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		target: '#svelte',
+		paths: process.env.USE_BASE_PATH
+			? {
+					base: '/svelte-slate'
+			  }
+			: {},
 		vite: {
 			resolve: {
 				alias: {
