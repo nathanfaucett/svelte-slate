@@ -1,0 +1,73 @@
+<script lang="ts" context="module">
+	export interface ILeafProps extends svelte.JSX.HTMLAttributes<HTMLElement> {
+		editor: SvelteEditor;
+		leaf: SlateText;
+		'data-slate-leaf': true;
+	}
+</script>
+
+<script lang="ts">
+	import { CAN_USE_DOM } from '$lib/environment';
+	import { PLACEHOLDER_SYMBOL } from '$lib/weakMaps';
+	import type { SvelteEditor } from '$lib/withSvelte';
+	import type { Text as SlateText, Element as SlateElement } from 'slate';
+	import { onDestroy, SvelteComponent } from 'svelte';
+	import String from './String.svelte';
+
+	export let editor: SvelteEditor;
+	export let isLast: boolean;
+	export let leaf: SlateText;
+	export let parent: SlateElement;
+	export let text: SlateText;
+	export let Placeholder: typeof SvelteComponent;
+	export let Leaf: typeof SvelteComponent;
+
+	let currentEditor: SvelteEditor;
+	let prevEditor: SvelteEditor;
+	$: if (prevEditor !== editor) {
+		currentEditor = editor;
+		prevEditor = editor;
+	}
+	let currentLeaf: SlateText;
+	let prevLeaf: SlateText;
+	$: if (prevLeaf !== leaf) {
+		currentLeaf = leaf;
+		prevLeaf = leaf;
+	}
+
+	let clientHeight: number;
+	let prevClientHeight: number;
+	$: if (clientHeight !== prevClientHeight && currentLeaf && CAN_USE_DOM) {
+		const editorEl = document.querySelector<HTMLDivElement>('[data-svelte-editor="true"]');
+
+		if (editorEl) {
+			editorEl.style.minHeight = `${clientHeight}px`;
+		}
+	}
+
+	onDestroy(() => {
+		if (CAN_USE_DOM) {
+			const editorEl = document.querySelector<HTMLDivElement>('[data-svelte-editor="true"]');
+
+			if (editorEl) {
+				editorEl.style.minHeight = '';
+			}
+		}
+	});
+</script>
+
+<svelte:component this={Leaf} editor={currentEditor} leaf={currentLeaf} data-slate-leaf="true"
+	>{#if PLACEHOLDER_SYMBOL in currentLeaf}<svelte:component
+			this={Placeholder}
+			data-slate-placeholder
+			style="position: absolute; pointer-events: none; width: 100%; max-width: 100%; display: block; opacity: 0.333; user-select: none; text-decoration: none;"
+			contenteditable="false"
+			bind:clientHeight>{currentLeaf['placeholder']}</svelte:component
+		>{/if}<String
+		editor={currentEditor}
+		{isLast}
+		leaf={currentLeaf}
+		{parent}
+		{text}
+	/></svelte:component
+>

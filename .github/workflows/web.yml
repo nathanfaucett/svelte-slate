@@ -1,0 +1,31 @@
+name: Web
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  pages:
+    runs-on: ubuntu-latest
+    env:
+      USE_BASE_PATH: true
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+
+      - run: npm install -g npm@8.3.0
+      - run: npm ci
+      - run: npm run web.build
+      - uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: '/service-worker.js'
+          replace: '/svelte-slate/service-worker.js'
+          include: '**/*.html'
+          regex: false
+
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build
