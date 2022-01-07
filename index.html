@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="description" content="" />
+		<link rel="icon" href="/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+
+		
+
+		<link rel="stylesheet" href="/_app/assets/start-61d1577b.css">
+		<link rel="stylesheet" href="/_app/assets/pages/index.svelte-895aa1b8.css">
+		<link rel="modulepreload" href="/_app/start-019d1f20.js">
+		<link rel="modulepreload" href="/_app/chunks/vendor-9b96e2b7.js">
+		<link rel="modulepreload" href="/_app/layout.svelte-5714cef0.js">
+		<link rel="modulepreload" href="/_app/pages/index.svelte-ae8e5c92.js">
+
+		<script type="module">
+			import { start } from "/_app/start-019d1f20.js";
+			start({
+				target: document.querySelector("#svelte"),
+				paths: {"base":"","assets":""},
+				session: {},
+				route: true,
+				spa: false,
+				trailing_slash: "never",
+				hydrate: {
+					status: 200,
+					error: null,
+					nodes: [
+						import("/_app/layout.svelte-5714cef0.js"),
+						import("/_app/pages/index.svelte-ae8e5c92.js")
+					],
+					url: new URL("http://prerender/"),
+					params: {}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div id="svelte">
+
+
+<div role="textbox" spellcheck="true" autocorrect="true" autocapitalize="true" data-svelte-editor data-slate-node="value" contenteditable z-index="-1" class="svelte-m59z04"><p data-slate-node="element" data-slate-void="false" data-slate-inline="false" contenteditable editor="[object Object]" class="svelte-xu68xn"><span data-slate-node="text"><span editor="[object Object]" data-slate-leaf="true" class="bold    svelte-nzyvs2"><span data-slate-string="true">Edit me</span></span></span><span data-slate-node="text"><span editor="[object Object]" data-slate-leaf="true" class="    svelte-nzyvs2"><span data-slate-string="true"> I&#39;m a text </span></span></span><span data-slate-node="text"><span editor="[object Object]" data-slate-leaf="true" class=" italic   svelte-nzyvs2"><span data-slate-string="true">child</span></span></span></p>
+</div>
+
+<code><pre>[
+  {
+    &quot;type&quot;: &quot;paragraph&quot;,
+    &quot;children&quot;: [
+      {
+        &quot;bold&quot;: true,
+        &quot;text&quot;: &quot;Edit me&quot;
+      },
+      {
+        &quot;text&quot;: &quot; I&#39;m a text &quot;
+      },
+      {
+        &quot;italic&quot;: true,
+        &quot;text&quot;: &quot;child&quot;
+      }
+    ]
+  }
+]</pre></code>
+
+</div>
+	</body>
+</html>
