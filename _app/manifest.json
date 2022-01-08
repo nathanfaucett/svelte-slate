@@ -1,56 +1,85 @@
 {
   ".svelte-kit/build/runtime/internal/start.js": {
-    "file": "start-4522ceb6.js",
+    "file": "start-362d1966.js",
     "src": ".svelte-kit/build/runtime/internal/start.js",
     "isEntry": true,
     "imports": [
-      "_vendor-4dd1056e.js",
+      "_vendor-332a5d40.js",
       "_paths-28a87002.js"
     ],
     "dynamicImports": [
       "src/routes/__layout.svelte",
       ".svelte-kit/build/components/error.svelte",
-      "src/routes/index.svelte"
+      "src/routes/index.svelte",
+      "src/routes/richeditor.svelte",
+      "src/routes/empty.svelte"
     ],
     "css": [
       "assets/start-61d1577b.css"
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "pages/__layout.svelte-1b95a625.js",
+    "file": "pages/__layout.svelte-16ffb958.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-4dd1056e.js",
+      "_vendor-332a5d40.js",
       "_paths-28a87002.js"
     ]
   },
   ".svelte-kit/build/components/error.svelte": {
-    "file": "error.svelte-255b9e04.js",
+    "file": "error.svelte-44f42701.js",
     "src": ".svelte-kit/build/components/error.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-4dd1056e.js"
+      "_vendor-332a5d40.js"
     ]
   },
   "src/routes/index.svelte": {
-    "file": "pages/index.svelte-a0d3ab58.js",
+    "file": "pages/index.svelte-bb2f4b7a.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-4dd1056e.js"
-    ],
-    "css": [
-      "assets/pages/index.svelte-895aa1b8.css"
+      "_vendor-332a5d40.js",
+      "_paths-28a87002.js"
     ]
   },
-  "_vendor-4dd1056e.js": {
-    "file": "chunks/vendor-4dd1056e.js"
+  "src/routes/richeditor.svelte": {
+    "file": "pages/richeditor.svelte-d5bc38ff.js",
+    "src": "src/routes/richeditor.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-332a5d40.js",
+      "_Leaf-cd76146f.js"
+    ]
+  },
+  "src/routes/empty.svelte": {
+    "file": "pages/empty.svelte-ef0b8d8b.js",
+    "src": "src/routes/empty.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-332a5d40.js",
+      "_Leaf-cd76146f.js"
+    ]
+  },
+  "_vendor-332a5d40.js": {
+    "file": "chunks/vendor-332a5d40.js"
   },
   "_paths-28a87002.js": {
     "file": "chunks/paths-28a87002.js"
+  },
+  "_Leaf-cd76146f.js": {
+    "file": "chunks/Leaf-cd76146f.js",
+    "imports": [
+      "_vendor-332a5d40.js"
+    ],
+    "css": [
+      "assets/Leaf-6b494fbc.css"
+    ]
   }
 }
