@@ -1,10 +1,11 @@
 <script lang="ts">
-	import { Ancestor, Text as SlateText, Path, NodeEntry, Editor } from 'slate';
-	import { Range } from 'slate';
+	import type { Ancestor, Text as SlateText, Path, NodeEntry, Range } from 'slate';
+	import { Editor } from 'slate';
 	import type { SvelteComponent } from 'svelte';
 	import Text from './Text.svelte';
 	import { NODE_TO_INDEX, NODE_TO_PARENT } from '$lib/weakMaps';
 	import type { SvelteEditor } from '$lib/withSvelte';
+	import { getChildDecorations } from './Children.svelte';
 
 	export let editor: SvelteEditor;
 	export let parent: Ancestor;
@@ -24,19 +25,8 @@
 	$: isLast = isLeafBlock && index === parent.children.length - 1;
 	$: range = Editor.range(editor, childPath);
 	$: childDecorations = decorate([text, childPath]);
-	$: {
-		let shouldUpdate = false;
-		for (const decoration of decorations) {
-			const intersection = Range.intersection(decoration, range);
-
-			if (intersection) {
-				childDecorations.push(intersection);
-				shouldUpdate = true;
-			}
-		}
-		if (shouldUpdate) {
-			childDecorations = childDecorations;
-		}
+	$: if (getChildDecorations(childDecorations, range, decorations)) {
+		childDecorations = childDecorations;
 	}
 </script>
 

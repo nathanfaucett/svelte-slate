@@ -22,22 +22,9 @@
 	export let Placeholder: typeof SvelteComponent;
 	export let Leaf: typeof SvelteComponent;
 
-	let currentEditor: SvelteEditor;
-	let prevEditor: SvelteEditor;
-	$: if (prevEditor !== editor) {
-		currentEditor = editor;
-		prevEditor = editor;
-	}
-	let currentLeaf: SlateText;
-	let prevLeaf: SlateText;
-	$: if (prevLeaf !== leaf) {
-		currentLeaf = leaf;
-		prevLeaf = leaf;
-	}
-
 	let clientHeight: number;
 	let prevClientHeight: number;
-	$: if (clientHeight !== prevClientHeight && currentLeaf && CAN_USE_DOM) {
+	$: if (clientHeight !== prevClientHeight && leaf && CAN_USE_DOM) {
 		const editorEl = document.querySelector<HTMLDivElement>('[data-svelte-editor="true"]');
 
 		if (editorEl) {
@@ -56,18 +43,12 @@
 	});
 </script>
 
-<svelte:component this={Leaf} editor={currentEditor} leaf={currentLeaf} data-slate-leaf="true"
-	>{#if PLACEHOLDER_SYMBOL in currentLeaf}<svelte:component
+<svelte:component this={Leaf} {editor} {leaf} data-slate-leaf="true"
+	>{#if PLACEHOLDER_SYMBOL in leaf}<svelte:component
 			this={Placeholder}
 			data-slate-placeholder
 			style="position: absolute; pointer-events: none; width: 100%; max-width: 100%; display: block; opacity: 0.333; user-select: none; text-decoration: none;"
 			contenteditable="false"
-			bind:clientHeight>{currentLeaf['placeholder']}</svelte:component
-		>{/if}<String
-		editor={currentEditor}
-		{isLast}
-		leaf={currentLeaf}
-		{parent}
-		{text}
-	/></svelte:component
+			bind:clientHeight>{leaf['placeholder']}</svelte:component
+		>{/if}<String {editor} {isLast} {leaf} {parent} {text} /></svelte:component
 >

@@ -1,11 +1,11 @@
 <script lang="ts">
 	import type { Element, Range } from 'slate';
 	import { Text as SlateText } from 'slate';
-	import { beforeUpdate, SvelteComponent } from 'svelte';
+	import type { SvelteComponent } from 'svelte';
 	import { onMount } from 'svelte';
 	import LeafComponent from './Leaf.svelte';
 	import type { Key } from '../Key';
-	import { findKey, isDecoratorRangeListEqual } from '$lib/utils';
+	import { findKey } from '$lib/utils';
 	import { EDITOR_TO_KEY_TO_ELEMENT, ELEMENT_TO_NODE, NODE_TO_ELEMENT } from '$lib/weakMaps';
 	import type { SvelteEditor } from '$lib/withSvelte';
 
@@ -17,27 +17,8 @@
 	export let Placeholder: typeof SvelteComponent;
 	export let Leaf: typeof SvelteComponent;
 
-	let currentEditor: SvelteEditor;
-	let prevEditor: SvelteEditor;
-	$: if (prevEditor !== editor) {
-		currentEditor = editor;
-		prevEditor = editor;
-	}
-	let currentText: SlateText;
-	let prevText: SlateText;
-	$: if (prevText !== text) {
-		currentText = text;
-		prevText = text;
-	}
-	let currentDecorations: Range[];
-	let prevDecorations: Range[];
-	$: if (!isDecoratorRangeListEqual(prevDecorations, decorations)) {
-		currentDecorations = decorations;
-		prevDecorations = decorations;
-	}
-
-	$: leaves = SlateText.decorations(currentText, currentDecorations);
-	$: key = findKey(currentText);
+	$: leaves = SlateText.decorations(text, decorations);
+	$: key = findKey(text);
 
 	let currentKey: Key;
 	let prevKey: Key;
@@ -49,13 +30,13 @@
 	let ref: HTMLSpanElement;
 	$: if (ref) {
 		EDITOR_TO_KEY_TO_ELEMENT.get(editor)?.set(currentKey, ref);
-		NODE_TO_ELEMENT.set(currentText, ref);
-		ELEMENT_TO_NODE.set(ref, currentText);
+		NODE_TO_ELEMENT.set(text, ref);
+		ELEMENT_TO_NODE.set(ref, text);
 	}
 	onMount(() => {
 		EDITOR_TO_KEY_TO_ELEMENT.get(editor)?.set(currentKey, ref);
-		NODE_TO_ELEMENT.set(currentText, ref);
-		ELEMENT_TO_NODE.set(ref, currentText);
+		NODE_TO_ELEMENT.set(text, ref);
+		ELEMENT_TO_NODE.set(ref, text);
 	});
 </script>
 
@@ -64,10 +45,10 @@
 			this={LeafComponent}
 			{Placeholder}
 			{Leaf}
-			editor={currentEditor}
+			{editor}
 			isLast={isLast && index === leaves.length - 1}
 			{parent}
 			{leaf}
-			text={currentText}
+			{text}
 		/>{/each}</span
 >

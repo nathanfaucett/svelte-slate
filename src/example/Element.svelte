@@ -8,6 +8,9 @@
 </script>
 
 <script lang="ts">
+	import type { SvelteEditor } from '$lib/withSvelte';
+
+	export let editor: SvelteEditor;
 	export let element: IElement;
 	export let ref: HTMLElement = undefined;
 </script>

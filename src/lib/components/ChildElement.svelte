@@ -1,10 +1,11 @@
 <script lang="ts">
-	import { Ancestor, Element as SlateElement, Path, NodeEntry, Selection, Editor } from 'slate';
-	import { Range } from 'slate';
+	import type { Ancestor, Element as SlateElement, Path, NodeEntry, Selection } from 'slate';
+	import { Range, Editor } from 'slate';
 	import type { SvelteComponent } from 'svelte';
 	import ElementComponent from './Element.svelte';
 	import { NODE_TO_INDEX, NODE_TO_PARENT } from '$lib/weakMaps';
 	import type { SvelteEditor } from '$lib/withSvelte';
+	import { getChildDecorations } from './Children.svelte';
 
 	export let editor: SvelteEditor;
 	export let parent: Ancestor;
@@ -24,19 +25,8 @@
 	$: range = Editor.range(editor, childPath);
 	$: childDecorations = decorate([element, childPath]);
 	$: childSelection = selection && Range.intersection(range, selection);
-	$: {
-		let shouldUpdate = false;
-		for (const decoration of decorations) {
-			const intersection = Range.intersection(decoration, range);
-
-			if (intersection) {
-				childDecorations.push(intersection);
-				shouldUpdate = true;
-			}
-		}
-		if (shouldUpdate) {
-			childDecorations = childDecorations;
-		}
+	$: if (getChildDecorations(childDecorations, range, decorations)) {
+		childDecorations = childDecorations;
 	}
 </script>
 

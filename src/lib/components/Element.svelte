@@ -20,7 +20,7 @@
 	import Children from './Children.svelte';
 	import type { Key } from '$lib/Key';
 	import Text from './Text.svelte';
-	import { findKey, isDecoratorRangeListEqual } from '$lib/utils';
+	import { findKey } from '$lib/utils';
 	import {
 		EDITOR_TO_KEY_TO_ELEMENT,
 		ELEMENT_TO_NODE,
@@ -30,7 +30,6 @@
 	} from '$lib/weakMaps';
 	import type { SvelteEditor } from '$lib/withSvelte';
 	import { getReadOnlyContext } from './Slate.svelte';
-	import { deepEqual } from 'fast-equals';
 
 	export let editor: SvelteEditor;
 	export let element: SlateElement;
@@ -43,33 +42,8 @@
 	const readOnlyContext = getReadOnlyContext();
 	$: readOnly = $readOnlyContext;
 
-	let currentEditor: SvelteEditor;
-	let prevEditor: SvelteEditor;
-	$: if (prevEditor !== editor) {
-		currentEditor = editor;
-		prevEditor = editor;
-	}
-	let currentElement: SlateElement;
-	let prevElement: SlateElement;
-	$: if (prevElement !== element) {
-		currentElement = element;
-		prevElement = element;
-	}
-	let currentDecorations: Range[];
-	let prevDecorations: Range[];
-	$: if (!isDecoratorRangeListEqual(prevDecorations, decorations)) {
-		currentDecorations = decorations;
-		prevDecorations = decorations;
-	}
-	let currentSelection: Selection;
-	let prevSelection: Selection;
-	$: if (!deepEqual(prevSelection, selection)) {
-		currentSelection = selection;
-		prevSelection = selection;
-	}
-
-	$: isInline = currentEditor.isInline(currentElement);
-	$: key = findKey(currentElement);
+	$: isInline = editor.isInline(element);
+	$: key = findKey(element);
 
 	let currentKey: Key;
 	let prevKey: Key;
@@ -79,15 +53,15 @@
 	}
 
 	let dir: string;
-	$: if (!isInline && Editor.hasInlines(currentEditor, currentElement)) {
-		const d = direction(Node.string(currentElement));
+	$: if (!isInline && Editor.hasInlines(editor, element)) {
+		const d = direction(Node.string(element));
 
 		if (d === 'rtl') {
 			dir = d;
 		}
 	}
 
-	$: isVoid = Editor.isVoid(currentEditor, currentElement);
+	$: isVoid = Editor.isVoid(editor, element);
 	$: contentEditable = !readOnly;
 	let voidText: SlateText;
 	$: if (isVoid) {
@@ -95,23 +69,23 @@
 			contentEditable = false;
 		}
 
-		const [[text]] = Node.texts(currentElement);
+		const [[text]] = Node.texts(element);
 		voidText = text;
 
 		NODE_TO_INDEX.set(text, 0);
-		NODE_TO_PARENT.set(text, currentElement);
+		NODE_TO_PARENT.set(text, element);
 	}
 
 	let ref: HTMLElement;
 	$: if (ref) {
 		EDITOR_TO_KEY_TO_ELEMENT.get(editor)?.set(currentKey, ref);
-		NODE_TO_ELEMENT.set(currentElement, ref);
-		ELEMENT_TO_NODE.set(ref, currentElement);
+		NODE_TO_ELEMENT.set(element, ref);
+		ELEMENT_TO_NODE.set(ref, element);
 	}
 	onMount(() => {
 		EDITOR_TO_KEY_TO_ELEMENT.get(editor)?.set(currentKey, ref);
-		NODE_TO_ELEMENT.set(currentElement, ref);
-		ELEMENT_TO_NODE.set(ref, currentElement);
+		NODE_TO_ELEMENT.set(element, ref);
+		ELEMENT_TO_NODE.set(ref, element);
 	});
 </script>
 
@@ -122,18 +96,18 @@
 	data-slate-void={isVoid}
 	data-slate-inline={isInline}
 	contenteditable={contentEditable}
-	editor={currentEditor}
-	element={currentElement}
+	{editor}
+	{element}
 	{dir}
 	>{#if isVoid}{#if isInline}<span data-slate-spacer
 				><svelte:component
 					this={Text}
 					{Placeholder}
 					{Leaf}
-					editor={currentEditor}
-					decorations={currentDecorations}
+					{editor}
+					{decorations}
 					isLast={false}
-					parent={currentElement}
+					parent={element}
 					text={voidText}
 				/></span
 			>{:else}<div data-slate-spacer>
@@ -141,17 +115,16 @@
 					this={Text}
 					{Placeholder}
 					{Leaf}
-					editor={currentEditor}
-					decorations={currentDecorations}
+					{editor}
+					{decorations}
 					isLast={false}
-					parent={currentElement}
+					parent={element}
 					text={voidText}
 				/>
-			</div>{/if}{:else}<svelte:component
-			this={Children}
-			node={currentElement}
-			editor={currentEditor}
-			selection={currentSelection}
+			</div>{/if}{:else}<Children
+			node={element}
+			{editor}
+			{selection}
 			{Element}
 			{Placeholder}
 			{Leaf}
