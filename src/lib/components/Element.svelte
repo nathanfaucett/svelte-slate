@@ -33,7 +33,7 @@
 
 	export let editor: SvelteEditor;
 	export let element: SlateElement;
-	export let decorations: Range[] = [];
+	export let decorations: Range[];
 	export let selection: Selection = null;
 	export let Element: typeof SvelteComponent;
 	export let Leaf: typeof SvelteComponent;
@@ -124,6 +124,7 @@
 			</div>{/if}{:else}<Children
 			node={element}
 			{editor}
+			{decorations}
 			{selection}
 			{Element}
 			{Placeholder}

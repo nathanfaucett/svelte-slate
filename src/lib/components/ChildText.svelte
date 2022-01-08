@@ -13,8 +13,8 @@
 	export let path: Path;
 	export let index: number;
 	export let isLeafBlock: boolean;
+	export let decorations: Range[];
 	export let decorate: (entry: NodeEntry) => Range[];
-	export let decorations: Range[] = [];
 	export let isLast: boolean = false;
 	export let Leaf: typeof SvelteComponent;
 	export let Placeholder: typeof SvelteComponent;

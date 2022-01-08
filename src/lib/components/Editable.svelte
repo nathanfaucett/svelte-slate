@@ -128,23 +128,22 @@
 	$: readOnlyContext.set(readOnly);
 	$: decorateContext.set(decorate);
 
-	let prevPlaceholder: string | undefined;
 	$: if (
-		placeholder !== prevPlaceholder &&
 		editor.children.length === 1 &&
 		Array.from(SlateNode.texts(editor)).length === 1 &&
 		SlateNode.string(editor) === '' &&
 		!state.isComposing
 	) {
 		const start = Editor.start(editor, []);
-		decorations.push({
-			[PLACEHOLDER_SYMBOL]: true,
-			placeholder,
-			anchor: start,
-			focus: start
-		} as any);
-		prevPlaceholder = placeholder;
-		decorations = decorations;
+		decorations = [
+			...decorate([editor, []]),
+			{
+				[PLACEHOLDER_SYMBOL]: true,
+				placeholder,
+				anchor: start,
+				focus: start
+			} as any
+		];
 	}
 
 	let ref: HTMLDivElement;

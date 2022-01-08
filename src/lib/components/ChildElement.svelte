@@ -12,9 +12,9 @@
 	export let element: SlateElement;
 	export let path: Path;
 	export let index: number;
-	export let selection: Selection = null;
 	export let decorate: (entry: NodeEntry) => Range[];
-	export let decorations: Range[] = [];
+	export let decorations: Range[];
+	export let selection: Selection = null;
 	export let Element: typeof SvelteComponent;
 	export let Leaf: typeof SvelteComponent;
 	export let Placeholder: typeof SvelteComponent;

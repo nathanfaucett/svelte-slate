@@ -29,8 +29,8 @@
 
 	export let editor: SvelteEditor;
 	export let node: Ancestor;
+	export let decorations: Range[];
 	export let selection: Selection = null;
-	export let decorations: Range[] = [];
 	export let Element: typeof SvelteComponent;
 	export let Leaf: typeof SvelteComponent;
 	export let Placeholder: typeof SvelteComponent;
