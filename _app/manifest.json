@@ -1,65 +1,54 @@
 {
   ".svelte-kit/build/runtime/internal/start.js": {
-    "file": "start-25e3d951.js",
+    "file": "start-9132a612.js",
     "src": ".svelte-kit/build/runtime/internal/start.js",
     "isEntry": true,
     "imports": [
-      "_vendor-78430b54.js",
+      "_vendor-a7431145.js",
       "_paths-28a87002.js"
     ],
     "dynamicImports": [
       "src/routes/__layout.svelte",
       ".svelte-kit/build/components/error.svelte",
-      "src/routes/index.svelte",
-      "src/routes/richeditor.svelte"
+      "src/routes/index.svelte"
     ],
     "css": [
       "assets/start-61d1577b.css"
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "pages/__layout.svelte-6ed00723.js",
+    "file": "pages/__layout.svelte-82a9e296.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-78430b54.js",
+      "_vendor-a7431145.js",
       "_paths-28a87002.js"
     ]
   },
   ".svelte-kit/build/components/error.svelte": {
-    "file": "error.svelte-7032f473.js",
+    "file": "error.svelte-23e96063.js",
     "src": ".svelte-kit/build/components/error.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-78430b54.js"
+      "_vendor-a7431145.js"
     ]
   },
   "src/routes/index.svelte": {
-    "file": "pages/index.svelte-221d5e39.js",
+    "file": "pages/index.svelte-7879e93a.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-78430b54.js",
-      "_paths-28a87002.js"
-    ]
-  },
-  "src/routes/richeditor.svelte": {
-    "file": "pages/richeditor.svelte-83f2c1d0.js",
-    "src": "src/routes/richeditor.svelte",
-    "isEntry": true,
-    "isDynamicEntry": true,
-    "imports": [
-      "_vendor-78430b54.js"
+      "_vendor-a7431145.js"
     ],
     "css": [
-      "assets/pages/richeditor.svelte-bff73d78.css"
+      "assets/pages/index.svelte-ff214656.css"
     ]
   },
-  "_vendor-78430b54.js": {
-    "file": "chunks/vendor-78430b54.js",
+  "_vendor-a7431145.js": {
+    "file": "chunks/vendor-a7431145.js",
     "css": [
       "assets/vendor-86f8c920.css"
     ]
