@@ -5,12 +5,12 @@
 	import { onMount } from 'svelte';
 	import LeafComponent from './Leaf.svelte';
 	import type { Key } from '../Key';
-	import { findKey } from '$lib/utils';
-	import { EDITOR_TO_KEY_TO_ELEMENT, ELEMENT_TO_NODE, NODE_TO_ELEMENT } from '$lib/weakMaps';
-	import type { SvelteEditor } from '$lib/withSvelte';
+	import { findKey } from '../utils';
+	import { EDITOR_TO_KEY_TO_ELEMENT, ELEMENT_TO_NODE, NODE_TO_ELEMENT } from '../weakMaps';
+	import type { SvelteEditor } from '../withSvelte';
 
 	export let editor: SvelteEditor;
-	export let decorations: Range[] = [];
+	export let decorations: Range[];
 	export let isLast: boolean;
 	export let parent: Element;
 	export let text: SlateText;

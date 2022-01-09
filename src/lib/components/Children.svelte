@@ -3,17 +3,15 @@
 		childDecorations: Range[],
 		range: Range,
 		decorations: Range[]
-	): boolean {
-		let updated = false;
+	): Range[] {
 		for (const decoration of decorations) {
 			const intersection = Range.intersection(decoration, range);
 
 			if (intersection) {
 				childDecorations.push(intersection);
-				updated = true;
 			}
 		}
-		return updated;
+		return childDecorations;
 	}
 </script>
 
@@ -21,8 +19,8 @@
 	import type { Ancestor, Selection } from 'slate';
 	import { Element as SlateElement, Editor, Range } from 'slate';
 	import type { SvelteComponent } from 'svelte';
-	import { findKey, findPath } from '$lib/utils';
-	import type { SvelteEditor } from '$lib/withSvelte';
+	import { findKey, findPath } from '../utils';
+	import type { SvelteEditor } from '../withSvelte';
 	import { getDecorateContext } from './Slate.svelte';
 	import ChildElement from './ChildElement.svelte';
 	import ChildText from './ChildText.svelte';

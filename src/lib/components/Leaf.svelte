@@ -7,9 +7,9 @@
 </script>
 
 <script lang="ts">
-	import { CAN_USE_DOM } from '$lib/environment';
-	import { PLACEHOLDER_SYMBOL } from '$lib/weakMaps';
-	import type { SvelteEditor } from '$lib/withSvelte';
+	import { CAN_USE_DOM } from '../environment';
+	import { PLACEHOLDER_SYMBOL } from '../weakMaps';
+	import type { SvelteEditor } from '../withSvelte';
 	import type { Text as SlateText, Element as SlateElement } from 'slate';
 	import { onDestroy, SvelteComponent } from 'svelte';
 	import String from './String.svelte';

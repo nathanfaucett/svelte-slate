@@ -1,3 +1,5 @@
+<svelte:options immutable={true} />
+
 <script lang="ts">
 	export let text: string;
 	export let isTrailing = false;

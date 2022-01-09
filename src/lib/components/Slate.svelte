@@ -57,8 +57,8 @@
 </script>
 
 <script lang="ts">
-	import { EDITOR_TO_ON_CHANGE } from '$lib/weakMaps';
-	import type { SvelteEditor } from '$lib/withSvelte';
+	import { EDITOR_TO_ON_CHANGE } from '../weakMaps';
+	import type { SvelteEditor } from '../withSvelte';
 	import type { Descendant, Range, Editor, NodeEntry, Selection } from 'slate';
 	import { setContext, getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';

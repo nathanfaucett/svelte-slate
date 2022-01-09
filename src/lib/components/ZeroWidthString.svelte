@@ -1,3 +1,5 @@
+<svelte:options immutable={true} />
+
 <script lang="ts">
 	export let length = 0;
 	export let isLineBreak = false;

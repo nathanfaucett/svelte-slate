@@ -3,8 +3,8 @@
 	import { Editor } from 'slate';
 	import type { SvelteComponent } from 'svelte';
 	import Text from './Text.svelte';
-	import { NODE_TO_INDEX, NODE_TO_PARENT } from '$lib/weakMaps';
-	import type { SvelteEditor } from '$lib/withSvelte';
+	import { NODE_TO_INDEX, NODE_TO_PARENT } from '../weakMaps';
+	import type { SvelteEditor } from '../withSvelte';
 	import { getChildDecorations } from './Children.svelte';
 
 	export let editor: SvelteEditor;
@@ -15,7 +15,6 @@
 	export let isLeafBlock: boolean;
 	export let decorations: Range[];
 	export let decorate: (entry: NodeEntry) => Range[];
-	export let isLast: boolean = false;
 	export let Leaf: typeof SvelteComponent;
 	export let Placeholder: typeof SvelteComponent;
 
@@ -24,10 +23,7 @@
 	$: childPath = path.concat(index);
 	$: isLast = isLeafBlock && index === parent.children.length - 1;
 	$: range = Editor.range(editor, childPath);
-	$: childDecorations = decorate([text, childPath]);
-	$: if (getChildDecorations(childDecorations, range, decorations)) {
-		childDecorations = childDecorations;
-	}
+	$: childDecorations = getChildDecorations(decorate([text, childPath]), range, decorations);
 </script>
 
 <svelte:component

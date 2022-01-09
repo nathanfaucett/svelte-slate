@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { findPath } from '$lib/utils';
-	import type { SvelteEditor } from '$lib/withSvelte';
+	import { findPath } from '../utils';
+	import type { SvelteEditor } from '../withSvelte';
 	import type { Text as SlateText, Element as SlateElement } from 'slate';
 	import { Node, Editor, Path } from 'slate';
 	import TextString from './TextString.svelte';

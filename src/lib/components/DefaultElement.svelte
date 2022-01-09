@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { SvelteEditor } from '$lib/withSvelte';
+	import type { SvelteEditor } from '../withSvelte';
 	import type { Element } from 'slate';
 
 	export let editor: SvelteEditor;

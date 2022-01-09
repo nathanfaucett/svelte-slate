@@ -18,17 +18,17 @@
 	import { onMount } from 'svelte';
 	import { direction } from 'direction';
 	import Children from './Children.svelte';
-	import type { Key } from '$lib/Key';
+	import type { Key } from '../Key';
 	import Text from './Text.svelte';
-	import { findKey } from '$lib/utils';
+	import { findKey } from '../utils';
 	import {
 		EDITOR_TO_KEY_TO_ELEMENT,
 		ELEMENT_TO_NODE,
 		NODE_TO_ELEMENT,
 		NODE_TO_INDEX,
 		NODE_TO_PARENT
-	} from '$lib/weakMaps';
-	import type { SvelteEditor } from '$lib/withSvelte';
+	} from '../weakMaps';
+	import type { SvelteEditor } from '../withSvelte';
 	import { getReadOnlyContext } from './Slate.svelte';
 
 	export let editor: SvelteEditor;

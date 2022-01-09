@@ -49,6 +49,8 @@
 	import { onMount, SvelteComponent } from 'svelte';
 	import { afterUpdate } from 'svelte';
 	import { direction } from 'direction';
+	import debounce from 'lodash/debounce';
+	import throttle from 'lodash/throttle';
 	import Children from './Children.svelte';
 	import DefaultElement from './DefaultElement.svelte';
 	import DefaultLeaf from './DefaultLeaf.svelte';
@@ -69,10 +71,10 @@
 		IS_IOS,
 		IS_QQBROWSER,
 		IS_SAFARI
-	} from '$lib/environment';
-	import hotkeys from '$lib/hotkeys';
-	import { DOMNode, DOMRange, getDefaultView, isDOMElement, isPlainTextOnlyPaste } from '$lib/dom';
-	import { isDOMNode } from '$lib/dom';
+	} from '../environment';
+	import hotkeys from '../hotkeys';
+	import { DOMNode, DOMRange, getDefaultView, isDOMElement, isPlainTextOnlyPaste } from '../dom';
+	import { isDOMNode } from '../dom';
 	import {
 		findDocumentOrShadowRoot,
 		findEventRange,
@@ -86,8 +88,8 @@
 		toDOMRange,
 		toSlateNode,
 		toSlateRange
-	} from '$lib/utils';
-	import type { SvelteEditor } from '$lib/withSvelte';
+	} from '../utils';
+	import type { SvelteEditor } from '../withSvelte';
 	import {
 		EDITOR_TO_ELEMENT,
 		EDITOR_TO_WINDOW,
@@ -96,7 +98,7 @@
 		IS_READ_ONLY,
 		NODE_TO_ELEMENT,
 		PLACEHOLDER_SYMBOL
-	} from '$lib/weakMaps';
+	} from '../weakMaps';
 
 	export let Element: typeof SvelteComponent = DefaultElement;
 	export let Leaf: typeof SvelteComponent = DefaultLeaf;
@@ -106,6 +108,7 @@
 	export let autoFocus = false;
 	export let decorate = defaultDecorate;
 	export let scrollSelectionIntoView = defaultScrollSelectionIntoView;
+	export let ref: HTMLDivElement;
 	export let onKeyDown: (event: KeyboardEvent) => void | false = () => undefined;
 
 	const editorContext = getEditorContext();
@@ -147,7 +150,6 @@
 		];
 	}
 
-	let ref: HTMLDivElement;
 	let deferredOperations: DeferredOperation[] = [];
 	let prevAutoFocus: boolean;
 	$: if (prevAutoFocus !== autoFocus && ref) {
@@ -161,7 +163,7 @@
 		const window = getDefaultView(ref);
 		if (window) {
 			EDITOR_TO_WINDOW.set(editor, window);
-			window.document.addEventListener('selectionchange', onDOMSelectionChange);
+			window.document.addEventListener('selectionchange', scheduleOnDOMSelectionChange);
 		}
 
 		EDITOR_TO_ELEMENT.set(editor, ref);
@@ -174,7 +176,7 @@
 
 			if (window) {
 				EDITOR_TO_WINDOW.delete(editor);
-				window.document.removeEventListener('selectionchange', onDOMSelectionChange);
+				window.document.removeEventListener('selectionchange', scheduleOnDOMSelectionChange);
 			}
 		};
 	});
@@ -259,7 +261,7 @@
 		state.isUpdatingSelection = false;
 	}
 
-	$: onDOMSelectionChange = () => {
+	$: onDOMSelectionChange = throttle(() => {
 		if (!state.isComposing && !state.isUpdatingSelection && !state.isDraggingInternally) {
 			const root = findDocumentOrShadowRoot(editor);
 			const { activeElement } = root;
@@ -292,15 +294,19 @@
 			if (anchorNodeSelectable && focusNodeSelectable) {
 				const range = toSlateRange(editor, domSelection, {
 					exactMatch: false,
-					suppressThrow: false
+					suppressThrow: true
 				});
 				Transforms.select(editor, range);
 			}
 		}
-	};
+	}, 100);
+
+	$: scheduleOnDOMSelectionChange = debounce(onDOMSelectionChange, 0);
 
 	$: onBeforeInput = (event: InputEvent) => {
 		if (!readOnly && hasEditableTarget(editor, event.target)) {
+			scheduleOnDOMSelectionChange.flush();
+
 			const type = event.inputType;
 			const data = (event as any).dataTransfer || event.data || undefined;
 
