@@ -16,7 +16,7 @@ const config = {
 		vite: {
 			resolve: {
 				alias: {
-					'@aicacia/svelte-slate': path.resolve('src/lib')
+					'svelte-slate': path.resolve('src/lib')
 				}
 			}
 		}

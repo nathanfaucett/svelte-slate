@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Slate, Editable, withSvelte } from '@aicacia/svelte-slate';
+	import { Slate, Editable, withSvelte } from 'svelte-slate';
 	import { createEditor } from 'slate';
 	import { withHistory } from 'slate-history';
 	import type { IElement } from '../example/Element.svelte';
