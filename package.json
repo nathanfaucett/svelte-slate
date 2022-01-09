@@ -45,7 +45,7 @@
 		"direction": "2",
 		"fast-equals": "2",
 		"is-hotkey": "0",
-		"lodash": "^4.17.21",
+		"lodash": "4",
 		"scroll-into-view-if-needed": "2"
 	}
 }

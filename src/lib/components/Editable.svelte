@@ -49,8 +49,8 @@
 	import { onMount, SvelteComponent } from 'svelte';
 	import { afterUpdate } from 'svelte';
 	import { direction } from 'direction';
-	import debounce from 'lodash/debounce';
-	import throttle from 'lodash/throttle';
+	import debounce from 'lodash/debounce.js';
+	import throttle from 'lodash/throttle.js';
 	import Children from './Children.svelte';
 	import DefaultElement from './DefaultElement.svelte';
 	import DefaultLeaf from './DefaultLeaf.svelte';
