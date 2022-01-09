@@ -8,7 +8,7 @@
 	const editorContext = getEditorContext();
 	$: editor = $editorContext;
 	$: active = isMarkActive(editor, format);
-	$: onMouseDown = (event) => {
+	$: onMouseDown = (event: MouseEvent) => {
 		event.preventDefault();
 		toggleMark(editor, format);
 	};

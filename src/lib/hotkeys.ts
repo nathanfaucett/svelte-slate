@@ -40,7 +40,7 @@ const WINDOWS_HOTKEYS = {
 	redo: ['ctrl+y', 'ctrl+shift+z']
 };
 
-const create = (key: string) => {
+function create(key: string) {
 	const generic = HOTKEYS[key];
 	const apple = APPLE_HOTKEYS[key];
 	const windows = WINDOWS_HOTKEYS[key];
@@ -54,7 +54,7 @@ const create = (key: string) => {
 		if (!IS_APPLE && isWindows && isWindows(event)) return true;
 		return false;
 	};
-};
+}
 
 export default {
 	isBold: create('bold'),

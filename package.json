@@ -18,6 +18,7 @@
 	"devDependencies": {
 		"@sveltejs/adapter-static": "next",
 		"@sveltejs/kit": "next",
+		"@types/is-hotkey": "0",
 		"@typescript-eslint/eslint-plugin": "5",
 		"@typescript-eslint/parser": "5",
 		"eslint": "8",
@@ -29,7 +30,7 @@
 		"slate-history": "0",
 		"svelte": "3",
 		"svelte-check": "2",
-		"svelte-icons": "^2.1.0",
+		"svelte-icons": "2",
 		"svelte-preprocess": "4",
 		"svelte2tsx": "0",
 		"tslib": "2",

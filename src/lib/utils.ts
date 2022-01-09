@@ -9,8 +9,7 @@ import {
 	NODE_TO_KEY,
 	NODE_TO_PARENT,
 	EDITOR_TO_WINDOW,
-	EDITOR_TO_KEY_TO_ELEMENT,
-	PLACEHOLDER_SYMBOL
+	EDITOR_TO_KEY_TO_ELEMENT
 } from './weakMaps';
 import type { DOMPoint } from './dom';
 import {
@@ -78,10 +77,7 @@ export function findDocumentOrShadowRoot(editor: SvelteEditor): Document | Shado
 	const el = toDOMNode(editor, editor);
 	const root = el.getRootNode();
 
-	if (
-		(root instanceof Document || root instanceof ShadowRoot) &&
-		(root as any).getSelection != null
-	) {
+	if ((root instanceof Document || root instanceof ShadowRoot) && root['getSelection'] != null) {
 		return root;
 	}
 
@@ -117,16 +113,14 @@ export function focus(editor: SvelteEditor): void {
 }
 
 export function deselect(editor: SvelteEditor): void {
-	const el = toDOMNode(editor, editor);
-	const { selection } = editor;
 	const root = findDocumentOrShadowRoot(editor);
-	const domSelection = (root as any).getSelection();
+	const domSelection = root['getSelection']();
 
 	if (domSelection && domSelection.rangeCount > 0) {
 		domSelection.removeAllRanges();
 	}
 
-	if (selection) {
+	if (editor.selection) {
 		Transforms.deselect(editor);
 	}
 }
@@ -138,16 +132,12 @@ export function hasDOMNode(
 ): boolean {
 	const { editable = false } = options;
 	const editorEl = toDOMNode(editor, editor);
-	let targetEl;
+	let targetEl: HTMLElement;
 
-	// COMPAT: In Firefox, reading `target.nodeType` will throw an error if
-	// target is originating from an internal "restricted" element (e.g. a
-	// stepper arrow on a number input). (2018/05/04)
-	// https://github.com/ianstormtaylor/slate/issues/1819
 	try {
 		targetEl = (isDOMElement(target) ? target : target.parentElement) as HTMLElement;
 	} catch (err) {
-		if (!(err as any).message.includes('Permission denied to access property "nodeType"')) {
+		if (!err.message.includes('Permission denied to access property "nodeType"')) {
 			throw err;
 		}
 	}
@@ -160,8 +150,7 @@ export function hasDOMNode(
 		targetEl.closest(`[data-svelte-editor]`) === editorEl &&
 		(!editable || targetEl.isContentEditable
 			? true
-			: (typeof targetEl.isContentEditable === 'boolean' && // isContentEditable exists only on HTMLElement, and on other nodes it will be undefined
-					// this is the core logic that lets you know you got the right editor.selection instead of null when editor is contenteditable="false"(readOnly)
+			: (typeof targetEl.isContentEditable === 'boolean' &&
 					targetEl.closest('[contenteditable="false"]') === editorEl) ||
 			  !!targetEl.getAttribute('data-slate-zero-width'))
 	);
@@ -243,9 +232,6 @@ export function toDOMRange(editor: SvelteEditor, range: Range, throwError = true
 	const [startNode, startOffset] = isBackward ? domFocus : domAnchor;
 	const [endNode, endOffset] = isBackward ? domAnchor : domFocus;
 
-	// A slate Point at zero-width Leaf always has an offset of 0 but a native DOM selection at
-	// zero-width node has an offset of 1 so we have to check if we are in a zero-width node and
-	// adjust the offset accordingly.
 	const startEl = (isDOMElement(startNode) ? startNode : startNode.parentElement) as HTMLElement;
 	const isStartAtZeroWidth = !!startEl.getAttribute('data-slate-zero-width');
 	const endEl = (isDOMElement(endNode) ? endNode : endNode.parentElement) as HTMLElement;
@@ -273,10 +259,6 @@ export function toSlateNode(domNode: DOMNode): Node {
 }
 
 export function findEventRange(editor: SvelteEditor, event: any): Range {
-	if ('nativeEvent' in event) {
-		event = event.nativeEvent;
-	}
-
 	const { clientX: x, clientY: y, target } = event;
 
 	if (x == null || y == null) {
@@ -286,9 +268,6 @@ export function findEventRange(editor: SvelteEditor, event: any): Range {
 	const node = toSlateNode(event.target);
 	const path = findPath(node);
 
-	// If the drop target is inside a void node, move it into either the
-	// next or previous node, depending on which side the `x` and `y`
-	// coordinates are closest to.
 	if (Editor.isVoid(editor, node)) {
 		const rect = target.getBoundingClientRect();
 		const isPrev = editor.isInline(node)
@@ -306,15 +285,13 @@ export function findEventRange(editor: SvelteEditor, event: any): Range {
 		}
 	}
 
-	// Else resolve a range from the caret position where the drop occured.
-	let domRange;
+	let domRange: DOMRange;
 	const { document } = getWindow(editor);
 
-	// COMPAT: In Firefox, `caretRangeFromPoint` doesn't exist. (2016/07/25)
 	if (document.caretRangeFromPoint) {
 		domRange = document.caretRangeFromPoint(x, y);
 	} else {
-		const position = (document as any).caretPositionFromPoint(x, y);
+		const position = document['caretPositionFromPoint'](x, y);
 
 		if (position) {
 			domRange = document.createRange();
@@ -327,7 +304,6 @@ export function findEventRange(editor: SvelteEditor, event: any): Range {
 		throw new Error(`Cannot resolve a Slate range from a DOM event: ${event}`);
 	}
 
-	// Resolve a Slate range from the DOM range.
 	const range = toSlateRange(editor, domRange, {
 		exactMatch: false,
 		suppressThrow: false
@@ -354,10 +330,8 @@ export function toSlatePoint<T extends boolean>(
 		let leafNode = parentNode.closest('[data-slate-leaf]');
 		let domNode: DOMElement | null = null;
 
-		// Calculate how far into the text node the `nearestNode` is, so that we
-		// can determine what the offset relative to the text node is.
 		if (leafNode) {
-			textNode = leafNode.closest('[data-slate-node="text"]')!;
+			textNode = leafNode.closest('[data-slate-node="text"]');
 			const window = getWindow(editor);
 			const range = window.document.createRange();
 			range.setStart(textNode, 0);
@@ -370,46 +344,30 @@ export function toSlatePoint<T extends boolean>(
 			];
 
 			removals.forEach((el) => {
-				el!.parentNode!.removeChild(el);
+				el.parentNode.removeChild(el);
 			});
 
-			// COMPAT: Edge has a bug where Range.prototype.toString() will
-			// convert \n into \r\n. The bug causes a loop when slate-react
-			// attempts to reposition its cursor to match the native position. Use
-			// textContent.length instead.
-			// https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/10291116/
-			offset = contents.textContent!.length;
+			offset = contents.textContent.length;
 			domNode = textNode;
 		} else if (voidNode) {
-			// For void nodes, the element with the offset key will be a cousin, not an
-			// ancestor, so find it by going down from the nearest void parent.
-			leafNode = voidNode.querySelector('[data-slate-leaf]')!;
+			leafNode = voidNode.querySelector('[data-slate-leaf]');
 
-			// COMPAT: In read-only editors the leaf is not rendered.
 			if (!leafNode) {
 				offset = 1;
 			} else {
-				textNode = leafNode.closest('[data-slate-node="text"]')!;
+				textNode = leafNode.closest('[data-slate-node="text"]');
 				domNode = leafNode;
-				offset = domNode.textContent!.length;
+				offset = domNode.textContent.length;
 				domNode.querySelectorAll('[data-slate-zero-width]').forEach((el) => {
-					offset -= el.textContent!.length;
+					offset -= el.textContent.length;
 				});
 			}
 		}
 
 		if (
 			domNode &&
-			offset === domNode.textContent!.length &&
-			// COMPAT: If the parent node is a Slate zero-width space, editor is
-			// because the text node should have no characters. However, during IME
-			// composition the ASCII characters will be prepended to the zero-width
-			// space, so subtract 1 from the offset to account for the zero-width
-			// space character.
+			offset === domNode.textContent.length &&
 			(parentNode.hasAttribute('data-slate-zero-width') ||
-				// COMPAT: In Firefox, `range.cloneContents()` returns an extra trailing '\n'
-				// when the document ends with a new-line character. This results in the offset
-				// length being off by one, so we need to subtract one to account for this.
 				(IS_FIREFOX && domNode.textContent?.endsWith('\n\n')))
 		) {
 			offset--;
@@ -423,10 +381,7 @@ export function toSlatePoint<T extends boolean>(
 		throw new Error(`Cannot resolve a Slate point from DOM point: ${domPoint}`);
 	}
 
-	// COMPAT: If someone is clicking from one Slate editor into another,
-	// the select event fires twice, once for the old editor's `element`
-	// first, and then afterwards for the correct `element`. (2017/03/03)
-	const slateNode = toSlateNode(textNode!);
+	const slateNode = toSlateNode(textNode);
 	const path = findPath(slateNode);
 	return { path, offset } as T extends true ? Point | null : Point;
 }
@@ -441,11 +396,11 @@ export function toSlateRange<T extends boolean>(
 ): T extends true ? Range | null : Range {
 	const { exactMatch, suppressThrow } = options;
 	const el = isDOMSelection(domRange) ? domRange.anchorNode : domRange.startContainer;
-	let anchorNode;
-	let anchorOffset;
-	let focusNode;
-	let focusOffset;
-	let isCollapsed;
+	let anchorNode: DOMNode;
+	let anchorOffset: number;
+	let focusNode: DOMNode;
+	let focusOffset: number;
+	let isCollapsed: boolean;
 
 	if (el) {
 		if (isDOMSelection(domRange)) {
@@ -453,10 +408,6 @@ export function toSlateRange<T extends boolean>(
 			anchorOffset = domRange.anchorOffset;
 			focusNode = domRange.focusNode;
 			focusOffset = domRange.focusOffset;
-			// COMPAT: There's a bug in chrome that always returns `true` for
-			// `isCollapsed` for a Selection that comes from a ShadowRoot.
-			// (2020/08/08)
-			// https://bugs.chromium.org/p/chromium/issues/detail?id=447523
 			if (IS_CHROME && hasShadowRoot()) {
 				isCollapsed =
 					domRange.anchorNode === domRange.focusNode &&
@@ -496,10 +447,6 @@ export function toSlateRange<T extends boolean>(
 	}
 
 	let range: Range = { anchor: anchor as Point, focus: focus as Point };
-	// if the selection is a hanging range that ends in a void
-	// and the DOM focus is an Element
-	// (meaning that the selection ends before the element)
-	// unhang the range to avoid mistakenly including the void
 	if (
 		Range.isExpanded(range) &&
 		Range.isForward(range) &&
@@ -515,40 +462,6 @@ export function toSlateRange<T extends boolean>(
 export function hasRange(editor: SvelteEditor, range: Range): boolean {
 	const { anchor, focus } = range;
 	return Editor.hasPath(editor, anchor.path) && Editor.hasPath(editor, focus.path);
-}
-
-export function shallowCompare(obj1: object, obj2: object) {
-	return (
-		Object.keys(obj1).length === Object.keys(obj2).length &&
-		Object.keys(obj1).every((key) => obj2.hasOwnProperty(key) && obj1[key] === obj2[key])
-	);
-}
-
-export function isDecoratorRangeListEqual(list?: Range[], another?: Range[]): boolean {
-	if (list === another) {
-		return true;
-	}
-	if (!list || !another || list?.length !== another?.length) {
-		return false;
-	}
-
-	for (let i = 0; i < list.length; i++) {
-		const range = list[i];
-		const other = another[i];
-
-		const { anchor: _rangeAnchor, focus: _rangeFocus, ...rangeOwnProps } = range;
-		const { anchor: _otherAnchor, focus: _otherFocus, ...otherOwnProps } = other;
-
-		if (
-			!Range.equals(range, other) ||
-			range[PLACEHOLDER_SYMBOL] !== other[PLACEHOLDER_SYMBOL] ||
-			!shallowCompare(rangeOwnProps, otherOwnProps)
-		) {
-			return false;
-		}
-	}
-
-	return true;
 }
 
 export function objectSet<T>(obj: T, key: keyof T, value: T[keyof T]): T {

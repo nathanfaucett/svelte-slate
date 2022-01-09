@@ -14,7 +14,7 @@ export interface SvelteEditor extends BaseEditor {
 	hasRange: (editor: SvelteEditor, range: Range) => boolean;
 }
 
-export const withSvelte = <T extends Editor>(editor: T) => {
+export function withSvelte<T extends Editor>(editor: T): T & SvelteEditor {
 	const e = editor as T & SvelteEditor;
 	const { apply, onChange, deleteBackward } = e;
 
@@ -208,4 +208,4 @@ export const withSvelte = <T extends Editor>(editor: T) => {
 	};
 
 	return e;
-};
+}

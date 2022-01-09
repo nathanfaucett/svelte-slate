@@ -106,6 +106,7 @@
 	export let autoFocus = false;
 	export let decorate = defaultDecorate;
 	export let scrollSelectionIntoView = defaultScrollSelectionIntoView;
+	export let onKeyDown: (event: KeyboardEvent) => void | false = () => undefined;
 
 	const editorContext = getEditorContext();
 	const readOnlyContext = getReadOnlyContext();
@@ -457,7 +458,7 @@
 		deferredOperations.length = 0;
 	};
 
-	$: onKeyDown = (event: KeyboardEvent) => {
+	$: onKeyDownInternal = (event: KeyboardEvent) => {
 		if (!readOnly && !state.isComposing && hasEditableTarget(editor, event.target)) {
 			const element = editor.children[selection !== null ? selection.focus.path[0] : 0];
 			const isRTL = direction(SlateNode.string(element)) === 'rtl';
@@ -603,6 +604,7 @@
 					}
 				}
 			}
+			return onKeyDown(event);
 		}
 	};
 
@@ -819,7 +821,7 @@
 		}
 	};
 
-	$: onDrop = (event: Event) => {
+	$: onDrop = (event: DragEvent) => {
 		if (!readOnly && hasTarget(editor, event.target)) {
 			event.preventDefault();
 
@@ -870,7 +872,7 @@
 	contenteditable={!readOnly}
 	z-index={-1}
 	on:beforeinput={onBeforeInput}
-	on:keydown={onKeyDown}
+	on:keydown={onKeyDownInternal}
 	on:input={onInput}
 	on:focus={onFocus}
 	on:blur={onBlur}
