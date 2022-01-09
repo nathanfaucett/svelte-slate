@@ -8,6 +8,7 @@
 </script>
 
 <script lang="ts">
+	import type { SvelteEditor } from '$lib/withSvelte';
 	import type { Text } from 'slate';
 
 	export let editor: SvelteEditor;
@@ -31,6 +32,8 @@
 	}
 	.code {
 		font-family: monospace;
+		background-color: #eee;
+		padding: 3px;
 	}
 	.underline {
 		text-decoration: underline;

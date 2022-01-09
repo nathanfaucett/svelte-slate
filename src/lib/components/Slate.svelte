@@ -107,6 +107,7 @@
 
 	let prevSelection: Selection;
 	$: if (!deepEqual(prevSelection, selection)) {
+		editorContext.set(editor);
 		selectionContext.set(selection);
 		prevSelection = selection;
 	}

@@ -6,34 +6,73 @@
 	import type { IText } from '../example/Leaf.svelte';
 	import Element from '../example/Element.svelte';
 	import Leaf from '../example/Leaf.svelte';
+	import MarkButton from '../example/MarkButton.svelte';
+	import BlockButton from '../example/BlockButton.svelte';
+	import MdFormatBold from 'svelte-icons/md/MdFormatBold.svelte';
+	import MdCode from 'svelte-icons/md/MdCode.svelte';
+	import MdLooksOne from 'svelte-icons/md/MdLooksOne.svelte';
+	import MdLooksTwo from 'svelte-icons/md/MdLooksTwo.svelte';
+	import MdFormatItalic from 'svelte-icons/md/MdFormatItalic.svelte';
+	import MdFormatUnderlined from 'svelte-icons/md/MdFormatUnderlined.svelte';
+	import MdFormatListNumbered from 'svelte-icons/md/MdFormatListNumbered.svelte';
+	import MdFormatListBulleted from 'svelte-icons/md/MdFormatListBulleted.svelte';
+	import MdFormatQuote from 'svelte-icons/md/MdFormatQuote.svelte';
 
 	const editor = withHistory(withSvelte(createEditor()));
 	let value: Array<IText | IElement> = [
 		{
 			type: 'paragraph',
 			children: [
+				{ text: 'This is editable ' },
+				{ text: 'rich', bold: true },
+				{ text: ' text, ' },
+				{ text: 'much', italic: true },
+				{ text: ' better than a ' },
+				{ text: '<textarea>', code: true },
+				{ text: '!' }
+			]
+		},
+		{
+			type: 'paragraph',
+			children: [
 				{
-					bold: true,
-					text: 'Edit me'
+					text: "Since it's rich text, you can do things like turn a selection of text "
 				},
+				{ text: 'bold', bold: true },
 				{
-					text: " I'm a text "
-				},
-				{
-					italic: true,
-					text: 'child'
+					text: ', or add a semantically rendered block quote in the middle of the page, like this:'
 				}
 			]
+		},
+		{
+			type: 'block-quote',
+			children: [{ text: 'A wise quote.' }]
+		},
+		{
+			type: 'paragraph',
+			children: [{ text: 'Try it out for yourself!' }]
 		}
 	];
 </script>
 
 <Slate {editor} bind:value>
+	<div class="toolbar">
+		<MarkButton format="bold"><MdFormatBold /></MarkButton>
+		<MarkButton format="italic"><MdFormatItalic /></MarkButton>
+		<MarkButton format="underline"><MdFormatUnderlined /></MarkButton>
+		<MarkButton format="code"><MdCode /></MarkButton>
+		<BlockButton format="heading-one"><MdLooksOne /></BlockButton>
+		<BlockButton format="heading-two"><MdLooksTwo /></BlockButton>
+		<BlockButton format="block-quote"><MdFormatQuote /></BlockButton>
+		<BlockButton format="numbered-list"><MdFormatListNumbered /></BlockButton>
+		<BlockButton format="bulleted-list"><MdFormatListBulleted /></BlockButton>
+	</div>
 	<Editable {Element} {Leaf} placeholder="Enter some plain text..." />
 </Slate>
 
-<code>
-	<pre>
-		{JSON.stringify(value, null, 2)}
-	</pre>
-</code>
+<style>
+	.toolbar {
+		border-bottom: 1px solid #888;
+		padding: 0.25rem 0;
+	}
+</style>

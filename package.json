@@ -29,6 +29,7 @@
 		"slate-history": "0",
 		"svelte": "3",
 		"svelte-check": "2",
+		"svelte-icons": "^2.1.0",
 		"svelte-preprocess": "4",
 		"svelte2tsx": "0",
 		"tslib": "2",
