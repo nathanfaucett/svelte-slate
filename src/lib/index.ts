@@ -26,6 +26,7 @@ export {
 	isFocused,
 	isReadOnly
 } from './utils';
+export { getSelectedContext } from './components/ChildElement.svelte';
 export { default as hotkeys } from './hotkeys';
 export { findCurrentLineRange } from './lines';
 export type { SvelteEditor } from './withSvelte';
