@@ -20,29 +20,27 @@
 
 	const editor = getEditor();
 
-	let currentText: SlateText;
-	let prevText: SlateText;
-	$: if (prevText !== text) {
+	let currentIndex = index;
+	$: if (currentIndex !== index) {
+		currentIndex = index;
+	}
+	let currentText = text;
+	$: if (currentText !== text) {
 		currentText = text;
-		prevText = text;
 	}
-	let currentParent: Ancestor;
-	let prevParent: Ancestor;
-	$: if (prevParent !== parent) {
+	let currentParent = parent;
+	$: if (currentParent !== parent) {
 		currentParent = parent;
-		prevParent = parent;
 	}
-	let currentDecorations: Range[];
-	let prevDecorations: Range[];
-	$: if (isDecoratorRangeListEqual(prevDecorations, decorations)) {
+	let currentDecorations = decorations;
+	$: if (!isDecoratorRangeListEqual(currentDecorations, decorations)) {
 		currentDecorations = decorations;
-		prevDecorations = decorations;
 	}
 
-	$: NODE_TO_INDEX.set(currentText, index);
+	$: NODE_TO_INDEX.set(currentText, currentIndex);
 	$: NODE_TO_PARENT.set(currentText, currentParent);
-	$: childPath = path.concat(index);
-	$: isLast = isLeafBlock && index === currentParent.children.length - 1;
+	$: childPath = path.concat(currentIndex);
+	$: isLast = isLeafBlock && currentIndex === currentParent.children.length - 1;
 	$: range = Editor.range(editor, childPath);
 	$: childDecorations = getChildDecorations(
 		decorate([currentText, childPath]),

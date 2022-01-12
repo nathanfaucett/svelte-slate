@@ -15,7 +15,6 @@
 	import type { Text as SlateText, Element as SlateElement } from 'slate';
 	import { onDestroy, SvelteComponent } from 'svelte';
 	import String from './String.svelte';
-	import { getEditor } from './Slate.svelte';
 
 	export let isLast: boolean;
 	export let leaf: SlateText;
@@ -24,11 +23,9 @@
 	export let Placeholder: typeof SvelteComponent;
 	export let Leaf: typeof SvelteComponent;
 
-	const editor = getEditor();
-
 	let clientHeight: number;
 	let prevClientHeight: number;
-	$: if (clientHeight !== prevClientHeight && leaf && CAN_USE_DOM) {
+	$: if (clientHeight !== prevClientHeight && CAN_USE_DOM) {
 		const editorEl = document.querySelector<HTMLDivElement>('[data-svelte-editor="true"]');
 
 		if (editorEl) {
@@ -47,7 +44,7 @@
 	});
 </script>
 
-<svelte:component this={Leaf} {editor} {leaf} data-slate-leaf="true"
+<svelte:component this={Leaf} {leaf} data-slate-leaf="true"
 	>{#if PLACEHOLDER_SYMBOL in leaf}<svelte:component
 			this={Placeholder}
 			data-slate-placeholder

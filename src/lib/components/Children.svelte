@@ -36,19 +36,26 @@
 	const decorateContext = getDecorateContext();
 	$: decorate = $decorateContext;
 
-	$: path = findPath(node);
+	let currentNode = node;
+	$: if (currentNode !== node || node === editor) {
+		currentNode = node;
+	}
+
+	$: path = findPath(currentNode);
 	$: isLeafBlock =
-		SlateElement.isElement(node) && !editor.isInline(node) && Editor.hasInlines(editor, node);
+		SlateElement.isElement(currentNode) &&
+		!editor.isInline(currentNode) &&
+		Editor.hasInlines(editor, currentNode);
 </script>
 
-{#each node.children as child, index (findKey(child))}{#if SlateElement.isElement(child)}<ChildElement
+{#each currentNode.children as child, index (findKey(child))}{#if SlateElement.isElement(child)}<ChildElement
 			{Element}
 			{Placeholder}
 			{Leaf}
 			{decorations}
 			{selection}
 			element={child}
-			parent={node}
+			parent={currentNode}
 			{decorate}
 			{index}
 			{path}
@@ -56,7 +63,7 @@
 			{Placeholder}
 			{Leaf}
 			{decorations}
-			parent={node}
+			parent={currentNode}
 			text={child}
 			{decorate}
 			{index}

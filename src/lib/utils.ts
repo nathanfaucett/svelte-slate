@@ -467,8 +467,8 @@ export function hasRange(editor: SvelteEditor, range: Range): boolean {
 }
 
 export function isDecoratorRangeListEqual(list?: Range[], another?: Range[]): boolean {
-	if (!list) {
-		return false;
+	if (list === another) {
+		return true;
 	}
 	if (list.length !== another.length) {
 		return false;

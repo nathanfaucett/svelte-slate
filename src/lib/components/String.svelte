@@ -18,13 +18,17 @@
 	$: isTrailing = isLast && leaf.text.slice(-1) === '\n';
 	$: path = findPath(text);
 	$: parentPath = Path.parent(path);
+
+	$: isVoid = editor.isVoid(parent);
+	$: isEmpty = leaf.text === '';
+	$: isLineBreak =
+		isEmpty &&
+		parent.children[parent.children.length - 1] === text &&
+		!editor.isInline(parent) &&
+		Editor.string(editor, parentPath) === '';
 </script>
 
-{#if editor.isVoid(parent)}<ZeroWidthString
+{#if isVoid}<ZeroWidthString
 		length={Node.string(parent).length}
-	/>{:else if leaf.text === '' && parent.children[parent.children.length - 1] === text && !editor.isInline(parent) && Editor.string(editor, parentPath) === ''}<ZeroWidthString
-		isLineBreak
-	/>{:else if leaf.text === ''}<ZeroWidthString />{:else}<TextString
-		{isTrailing}
-		text={leaf.text}
-	/>{/if}
+	/>{:else if isLineBreak}<ZeroWidthString isLineBreak />{:else if isEmpty}<ZeroWidthString
+	/>{:else}<TextString {isTrailing} text={leaf.text} />{/if}
