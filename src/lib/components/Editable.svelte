@@ -441,7 +441,6 @@
 						editor.insertData(data);
 					} else if (typeof data === 'string') {
 						if (native) {
-							console.log(data);
 							deferredOperations.push(() => Editor.insertText(editor, data));
 						} else {
 							Editor.insertText(editor, data);
