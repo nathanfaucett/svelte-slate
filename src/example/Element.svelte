@@ -6,13 +6,10 @@
 		children: (IElement | IText)[];
 	}
 
-	export type IElement = IBaseElement | ICodeElement;
+	export type IElement = IBaseElement;
 </script>
 
 <script lang="ts">
-	import type { ICodeElement } from './CodeElement.svelte';
-	import CodeElement from './CodeElement.svelte';
-
 	export let element: IElement;
 	export let ref: HTMLElement = undefined;
 </script>
@@ -29,9 +26,7 @@
 		<slot />
 	</li>{:else if element.type === 'numbered-list'}<ol bind:this={ref} {...$$restProps}>
 		<slot />
-	</ol>{:else if element.type === 'code'}<CodeElement bind:ref {element} {...$$restProps}
-		><slot /></CodeElement
-	>{:else}<p bind:this={ref} {...$$restProps}><slot /></p>{/if}
+	</ol>{:else}<p bind:this={ref} {...$$restProps}><slot /></p>{/if}
 
 <style>
 	blockquote,

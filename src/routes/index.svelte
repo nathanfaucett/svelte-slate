@@ -17,7 +17,6 @@
 	import Leaf from '../example/Leaf.svelte';
 	import MarkButton from '../example/MarkButton.svelte';
 	import BlockButton from '../example/BlockButton.svelte';
-	import CodeButton from '../example/CodeButton.svelte';
 	import { toggleMark } from '../example/utils';
 	import MdFormatBold from 'svelte-icons/md/MdFormatBold.svelte';
 	import MdCode from 'svelte-icons/md/MdCode.svelte';
@@ -32,42 +31,37 @@
 
 	const editor = withHistory(withSvelte(createEditor()));
 	let value: Array<IText | IElement> = [
-		// {
-		// 	type: 'paragraph',
-		// 	children: [
-		// 		{ text: 'This is editable ' },
-		// 		{ text: 'rich', bold: true },
-		// 		{ text: ' text, ' },
-		// 		{ text: 'much', italic: true },
-		// 		{ text: ' better than a ' },
-		// 		{ text: '<textarea>', code: true },
-		// 		{ text: '!' }
-		// 	]
-		// },
-		// {
-		// 	type: 'paragraph',
-		// 	children: [
-		// 		{
-		// 			text: "Since it's rich text, you can do things like turn a selection of text "
-		// 		},
-		// 		{ text: 'bold', bold: true },
-		// 		{
-		// 			text: ', or add a semantically rendered block quote in the middle of the page, like this:'
-		// 		}
-		// 	]
-		// },
-		// {
-		// 	type: 'block-quote',
-		// 	children: [{ text: 'A wise quote.' }]
-		// },
-		// {
-		// 	type: 'paragraph',
-		// 	children: [{ text: 'Try it out for yourself!' }]
-		// },
 		{
-			type: 'code',
-			language: 'js',
-			children: [{ text: 'const fac = (x) => x > 0 ? 1 : x * fac(x - 1);' }]
+			type: 'paragraph',
+			children: [
+				{ text: 'This is editable ' },
+				{ text: 'rich', bold: true },
+				{ text: ' text, ' },
+				{ text: 'much', italic: true },
+				{ text: ' better than a ' },
+				{ text: '<textarea>', code: true },
+				{ text: '!' }
+			]
+		},
+		{
+			type: 'paragraph',
+			children: [
+				{
+					text: "Since it's rich text, you can do things like turn a selection of text "
+				},
+				{ text: 'bold', bold: true },
+				{
+					text: ', or add a semantically rendered block quote in the middle of the page, like this:'
+				}
+			]
+		},
+		{
+			type: 'block-quote',
+			children: [{ text: 'A wise quote.' }]
+		},
+		{
+			type: 'paragraph',
+			children: [{ text: 'Try it out for yourself!' }]
 		}
 	];
 
@@ -94,7 +88,6 @@
 			<BlockButton format="block-quote"><MdFormatQuote /></BlockButton>
 			<BlockButton format="numbered-list"><MdFormatListNumbered /></BlockButton>
 			<BlockButton format="bulleted-list"><MdFormatListBulleted /></BlockButton>
-			<CodeButton />
 		</div>
 		<div class="editor">
 			<Editable {Element} {Leaf} {onKeyDown} placeholder="Enter some plain text..." />
