@@ -1,5 +1,6 @@
 export {
 	default as Slate,
+	getEditor,
 	getEditorContext,
 	getReadOnlyContext,
 	getFocusedContext,

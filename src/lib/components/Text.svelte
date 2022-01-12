@@ -7,15 +7,16 @@
 	import type { Key } from '../Key';
 	import { findKey } from '../utils';
 	import { EDITOR_TO_KEY_TO_ELEMENT, ELEMENT_TO_NODE, NODE_TO_ELEMENT } from '../weakMaps';
-	import type { SvelteEditor } from '../withSvelte';
+	import { getEditor } from './Slate.svelte';
 
-	export let editor: SvelteEditor;
 	export let decorations: Range[];
 	export let isLast: boolean;
 	export let parent: Element;
 	export let text: SlateText;
 	export let Placeholder: typeof SvelteComponent;
 	export let Leaf: typeof SvelteComponent;
+
+	const editor = getEditor();
 
 	$: leaves = SlateText.decorations(text, decorations);
 	$: key = findKey(text);
@@ -45,7 +46,6 @@
 			this={LeafComponent}
 			{Placeholder}
 			{Leaf}
-			{editor}
 			isLast={isLast && index === leaves.length - 1}
 			{parent}
 			{leaf}

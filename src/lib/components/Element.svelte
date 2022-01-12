@@ -2,7 +2,6 @@
 	import type { Element } from 'slate';
 
 	export interface IElementProps extends svelte.JSX.HTMLAttributes<HTMLElement> {
-		editor: SvelteEditor;
 		element: Element;
 		'data-slate-node': 'element';
 		'data-slate-inline'?: true;
@@ -16,7 +15,7 @@
 	import type { Element as SlateElement, Range, Selection, Text as SlateText } from 'slate';
 	import type { SvelteComponent } from 'svelte';
 	import { onMount } from 'svelte';
-	import { direction } from 'direction';
+	import * as direction from 'direction';
 	import Children from './Children.svelte';
 	import type { Key } from '../Key';
 	import Text from './Text.svelte';
@@ -28,16 +27,16 @@
 		NODE_TO_INDEX,
 		NODE_TO_PARENT
 	} from '../weakMaps';
-	import type { SvelteEditor } from '../withSvelte';
-	import { getReadOnlyContext } from './Slate.svelte';
+	import { getEditor, getReadOnlyContext } from './Slate.svelte';
 
-	export let editor: SvelteEditor;
 	export let element: SlateElement;
 	export let decorations: Range[];
 	export let selection: Selection = null;
 	export let Element: typeof SvelteComponent;
 	export let Leaf: typeof SvelteComponent;
 	export let Placeholder: typeof SvelteComponent;
+
+	const editor = getEditor();
 
 	const readOnlyContext = getReadOnlyContext();
 	$: readOnly = $readOnlyContext;
@@ -54,7 +53,7 @@
 
 	let dir: string;
 	$: if (!isInline && Editor.hasInlines(editor, element)) {
-		const d = direction(Node.string(element));
+		const d = direction.direction(Node.string(element));
 
 		if (d === 'rtl') {
 			dir = d;
@@ -96,7 +95,6 @@
 	data-slate-void={isVoid}
 	data-slate-inline={isInline}
 	contenteditable={contentEditable}
-	{editor}
 	{element}
 	{dir}
 	>{#if isVoid}{#if isInline}<span data-slate-spacer
@@ -104,7 +102,6 @@
 					this={Text}
 					{Placeholder}
 					{Leaf}
-					{editor}
 					{decorations}
 					isLast={false}
 					parent={element}
@@ -115,7 +112,6 @@
 					this={Text}
 					{Placeholder}
 					{Leaf}
-					{editor}
 					{decorations}
 					isLast={false}
 					parent={element}
@@ -123,7 +119,6 @@
 				/>
 			</div>{/if}{:else}<Children
 			node={element}
-			{editor}
 			{decorations}
 			{selection}
 			{Element}

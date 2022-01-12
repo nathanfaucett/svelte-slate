@@ -2,7 +2,7 @@
 	const EDITOR_CONTEXT_KEY = {};
 	const READ_ONLY_CONTEXT_KEY = {};
 	const FOCUSED_CONTEXT_KEY = {};
-	const DECORATE_CONTEXT_KEY = {};
+	export const DECORATE_CONTEXT_KEY = {};
 	const SELECTION_CONTEXT_KEY = {};
 
 	export function getEditorContext() {
@@ -13,6 +13,9 @@
 			);
 		}
 		return context;
+	}
+	export function getEditor() {
+		return get(getEditorContext());
 	}
 	export function getReadOnlyContext() {
 		const context = getContext<Writable<boolean>>(READ_ONLY_CONTEXT_KEY);
@@ -61,9 +64,9 @@
 	import type { SvelteEditor } from '../withSvelte';
 	import type { Descendant, Range, Editor, NodeEntry, Selection } from 'slate';
 	import { setContext, getContext } from 'svelte';
-	import type { Writable } from 'svelte/store';
+	import { get, Writable } from 'svelte/store';
 	import { writable } from 'svelte/store';
-	import { deepEqual } from 'fast-equals';
+	import { isSelectionEqual } from '$lib/utils';
 
 	export let editor: Editor;
 	export let value: Descendant[] = editor.children;
@@ -85,7 +88,9 @@
 	setContext(SELECTION_CONTEXT_KEY, selectionContext);
 
 	function onChange() {
-		value = editor.children;
+		if (editor.children !== value) {
+			value = editor.children;
+		}
 		selection = editor.selection;
 	}
 	EDITOR_TO_ON_CHANGE.set(editor, onChange);
@@ -106,7 +111,7 @@
 	}
 
 	let prevSelection: Selection;
-	$: if (!deepEqual(prevSelection, selection)) {
+	$: if (!isSelectionEqual(prevSelection, selection)) {
 		editorContext.set(editor);
 		selectionContext.set(selection);
 		prevSelection = selection;

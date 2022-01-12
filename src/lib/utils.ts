@@ -1,4 +1,5 @@
 import { Editor, Node, Path, Point, Range, Transforms } from 'slate';
+import { shallowEqual } from 'fast-equals';
 import { Key } from './Key';
 import {
 	EDITOR_TO_ELEMENT,
@@ -9,7 +10,8 @@ import {
 	NODE_TO_KEY,
 	NODE_TO_PARENT,
 	EDITOR_TO_WINDOW,
-	EDITOR_TO_KEY_TO_ELEMENT
+	EDITOR_TO_KEY_TO_ELEMENT,
+	PLACEHOLDER_SYMBOL
 } from './weakMaps';
 import type { DOMPoint } from './dom';
 import {
@@ -464,7 +466,33 @@ export function hasRange(editor: SvelteEditor, range: Range): boolean {
 	return Editor.hasPath(editor, anchor.path) && Editor.hasPath(editor, focus.path);
 }
 
-export function objectSet<T>(obj: T, key: keyof T, value: T[keyof T]): T {
-	obj[key] = value;
-	return obj;
+export function isDecoratorRangeListEqual(list?: Range[], another?: Range[]): boolean {
+	if (!list) {
+		return false;
+	}
+	if (list.length !== another.length) {
+		return false;
+	}
+
+	for (let i = 0; i < list.length; i++) {
+		const range = list[i];
+		const other = another[i];
+
+		const { anchor: _rangeAnchor, focus: _rangeFocus, ...rangeOwnProps } = range;
+		const { anchor: _otherAnchor, focus: _otherFocus, ...otherOwnProps } = other;
+
+		if (
+			!Range.equals(range, other) ||
+			range[PLACEHOLDER_SYMBOL] !== other[PLACEHOLDER_SYMBOL] ||
+			!shallowEqual(rangeOwnProps, otherOwnProps)
+		) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
+export function isSelectionEqual(selection: Range, other: Range): boolean {
+	return selection === other || (!!selection && !!other && Range.equals(selection, other));
 }

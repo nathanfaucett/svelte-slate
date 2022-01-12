@@ -2,7 +2,7 @@
 	export function getChildDecorations(
 		childDecorations: Range[],
 		range: Range,
-		decorations: Range[]
+		decorations: Range[] = []
 	): Range[] {
 		for (const decoration of decorations) {
 			const intersection = Range.intersection(decoration, range);
@@ -20,18 +20,18 @@
 	import { Element as SlateElement, Editor, Range } from 'slate';
 	import type { SvelteComponent } from 'svelte';
 	import { findKey, findPath } from '../utils';
-	import type { SvelteEditor } from '../withSvelte';
-	import { getDecorateContext } from './Slate.svelte';
+	import { getDecorateContext, getEditor } from './Slate.svelte';
 	import ChildElement from './ChildElement.svelte';
 	import ChildText from './ChildText.svelte';
 
-	export let editor: SvelteEditor;
 	export let node: Ancestor;
 	export let decorations: Range[];
 	export let selection: Selection = null;
 	export let Element: typeof SvelteComponent;
 	export let Leaf: typeof SvelteComponent;
 	export let Placeholder: typeof SvelteComponent;
+
+	const editor = getEditor();
 
 	const decorateContext = getDecorateContext();
 	$: decorate = $decorateContext;
@@ -45,7 +45,6 @@
 			{Element}
 			{Placeholder}
 			{Leaf}
-			{editor}
 			{decorations}
 			{selection}
 			element={child}
@@ -56,7 +55,6 @@
 		/>{:else}<ChildText
 			{Placeholder}
 			{Leaf}
-			{editor}
 			{decorations}
 			parent={node}
 			text={child}

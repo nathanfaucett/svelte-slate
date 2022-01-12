@@ -13,14 +13,16 @@
 	import type { Text as SlateText, Element as SlateElement } from 'slate';
 	import { onDestroy, SvelteComponent } from 'svelte';
 	import String from './String.svelte';
+	import { getEditor } from './Slate.svelte';
 
-	export let editor: SvelteEditor;
 	export let isLast: boolean;
 	export let leaf: SlateText;
 	export let parent: SlateElement;
 	export let text: SlateText;
 	export let Placeholder: typeof SvelteComponent;
 	export let Leaf: typeof SvelteComponent;
+
+	const editor = getEditor();
 
 	let clientHeight: number;
 	let prevClientHeight: number;
@@ -50,5 +52,5 @@
 			style="position: absolute; pointer-events: none; width: 100%; max-width: 100%; display: block; opacity: 0.333; user-select: none; text-decoration: none;"
 			contenteditable="false"
 			bind:clientHeight>{leaf['placeholder']}</svelte:component
-		>{/if}<String {editor} {isLast} {leaf} {parent} {text} /></svelte:component
+		>{/if}<String {isLast} {leaf} {parent} {text} /></svelte:component
 >

@@ -4,10 +4,10 @@
 	import type { SvelteComponent } from 'svelte';
 	import Text from './Text.svelte';
 	import { NODE_TO_INDEX, NODE_TO_PARENT } from '../weakMaps';
-	import type { SvelteEditor } from '../withSvelte';
 	import { getChildDecorations } from './Children.svelte';
+	import { isDecoratorRangeListEqual } from '$lib/utils';
+	import { getEditor } from './Slate.svelte';
 
-	export let editor: SvelteEditor;
 	export let parent: Ancestor;
 	export let text: SlateText;
 	export let path: Path;
@@ -18,19 +18,43 @@
 	export let Leaf: typeof SvelteComponent;
 	export let Placeholder: typeof SvelteComponent;
 
-	$: NODE_TO_INDEX.set(text, index);
-	$: NODE_TO_PARENT.set(text, parent);
+	const editor = getEditor();
+
+	let currentText: SlateText;
+	let prevText: SlateText;
+	$: if (prevText !== text) {
+		currentText = text;
+		prevText = text;
+	}
+	let currentParent: Ancestor;
+	let prevParent: Ancestor;
+	$: if (prevParent !== parent) {
+		currentParent = parent;
+		prevParent = parent;
+	}
+	let currentDecorations: Range[];
+	let prevDecorations: Range[];
+	$: if (isDecoratorRangeListEqual(prevDecorations, decorations)) {
+		currentDecorations = decorations;
+		prevDecorations = decorations;
+	}
+
+	$: NODE_TO_INDEX.set(currentText, index);
+	$: NODE_TO_PARENT.set(currentText, currentParent);
 	$: childPath = path.concat(index);
-	$: isLast = isLeafBlock && index === parent.children.length - 1;
+	$: isLast = isLeafBlock && index === currentParent.children.length - 1;
 	$: range = Editor.range(editor, childPath);
-	$: childDecorations = getChildDecorations(decorate([text, childPath]), range, decorations);
+	$: childDecorations = getChildDecorations(
+		decorate([currentText, childPath]),
+		range,
+		currentDecorations
+	);
 </script>
 
 <svelte:component
 	this={Text}
 	{Placeholder}
 	{Leaf}
-	{editor}
 	decorations={childDecorations}
 	{isLast}
 	{parent}

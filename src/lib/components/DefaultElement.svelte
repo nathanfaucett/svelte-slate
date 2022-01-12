@@ -1,10 +1,11 @@
 <script lang="ts">
-	import type { SvelteEditor } from '../withSvelte';
 	import type { Element } from 'slate';
+	import { getEditor } from './Slate.svelte';
 
-	export let editor: SvelteEditor;
 	export let element: Element;
 	export let ref: HTMLElement;
+
+	const editor = getEditor();
 </script>
 
 {#if editor.isInline(element)}<span bind:this={ref} {...$$restProps}><slot /></span>{:else}<div

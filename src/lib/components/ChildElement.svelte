@@ -20,10 +20,10 @@
 	import { getContext, setContext, SvelteComponent } from 'svelte';
 	import ElementComponent from './Element.svelte';
 	import { NODE_TO_INDEX, NODE_TO_PARENT } from '../weakMaps';
-	import type { SvelteEditor } from '../withSvelte';
 	import { getChildDecorations } from './Children.svelte';
+	import { isDecoratorRangeListEqual, isSelectionEqual } from '$lib/utils';
+	import { getEditor } from './Slate.svelte';
 
-	export let editor: SvelteEditor;
 	export let parent: Ancestor;
 	export let element: SlateElement;
 	export let path: Path;
@@ -38,12 +38,37 @@
 	const selectedContext = writable(false);
 	setContext(SELECTED_CONTEXT_KEY, selectedContext);
 
-	$: NODE_TO_INDEX.set(element, index);
-	$: NODE_TO_PARENT.set(element, parent);
+	const editor = getEditor();
+
+	let currentElement: SlateElement;
+	let prevElement: SlateElement;
+	$: if (prevElement !== element) {
+		currentElement = element;
+		prevElement = element;
+	}
+	let currentDecorations: Range[];
+	let prevDecorations: Range[];
+	$: if (isDecoratorRangeListEqual(prevDecorations, decorations)) {
+		currentDecorations = decorations;
+		prevDecorations = decorations;
+	}
+	let currentSelection: Selection;
+	let prevSelection: Selection;
+	$: if (isSelectionEqual(prevSelection, selection)) {
+		currentSelection = selection;
+		prevSelection = selection;
+	}
+
+	$: NODE_TO_INDEX.set(currentElement, index);
+	$: NODE_TO_PARENT.set(currentElement, parent);
 	$: childPath = path.concat(index);
 	$: range = Editor.range(editor, childPath);
-	$: childDecorations = getChildDecorations(decorate([element, childPath]), range, decorations);
-	$: childSelection = selection && Range.intersection(range, selection);
+	$: childDecorations = getChildDecorations(
+		decorate([currentElement, childPath]),
+		range,
+		currentDecorations
+	);
+	$: childSelection = currentSelection && Range.intersection(range, currentSelection);
 	$: selectedContext.set(!!childSelection);
 </script>
 
@@ -52,7 +77,6 @@
 	{Element}
 	{Placeholder}
 	{Leaf}
-	{editor}
 	decorations={childDecorations}
 	{element}
 	selection={childSelection}

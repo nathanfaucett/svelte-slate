@@ -46,9 +46,9 @@
 		Range,
 		Transforms
 	} from 'slate';
-	import { onMount, SvelteComponent } from 'svelte';
+	import { onMount, SvelteComponent, tick } from 'svelte';
 	import { afterUpdate } from 'svelte';
-	import { direction } from 'direction';
+	import * as direction from 'direction';
 	import debounce from 'lodash/debounce.js';
 	import throttle from 'lodash/throttle.js';
 	import Children from './Children.svelte';
@@ -83,7 +83,6 @@
 		hasDOMNode,
 		hasRange,
 		isFocused,
-		objectSet,
 		toDOMNode,
 		toDOMRange,
 		toSlateNode,
@@ -108,7 +107,7 @@
 	export let autoFocus = false;
 	export let decorate = defaultDecorate;
 	export let scrollSelectionIntoView = defaultScrollSelectionIntoView;
-	export let ref: HTMLDivElement;
+	export let ref: HTMLDivElement = undefined;
 	export let onKeyDown: (event: KeyboardEvent) => void | false = () => undefined;
 
 	const editorContext = getEditorContext();
@@ -181,7 +180,7 @@
 		};
 	});
 
-	afterUpdate(() => {
+	afterUpdate(async () => {
 		const root = findDocumentOrShadowRoot(editor);
 		const domSelection = root ? (root as Document).getSelection() : null;
 
@@ -226,11 +225,8 @@
 		}
 
 		state.isUpdatingSelection = true;
-	});
+		await tick();
 
-	$: if (state.isUpdatingSelection) {
-		const root = findDocumentOrShadowRoot(editor);
-		const domSelection = (root as Document).getSelection();
 		const newDomRange = selection && toDOMRange(editor, selection);
 
 		if (newDomRange) {
@@ -259,7 +255,7 @@
 			el.focus();
 		}
 		state.isUpdatingSelection = false;
-	}
+	});
 
 	$: onDOMSelectionChange = throttle(() => {
 		if (!state.isComposing && !state.isUpdatingSelection && !state.isDraggingInternally) {
@@ -438,7 +434,7 @@
 				case 'insertText': {
 					if (type === 'insertFromComposition') {
 						if (state.isComposing) {
-							objectSet(state, 'isComposing', false);
+							state.isComposing = false;
 						}
 					}
 					if (data?.constructor.name === 'DataTransfer') {
@@ -467,7 +463,7 @@
 	$: onKeyDownInternal = (event: KeyboardEvent) => {
 		if (!readOnly && !state.isComposing && hasEditableTarget(editor, event.target)) {
 			const element = editor.children[selection !== null ? selection.focus.path[0] : 0];
-			const isRTL = direction(SlateNode.string(element)) === 'rtl';
+			const isRTL = direction.direction(SlateNode.string(element)) === 'rtl';
 
 			if (hotkeys.isRedo(event)) {
 				event.preventDefault();
@@ -606,11 +602,12 @@
 						) {
 							event.preventDefault();
 							Editor.deleteBackward(editor, { unit: 'block' });
+							return;
 						}
 					}
 				}
+				return onKeyDown(event);
 			}
-			return onKeyDown(event);
 		}
 	};
 
@@ -695,7 +692,7 @@
 
 	$: onCompositionEnd = (event: Event) => {
 		if (hasEditableTarget(editor, event.target)) {
-			objectSet(state, 'isComposing', false);
+			state.isComposing = false;
 			const eventData = (event as any).data;
 
 			if (!IS_SAFARI && !IS_FIREFOX_LEGACY && !IS_IOS && !IS_QQBROWSER && eventData) {
@@ -894,7 +891,7 @@
 	on:drop={onDrop}
 	on:dragend={onDragEnd}
 >
-	<Children {editor} node={editor} {selection} {decorations} {Element} {Leaf} {Placeholder} />
+	<Children node={editor} {selection} {decorations} {Element} {Leaf} {Placeholder} />
 </div>
 
 <style>
