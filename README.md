@@ -7,4 +7,26 @@
 
 ## Tools
 
+- [slate](https://github.com/ianstormtaylor/slate)
 - [svelte kit](https://kit.svelte.dev/docs)
+
+tries to mimic the react api from [slate-react](https://github.com/ianstormtaylor/slate/tree/main/packages/slate-react) as much as possible
+
+```svelte
+<script lang="ts">
+	import { Slate, Editable, withSvelte } from 'svelte-slate';
+	import { createEditor } from 'slate';
+
+	const editor = withSvelte(createEditor());
+	let value: Array<IText | IElement> = [
+		{
+			type: 'paragraph',
+			children: [{ text: 'This is editable ' }]
+		}
+	];
+</script>
+
+<Slate {editor} bind:value>
+	<Editable placeholder="Enter some plain text..." />
+</Slate>
+```

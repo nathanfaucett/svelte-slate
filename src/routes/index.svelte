@@ -76,30 +76,24 @@
 	}
 </script>
 
-<div class="container">
-	<Slate {editor} bind:value>
-		<div class="toolbar">
-			<MarkButton format="bold"><MdFormatBold /></MarkButton>
-			<MarkButton format="italic"><MdFormatItalic /></MarkButton>
-			<MarkButton format="underline"><MdFormatUnderlined /></MarkButton>
-			<MarkButton format="code"><MdCode /></MarkButton>
-			<BlockButton format="heading-one"><MdLooksOne /></BlockButton>
-			<BlockButton format="heading-two"><MdLooksTwo /></BlockButton>
-			<BlockButton format="block-quote"><MdFormatQuote /></BlockButton>
-			<BlockButton format="numbered-list"><MdFormatListNumbered /></BlockButton>
-			<BlockButton format="bulleted-list"><MdFormatListBulleted /></BlockButton>
-		</div>
-		<div class="editor">
-			<Editable {Element} {Leaf} {onKeyDown} placeholder="Enter some plain text..." />
-		</div>
-	</Slate>
-</div>
+<Slate {editor} bind:value>
+	<div class="toolbar">
+		<MarkButton format="bold"><MdFormatBold /></MarkButton>
+		<MarkButton format="italic"><MdFormatItalic /></MarkButton>
+		<MarkButton format="underline"><MdFormatUnderlined /></MarkButton>
+		<MarkButton format="code"><MdCode /></MarkButton>
+		<BlockButton format="heading-one"><MdLooksOne /></BlockButton>
+		<BlockButton format="heading-two"><MdLooksTwo /></BlockButton>
+		<BlockButton format="block-quote"><MdFormatQuote /></BlockButton>
+		<BlockButton format="numbered-list"><MdFormatListNumbered /></BlockButton>
+		<BlockButton format="bulleted-list"><MdFormatListBulleted /></BlockButton>
+	</div>
+	<div class="editor">
+		<Editable {Element} {Leaf} {onKeyDown} placeholder="Enter some plain text..." />
+	</div>
+</Slate>
 
 <style>
-	.container {
-		max-width: 768px;
-		margin: 0 auto;
-	}
 	.toolbar {
 		border-bottom: 1px solid #888;
 		padding: 0.25rem 0;
