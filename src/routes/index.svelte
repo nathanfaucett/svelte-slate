@@ -74,8 +74,6 @@
 			}
 		}
 	}
-
-	$: console.log(value);
 </script>
 
 <div class="container">

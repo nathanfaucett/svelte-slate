@@ -1,3 +1,5 @@
+<svelte:options immutable={true} />
+
 <script lang="ts" context="module">
 	export interface ILeafProps extends svelte.JSX.HTMLAttributes<HTMLElement> {
 		editor: SvelteEditor;

@@ -1,3 +1,5 @@
+<svelte:options immutable={true} />
+
 <script lang="ts">
 	import type { Element, Range } from 'slate';
 	import { Text as SlateText } from 'slate';

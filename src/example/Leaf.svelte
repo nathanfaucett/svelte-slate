@@ -8,10 +8,8 @@
 </script>
 
 <script lang="ts">
-	import type { SvelteEditor } from '$lib/withSvelte';
 	import type { Text } from 'slate';
 
-	export let editor: SvelteEditor;
 	export let leaf: IText;
 </script>
 
