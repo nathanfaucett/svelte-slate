@@ -49,8 +49,7 @@
 	import { onMount, SvelteComponent, tick } from 'svelte';
 	import { afterUpdate } from 'svelte';
 	import * as direction from 'direction';
-	import debounce from 'lodash/debounce.js';
-	import throttle from 'lodash/throttle.js';
+	import { debounce } from '@aicacia/debounce';
 	import Children from './Children.svelte';
 	import DefaultElement from './DefaultElement.svelte';
 	import DefaultLeaf from './DefaultLeaf.svelte';
@@ -257,7 +256,7 @@
 		state.isUpdatingSelection = false;
 	});
 
-	$: onDOMSelectionChange = throttle(() => {
+	$: onDOMSelectionChange = () => {
 		if (!state.isComposing && !state.isUpdatingSelection && !state.isDraggingInternally) {
 			const root = findDocumentOrShadowRoot(editor);
 			const { activeElement } = root;
@@ -295,9 +294,9 @@
 				Transforms.select(editor, range);
 			}
 		}
-	}, 100);
+	};
 
-	$: scheduleOnDOMSelectionChange = debounce(onDOMSelectionChange, 0);
+	$: scheduleOnDOMSelectionChange = debounce(onDOMSelectionChange, 100);
 
 	$: onBeforeInput = (event: InputEvent) => {
 		if (!readOnly && hasEditableTarget(editor, event.target)) {

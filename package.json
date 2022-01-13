@@ -1,7 +1,7 @@
 {
 	"name": "svelte-slate",
 	"description": "slate svelte view layer",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"license": "(MIT OR Apache-2.0)",
 	"readmeFilename": "README.md",
 	"type": "module",
@@ -56,10 +56,10 @@
 		"tslib": "2"
 	},
 	"dependencies": {
+		"@aicacia/debounce": "0.1",
 		"direction": "2.0",
 		"fast-equals": "2.0",
 		"is-hotkey": "0.2",
-		"lodash": "4.17",
 		"scroll-into-view-if-needed": "2.2"
 	}
 }
