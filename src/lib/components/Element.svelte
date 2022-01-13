@@ -1,10 +1,8 @@
 <svelte:options immutable={true} />
 
 <script lang="ts" context="module">
-	import type { Element } from 'slate';
-
 	export interface IElementProps extends svelte.JSX.HTMLAttributes<HTMLElement> {
-		element: Element;
+		element: SlateElement;
 		'data-slate-node': 'element';
 		'data-slate-inline'?: true;
 		'data-slate-void'?: true;
