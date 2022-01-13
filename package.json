@@ -56,10 +56,10 @@
 		"tslib": "2"
 	},
 	"dependencies": {
-		"direction": "2",
-		"fast-equals": "2",
-		"is-hotkey": "0",
-		"lodash": "4",
-		"scroll-into-view-if-needed": "2"
+		"direction": "2.0",
+		"fast-equals": "2.0",
+		"is-hotkey": "0.2",
+		"lodash": "4.17",
+		"scroll-into-view-if-needed": "2.2"
 	}
 }
