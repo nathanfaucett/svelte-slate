@@ -49,7 +49,7 @@
 	import { onMount, SvelteComponent, tick } from 'svelte';
 	import { afterUpdate } from 'svelte';
 	import * as direction from 'direction';
-	import { debounce } from '@aicacia/debounce';
+	import { throttle } from 'throttle-debounce';
 	import Children from './Children.svelte';
 	import DefaultElement from './DefaultElement.svelte';
 	import DefaultLeaf from './DefaultLeaf.svelte';
@@ -157,6 +157,10 @@
 		prevAutoFocus = autoFocus;
 	}
 
+	function scheduleOnDOMSelectionChange() {
+		onDOMSelectionChange();
+	}
+
 	onMount(() => {
 		const window = getDefaultView(ref);
 		if (window) {
@@ -256,7 +260,7 @@
 		state.isUpdatingSelection = false;
 	});
 
-	$: onDOMSelectionChange = () => {
+	$: onDOMSelectionChange = throttle(100, () => {
 		if (!state.isComposing && !state.isUpdatingSelection && !state.isDraggingInternally) {
 			const root = findDocumentOrShadowRoot(editor);
 			const { activeElement } = root;
@@ -294,14 +298,10 @@
 				Transforms.select(editor, range);
 			}
 		}
-	};
-
-	$: scheduleOnDOMSelectionChange = debounce(onDOMSelectionChange, 100);
+	});
 
 	$: onBeforeInput = (event: InputEvent) => {
 		if (!readOnly && hasEditableTarget(editor, event.target)) {
-			scheduleOnDOMSelectionChange.flush();
-
 			const type = event.inputType;
 			const data = (event as any).dataTransfer || event.data || undefined;
 
