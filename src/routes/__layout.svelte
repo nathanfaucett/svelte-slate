@@ -9,6 +9,7 @@
 </svelte:head>
 
 <div class="container">
+	<h1><a href={`${base}/`}>Svelte Slate Examples</a></h1>
 	<div class="content">
 		<slot />
 	</div>
@@ -25,6 +26,12 @@
 </div>
 
 <style>
+	h1 {
+		border-bottom: 1px solid #888;
+	}
+	h1 a {
+		text-decoration: none;
+	}
 	.container {
 		display: flex;
 		flex-direction: column;
