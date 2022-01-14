@@ -1,4 +1,4 @@
-import { isKeyHotkey } from 'is-hotkey';
+import { createIsKeyHotkey } from './isHotkey';
 import { IS_APPLE } from './environment';
 
 const HOTKEYS = {
@@ -41,17 +41,23 @@ const WINDOWS_HOTKEYS = {
 };
 
 function create(key: string) {
-	const generic = HOTKEYS[key];
-	const apple = APPLE_HOTKEYS[key];
-	const windows = WINDOWS_HOTKEYS[key];
-	const isGeneric = generic && isKeyHotkey(generic);
-	const isApple = apple && isKeyHotkey(apple);
-	const isWindows = windows && isKeyHotkey(windows);
+	const generic = HOTKEYS[key as keyof typeof HOTKEYS];
+	const apple = APPLE_HOTKEYS[key as keyof typeof APPLE_HOTKEYS];
+	const windows = WINDOWS_HOTKEYS[key as keyof typeof WINDOWS_HOTKEYS];
+	const isGeneric = generic && createIsKeyHotkey(generic);
+	const isApple = apple && createIsKeyHotkey(apple);
+	const isWindows = windows && createIsKeyHotkey(windows);
 
 	return (event: KeyboardEvent) => {
-		if (isGeneric && isGeneric(event)) return true;
-		if (IS_APPLE && isApple && isApple(event)) return true;
-		if (!IS_APPLE && isWindows && isWindows(event)) return true;
+		if (isGeneric && isGeneric(event)) {
+			return true;
+		}
+		if (IS_APPLE && isApple && isApple(event)) {
+			return true;
+		}
+		if (!IS_APPLE && isWindows && isWindows(event)) {
+			return true;
+		}
 		return false;
 	};
 }

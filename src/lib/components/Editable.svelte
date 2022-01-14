@@ -48,7 +48,7 @@
 	} from 'slate';
 	import { onMount, SvelteComponent, tick } from 'svelte';
 	import { afterUpdate } from 'svelte';
-	import * as direction from 'direction';
+	import { direction } from '../direction';
 	import { throttle } from 'throttle-debounce';
 	import Children from './Children.svelte';
 	import DefaultElement from './DefaultElement.svelte';
@@ -462,7 +462,7 @@
 	$: onKeyDownInternal = (event: KeyboardEvent) => {
 		if (!readOnly && !state.isComposing && hasEditableTarget(editor, event.target)) {
 			const element = editor.children[selection !== null ? selection.focus.path[0] : 0];
-			const isRTL = direction.direction(SlateNode.string(element)) === 'rtl';
+			const isRTL = direction(SlateNode.string(element)) === 'rtl';
 
 			if (hotkeys.isRedo(event)) {
 				event.preventDefault();

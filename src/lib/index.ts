@@ -29,6 +29,7 @@ export {
 } from './utils';
 export { getSelectedContext } from './components/ChildElement.svelte';
 export { default as hotkeys } from './hotkeys';
+export { isHotkey, isKeyHotkey, createIsHotkey, createIsKeyHotkey } from './isHotkey';
 export { findCurrentLineRange } from './lines';
 export type { SvelteEditor } from './withSvelte';
 export { withSvelte } from './withSvelte';

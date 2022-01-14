@@ -15,7 +15,7 @@
 	import type { Element as SlateElement, Range, Selection, Text as SlateText } from 'slate';
 	import type { SvelteComponent } from 'svelte';
 	import { onMount } from 'svelte';
-	import * as direction from 'direction';
+	import { direction } from '../direction';
 	import Children from './Children.svelte';
 	import type { Key } from '../Key';
 	import Text from './Text.svelte';
@@ -53,7 +53,7 @@
 
 	let dir: string;
 	$: if (!isInline && Editor.hasInlines(editor, element)) {
-		const d = direction.direction(Node.string(element));
+		const d = direction(Node.string(element));
 
 		if (d === 'rtl') {
 			dir = d;

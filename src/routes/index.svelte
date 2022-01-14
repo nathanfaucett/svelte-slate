@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-	import { Slate, Editable, withSvelte } from 'svelte-slate';
+	import { Slate, Editable, withSvelte, isHotkey } from 'svelte-slate';
 	import { createEditor } from 'slate';
 	import { withHistory } from 'slate-history';
 	import type { IElement } from '../example/Element.svelte';
@@ -27,7 +27,6 @@
 	import MdFormatListNumbered from 'svelte-icons/md/MdFormatListNumbered.svelte';
 	import MdFormatListBulleted from 'svelte-icons/md/MdFormatListBulleted.svelte';
 	import MdFormatQuote from 'svelte-icons/md/MdFormatQuote.svelte';
-	import isHotkey from 'is-hotkey';
 
 	const editor = withHistory(withSvelte(createEditor()));
 	let value: Array<IText | IElement> = [
