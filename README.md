@@ -18,7 +18,7 @@ tries to mimic the react api from [slate-react](https://github.com/ianstormtaylo
 	import { createEditor } from 'slate';
 
 	const editor = withSvelte(createEditor());
-	let value: Array<IText | IElement> = [
+	let value = [
 		{
 			type: 'paragraph',
 			children: [{ text: 'This is editable ' }]
