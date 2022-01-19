@@ -1,6 +1,6 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-efa483d0.js",
+    "file": "start-65835a91.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -49,28 +49,28 @@
     ]
   },
   "src/routes/huge-document.svelte": {
-    "file": "pages/huge-document.svelte-38442626.js",
+    "file": "pages/huge-document.svelte-2f68524b.js",
     "src": "src/routes/huge-document.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-1ba91cd3.js",
       "_withSvelte-532e80b0.js",
-      "_BlockButton-3ee3ed39.js"
+      "_BlockButton-00989137.js"
     ],
     "css": [
       "assets/pages/huge-document.svelte-f7d2f7b4.css"
     ]
   },
   "src/routes/richtext.svelte": {
-    "file": "pages/richtext.svelte-cb20f19a.js",
+    "file": "pages/richtext.svelte-67525c84.js",
     "src": "src/routes/richtext.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-1ba91cd3.js",
       "_withSvelte-532e80b0.js",
-      "_BlockButton-3ee3ed39.js"
+      "_BlockButton-00989137.js"
     ],
     "css": [
       "assets/pages/huge-document.svelte-f7d2f7b4.css"
@@ -104,8 +104,8 @@
       "assets/withSvelte-f2676453.css"
     ]
   },
-  "_BlockButton-3ee3ed39.js": {
-    "file": "chunks/BlockButton-3ee3ed39.js",
+  "_BlockButton-00989137.js": {
+    "file": "chunks/BlockButton-00989137.js",
     "imports": [
       "_vendor-1ba91cd3.js",
       "_withSvelte-532e80b0.js"
