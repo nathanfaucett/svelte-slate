@@ -1,91 +1,117 @@
 {
-  ".svelte-kit/build/runtime/internal/start.js": {
-    "file": "start-8649241a.js",
-    "src": ".svelte-kit/build/runtime/internal/start.js",
+  ".svelte-kit/runtime/client/start.js": {
+    "file": "start-04b6b981.js",
+    "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
-      "_vendor-ad8b7496.js",
-      "_paths-28a87002.js"
+      "_vendor-1ba91cd3.js",
+      "_paths-4b3c6e7e.js"
     ],
     "dynamicImports": [
       "src/routes/__layout.svelte",
-      ".svelte-kit/build/components/error.svelte",
+      ".svelte-kit/runtime/components/error.svelte",
       "src/routes/index.svelte",
+      "src/routes/huge-document.svelte",
       "src/routes/richtext.svelte",
       "src/routes/default.svelte"
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "pages/__layout.svelte-432f5415.js",
+    "file": "pages/__layout.svelte-6559ebda.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-ad8b7496.js",
-      "_paths-28a87002.js"
+      "_vendor-1ba91cd3.js",
+      "_paths-4b3c6e7e.js"
     ],
     "css": [
       "assets/pages/__layout.svelte-e57b694f.css"
     ]
   },
-  ".svelte-kit/build/components/error.svelte": {
-    "file": "error.svelte-b7962b44.js",
-    "src": ".svelte-kit/build/components/error.svelte",
+  ".svelte-kit/runtime/components/error.svelte": {
+    "file": "error.svelte-55298c21.js",
+    "src": ".svelte-kit/runtime/components/error.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-ad8b7496.js"
+      "_vendor-1ba91cd3.js"
     ]
   },
   "src/routes/index.svelte": {
-    "file": "pages/index.svelte-3d3dfc48.js",
+    "file": "pages/index.svelte-656518b1.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-ad8b7496.js",
-      "_paths-28a87002.js"
+      "_vendor-1ba91cd3.js",
+      "_paths-4b3c6e7e.js"
+    ]
+  },
+  "src/routes/huge-document.svelte": {
+    "file": "pages/huge-document.svelte-38442626.js",
+    "src": "src/routes/huge-document.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-1ba91cd3.js",
+      "_withSvelte-532e80b0.js",
+      "_BlockButton-3ee3ed39.js"
+    ],
+    "css": [
+      "assets/pages/huge-document.svelte-f7d2f7b4.css"
     ]
   },
   "src/routes/richtext.svelte": {
-    "file": "pages/richtext.svelte-d610af66.js",
+    "file": "pages/richtext.svelte-cb20f19a.js",
     "src": "src/routes/richtext.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-ad8b7496.js",
-      "_withSvelte-48687f60.js"
+      "_vendor-1ba91cd3.js",
+      "_withSvelte-532e80b0.js",
+      "_BlockButton-3ee3ed39.js"
     ],
     "css": [
-      "assets/pages/richtext.svelte-a704eb52.css"
+      "assets/pages/huge-document.svelte-f7d2f7b4.css"
     ]
   },
   "src/routes/default.svelte": {
-    "file": "pages/default.svelte-6f806961.js",
+    "file": "pages/default.svelte-5ab20ab8.js",
     "src": "src/routes/default.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-ad8b7496.js",
-      "_withSvelte-48687f60.js"
+      "_vendor-1ba91cd3.js",
+      "_withSvelte-532e80b0.js"
     ]
   },
-  "_vendor-ad8b7496.js": {
-    "file": "chunks/vendor-ad8b7496.js",
+  "_vendor-1ba91cd3.js": {
+    "file": "chunks/vendor-1ba91cd3.js",
     "css": [
       "assets/vendor-86f8c920.css"
     ]
   },
-  "_paths-28a87002.js": {
-    "file": "chunks/paths-28a87002.js"
+  "_paths-4b3c6e7e.js": {
+    "file": "chunks/paths-4b3c6e7e.js"
   },
-  "_withSvelte-48687f60.js": {
-    "file": "chunks/withSvelte-48687f60.js",
+  "_withSvelte-532e80b0.js": {
+    "file": "chunks/withSvelte-532e80b0.js",
     "imports": [
-      "_vendor-ad8b7496.js"
+      "_vendor-1ba91cd3.js"
     ],
     "css": [
       "assets/withSvelte-f2676453.css"
+    ]
+  },
+  "_BlockButton-3ee3ed39.js": {
+    "file": "chunks/BlockButton-3ee3ed39.js",
+    "imports": [
+      "_vendor-1ba91cd3.js",
+      "_withSvelte-532e80b0.js"
+    ],
+    "css": [
+      "assets/BlockButton-2f81bf0a.css"
     ]
   }
 }
