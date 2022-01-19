@@ -49,7 +49,7 @@
 	import { onMount, SvelteComponent, tick } from 'svelte';
 	import { afterUpdate } from 'svelte';
 	import { direction } from '../direction';
-	import { throttle } from 'throttle-debounce';
+	import { throttle, debounce } from 'throttle-debounce';
 	import Children from './Children.svelte';
 	import DefaultElement from './DefaultElement.svelte';
 	import DefaultLeaf from './DefaultLeaf.svelte';
@@ -107,6 +107,9 @@
 	export let decorate = defaultDecorate;
 	export let scrollSelectionIntoView = defaultScrollSelectionIntoView;
 	export let ref: HTMLDivElement = undefined;
+	export let spellcheck = true;
+	export let autocorrect: string = 'true';
+	export let autocapitalize: string = 'true';
 	export let onKeyDown: (event: KeyboardEvent) => void | false = () => undefined;
 
 	const editorContext = getEditorContext();
@@ -158,7 +161,7 @@
 	}
 
 	function scheduleOnDOMSelectionChange() {
-		onDOMSelectionChange();
+		debouncedOnDOMSelectionChange();
 	}
 
 	onMount(() => {
@@ -260,7 +263,7 @@
 		state.isUpdatingSelection = false;
 	});
 
-	$: onDOMSelectionChange = throttle(100, () => {
+	$: onDOMSelectionChange = () => {
 		if (!state.isComposing && !state.isUpdatingSelection && !state.isDraggingInternally) {
 			const root = findDocumentOrShadowRoot(editor);
 			const { activeElement } = root;
@@ -298,7 +301,9 @@
 				Transforms.select(editor, range);
 			}
 		}
-	});
+	};
+	$: throttledOnDOMSelectionChange = throttle(100, onDOMSelectionChange);
+	$: debouncedOnDOMSelectionChange = debounce(0, false, throttledOnDOMSelectionChange);
 
 	$: onBeforeInput = (event: InputEvent) => {
 		if (!readOnly && hasEditableTarget(editor, event.target)) {
@@ -866,9 +871,9 @@
 	{...$$restProps}
 	bind:this={ref}
 	role={readOnly ? undefined : 'textbox'}
-	spellcheck={$$restProps.spellcheck || 'true'}
-	autocorrect={$$restProps.autocorrect || 'true'}
-	autocapitalize={$$restProps.autocapitalize || 'true'}
+	{spellcheck}
+	{autocorrect}
+	{autocapitalize}
 	data-svelte-editor
 	data-slate-node="value"
 	contenteditable={!readOnly}

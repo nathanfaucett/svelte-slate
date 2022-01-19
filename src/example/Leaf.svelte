@@ -1,3 +1,5 @@
+<svelte:options immutable={true} />
+
 <script lang="ts" context="module">
 	export interface IText extends Text {
 		bold?: boolean;
@@ -14,7 +16,7 @@
 </script>
 
 <span
-	{...$$restProps}
+	data-slate-leaf="true"
 	class:bold={leaf.bold}
 	class:italic={leaf.italic}
 	class:code={leaf.code}

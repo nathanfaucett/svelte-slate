@@ -1,3 +1,5 @@
+<svelte:options immutable={true} />
+
 <script lang="ts" context="module">
 	import type { IText } from './Leaf.svelte';
 
@@ -11,22 +13,68 @@
 
 <script lang="ts">
 	export let element: IElement;
-	export let ref: HTMLElement = undefined;
+	export let ref: HTMLElement | undefined;
+	export let dir: 'rtl' | 'ltr';
+	export let contenteditable: boolean | undefined;
 </script>
 
-{#if element.type === 'block-quote'}<blockquote bind:this={ref} {...$$restProps}>
+{#if element.type === 'block-quote'}<blockquote
+		bind:this={ref}
+		data-slate-node="element"
+		data-slate-inline={$$props['data-slate-inline']}
+		{dir}
+		{contenteditable}
+	>
 		<slot />
-	</blockquote>{:else if element.type === 'bulleted-list'}<ul bind:this={ref} {...$$restProps}>
+	</blockquote>{:else if element.type === 'bulleted-list'}<ul
+		bind:this={ref}
+		data-slate-node="element"
+		data-slate-inline={$$props['data-slate-inline']}
+		{dir}
+		{contenteditable}
+	>
 		<slot />
-	</ul>{:else if element.type === 'heading-one'}<h1 bind:this={ref} {...$$restProps}>
+	</ul>{:else if element.type === 'heading-one'}<h1
+		bind:this={ref}
+		data-slate-node="element"
+		data-slate-inline={$$props['data-slate-inline']}
+		{dir}
+		{contenteditable}
+	>
 		<slot />
-	</h1>{:else if element.type === 'heading-two'}<h2 bind:this={ref} {...$$restProps}>
+	</h1>{:else if element.type === 'heading-two'}<h2
+		bind:this={ref}
+		data-slate-node="element"
+		data-slate-inline={$$props['data-slate-inline']}
+		{dir}
+		{contenteditable}
+	>
 		<slot />
-	</h2>{:else if element.type === 'list-item'}<li bind:this={ref} {...$$restProps}>
+	</h2>{:else if element.type === 'list-item'}<li
+		bind:this={ref}
+		data-slate-node="element"
+		data-slate-inline={$$props['data-slate-inline']}
+		{dir}
+		{contenteditable}
+	>
 		<slot />
-	</li>{:else if element.type === 'numbered-list'}<ol bind:this={ref} {...$$restProps}>
+	</li>{:else if element.type === 'numbered-list'}<ol
+		bind:this={ref}
+		data-slate-node="element"
+		data-slate-inline={$$props['data-slate-inline']}
+		{dir}
+		{contenteditable}
+	>
 		<slot />
-	</ol>{:else}<p bind:this={ref} {...$$restProps}><slot /></p>{/if}
+	</ol>{:else}<p
+		bind:this={ref}
+		data-slate-node="element"
+		data-slate-inline={$$props['data-slate-inline']}
+		{dir}
+		{contenteditable}
+	>
+		<slot />
+	</p>{/if}
 
 <style>
 	blockquote,

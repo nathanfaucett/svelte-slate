@@ -32,11 +32,13 @@
 	"devDependencies": {
 		"@sveltejs/adapter-static": "next",
 		"@sveltejs/kit": "next",
+		"@types/throttle-debounce": "2",
 		"@typescript-eslint/eslint-plugin": "5",
 		"@typescript-eslint/parser": "5",
 		"eslint": "8",
 		"eslint-config-prettier": "8",
 		"eslint-plugin-svelte3": "3",
+		"lorem-ipsum": "2",
 		"prettier": "2",
 		"prettier-plugin-svelte": "2",
 		"slate": "0.72",

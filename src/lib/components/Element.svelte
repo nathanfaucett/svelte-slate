@@ -2,7 +2,9 @@
 
 <script lang="ts" context="module">
 	export interface IElementProps extends svelte.JSX.HTMLAttributes<HTMLElement> {
+		ref?: HTMLDivElement;
 		element: SlateElement;
+		contenteditable?: boolean;
 		'data-slate-node': 'element';
 		'data-slate-inline'?: true;
 		'data-slate-void'?: true;
@@ -61,11 +63,11 @@
 	}
 
 	$: isVoid = Editor.isVoid(editor, element);
-	$: contentEditable = !readOnly;
+	$: contenteditable = !readOnly;
 	let voidText: SlateText;
 	$: if (isVoid) {
 		if (!readOnly && isInline) {
-			contentEditable = false;
+			contenteditable = false;
 		}
 
 		const [[text]] = Node.texts(element);
@@ -94,7 +96,7 @@
 	data-slate-node="element"
 	data-slate-void={isVoid}
 	data-slate-inline={isInline}
-	contenteditable={contentEditable}
+	{contenteditable}
 	{element}
 	{dir}
 	>{#if isVoid}{#if isInline}<span data-slate-spacer
