@@ -1,5 +1,3 @@
-<svelte:options immutable={true} />
-
 <script lang="ts">
 	import { getEditorContext } from '$lib/components/Slate.svelte';
 	import Button from './Button.svelte';
