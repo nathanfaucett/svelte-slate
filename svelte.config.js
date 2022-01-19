@@ -8,6 +8,7 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		target: '#svelte',
+		appDir: 'internal',
 		paths: process.env.USE_BASE_PATH
 			? {
 					base: '/svelte-slate'
