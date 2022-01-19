@@ -7,9 +7,9 @@
 	"author": "Nathan Faucett",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/aicacia/svelte-slate"
+		"url": "https://github.com/nathanfaucett/svelte-slate"
 	},
-	"homepage": "https://github.com/aicacia/svelte-slate#readme",
+	"homepage": "https://github.com/nathanfaucett/svelte-slate#readme",
 	"keywords": [
 		"svelte",
 		"slate",
