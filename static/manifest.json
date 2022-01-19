@@ -1,7 +1,7 @@
 {
-	"name": "Aicacia Svelte Slate",
+	"name": "Svelte Slate",
 	"short_name": "Svelte Slate",
-	"description": "Aicacia Svelte Slate",
+	"description": "Svelte Slate",
 	"version": "1.0",
 	"manifest_version": 3,
 	"icons": [

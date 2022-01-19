@@ -9,11 +9,9 @@ const config = {
 		adapter: adapter(),
 		target: '#svelte',
 		appDir: 'internal',
-		paths: process.env.USE_BASE_PATH
-			? {
-					base: '/svelte-slate'
-			  }
-			: {},
+		paths: {
+			base: process.env.USE_BASE_PATH ? '/svelte-slate' : ''
+		},
 		vite: {
 			resolve: {
 				alias: {
