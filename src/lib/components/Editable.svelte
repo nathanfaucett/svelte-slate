@@ -298,7 +298,9 @@
 					exactMatch: false,
 					suppressThrow: true
 				});
-				Transforms.select(editor, range);
+				if (range) {
+					Transforms.select(editor, range);
+				}
 			}
 		}
 	};
