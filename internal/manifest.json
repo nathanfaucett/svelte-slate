@@ -1,6 +1,6 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-dee6f302.js",
+    "file": "start-86d24865.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -17,7 +17,7 @@
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "pages/__layout.svelte-0abe11dd.js",
+    "file": "pages/__layout.svelte-13862532.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -59,7 +59,7 @@
       "_BlockButton-f449e6ec.js"
     ],
     "css": [
-      "assets/pages/huge-document.svelte-f7d2f7b4.css"
+      "assets/pages/richtext.svelte-3f8e5142.css"
     ]
   },
   "src/routes/richtext.svelte": {
@@ -73,7 +73,7 @@
       "_BlockButton-f449e6ec.js"
     ],
     "css": [
-      "assets/pages/huge-document.svelte-f7d2f7b4.css"
+      "assets/pages/richtext.svelte-3f8e5142.css"
     ]
   },
   "src/routes/default.svelte": {
