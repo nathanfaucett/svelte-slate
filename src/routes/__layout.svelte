@@ -6,10 +6,12 @@
 
 <svelte:head>
 	<link rel="icon" href={`${base}/favicon.png`} />
+	<meta name="description" content={PACKAGE_JSON.description} />
+	<meta name="keywords" content={PACKAGE_JSON.keywords.join(', ')} />
 </svelte:head>
 
 <div class="container">
-	<h1><a href={`${base}/`}>Svelte Slate Examples</a></h1>
+	<h1><a href={`${base}/`}>Svelte Slate {PACKAGE_JSON.version} Examples</a></h1>
 	<div class="content">
 		<slot />
 	</div>
