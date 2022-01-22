@@ -59,7 +59,7 @@
       "_BlockButton-f449e6ec.js"
     ],
     "css": [
-      "assets/pages/richtext.svelte-3f8e5142.css"
+      "assets/pages/huge-document.svelte-f7d2f7b4.css"
     ]
   },
   "src/routes/richtext.svelte": {
@@ -73,7 +73,7 @@
       "_BlockButton-f449e6ec.js"
     ],
     "css": [
-      "assets/pages/richtext.svelte-3f8e5142.css"
+      "assets/pages/huge-document.svelte-f7d2f7b4.css"
     ]
   },
   "src/routes/default.svelte": {
