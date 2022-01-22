@@ -49,7 +49,7 @@
 	import { afterUpdate, SvelteComponent } from 'svelte';
 	import { onMount, tick } from 'svelte';
 	import { direction } from '../direction';
-	import { debounce } from 'throttle-debounce';
+	import { throttle } from 'throttle-debounce';
 	import Children from './Children.svelte';
 	import DefaultElement from './DefaultElement.svelte';
 	import DefaultLeaf from './DefaultLeaf.svelte';
@@ -123,7 +123,7 @@
 	const state = {
 		isComposing: false,
 		hasInsertPrefixInCompositon: true,
-		isUpdatingSelection: false,
+		isUpdatingSelection: null as number,
 		isDraggingInternally: false,
 		latestElement: null as Element
 	};
@@ -225,9 +225,6 @@
 	});
 
 	function onUpdate() {
-		if (state.isUpdatingSelection) {
-			return;
-		}
 		const root = findDocumentOrShadowRoot(editor) as Document;
 		const domSelection = root?.getSelection();
 
@@ -253,7 +250,6 @@
 		if (hasDomSelection && hasDomSelectionInEditor && selection) {
 			const slateRange = toSlateRange(editor, domSelection, {
 				exactMatch: true,
-
 				suppressThrow: true
 			});
 			if (slateRange && Range.equals(slateRange, selection)) {
@@ -271,7 +267,17 @@
 			return;
 		}
 
-		state.isUpdatingSelection = true;
+		if (state.isUpdatingSelection) {
+			clearTimeout(state.isUpdatingSelection);
+		}
+
+		state.isUpdatingSelection = setTimeout(() => {
+			if (newDomRange && IS_FIREFOX) {
+				const el = toDOMNode(editor, editor);
+				el.focus();
+			}
+			state.isUpdatingSelection = null;
+		}) as any;
 
 		const newDomRange = selection && hasDomSelectionInEditor && toDOMRange(editor, selection);
 
@@ -295,18 +301,10 @@
 		} else {
 			domSelection.removeAllRanges();
 		}
-
-		if (newDomRange && IS_FIREFOX) {
-			const el = toDOMNode(editor, editor);
-			el.focus();
-		}
-		state.isUpdatingSelection = false;
 	}
-	$: debouncedOnUpdate = debounce(0, onUpdate);
+	$: throttledOnUpdate = throttle(0, onUpdate, false);
 
-	afterUpdate(() => {
-		debouncedOnUpdate();
-	});
+	afterUpdate(() => throttledOnUpdate());
 
 	function onBeforeInput(event: InputEvent) {
 		if (!readOnly && hasEditableTarget(editor, event.target)) {
