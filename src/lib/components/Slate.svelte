@@ -88,10 +88,8 @@
 	setContext(SELECTION_CONTEXT_KEY, selectionContext);
 
 	function onChange() {
-		if (editor.children !== value) {
-			value = editor.children;
-		}
 		selection = editor.selection;
+		value = editor.children;
 	}
 	EDITOR_TO_ON_CHANGE.set(editor, onChange);
 
@@ -112,8 +110,8 @@
 
 	let prevSelection: Selection;
 	$: if (!isSelectionEqual(prevSelection, selection)) {
-		editorContext.set(editor);
 		selectionContext.set(selection);
+		editorContext.set(editor);
 		prevSelection = selection;
 	}
 </script>

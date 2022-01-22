@@ -46,10 +46,10 @@
 		Range,
 		Transforms
 	} from 'slate';
-	import { onMount, SvelteComponent, tick } from 'svelte';
-	import { afterUpdate } from 'svelte';
+	import { afterUpdate, SvelteComponent } from 'svelte';
+	import { onMount, tick } from 'svelte';
 	import { direction } from '../direction';
-	import { throttle, debounce } from 'throttle-debounce';
+	import { debounce } from 'throttle-debounce';
 	import Children from './Children.svelte';
 	import DefaultElement from './DefaultElement.svelte';
 	import DefaultLeaf from './DefaultLeaf.svelte';
@@ -160,8 +160,46 @@
 		prevAutoFocus = autoFocus;
 	}
 
+	function onDOMSelectionChange() {
+		if (!state.isComposing && !state.isUpdatingSelection && !state.isDraggingInternally) {
+			const root = findDocumentOrShadowRoot(editor) as Document;
+			const el = toDOMNode(editor, editor);
+			const domSelection = root.getSelection();
+
+			if (root.activeElement === el) {
+				state.latestElement = root.activeElement;
+				IS_FOCUSED.set(editor, true);
+				focusedContext.set(true);
+			} else {
+				IS_FOCUSED.delete(editor);
+				focusedContext.set(false);
+			}
+
+			if (!domSelection) {
+				Transforms.deselect(editor);
+				return;
+			}
+
+			const { anchorNode, focusNode } = domSelection;
+
+			const anchorNodeSelectable =
+				hasEditableTarget(editor, anchorNode) || isTargetInsideNonReadonlyVoid(editor, anchorNode);
+
+			const focusNodeSelectable =
+				hasEditableTarget(editor, focusNode) || isTargetInsideNonReadonlyVoid(editor, focusNode);
+
+			if (anchorNodeSelectable && focusNodeSelectable) {
+				const range = toSlateRange(editor, domSelection, {
+					exactMatch: false,
+					suppressThrow: true
+				});
+				Transforms.select(editor, range);
+			}
+		}
+	}
+
 	function scheduleOnDOMSelectionChange() {
-		debouncedOnDOMSelectionChange();
+		tick().then(onDOMSelectionChange);
 	}
 
 	onMount(() => {
@@ -186,9 +224,12 @@
 		};
 	});
 
-	afterUpdate(async () => {
-		const root = findDocumentOrShadowRoot(editor);
-		const domSelection = root ? (root as Document).getSelection() : null;
+	function onUpdate() {
+		if (state.isUpdatingSelection) {
+			return;
+		}
+		const root = findDocumentOrShadowRoot(editor) as Document;
+		const domSelection = root?.getSelection();
 
 		if (state.isComposing || !domSelection || !isFocused(editor)) {
 			return;
@@ -231,9 +272,8 @@
 		}
 
 		state.isUpdatingSelection = true;
-		await tick();
 
-		const newDomRange = selection && toDOMRange(editor, selection);
+		const newDomRange = selection && hasDomSelectionInEditor && toDOMRange(editor, selection);
 
 		if (newDomRange) {
 			if (Range.isBackward(selection!)) {
@@ -261,53 +301,14 @@
 			el.focus();
 		}
 		state.isUpdatingSelection = false;
+	}
+	$: debouncedOnUpdate = debounce(0, onUpdate);
+
+	afterUpdate(() => {
+		debouncedOnUpdate();
 	});
 
-	$: onDOMSelectionChange = () => {
-		if (!state.isComposing && !state.isUpdatingSelection && !state.isDraggingInternally) {
-			const root = findDocumentOrShadowRoot(editor);
-			const { activeElement } = root;
-			const el = toDOMNode(editor, editor);
-			const domSelection = (root as Document).getSelection();
-
-			if (activeElement === el) {
-				state.latestElement = activeElement;
-				IS_FOCUSED.set(editor, true);
-				focusedContext.set(true);
-			} else {
-				IS_FOCUSED.delete(editor);
-				focusedContext.set(false);
-			}
-
-			if (!domSelection) {
-				Transforms.deselect(editor);
-				return;
-			}
-
-			const anchorNode = domSelection.anchorNode;
-			const focusNode = domSelection.focusNode;
-
-			const anchorNodeSelectable =
-				hasEditableTarget(editor, anchorNode) || isTargetInsideNonReadonlyVoid(editor, anchorNode);
-
-			const focusNodeSelectable =
-				hasEditableTarget(editor, focusNode) || isTargetInsideNonReadonlyVoid(editor, focusNode);
-
-			if (anchorNodeSelectable && focusNodeSelectable) {
-				const range = toSlateRange(editor, domSelection, {
-					exactMatch: false,
-					suppressThrow: true
-				});
-				if (range) {
-					Transforms.select(editor, range);
-				}
-			}
-		}
-	};
-	$: throttledOnDOMSelectionChange = throttle(100, onDOMSelectionChange);
-	$: debouncedOnDOMSelectionChange = debounce(0, false, throttledOnDOMSelectionChange);
-
-	$: onBeforeInput = (event: InputEvent) => {
+	function onBeforeInput(event: InputEvent) {
 		if (!readOnly && hasEditableTarget(editor, event.target)) {
 			const type = event.inputType;
 			const data = (event as any).dataTransfer || event.data || undefined;
@@ -457,16 +458,16 @@
 				}
 			}
 		}
-	};
+	}
 
-	$: onInput = (_event: Event) => {
+	function onInput(_event: Event) {
 		for (const op of deferredOperations) {
 			op();
 		}
 		deferredOperations.length = 0;
-	};
+	}
 
-	$: onKeyDownInternal = (event: KeyboardEvent) => {
+	function onKeyDownInternal(event: KeyboardEvent) {
 		if (!readOnly && !state.isComposing && hasEditableTarget(editor, event.target)) {
 			const element = editor.children[selection !== null ? selection.focus.path[0] : 0];
 			const isRTL = direction(SlateNode.string(element)) === 'rtl';
@@ -615,9 +616,9 @@
 				return onKeyDown(event);
 			}
 		}
-	};
+	}
 
-	$: onFocus = (event: FocusEvent) => {
+	function onFocus(event: FocusEvent) {
 		if (!readOnly && !state.isUpdatingSelection && hasEditableTarget(editor, event.target)) {
 			const el = toDOMNode(editor, editor);
 			const root = findDocumentOrShadowRoot(editor);
@@ -632,9 +633,9 @@
 			IS_FOCUSED.set(editor, true);
 			focusedContext.set(true);
 		}
-	};
+	}
 
-	$: onBlur = (event: FocusEvent) => {
+	function onBlur(event: FocusEvent) {
 		if (readOnly || state.isUpdatingSelection || !hasEditableTarget(editor, event.target)) {
 			return;
 		}
@@ -670,9 +671,9 @@
 
 		IS_FOCUSED.delete(editor);
 		focusedContext.set(false);
-	};
+	}
 
-	$: onClick = (event: Event) => {
+	function onClick(event: Event) {
 		if (!readOnly && hasTarget(editor, event.target) && isDOMNode(event.target)) {
 			const node = toSlateNode(event.target);
 			const path = findPath(node);
@@ -694,9 +695,9 @@
 				}
 			}
 		}
-	};
+	}
 
-	$: onCompositionEnd = (event: Event) => {
+	function onCompositionEnd(event: Event) {
 		if (hasEditableTarget(editor, event.target)) {
 			state.isComposing = false;
 			const eventData = (event as any).data;
@@ -721,15 +722,15 @@
 				}
 			}
 		}
-	};
+	}
 
-	$: onCompositionUpdate = (event: Event) => {
+	function onCompositionUpdate(event: Event) {
 		if (hasEditableTarget(editor, event.target)) {
 			state.isComposing = true;
 		}
-	};
+	}
 
-	$: onCompositionStart = (event: Event) => {
+	function onCompositionStart(event: Event) {
 		if (hasEditableTarget(editor, event.target)) {
 			const { selection, marks } = editor;
 			if (selection) {
@@ -766,25 +767,25 @@
 				}
 			}
 		}
-	};
+	}
 
-	$: onPaste = (event: ClipboardEvent) => {
+	function onPaste(event: ClipboardEvent) {
 		if (!readOnly && hasEditableTarget(editor, event.target)) {
 			if (!HAS_BEFORE_INPUT_SUPPORT || isPlainTextOnlyPaste(event)) {
 				event.preventDefault();
 				editor.insertData(event.clipboardData);
 			}
 		}
-	};
+	}
 
-	$: onCopy = (event: ClipboardEvent) => {
+	function onCopy(event: ClipboardEvent) {
 		if (hasEditableTarget(editor, event.target)) {
 			event.preventDefault();
 			editor.setFragmentData((event as any).clipboardData);
 		}
-	};
+	}
 
-	$: onCut = (event: ClipboardEvent) => {
+	function onCut(event: ClipboardEvent) {
 		if (!readOnly && hasEditableTarget(editor, event.target)) {
 			event.preventDefault();
 			editor.setFragmentData((event as any).clipboardData);
@@ -800,9 +801,9 @@
 				}
 			}
 		}
-	};
+	}
 
-	$: onDragOver = (event: Event) => {
+	function onDragOver(event: Event) {
 		if (hasTarget(editor, event.target)) {
 			const node = toSlateNode(event.target);
 
@@ -810,9 +811,9 @@
 				event.preventDefault();
 			}
 		}
-	};
+	}
 
-	$: onDragStart = (event: Event) => {
+	function onDragStart(event: Event) {
 		if (!readOnly && hasTarget(editor, event.target)) {
 			const node = toSlateNode(event.target);
 			const path = findPath(node);
@@ -828,9 +829,9 @@
 
 			editor.setFragmentData((event as any).dataTransfer);
 		}
-	};
+	}
 
-	$: onDrop = (event: DragEvent) => {
+	function onDrop(event: DragEvent) {
 		if (!readOnly && hasTarget(editor, event.target)) {
 			event.preventDefault();
 
@@ -860,13 +861,13 @@
 				focus(editor);
 			}
 		}
-	};
+	}
 
-	$: onDragEnd = (event: Event) => {
+	function onDragEnd(event: Event) {
 		if (!readOnly && state.isDraggingInternally && hasTarget(editor, event.target)) {
 			state.isDraggingInternally = false;
 		}
-	};
+	}
 </script>
 
 <div

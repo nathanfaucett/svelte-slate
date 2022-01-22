@@ -5,7 +5,6 @@ import { EDITOR_TO_KEY_TO_ELEMENT, EDITOR_TO_ON_CHANGE, NODE_TO_KEY } from './we
 import { isDOMText, getPlainText, getSlateFragmentAttribute } from './dom';
 import { findCurrentLineRange } from './lines';
 import { findKey, toDOMNode, toDOMRange } from './utils';
-import { tick } from 'svelte';
 
 export interface SvelteEditor extends BaseEditor {
 	insertData: (data: DataTransfer) => void;
@@ -202,7 +201,7 @@ export function withSvelte<T extends Editor>(editor: T): T & SvelteEditor {
 		const onContextChange = EDITOR_TO_ON_CHANGE.get(e);
 
 		if (onContextChange) {
-			tick().then(onContextChange);
+			onContextChange();
 		}
 
 		onChange();

@@ -13,9 +13,9 @@
 
 <script lang="ts">
 	export let element: IElement;
-	export let ref: HTMLElement | undefined;
 	export let dir: 'rtl' | 'ltr';
-	export let contenteditable: boolean | undefined;
+	export let ref: HTMLElement = undefined;
+	export let contenteditable: boolean = undefined;
 </script>
 
 {#if element.type === 'block-quote'}<blockquote

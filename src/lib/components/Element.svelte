@@ -93,7 +93,6 @@
 <svelte:component
 	this={Element}
 	bind:ref
-	data-slate-node="element"
 	data-slate-void={isVoid}
 	data-slate-inline={isInline}
 	{contenteditable}

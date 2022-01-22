@@ -16,7 +16,7 @@
 </script>
 
 <span
-	data-slate-leaf="true"
+	data-slate-leaf={$$props['data-slate-leaf']}
 	class:bold={leaf.bold}
 	class:italic={leaf.italic}
 	class:code={leaf.code}
