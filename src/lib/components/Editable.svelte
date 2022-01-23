@@ -197,9 +197,11 @@
 			}
 		}
 	}
+	$: afterFlushOnDOMSelectionChange = () => tick().then(onDOMSelectionChange);
+	$: throttledOnDOMSelectionChange = throttle(100, afterFlushOnDOMSelectionChange, false);
 
 	function scheduleOnDOMSelectionChange() {
-		tick().then(onDOMSelectionChange);
+		throttledOnDOMSelectionChange();
 	}
 
 	onMount(() => {

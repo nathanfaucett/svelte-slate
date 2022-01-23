@@ -47,7 +47,6 @@
 <svelte:component this={Leaf} {leaf} data-slate-leaf="true"
 	>{#if PLACEHOLDER_SYMBOL in leaf}<svelte:component
 			this={Placeholder}
-			data-slate-placeholder
 			style="position: absolute; pointer-events: none; width: 100%; max-width: 100%; display: block; opacity: 0.333; user-select: none; text-decoration: none;"
 			contenteditable="false"
 			bind:clientHeight>{leaf['placeholder']}</svelte:component
