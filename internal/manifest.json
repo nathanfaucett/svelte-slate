@@ -1,6 +1,6 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-99af9af4.js",
+    "file": "start-89ea176c.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -49,41 +49,41 @@
     ]
   },
   "src/routes/huge-document.svelte": {
-    "file": "pages/huge-document.svelte-1fc8a229.js",
+    "file": "pages/huge-document.svelte-89650f9f.js",
     "src": "src/routes/huge-document.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-6bac273f.js",
-      "_withSvelte-35eef0af.js",
-      "_BlockButton-fdb3e306.js"
+      "_withSvelte-7f26ce6b.js",
+      "_BlockButton-4c1d00a9.js"
     ],
     "css": [
       "assets/pages/huge-document.svelte-f7d2f7b4.css"
     ]
   },
   "src/routes/richtext.svelte": {
-    "file": "pages/richtext.svelte-be211320.js",
+    "file": "pages/richtext.svelte-9e4329d0.js",
     "src": "src/routes/richtext.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-6bac273f.js",
-      "_withSvelte-35eef0af.js",
-      "_BlockButton-fdb3e306.js"
+      "_withSvelte-7f26ce6b.js",
+      "_BlockButton-4c1d00a9.js"
     ],
     "css": [
       "assets/pages/huge-document.svelte-f7d2f7b4.css"
     ]
   },
   "src/routes/default.svelte": {
-    "file": "pages/default.svelte-93d58955.js",
+    "file": "pages/default.svelte-40869525.js",
     "src": "src/routes/default.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-6bac273f.js",
-      "_withSvelte-35eef0af.js"
+      "_withSvelte-7f26ce6b.js"
     ]
   },
   "_vendor-6bac273f.js": {
@@ -95,8 +95,8 @@
   "_paths-4b3c6e7e.js": {
     "file": "chunks/paths-4b3c6e7e.js"
   },
-  "_withSvelte-35eef0af.js": {
-    "file": "chunks/withSvelte-35eef0af.js",
+  "_withSvelte-7f26ce6b.js": {
+    "file": "chunks/withSvelte-7f26ce6b.js",
     "imports": [
       "_vendor-6bac273f.js"
     ],
@@ -104,11 +104,11 @@
       "assets/withSvelte-f2676453.css"
     ]
   },
-  "_BlockButton-fdb3e306.js": {
-    "file": "chunks/BlockButton-fdb3e306.js",
+  "_BlockButton-4c1d00a9.js": {
+    "file": "chunks/BlockButton-4c1d00a9.js",
     "imports": [
       "_vendor-6bac273f.js",
-      "_withSvelte-35eef0af.js"
+      "_withSvelte-7f26ce6b.js"
     ],
     "css": [
       "assets/BlockButton-2f81bf0a.css"
