@@ -1,7 +1,7 @@
 # svelte slate
 
+[![examples](https://img.shields.io/badge/examples-blue.svg)](https://nathanfaucett.github.io/svelte-slate/)
 [![license](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue")](LICENSE-MIT)
-[![docs](https://img.shields.io/badge/docs-typescript-blue.svg)](https://nathanfaucett.github.io/svelte-slate/)
 [![npm (scoped)](https://img.shields.io/npm/v/svelte-slate)](https://www.npmjs.com/package/svelte-slate)
 [![build](https://github.com/nathanfaucett/svelte-slate/workflows/Web/badge.svg)](https://github.com/nathanfaucett/svelte-slate/actions/workflows/web.yml)
 

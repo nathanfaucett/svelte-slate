@@ -49,7 +49,6 @@
 	import { afterUpdate, SvelteComponent } from 'svelte';
 	import { onMount, tick } from 'svelte';
 	import { direction } from '../direction';
-	import { throttle } from 'throttle-debounce';
 	import Children from './Children.svelte';
 	import DefaultElement from './DefaultElement.svelte';
 	import DefaultLeaf from './DefaultLeaf.svelte';
@@ -198,10 +197,9 @@
 		}
 	}
 	$: afterFlushOnDOMSelectionChange = () => tick().then(onDOMSelectionChange);
-	$: throttledOnDOMSelectionChange = throttle(100, afterFlushOnDOMSelectionChange, false);
 
 	function scheduleOnDOMSelectionChange() {
-		throttledOnDOMSelectionChange();
+		afterFlushOnDOMSelectionChange();
 	}
 
 	onMount(() => {
@@ -304,9 +302,9 @@
 			domSelection.removeAllRanges();
 		}
 	}
-	$: throttledOnUpdate = throttle(0, onUpdate, false);
+	$: afterUpdateOnUpdate = () => tick().then(onUpdate);
 
-	afterUpdate(() => throttledOnUpdate());
+	afterUpdate(() => afterUpdateOnUpdate());
 
 	function onBeforeInput(event: InputEvent) {
 		if (!readOnly && hasEditableTarget(editor, event.target)) {
