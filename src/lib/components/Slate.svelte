@@ -5,6 +5,10 @@
 	export const DECORATE_CONTEXT_KEY = {};
 	const SELECTION_CONTEXT_KEY = {};
 
+	export type ISvelteComponent<T extends Record<string, any>> = new (
+		...args: any[]
+	) => SvelteComponentTyped<T>;
+
 	export function getEditorContext() {
 		const context = getContext<Writable<SvelteEditor>>(EDITOR_CONTEXT_KEY);
 		if (!context) {
@@ -63,7 +67,7 @@
 	import { EDITOR_TO_ON_CHANGE } from '../weakMaps';
 	import type { SvelteEditor } from '../withSvelte';
 	import type { Descendant, Range, Editor, NodeEntry, Selection } from 'slate';
-	import { setContext, getContext } from 'svelte';
+	import { setContext, getContext, SvelteComponentTyped } from 'svelte';
 	import { get, Writable } from 'svelte/store';
 	import { writable } from 'svelte/store';
 	import { isSelectionEqual } from '$lib/utils';

@@ -17,12 +17,14 @@
 	import { writable } from 'svelte/store';
 	import type { Ancestor, Element as SlateElement, Path, NodeEntry, Selection } from 'slate';
 	import { Range, Editor } from 'slate';
-	import { getContext, setContext, SvelteComponent } from 'svelte';
-	import ElementComponent from './Element.svelte';
+	import { getContext, setContext } from 'svelte';
+	import ElementComponent, { IElementProps } from './Element.svelte';
 	import { NODE_TO_INDEX, NODE_TO_PARENT } from '../weakMaps';
 	import { getChildDecorations } from './Children.svelte';
 	import { isDecoratorRangeListEqual, isSelectionEqual } from '$lib/utils';
+	import type { ISvelteComponent } from './Slate.svelte';
 	import { getEditor } from './Slate.svelte';
+	import type { ILeafProps, IPlaceholderProps } from './Leaf.svelte';
 
 	export let parent: Ancestor;
 	export let element: SlateElement;
@@ -31,9 +33,9 @@
 	export let decorate: (entry: NodeEntry) => Range[];
 	export let decorations: Range[];
 	export let selection: Selection = null;
-	export let Element: typeof SvelteComponent;
-	export let Leaf: typeof SvelteComponent;
-	export let Placeholder: typeof SvelteComponent;
+	export let Element: ISvelteComponent<IElementProps>;
+	export let Leaf: ISvelteComponent<ILeafProps>;
+	export let Placeholder: ISvelteComponent<IPlaceholderProps>;
 
 	const selectedContext = writable(false);
 	setContext(SELECTED_CONTEXT_KEY, selectedContext);

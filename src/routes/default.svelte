@@ -11,6 +11,14 @@
 	];
 </script>
 
+<p>
+	<a
+		target="_blank"
+		href="https://github.com/nathanfaucett/svelte-slate/blob/main/src/routes/default.svelte"
+		>Source</a
+	>
+</p>
+
 <Slate {editor} bind:value>
 	<Editable placeholder="Enter some plain text..." />
 </Slate>

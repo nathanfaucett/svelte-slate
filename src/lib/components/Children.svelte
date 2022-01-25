@@ -18,18 +18,20 @@
 <script lang="ts">
 	import type { Ancestor, Selection } from 'slate';
 	import { Element as SlateElement, Editor, Range } from 'slate';
-	import type { SvelteComponent } from 'svelte';
 	import { findKey, findPath } from '../utils';
+	import type { ISvelteComponent } from './Slate.svelte';
 	import { getDecorateContext, getEditor } from './Slate.svelte';
 	import ChildElement from './ChildElement.svelte';
 	import ChildText from './ChildText.svelte';
+	import type { IElementProps } from './Element.svelte';
+	import type { ILeafProps, IPlaceholderProps } from './Leaf.svelte';
 
 	export let node: Ancestor;
 	export let decorations: Range[];
 	export let selection: Selection = null;
-	export let Element: typeof SvelteComponent;
-	export let Leaf: typeof SvelteComponent;
-	export let Placeholder: typeof SvelteComponent;
+	export let Element: ISvelteComponent<IElementProps>;
+	export let Leaf: ISvelteComponent<ILeafProps>;
+	export let Placeholder: ISvelteComponent<IPlaceholderProps>;
 
 	const editor = getEditor();
 
@@ -37,8 +39,12 @@
 	$: decorate = $decorateContext;
 
 	let currentNode = node;
-	$: if (currentNode !== node || node === editor) {
+	$: if (currentNode !== node) {
 		currentNode = node;
+	}
+	let currentChildren = node.children;
+	$: if (currentChildren !== node.children) {
+		currentChildren = node.children;
 	}
 
 	$: path = findPath(currentNode);
@@ -48,7 +54,7 @@
 		Editor.hasInlines(editor, currentNode);
 </script>
 
-{#each currentNode.children as child, index (findKey(child))}{#if SlateElement.isElement(child)}<ChildElement
+{#each currentChildren as child, index (findKey(child))}{#if SlateElement.isElement(child)}<ChildElement
 			{Element}
 			{Placeholder}
 			{Leaf}

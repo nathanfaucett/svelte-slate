@@ -2,27 +2,26 @@
 
 <script lang="ts">
 	import type { Element } from 'slate';
-	import { getEditor } from './Slate.svelte';
 
 	export let element: Element;
 	export let ref: HTMLElement;
-	export let dir: 'rtl' | 'ltr';
-	export let contenteditable: boolean | undefined;
-
-	const editor = getEditor();
+	export let isInline: boolean;
+	export let isVoid: boolean;
+	export let contenteditable: boolean;
+	export let dir: 'rtl' | 'ltr' = undefined;
 </script>
 
-{#if editor.isInline(element)}<span
+{#if isInline}<span
 		bind:this={ref}
 		data-slate-node="element"
-		data-slate-inline="true"
-		data-slate-void={$$props['data-slate-void']}
+		data-slate-inline={isInline}
+		data-slate-void={isVoid}
 		{dir}
 		{contenteditable}><slot /></span
 	>{:else}<div
 		bind:this={ref}
 		data-slate-node="element"
-		data-slate-void={$$props['data-slate-void']}
+		data-slate-void={isVoid}
 		{dir}
 		{contenteditable}
 	>

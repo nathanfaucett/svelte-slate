@@ -1,3 +1,4 @@
+export type { ISvelteComponent } from './components/Slate.svelte';
 export {
 	default as Slate,
 	getEditor,

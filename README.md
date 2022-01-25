@@ -30,3 +30,7 @@ tries to mimic the react api from [slate-react](https://github.com/ianstormtaylo
 	<Editable placeholder="Enter some plain text..." />
 </Slate>
 ```
+
+## Custom Rendering
+
+Default components for elements, leafs, and placeholders are provider but can easily be overridden see [Element.svelte](src/example/Element.svelte) and [Leaf.svelte](src/example/Leaf.svelte) and then can be used in the editable component like `<Editable {Element} {Leaf} />`

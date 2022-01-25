@@ -2,12 +2,10 @@
 
 <script lang="ts" context="module">
 	export interface IElementProps extends svelte.JSX.HTMLAttributes<HTMLElement> {
-		ref?: HTMLDivElement;
+		ref?: HTMLElement;
 		element: SlateElement;
-		contenteditable?: boolean;
-		'data-slate-node': 'element';
-		'data-slate-inline'?: true;
-		'data-slate-void'?: true;
+		isVoid: boolean;
+		isInline: boolean;
 		dir?: 'rtl' | 'ltr';
 	}
 </script>
@@ -15,7 +13,6 @@
 <script lang="ts">
 	import { Editor, Node } from 'slate';
 	import type { Element as SlateElement, Range, Selection, Text as SlateText } from 'slate';
-	import type { SvelteComponent } from 'svelte';
 	import { onMount } from 'svelte';
 	import { direction } from '../direction';
 	import Children from './Children.svelte';
@@ -29,14 +26,16 @@
 		NODE_TO_INDEX,
 		NODE_TO_PARENT
 	} from '../weakMaps';
+	import type { ISvelteComponent } from './Slate.svelte';
 	import { getEditor, getReadOnlyContext } from './Slate.svelte';
+	import type { ILeafProps, IPlaceholderProps } from './Leaf.svelte';
 
 	export let element: SlateElement;
 	export let decorations: Range[];
 	export let selection: Selection = null;
-	export let Element: typeof SvelteComponent;
-	export let Leaf: typeof SvelteComponent;
-	export let Placeholder: typeof SvelteComponent;
+	export let Element: ISvelteComponent<IElementProps>;
+	export let Leaf: ISvelteComponent<ILeafProps>;
+	export let Placeholder: ISvelteComponent<IPlaceholderProps>;
 
 	const editor = getEditor();
 

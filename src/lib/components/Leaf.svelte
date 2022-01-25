@@ -2,26 +2,28 @@
 
 <script lang="ts" context="module">
 	export interface ILeafProps extends svelte.JSX.HTMLAttributes<HTMLElement> {
-		editor: SvelteEditor;
 		leaf: SlateText;
-		'data-slate-leaf': true;
+	}
+
+	export interface IPlaceholderProps extends svelte.JSX.HTMLAttributes<HTMLElement> {
+		clientHeight: number;
 	}
 </script>
 
 <script lang="ts">
 	import { CAN_USE_DOM } from '../environment';
 	import { PLACEHOLDER_SYMBOL } from '../weakMaps';
-	import type { SvelteEditor } from '../withSvelte';
 	import type { Text as SlateText, Element as SlateElement } from 'slate';
-	import { onDestroy, SvelteComponent } from 'svelte';
+	import { onDestroy } from 'svelte';
 	import String from './String.svelte';
+	import type { ISvelteComponent } from './Slate.svelte';
 
 	export let isLast: boolean;
 	export let leaf: SlateText;
 	export let parent: SlateElement;
 	export let text: SlateText;
-	export let Placeholder: typeof SvelteComponent;
-	export let Leaf: typeof SvelteComponent;
+	export let Leaf: ISvelteComponent<ILeafProps>;
+	export let Placeholder: ISvelteComponent<IPlaceholderProps>;
 
 	let clientHeight: number;
 	let prevClientHeight: number;
@@ -44,11 +46,8 @@
 	});
 </script>
 
-<svelte:component this={Leaf} {leaf} data-slate-leaf="true"
-	>{#if PLACEHOLDER_SYMBOL in leaf}<svelte:component
-			this={Placeholder}
-			style="position: absolute; pointer-events: none; width: 100%; max-width: 100%; display: block; opacity: 0.333; user-select: none; text-decoration: none;"
-			contenteditable="false"
-			bind:clientHeight>{leaf['placeholder']}</svelte:component
+<svelte:component this={Leaf} {leaf}
+	>{#if PLACEHOLDER_SYMBOL in leaf}<svelte:component this={Placeholder} bind:clientHeight
+			>{leaf['placeholder']}</svelte:component
 		>{/if}<String {isLast} {leaf} {parent} {text} /></svelte:component
 >

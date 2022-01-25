@@ -75,6 +75,14 @@
 	}
 </script>
 
+<p>
+	<a
+		target="_blank"
+		href="https://github.com/nathanfaucett/svelte-slate/blob/main/src/routes/richtext.svelte"
+		>Source</a
+	>
+</p>
+
 <Slate {editor} bind:value>
 	<div class="toolbar">
 		<MarkButton format="bold"><MdFormatBold /></MarkButton>

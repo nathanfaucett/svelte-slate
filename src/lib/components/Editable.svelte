@@ -46,13 +46,15 @@
 		Range,
 		Transforms
 	} from 'slate';
-	import { afterUpdate, SvelteComponent } from 'svelte';
+	import { afterUpdate } from 'svelte';
 	import { onMount, tick } from 'svelte';
+	import { throttle, debounce } from 'throttle-debounce';
 	import { direction } from '../direction';
 	import Children from './Children.svelte';
 	import DefaultElement from './DefaultElement.svelte';
 	import DefaultLeaf from './DefaultLeaf.svelte';
 	import DefaultPlaceholder from './DefaultPlaceholder.svelte';
+	import type { ISvelteComponent } from './Slate.svelte';
 	import {
 		defaultDecorate,
 		getDecorateContext,
@@ -96,10 +98,12 @@
 		NODE_TO_ELEMENT,
 		PLACEHOLDER_SYMBOL
 	} from '../weakMaps';
+	import type { IElementProps } from './Element.svelte';
+	import type { ILeafProps, IPlaceholderProps } from './Leaf.svelte';
 
-	export let Element: typeof SvelteComponent = DefaultElement;
-	export let Leaf: typeof SvelteComponent = DefaultLeaf;
-	export let Placeholder: typeof SvelteComponent = DefaultPlaceholder;
+	export let Element: ISvelteComponent<IElementProps> = DefaultElement;
+	export let Leaf: ISvelteComponent<ILeafProps> = DefaultLeaf;
+	export let Placeholder: ISvelteComponent<IPlaceholderProps> = DefaultPlaceholder;
 	export let placeholder: string | undefined;
 	export let readOnly = false;
 	export let autoFocus = false;
@@ -122,14 +126,16 @@
 	const state = {
 		isComposing: false,
 		hasInsertPrefixInCompositon: true,
-		isUpdatingSelection: null as number,
+		isUpdatingSelection: false,
 		isDraggingInternally: false,
-		latestElement: null as Element
+		latestElement: null as Element,
+		readOnly
 	};
 
 	$: decorations = decorate([editor, []]);
 	$: IS_READ_ONLY.set(editor, readOnly);
 	$: readOnlyContext.set(readOnly);
+	$: state.readOnly = readOnly;
 	$: decorateContext.set(decorate);
 
 	$: if (
@@ -197,9 +203,11 @@
 		}
 	}
 	$: afterFlushOnDOMSelectionChange = () => tick().then(onDOMSelectionChange);
+	$: throttledOnDOMSelectionChange = throttle(100, false, afterFlushOnDOMSelectionChange, false);
+	$: debouncedOnDOMSelectionChange = debounce(0, throttledOnDOMSelectionChange);
 
 	function scheduleOnDOMSelectionChange() {
-		afterFlushOnDOMSelectionChange();
+		debouncedOnDOMSelectionChange();
 	}
 
 	onMount(() => {
@@ -225,6 +233,8 @@
 	});
 
 	function onUpdate() {
+		console.log("UPDATE");
+	
 		const root = findDocumentOrShadowRoot(editor) as Document;
 		const domSelection = root?.getSelection();
 
@@ -267,17 +277,15 @@
 			return;
 		}
 
-		if (state.isUpdatingSelection) {
-			clearTimeout(state.isUpdatingSelection);
-		}
+		state.isUpdatingSelection = true;
 
-		state.isUpdatingSelection = setTimeout(() => {
+		setTimeout(() => {
 			if (newDomRange && IS_FIREFOX) {
 				const el = toDOMNode(editor, editor);
 				el.focus();
 			}
-			state.isUpdatingSelection = null;
-		}) as any;
+			state.isUpdatingSelection = false;
+		});
 
 		const newDomRange = selection && hasDomSelectionInEditor && toDOMRange(editor, selection);
 
@@ -298,16 +306,15 @@
 				);
 			}
 			scrollSelectionIntoView(editor, newDomRange);
-		} else {
-			domSelection.removeAllRanges();
 		}
 	}
-	$: afterUpdateOnUpdate = () => tick().then(onUpdate);
+	$: afterFlushOnUpdate = () => tick().then(onUpdate);
+	$: throttledOnUpdate = throttle(0, false, afterFlushOnUpdate, false);
 
-	afterUpdate(() => afterUpdateOnUpdate());
+	afterUpdate(() => throttledOnUpdate());
 
 	function onBeforeInput(event: InputEvent) {
-		if (!readOnly && hasEditableTarget(editor, event.target)) {
+		if (!state.readOnly && hasEditableTarget(editor, event.target)) {
 			const type = event.inputType;
 			const data = (event as any).dataTransfer || event.data || undefined;
 
@@ -466,7 +473,7 @@
 	}
 
 	function onKeyDownInternal(event: KeyboardEvent) {
-		if (!readOnly && !state.isComposing && hasEditableTarget(editor, event.target)) {
+		if (!state.readOnly && !state.isComposing && hasEditableTarget(editor, event.target)) {
 			const element = editor.children[selection !== null ? selection.focus.path[0] : 0];
 			const isRTL = direction(SlateNode.string(element)) === 'rtl';
 
@@ -617,7 +624,7 @@
 	}
 
 	function onFocus(event: FocusEvent) {
-		if (!readOnly && !state.isUpdatingSelection && hasEditableTarget(editor, event.target)) {
+		if (!state.readOnly && !state.isUpdatingSelection && hasEditableTarget(editor, event.target)) {
 			const el = toDOMNode(editor, editor);
 			const root = findDocumentOrShadowRoot(editor);
 
@@ -634,7 +641,7 @@
 	}
 
 	function onBlur(event: FocusEvent) {
-		if (readOnly || state.isUpdatingSelection || !hasEditableTarget(editor, event.target)) {
+		if (state.readOnly || state.isUpdatingSelection || !hasEditableTarget(editor, event.target)) {
 			return;
 		}
 
@@ -672,7 +679,7 @@
 	}
 
 	function onClick(event: Event) {
-		if (!readOnly && hasTarget(editor, event.target) && isDOMNode(event.target)) {
+		if (!state.readOnly && hasTarget(editor, event.target) && isDOMNode(event.target)) {
 			const node = toSlateNode(event.target);
 			const path = findPath(node);
 
@@ -768,7 +775,7 @@
 	}
 
 	function onPaste(event: ClipboardEvent) {
-		if (!readOnly && hasEditableTarget(editor, event.target)) {
+		if (!state.readOnly && hasEditableTarget(editor, event.target)) {
 			if (!HAS_BEFORE_INPUT_SUPPORT || isPlainTextOnlyPaste(event)) {
 				event.preventDefault();
 				editor.insertData(event.clipboardData);
@@ -784,7 +791,7 @@
 	}
 
 	function onCut(event: ClipboardEvent) {
-		if (!readOnly && hasEditableTarget(editor, event.target)) {
+		if (!state.readOnly && hasEditableTarget(editor, event.target)) {
 			event.preventDefault();
 			editor.setFragmentData((event as any).clipboardData);
 
@@ -812,7 +819,7 @@
 	}
 
 	function onDragStart(event: Event) {
-		if (!readOnly && hasTarget(editor, event.target)) {
+		if (!state.readOnly && hasTarget(editor, event.target)) {
 			const node = toSlateNode(event.target);
 			const path = findPath(node);
 			const voidMatch =
@@ -830,7 +837,7 @@
 	}
 
 	function onDrop(event: DragEvent) {
-		if (!readOnly && hasTarget(editor, event.target)) {
+		if (!state.readOnly && hasTarget(editor, event.target)) {
 			event.preventDefault();
 
 			const draggedRange = selection;
@@ -862,7 +869,7 @@
 	}
 
 	function onDragEnd(event: Event) {
-		if (!readOnly && state.isDraggingInternally && hasTarget(editor, event.target)) {
+		if (!state.readOnly && state.isDraggingInternally && hasTarget(editor, event.target)) {
 			state.isDraggingInternally = false;
 		}
 	}
