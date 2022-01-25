@@ -233,8 +233,6 @@
 	});
 
 	function onUpdate() {
-		console.log("UPDATE");
-	
 		const root = findDocumentOrShadowRoot(editor) as Document;
 		const domSelection = root?.getSelection();
 
