@@ -1,6 +1,6 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-8193a535.js",
+    "file": "start-02caaff3.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -17,7 +17,7 @@
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "pages/__layout.svelte-42a5cb68.js",
+    "file": "pages/__layout.svelte-0cb42689.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -49,41 +49,41 @@
     ]
   },
   "src/routes/huge-document.svelte": {
-    "file": "pages/huge-document.svelte-bcc118b2.js",
+    "file": "pages/huge-document.svelte-ecff7a21.js",
     "src": "src/routes/huge-document.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-665f2a6f.js",
-      "_withSvelte-e864d2e7.js",
-      "_BlockButton-9ef77623.js"
+      "_withSvelte-530726c3.js",
+      "_BlockButton-a9ac00d0.js"
     ],
     "css": [
       "assets/pages/huge-document.svelte-f7d2f7b4.css"
     ]
   },
   "src/routes/richtext.svelte": {
-    "file": "pages/richtext.svelte-700fba18.js",
+    "file": "pages/richtext.svelte-d56d4514.js",
     "src": "src/routes/richtext.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-665f2a6f.js",
-      "_withSvelte-e864d2e7.js",
-      "_BlockButton-9ef77623.js"
+      "_withSvelte-530726c3.js",
+      "_BlockButton-a9ac00d0.js"
     ],
     "css": [
       "assets/pages/huge-document.svelte-f7d2f7b4.css"
     ]
   },
   "src/routes/default.svelte": {
-    "file": "pages/default.svelte-6d74c8f3.js",
+    "file": "pages/default.svelte-c3b60362.js",
     "src": "src/routes/default.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-665f2a6f.js",
-      "_withSvelte-e864d2e7.js"
+      "_withSvelte-530726c3.js"
     ]
   },
   "_vendor-665f2a6f.js": {
@@ -95,8 +95,8 @@
   "_paths-4b3c6e7e.js": {
     "file": "chunks/paths-4b3c6e7e.js"
   },
-  "_withSvelte-e864d2e7.js": {
-    "file": "chunks/withSvelte-e864d2e7.js",
+  "_withSvelte-530726c3.js": {
+    "file": "chunks/withSvelte-530726c3.js",
     "imports": [
       "_vendor-665f2a6f.js"
     ],
@@ -104,11 +104,11 @@
       "assets/withSvelte-3b6a31a3.css"
     ]
   },
-  "_BlockButton-9ef77623.js": {
-    "file": "chunks/BlockButton-9ef77623.js",
+  "_BlockButton-a9ac00d0.js": {
+    "file": "chunks/BlockButton-a9ac00d0.js",
     "imports": [
       "_vendor-665f2a6f.js",
-      "_withSvelte-e864d2e7.js"
+      "_withSvelte-530726c3.js"
     ],
     "css": [
       "assets/BlockButton-2f81bf0a.css"
