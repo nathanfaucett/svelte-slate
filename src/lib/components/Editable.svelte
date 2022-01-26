@@ -46,7 +46,7 @@
 	} from 'slate';
 	import { afterUpdate } from 'svelte';
 	import { onMount, tick } from 'svelte';
-	import { debounce } from 'throttle-debounce';
+	import { debounce, throttle } from 'throttle-debounce';
 	import scrollIntoView from 'scroll-into-view-if-needed';
 	import { direction } from '../direction';
 	import Children from './Children.svelte';
@@ -204,7 +204,8 @@
 		}
 	}
 	$: afterFlushOnDOMSelectionChange = () => tick().then(onDOMSelectionChange);
-	$: debouncedOnDOMSelectionChange = debounce(0, afterFlushOnDOMSelectionChange);
+	$: throttledOnDOMSelectionChange = throttle(100, false, afterFlushOnDOMSelectionChange, false);
+	$: debouncedOnDOMSelectionChange = debounce(0, throttledOnDOMSelectionChange);
 
 	function scheduleOnDOMSelectionChange() {
 		debouncedOnDOMSelectionChange();
