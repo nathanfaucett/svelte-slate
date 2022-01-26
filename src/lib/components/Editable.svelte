@@ -1,6 +1,4 @@
 <script lang="ts" context="module">
-	import scrollIntoView from 'scroll-into-view-if-needed';
-
 	type DeferredOperation = () => void;
 
 	export function hasTarget(editor: SvelteEditor, target: EventTarget | null): target is Node {
@@ -48,7 +46,8 @@
 	} from 'slate';
 	import { afterUpdate } from 'svelte';
 	import { onMount, tick } from 'svelte';
-	import { throttle, debounce } from 'throttle-debounce';
+	import { debounce } from 'throttle-debounce';
+	import scrollIntoView from 'scroll-into-view-if-needed';
 	import { direction } from '../direction';
 	import Children from './Children.svelte';
 	import DefaultElement from './DefaultElement.svelte';
@@ -126,7 +125,7 @@
 	const state = {
 		isComposing: false,
 		hasInsertPrefixInCompositon: true,
-		isUpdatingSelection: false,
+		isUpdatingSelection: null as number,
 		isDraggingInternally: false,
 		latestElement: null as Element,
 		readOnly
@@ -198,13 +197,14 @@
 					exactMatch: false,
 					suppressThrow: true
 				});
-				Transforms.select(editor, range);
+				if (range) {
+					Transforms.select(editor, range);
+				}
 			}
 		}
 	}
 	$: afterFlushOnDOMSelectionChange = () => tick().then(onDOMSelectionChange);
-	$: throttledOnDOMSelectionChange = throttle(100, false, afterFlushOnDOMSelectionChange, false);
-	$: debouncedOnDOMSelectionChange = debounce(0, throttledOnDOMSelectionChange);
+	$: debouncedOnDOMSelectionChange = debounce(0, afterFlushOnDOMSelectionChange);
 
 	function scheduleOnDOMSelectionChange() {
 		debouncedOnDOMSelectionChange();
@@ -270,19 +270,25 @@
 				exactMatch: false,
 				suppressThrow: false
 			});
-			selection = editor.selection;
-			selectionContext.set(selection);
+			selectionContext.set(editor.selection);
 			return;
 		}
 
-		state.isUpdatingSelection = true;
-
-		setTimeout(() => {
+		if (state.isUpdatingSelection) {
+			clearTimeout(state.isUpdatingSelection);
+		}
+		let timeoutId: number = setTimeout(() => {
 			if (newDomRange && IS_FIREFOX) {
 				const el = toDOMNode(editor, editor);
 				el.focus();
 			}
-			state.isUpdatingSelection = false;
+			Object.assign(state, {
+				isUpdatingSelection: null
+			});
+		}) as any;
+
+		Object.assign(state, {
+			isUpdatingSelection: timeoutId
 		});
 
 		const newDomRange = selection && hasDomSelectionInEditor && toDOMRange(editor, selection);
@@ -307,9 +313,8 @@
 		}
 	}
 	$: afterFlushOnUpdate = () => tick().then(onUpdate);
-	$: throttledOnUpdate = throttle(0, false, afterFlushOnUpdate, false);
 
-	afterUpdate(() => throttledOnUpdate());
+	afterUpdate(() => afterFlushOnUpdate());
 
 	function onBeforeInput(event: InputEvent) {
 		if (!state.readOnly && hasEditableTarget(editor, event.target)) {

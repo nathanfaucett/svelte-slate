@@ -89,14 +89,7 @@
 	});
 </script>
 
-<svelte:component
-	this={Element}
-	bind:ref
-	data-slate-void={isVoid}
-	data-slate-inline={isInline}
-	{contenteditable}
-	{element}
-	{dir}
+<svelte:component this={Element} bind:ref {isVoid} {isInline} {contenteditable} {element} {dir}
 	>{#if isVoid}{#if isInline}<span data-slate-spacer
 				><svelte:component
 					this={Text}

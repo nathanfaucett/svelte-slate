@@ -1,17 +1,22 @@
 <svelte:options immutable={true} />
 
 <script lang="ts" context="module">
-	import type { IText } from './Leaf.svelte';
-
 	export interface IBaseElement {
 		type: string;
 		children: (IElement | IText)[];
 	}
 
-	export type IElement = IBaseElement;
+	export type IElement = IBaseElement | IImageElement | ICheckListItemElement;
 </script>
 
 <script lang="ts">
+	import type { IImageElement } from './ImageElement.svelte';
+	import { isImageElement } from './ImageElement.svelte';
+	import type { IText } from './Leaf.svelte';
+	import ImageElement from './ImageElement.svelte';
+	import type { ICheckListItemElement } from './CheckListItemElement.svelte';
+	import CheckListItemElement, { isCheckListItemElement } from './CheckListItemElement.svelte';
+
 	export let element: IElement;
 	export let ref: HTMLElement;
 	export let isInline: boolean;
@@ -74,7 +79,21 @@
 		{contenteditable}
 	>
 		<slot />
-	</ol>{:else}<p
+	</ol>{:else if isImageElement(element)}<ImageElement
+		bind:ref
+		{element}
+		{isInline}
+		{isVoid}
+		{dir}
+		{contenteditable}><slot /></ImageElement
+	>{:else if isCheckListItemElement(element)}<CheckListItemElement
+		bind:ref
+		{element}
+		{isInline}
+		{isVoid}
+		{dir}
+		{contenteditable}><slot /></CheckListItemElement
+	>{:else}<p
 		bind:this={ref}
 		data-slate-node="element"
 		data-slate-inline={isInline}

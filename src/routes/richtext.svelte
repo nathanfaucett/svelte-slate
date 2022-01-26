@@ -9,12 +9,16 @@
 
 <script lang="ts">
 	import { Slate, Editable, withSvelte, isHotkey } from 'svelte-slate';
-	import { createEditor } from 'slate';
+	import { BaseRange, createEditor } from 'slate';
 	import { withHistory } from 'slate-history';
 	import type { IElement } from '../example/Element.svelte';
 	import type { IText } from '../example/Leaf.svelte';
 	import Element from '../example/Element.svelte';
 	import Leaf from '../example/Leaf.svelte';
+	import { withCheckListItems } from '../example/CheckListItemElement.svelte';
+	import CheckListItemButton from '../example/CheckListItemButton.svelte';
+	import { withImages } from '../example/ImageElement.svelte';
+	import ImageButton from '../example/ImageButton.svelte';
 	import MarkButton from '../example/MarkButton.svelte';
 	import BlockButton from '../example/BlockButton.svelte';
 	import { toggleMark } from '../example/utils';
@@ -28,7 +32,7 @@
 	import MdFormatListBulleted from 'svelte-icons/md/MdFormatListBulleted.svelte';
 	import MdFormatQuote from 'svelte-icons/md/MdFormatQuote.svelte';
 
-	const editor = withHistory(withSvelte(createEditor()));
+	const editor = withHistory(withImages(withCheckListItems(withSvelte(createEditor()))));
 	let value: Array<IText | IElement> = [
 		{
 			type: 'paragraph',
@@ -59,20 +63,36 @@
 			children: [{ text: 'A wise quote.' }]
 		},
 		{
+			type: 'image',
+			url: 'https://source.unsplash.com/kFrdX5IeQzI',
+			children: [{ text: '' }]
+		},
+		{
 			type: 'paragraph',
 			children: [{ text: 'Try it out for yourself!' }]
+		},
+		{
+			type: 'check-list-item',
+			checked: true,
+			children: [{ text: 'Checked list item' }]
+		},
+		{
+			type: 'check-list-item',
+			checked: false,
+			children: [{ text: 'Todo' }]
 		}
 	];
+	let selection: BaseRange = null;
 
-	function onKeyDown(event: KeyboardEvent) {
+	$: onKeyDown = (event: KeyboardEvent) => {
 		for (const hotkey in HOTKEYS) {
 			if (isHotkey(hotkey, event)) {
 				event.preventDefault();
 				const mark = HOTKEYS[hotkey];
-				toggleMark(editor, mark);
+				toggleMark(editor, selection, mark);
 			}
 		}
-	}
+	};
 </script>
 
 <p>
@@ -83,7 +103,7 @@
 	>
 </p>
 
-<Slate {editor} bind:value>
+<Slate {editor} bind:value bind:selection>
 	<div class="toolbar">
 		<MarkButton format="bold"><MdFormatBold /></MarkButton>
 		<MarkButton format="italic"><MdFormatItalic /></MarkButton>
@@ -94,6 +114,8 @@
 		<BlockButton format="block-quote"><MdFormatQuote /></BlockButton>
 		<BlockButton format="numbered-list"><MdFormatListNumbered /></BlockButton>
 		<BlockButton format="bulleted-list"><MdFormatListBulleted /></BlockButton>
+		<ImageButton />
+		<CheckListItemButton />
 	</div>
 	<div class="editor">
 		<Editable {Element} {Leaf} {onKeyDown} placeholder="Enter some plain text..." />

@@ -1,8 +1,8 @@
 <svelte:options immutable={true} />
 
 <script lang="ts">
-	export let active: boolean;
-	export let onMouseDown: (event: MouseEvent) => void;
+	export let active = false;
+	export let onMouseDown: (event: MouseEvent) => void = () => undefined;
 </script>
 
 <button class:active on:mousedown={onMouseDown}>
