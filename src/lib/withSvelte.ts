@@ -6,16 +6,16 @@ import { isDOMText, getPlainText, getSlateFragmentAttribute } from './dom';
 import { findCurrentLineRange } from './lines';
 import { findKey, toDOMNode, toDOMRange } from './utils';
 
-export interface SvelteEditor extends BaseEditor {
+export interface ISvelteEditor extends BaseEditor {
 	insertData: (data: DataTransfer) => void;
 	insertFragmentData: (data: DataTransfer) => boolean;
 	insertTextData: (data: DataTransfer) => boolean;
 	setFragmentData: (data: DataTransfer) => void;
-	hasRange: (editor: SvelteEditor, range: Range) => boolean;
+	hasRange: (editor: ISvelteEditor, range: Range) => boolean;
 }
 
-export function withSvelte<T extends Editor>(editor: T): T & SvelteEditor {
-	const e = editor as T & SvelteEditor;
+export function withSvelte<T extends Editor>(editor: T): T & ISvelteEditor {
+	const e = editor as T & ISvelteEditor;
 	const { apply, onChange, deleteBackward } = e;
 
 	EDITOR_TO_KEY_TO_ELEMENT.set(e, new WeakMap());

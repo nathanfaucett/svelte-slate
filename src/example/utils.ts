@@ -1,16 +1,12 @@
-import type { BaseRange } from 'slate';
 import { Editor, Transforms, Element as SlateElement } from 'slate';
 
-export function isMarkActive(editor: Editor, selection: BaseRange | null, format: string): boolean {
-	if (!selection) {
-		return false;
-	}
+export function isMarkActive(editor: Editor, format: string): boolean {
 	const marks = Editor.marks(editor);
 	return marks ? marks[format] === true : false;
 }
 
-export function toggleMark(editor: Editor, selection: BaseRange | null, format: string) {
-	const isActive = isMarkActive(editor, selection, format);
+export function toggleMark(editor: Editor, format: string) {
+	const isActive = isMarkActive(editor, format);
 
 	if (isActive) {
 		Editor.removeMark(editor, format);
@@ -19,12 +15,8 @@ export function toggleMark(editor: Editor, selection: BaseRange | null, format: 
 	}
 }
 
-export function isBlockActive(
-	editor: Editor,
-	selection: BaseRange | null,
-	format: string
-): boolean {
-	if (!selection) {
+export function isBlockActive(editor: Editor, format: string): boolean {
+	if (!editor.selection) {
 		return false;
 	}
 
@@ -40,8 +32,8 @@ export function isBlockActive(
 
 const LIST_TYPES = ['numbered-list', 'bulleted-list'];
 
-export function toggleBlock(editor: Editor, selection: BaseRange | null, format: string) {
-	const isActive = isBlockActive(editor, selection, format);
+export function toggleBlock(editor: Editor, format: string) {
+	const isActive = isBlockActive(editor, format);
 	const isList = LIST_TYPES.includes(format);
 
 	Transforms.unwrapNodes(editor, {

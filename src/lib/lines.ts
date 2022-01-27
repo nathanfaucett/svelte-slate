@@ -1,19 +1,19 @@
 import { Range, Editor } from 'slate';
 import { toDOMRange } from './utils';
-import type { SvelteEditor } from './withSvelte';
+import type { ISvelteEditor } from './withSvelte';
 
 function doRectsIntersect(rect: DOMRect, compareRect: DOMRect) {
 	const middle = (compareRect.top + compareRect.bottom) / 2;
 	return rect.top <= middle && rect.bottom >= middle;
 }
 
-function areRangesSameLine(editor: SvelteEditor, range1: Range, range2: Range) {
+function areRangesSameLine(editor: ISvelteEditor, range1: Range, range2: Range) {
 	const rect1 = toDOMRange(editor, range1).getBoundingClientRect();
 	const rect2 = toDOMRange(editor, range2).getBoundingClientRect();
 	return doRectsIntersect(rect1, rect2) && doRectsIntersect(rect2, rect1);
 }
 
-export function findCurrentLineRange(editor: SvelteEditor, parentRange: Range): Range {
+export function findCurrentLineRange(editor: ISvelteEditor, parentRange: Range): Range {
 	const parentRangeBoundary = Editor.range(editor, Range.end(parentRange));
 	const positions = Array.from(Editor.positions(editor, { at: parentRange }));
 

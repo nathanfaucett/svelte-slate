@@ -1,19 +1,19 @@
 <script lang="ts" context="module">
 	type DeferredOperation = () => void;
 
-	export function hasTarget(editor: SvelteEditor, target: EventTarget | null): target is Node {
+	export function hasTarget(editor: ISvelteEditor, target: EventTarget | null): target is Node {
 		return isDOMNode(target) && hasDOMNode(editor, target);
 	}
 
 	export function hasEditableTarget(
-		editor: SvelteEditor,
+		editor: ISvelteEditor,
 		target: EventTarget | null
 	): target is DOMNode {
 		return isDOMNode(target) && hasDOMNode(editor, target, { editable: true });
 	}
 
 	export function isTargetInsideNonReadonlyVoid(
-		editor: SvelteEditor,
+		editor: ISvelteEditor,
 		target: EventTarget | null
 	): boolean {
 		if (IS_READ_ONLY.get(editor)) {
@@ -53,7 +53,7 @@
 	import DefaultElement from './DefaultElement.svelte';
 	import DefaultLeaf from './DefaultLeaf.svelte';
 	import DefaultPlaceholder from './DefaultPlaceholder.svelte';
-	import type { ISvelteComponent } from './Slate.svelte';
+	import { getEditor, ISvelteComponent } from './Slate.svelte';
 	import {
 		defaultDecorate,
 		getDecorateContext,
@@ -87,7 +87,7 @@
 		toSlateNode,
 		toSlateRange
 	} from '../utils';
-	import type { SvelteEditor } from '../withSvelte';
+	import type { ISvelteEditor } from '../withSvelte';
 	import {
 		EDITOR_TO_ELEMENT,
 		EDITOR_TO_WINDOW,
@@ -103,7 +103,7 @@
 	export let Element: ISvelteComponent<IElementProps> = DefaultElement;
 	export let Leaf: ISvelteComponent<ILeafProps> = DefaultLeaf;
 	export let Placeholder: ISvelteComponent<IPlaceholderProps> = DefaultPlaceholder;
-	export let placeholder: string | undefined;
+	export let placeholder: string = undefined;
 	export let readOnly = false;
 	export let autoFocus = false;
 	export let decorate = defaultDecorate;
@@ -114,14 +114,13 @@
 	export let autocapitalize: string = 'true';
 	export let onKeyDown: (event: KeyboardEvent) => void | false = () => undefined;
 
+	const editor = getEditor();
 	const editorContext = getEditorContext();
 	const readOnlyContext = getReadOnlyContext();
 	const focusedContext = getFocusedContext();
 	const decorateContext = getDecorateContext();
 	const selectionContext = getSelectionContext();
-	$: editor = $editorContext;
-	$: selection = $selectionContext;
-
+	const deferredOperations: DeferredOperation[] = [];
 	const state = {
 		isComposing: false,
 		hasInsertPrefixInCompositon: true,
@@ -138,9 +137,9 @@
 	$: decorateContext.set(decorate);
 
 	$: if (
-		editor.children.length === 1 &&
-		Array.from(SlateNode.texts(editor)).length === 1 &&
-		SlateNode.string(editor) === '' &&
+		$editorContext.children.length === 1 &&
+		Array.from(SlateNode.texts($editorContext)).length === 1 &&
+		SlateNode.string($editorContext) === '' &&
 		!state.isComposing
 	) {
 		const start = Editor.start(editor, []);
@@ -155,7 +154,6 @@
 		];
 	}
 
-	let deferredOperations: DeferredOperation[] = [];
 	let prevAutoFocus: boolean;
 	$: if (prevAutoFocus !== autoFocus && ref) {
 		if (autoFocus) {
@@ -184,13 +182,13 @@
 				return;
 			}
 
-			const { anchorNode, focusNode } = domSelection;
-
 			const anchorNodeSelectable =
-				hasEditableTarget(editor, anchorNode) || isTargetInsideNonReadonlyVoid(editor, anchorNode);
+				hasEditableTarget(editor, domSelection.anchorNode) ||
+				isTargetInsideNonReadonlyVoid(editor, domSelection.anchorNode);
 
 			const focusNodeSelectable =
-				hasEditableTarget(editor, focusNode) || isTargetInsideNonReadonlyVoid(editor, focusNode);
+				hasEditableTarget(editor, domSelection.focusNode) ||
+				isTargetInsideNonReadonlyVoid(editor, domSelection.focusNode);
 
 			if (anchorNodeSelectable && focusNodeSelectable) {
 				const range = toSlateRange(editor, domSelection, {
@@ -200,22 +198,20 @@
 				if (range) {
 					Transforms.select(editor, range);
 				}
+			} else {
+				Transforms.deselect(editor);
 			}
 		}
 	}
-	$: afterFlushOnDOMSelectionChange = () => tick().then(onDOMSelectionChange);
-	$: throttledOnDOMSelectionChange = throttle(100, false, afterFlushOnDOMSelectionChange, false);
-	$: debouncedOnDOMSelectionChange = debounce(0, throttledOnDOMSelectionChange);
-
-	function scheduleOnDOMSelectionChange() {
-		debouncedOnDOMSelectionChange();
-	}
+	const afterFlushOnDOMSelectionChange = () => tick().then(onDOMSelectionChange);
+	const throttledOnDOMSelectionChange = throttle(100, false, afterFlushOnDOMSelectionChange, false);
+	const debouncedOnDOMSelectionChange = debounce(0, throttledOnDOMSelectionChange);
 
 	onMount(() => {
 		const window = getDefaultView(ref);
 		if (window) {
 			EDITOR_TO_WINDOW.set(editor, window);
-			window.document.addEventListener('selectionchange', scheduleOnDOMSelectionChange);
+			window.document.addEventListener('selectionchange', debouncedOnDOMSelectionChange);
 		}
 
 		EDITOR_TO_ELEMENT.set(editor, ref);
@@ -228,7 +224,7 @@
 
 			if (window) {
 				EDITOR_TO_WINDOW.delete(editor);
-				window.document.removeEventListener('selectionchange', scheduleOnDOMSelectionChange);
+				window.document.removeEventListener('selectionchange', debouncedOnDOMSelectionChange);
 			}
 		};
 	});
@@ -256,17 +252,17 @@
 			hasDomSelectionInEditor = true;
 		}
 
-		if (hasDomSelection && hasDomSelectionInEditor && selection) {
+		if (hasDomSelection && hasDomSelectionInEditor && editor.selection) {
 			const slateRange = toSlateRange(editor, domSelection, {
 				exactMatch: true,
 				suppressThrow: true
 			});
-			if (slateRange && Range.equals(slateRange, selection)) {
+			if (slateRange && Range.equals(slateRange, editor.selection)) {
 				return;
 			}
 		}
 
-		if (selection && !hasRange(editor, selection)) {
+		if (editor.selection && !hasRange(editor, editor.selection)) {
 			editor.selection = toSlateRange(editor, domSelection, {
 				exactMatch: false,
 				suppressThrow: false
@@ -292,10 +288,11 @@
 			isUpdatingSelection: timeoutId
 		});
 
-		const newDomRange = selection && hasDomSelectionInEditor && toDOMRange(editor, selection);
+		const newDomRange =
+			editor.selection && hasDomSelectionInEditor && toDOMRange(editor, editor.selection);
 
 		if (newDomRange) {
-			if (Range.isBackward(selection!)) {
+			if (Range.isBackward(editor.selection!)) {
 				domSelection.setBaseAndExtent(
 					newDomRange.endContainer,
 					newDomRange.endOffset,
@@ -311,11 +308,11 @@
 				);
 			}
 			scrollSelectionIntoView(editor, newDomRange);
+		} else {
+			domSelection.removeAllRanges();
 		}
 	}
-	$: afterFlushOnUpdate = () => tick().then(onUpdate);
-
-	afterUpdate(() => afterFlushOnUpdate());
+	afterUpdate(() => tick().then(onUpdate));
 
 	function onBeforeInput(event: InputEvent) {
 		if (!state.readOnly && hasEditableTarget(editor, event.target)) {
@@ -329,12 +326,12 @@
 			let native = false;
 			if (
 				type === 'insertText' &&
-				selection &&
-				Range.isCollapsed(selection) &&
+				editor.selection &&
+				Range.isCollapsed(editor.selection) &&
 				event.data &&
 				event.data.length === 1 &&
 				/[a-z ]/i.test(event.data) &&
-				selection.anchor.offset !== 0
+				editor.selection.anchor.offset !== 0
 			) {
 				native = true;
 
@@ -343,14 +340,14 @@
 				}
 
 				const inline = Editor.above(editor, {
-					at: selection.anchor,
+					at: editor.selection.anchor,
 					match: (n) => Editor.isInline(editor, n),
 					mode: 'highest'
 				});
 				if (inline) {
 					const [, inlinePath] = inline;
 
-					if (Editor.isEnd(editor, selection.anchor, inlinePath)) {
+					if (Editor.isEnd(editor, editor.selection.anchor, inlinePath)) {
 						native = false;
 					}
 				}
@@ -369,13 +366,13 @@
 						suppressThrow: false
 					});
 
-					if (!selection || !Range.equals(selection, range)) {
+					if (!editor.selection || !Range.equals(editor.selection, range)) {
 						Transforms.select(editor, range);
 					}
 				}
 			}
 
-			if (selection && Range.isExpanded(selection) && type.startsWith('delete')) {
+			if (editor.selection && Range.isExpanded(editor.selection) && type.startsWith('delete')) {
 				const direction = type.endsWith('Backward') ? 'backward' : 'forward';
 				Editor.deleteFragment(editor, { direction });
 				return;
@@ -478,7 +475,8 @@
 
 	function onKeyDownInternal(event: KeyboardEvent) {
 		if (!state.readOnly && !state.isComposing && hasEditableTarget(editor, event.target)) {
-			const element = editor.children[selection !== null ? selection.focus.path[0] : 0];
+			const element =
+				editor.children[editor.selection !== null ? editor.selection.focus.path[0] : 0];
 			const isRTL = direction(SlateNode.string(element)) === 'rtl';
 
 			if (hotkeys.isRedo(event)) {
@@ -514,7 +512,7 @@
 			} else if (hotkeys.isMoveBackward(event)) {
 				event.preventDefault();
 
-				if (selection && Range.isCollapsed(selection)) {
+				if (editor.selection && Range.isCollapsed(editor.selection)) {
 					Transforms.move(editor, { reverse: !isRTL });
 				} else {
 					Transforms.collapse(editor, { edge: 'start' });
@@ -522,7 +520,7 @@
 			} else if (hotkeys.isMoveForward(event)) {
 				event.preventDefault();
 
-				if (selection && Range.isCollapsed(selection)) {
+				if (editor.selection && Range.isCollapsed(editor.selection)) {
 					Transforms.move(editor, { reverse: isRTL });
 				} else {
 					Transforms.collapse(editor, { edge: 'end' });
@@ -530,7 +528,7 @@
 			} else if (hotkeys.isMoveWordBackward(event)) {
 				event.preventDefault();
 
-				if (selection && Range.isExpanded(selection)) {
+				if (editor.selection && Range.isExpanded(editor.selection)) {
 					Transforms.collapse(editor, { edge: 'focus' });
 				}
 
@@ -538,7 +536,7 @@
 			} else if (hotkeys.isMoveWordForward(event)) {
 				event.preventDefault();
 
-				if (selection && Range.isExpanded(selection)) {
+				if (editor.selection && Range.isExpanded(editor.selection)) {
 					Transforms.collapse(editor, { edge: 'focus' });
 				}
 
@@ -556,7 +554,7 @@
 				} else if (hotkeys.isDeleteBackward(event)) {
 					event.preventDefault();
 
-					if (selection && Range.isExpanded(selection)) {
+					if (editor.selection && Range.isExpanded(editor.selection)) {
 						Editor.deleteFragment(editor, { direction: 'backward' });
 					} else {
 						Editor.deleteBackward(editor);
@@ -564,7 +562,7 @@
 				} else if (hotkeys.isDeleteForward(event)) {
 					event.preventDefault();
 
-					if (selection && Range.isExpanded(selection)) {
+					if (editor.selection && Range.isExpanded(editor.selection)) {
 						Editor.deleteFragment(editor, { direction: 'forward' });
 					} else {
 						Editor.deleteForward(editor);
@@ -572,7 +570,7 @@
 				} else if (hotkeys.isDeleteLineBackward(event)) {
 					event.preventDefault();
 
-					if (selection && Range.isExpanded(selection)) {
+					if (editor.selection && Range.isExpanded(editor.selection)) {
 						Editor.deleteFragment(editor, { direction: 'backward' });
 					} else {
 						Editor.deleteBackward(editor, { unit: 'line' });
@@ -580,7 +578,7 @@
 				} else if (hotkeys.isDeleteLineForward(event)) {
 					event.preventDefault();
 
-					if (selection && Range.isExpanded(selection)) {
+					if (editor.selection && Range.isExpanded(editor.selection)) {
 						Editor.deleteFragment(editor, { direction: 'forward' });
 					} else {
 						Editor.deleteForward(editor, { unit: 'line' });
@@ -588,7 +586,7 @@
 				} else if (hotkeys.isDeleteWordBackward(event)) {
 					event.preventDefault();
 
-					if (selection && Range.isExpanded(selection)) {
+					if (editor.selection && Range.isExpanded(editor.selection)) {
 						Editor.deleteFragment(editor, { direction: 'backward' });
 					} else {
 						Editor.deleteBackward(editor, { unit: 'word' });
@@ -596,7 +594,7 @@
 				} else if (hotkeys.isDeleteWordForward(event)) {
 					event.preventDefault();
 
-					if (selection && Range.isExpanded(selection)) {
+					if (editor.selection && Range.isExpanded(editor.selection)) {
 						Editor.deleteFragment(editor, { direction: 'forward' });
 					} else {
 						Editor.deleteForward(editor, { unit: 'word' });
@@ -605,11 +603,11 @@
 			} else {
 				if (IS_CHROME || IS_SAFARI) {
 					if (
-						selection &&
+						editor.selection &&
 						(hotkeys.isDeleteBackward(event) || hotkeys.isDeleteForward(event)) &&
-						Range.isCollapsed(selection)
+						Range.isCollapsed(editor.selection)
 					) {
-						const currentNode = SlateNode.parent(editor, selection.anchor.path);
+						const currentNode = SlateNode.parent(editor, editor.selection.anchor.path);
 
 						if (
 							SlateElement.isElement(currentNode) &&
@@ -715,8 +713,8 @@
 				Editor.insertText(editor, eventData);
 			}
 
-			if (selection && Range.isCollapsed(selection)) {
-				const leafPath = selection.anchor.path;
+			if (editor.selection && Range.isCollapsed(editor.selection)) {
+				const leafPath = editor.selection.anchor.path;
 				const currentTextNode = SlateNode.leaf(editor, leafPath);
 				if (state.hasInsertPrefixInCompositon) {
 					state.hasInsertPrefixInCompositon = false;
@@ -741,9 +739,8 @@
 
 	function onCompositionStart(event: Event) {
 		if (hasEditableTarget(editor, event.target)) {
-			const { selection, marks } = editor;
-			if (selection) {
-				if (Range.isExpanded(selection)) {
+			if (editor.selection) {
+				if (Range.isExpanded(editor.selection)) {
 					Editor.deleteFragment(editor);
 					return;
 				}
@@ -753,7 +750,7 @@
 				});
 				if (inline) {
 					const [, inlinePath] = inline;
-					if (Editor.isEnd(editor, selection.anchor, inlinePath)) {
+					if (Editor.isEnd(editor, editor.selection.anchor, inlinePath)) {
 						const point = Editor.after(editor, inlinePath)!;
 						Transforms.setSelection(editor, {
 							anchor: point,
@@ -761,13 +758,13 @@
 						});
 					}
 				}
-				if (marks) {
+				if (editor.marks) {
 					state.hasInsertPrefixInCompositon = true;
 					Transforms.insertNodes(
 						editor,
 						{
 							text: '\uFEFF',
-							...marks
+							...editor.marks
 						},
 						{
 							select: true
@@ -799,11 +796,11 @@
 			event.preventDefault();
 			editor.setFragmentData((event as any).clipboardData);
 
-			if (selection) {
-				if (Range.isExpanded(selection)) {
+			if (editor.selection) {
+				if (Range.isExpanded(editor.selection)) {
 					Editor.deleteFragment(editor);
 				} else {
-					const node = SlateNode.parent(editor, selection.anchor.path);
+					const node = SlateNode.parent(editor, editor.selection.anchor.path);
 					if (Editor.isVoid(editor, node)) {
 						Transforms.delete(editor);
 					}
@@ -844,7 +841,7 @@
 		if (!state.readOnly && hasTarget(editor, event.target)) {
 			event.preventDefault();
 
-			const draggedRange = selection;
+			const draggedRange = editor.selection;
 			const range = findEventRange(editor, event);
 			const data = (event as any).dataTransfer;
 
@@ -882,13 +879,13 @@
 <div
 	{...$$restProps}
 	bind:this={ref}
-	role={readOnly ? undefined : 'textbox'}
+	role={state.readOnly ? undefined : 'textbox'}
 	{spellcheck}
 	{autocorrect}
 	{autocapitalize}
 	data-svelte-editor
 	data-slate-node="value"
-	contenteditable={!readOnly}
+	contenteditable={!state.readOnly}
 	z-index={-1}
 	on:beforeinput={onBeforeInput}
 	on:keydown={onKeyDownInternal}
@@ -907,7 +904,14 @@
 	on:drop={onDrop}
 	on:dragend={onDragEnd}
 >
-	<Children node={editor} {selection} {decorations} {Element} {Leaf} {Placeholder} />
+	<Children
+		node={$editorContext}
+		selection={$selectionContext}
+		{decorations}
+		{Element}
+		{Leaf}
+		{Placeholder}
+	/>
 </div>
 
 <style>

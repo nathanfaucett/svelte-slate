@@ -26,9 +26,9 @@ import {
 	hasShadowRoot
 } from './dom';
 import { IS_CHROME, IS_FIREFOX } from './environment';
-import type { SvelteEditor } from './withSvelte';
+import type { ISvelteEditor } from './withSvelte';
 
-export function getWindow(editor: SvelteEditor): Window {
+export function getWindow(editor: ISvelteEditor): Window {
 	const window = EDITOR_TO_WINDOW.get(editor);
 	if (!window) {
 		throw new Error('Unable to find a host window element for this editor');
@@ -75,7 +75,7 @@ export function findPath(node: Node): Path {
 	throw new Error(`Unable to find the path for Slate node: ${JSON.stringify(node)}`);
 }
 
-export function findDocumentOrShadowRoot(editor: SvelteEditor): Document | ShadowRoot {
+export function findDocumentOrShadowRoot(editor: ISvelteEditor): Document | ShadowRoot {
 	const el = toDOMNode(editor, editor);
 	const root = el.getRootNode();
 
@@ -86,15 +86,15 @@ export function findDocumentOrShadowRoot(editor: SvelteEditor): Document | Shado
 	return el.ownerDocument;
 }
 
-export function isFocused(editor: SvelteEditor): boolean {
+export function isFocused(editor: ISvelteEditor): boolean {
 	return !!IS_FOCUSED.get(editor);
 }
 
-export function isReadOnly(editor: SvelteEditor): boolean {
+export function isReadOnly(editor: ISvelteEditor): boolean {
 	return !!IS_READ_ONLY.get(editor);
 }
 
-export function blur(editor: SvelteEditor): void {
+export function blur(editor: ISvelteEditor): void {
 	const el = toDOMNode(editor, editor);
 	const root = findDocumentOrShadowRoot(editor);
 	IS_FOCUSED.set(editor, false);
@@ -104,7 +104,7 @@ export function blur(editor: SvelteEditor): void {
 	}
 }
 
-export function focus(editor: SvelteEditor): void {
+export function focus(editor: ISvelteEditor): void {
 	const el = toDOMNode(editor, editor);
 	const root = findDocumentOrShadowRoot(editor);
 	IS_FOCUSED.set(editor, true);
@@ -114,7 +114,7 @@ export function focus(editor: SvelteEditor): void {
 	}
 }
 
-export function deselect(editor: SvelteEditor): void {
+export function deselect(editor: ISvelteEditor): void {
 	const root = findDocumentOrShadowRoot(editor);
 	const domSelection = root['getSelection']();
 
@@ -128,7 +128,7 @@ export function deselect(editor: SvelteEditor): void {
 }
 
 export function hasDOMNode(
-	editor: SvelteEditor,
+	editor: ISvelteEditor,
 	target: DOMNode,
 	options: { editable?: boolean } = {}
 ): boolean {
@@ -158,7 +158,7 @@ export function hasDOMNode(
 	);
 }
 
-export function toDOMNode(editor: SvelteEditor, node: Node, throwError = true): HTMLElement {
+export function toDOMNode(editor: ISvelteEditor, node: Node, throwError = true): HTMLElement {
 	const KEY_TO_ELEMENT = EDITOR_TO_KEY_TO_ELEMENT.get(editor);
 	const domNode = Editor.isEditor(node)
 		? EDITOR_TO_ELEMENT.get(editor)
@@ -171,11 +171,11 @@ export function toDOMNode(editor: SvelteEditor, node: Node, throwError = true): 
 	return domNode;
 }
 
-export function hasDOMPoint(editor: SvelteEditor, point: Point): boolean {
+export function hasDOMPoint(editor: ISvelteEditor, point: Point): boolean {
 	return !!toDOMPoint(editor, point, false);
 }
 
-export function toDOMPoint(editor: SvelteEditor, point: Point, throwError = true): DOMPoint {
+export function toDOMPoint(editor: ISvelteEditor, point: Point, throwError = true): DOMPoint {
 	const [node] = Editor.node(editor, point.path);
 	const el = toDOMNode(editor, node, throwError);
 	let domPoint: DOMPoint | undefined;
@@ -216,11 +216,11 @@ export function toDOMPoint(editor: SvelteEditor, point: Point, throwError = true
 	return domPoint;
 }
 
-export function hasDOMRange(editor: SvelteEditor, range: Range): boolean {
+export function hasDOMRange(editor: ISvelteEditor, range: Range): boolean {
 	return !!toDOMRange(editor, range, false);
 }
 
-export function toDOMRange(editor: SvelteEditor, range: Range, throwError = true): DOMRange {
+export function toDOMRange(editor: ISvelteEditor, range: Range, throwError = true): DOMRange {
 	const { anchor, focus } = range;
 	const isBackward = Range.isBackward(range);
 	const domAnchor = toDOMPoint(editor, anchor, throwError);
@@ -260,7 +260,7 @@ export function toSlateNode(domNode: DOMNode): Node {
 	return node;
 }
 
-export function findEventRange(editor: SvelteEditor, event: any): Range {
+export function findEventRange(editor: ISvelteEditor, event: any): Range {
 	const { clientX: x, clientY: y, target } = event;
 
 	if (x == null || y == null) {
@@ -314,7 +314,7 @@ export function findEventRange(editor: SvelteEditor, event: any): Range {
 }
 
 export function toSlatePoint<T extends boolean>(
-	editor: SvelteEditor,
+	editor: ISvelteEditor,
 	domPoint: DOMPoint,
 	options: {
 		exactMatch: T;
@@ -389,7 +389,7 @@ export function toSlatePoint<T extends boolean>(
 }
 
 export function toSlateRange<T extends boolean>(
-	editor: SvelteEditor,
+	editor: ISvelteEditor,
 	domRange: DOMRange | DOMStaticRange | DOMSelection,
 	options: {
 		exactMatch: T;
@@ -461,7 +461,7 @@ export function toSlateRange<T extends boolean>(
 	return range as unknown as T extends true ? Range | null : Range;
 }
 
-export function hasRange(editor: SvelteEditor, range: Range): boolean {
+export function hasRange(editor: ISvelteEditor, range: Range): boolean {
 	const { anchor, focus } = range;
 	return Editor.hasPath(editor, anchor.path) && Editor.hasPath(editor, focus.path);
 }

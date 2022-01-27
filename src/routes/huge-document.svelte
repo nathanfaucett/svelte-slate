@@ -42,7 +42,7 @@
 
 <script lang="ts">
 	import { Slate, Editable, withSvelte, isHotkey } from 'svelte-slate';
-	import { BaseRange, createEditor } from 'slate';
+	import { createEditor } from 'slate';
 	import { withHistory } from 'slate-history';
 	import type { IElement } from '../example/Element.svelte';
 	import type { IText } from '../example/Leaf.svelte';
@@ -65,14 +65,13 @@
 
 	const editor = withHistory(withImages(withSvelte(createEditor())));
 	let value = createValue(100, 7);
-	let selection: BaseRange = null;
 
 	$: onKeyDown = (event: KeyboardEvent) => {
 		for (const hotkey in HOTKEYS) {
 			if (isHotkey(hotkey, event)) {
 				event.preventDefault();
 				const mark = HOTKEYS[hotkey];
-				toggleMark(editor, selection, mark);
+				toggleMark(editor, mark);
 			}
 		}
 	};
@@ -86,7 +85,7 @@
 	>
 </p>
 
-<Slate {editor} bind:value bind:selection>
+<Slate {editor} bind:value>
 	<div class="toolbar">
 		<MarkButton format="bold"><MdFormatBold /></MarkButton>
 		<MarkButton format="italic"><MdFormatItalic /></MarkButton>

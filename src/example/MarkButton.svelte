@@ -1,19 +1,17 @@
 <script lang="ts">
-	import { getSelectionContext, getEditor } from '$lib/components/Slate.svelte';
+	import { getEditorContext } from '$lib/components/Slate.svelte';
 	import Button from './Button.svelte';
 	import { isMarkActive, toggleMark } from './utils';
 
 	export let format: string;
 
-	const editor = getEditor();
+	const editorContext = getEditorContext();
 
-	const selectionContext = getSelectionContext();
-	$: selection = $selectionContext;
-
-	$: active = isMarkActive(editor, selection, format);
+	$: editor = $editorContext;
+	$: active = isMarkActive(editor, format);
 	$: onMouseDown = (event: MouseEvent) => {
 		event.preventDefault();
-		toggleMark(editor, selection, format);
+		toggleMark(editor, format);
 	};
 </script>
 

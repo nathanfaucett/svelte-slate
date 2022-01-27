@@ -1,3 +1,5 @@
+<svelte:options immutable={true} />
+
 <script lang="ts" context="module">
 	import type { IBaseElement, IElement } from './Element.svelte';
 
@@ -10,7 +12,7 @@
 		return element.type === 'check-list-item';
 	}
 
-	export function withCheckListItems<T extends SvelteEditor = SvelteEditor>(editor: T): T {
+	export function withCheckListItems<T extends ISvelteEditor = ISvelteEditor>(editor: T): T {
 		const { deleteBackward } = editor;
 
 		editor.deleteBackward = (...args) => {
@@ -46,7 +48,7 @@
 	}
 
 	export function insertCheckListItem(editor: Editor) {
-		const isActive = isBlockActive(editor, editor.selection, 'check-list-item');
+		const isActive = isBlockActive(editor, 'check-list-item');
 
 		if (isActive) {
 			Transforms.unwrapNodes(editor, {
@@ -62,8 +64,9 @@
 </script>
 
 <script lang="ts">
-	import { findPath, getEditor } from 'svelte-slate';
-	import type { SvelteEditor } from 'svelte-slate';
+	import { getEditor } from '$lib/components/Slate.svelte';
+	import { findPath } from '$lib/utils';
+	import type { ISvelteEditor } from 'svelte-slate';
 	import { Editor, Transforms, Range, Element as SlateElement, Point } from 'slate';
 	import { isBlockActive } from './utils';
 

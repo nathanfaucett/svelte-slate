@@ -10,7 +10,7 @@
 	) => SvelteComponentTyped<T>;
 
 	export function getEditorContext() {
-		const context = getContext<Writable<SvelteEditor>>(EDITOR_CONTEXT_KEY);
+		const context = getContext<Writable<ISvelteEditor>>(EDITOR_CONTEXT_KEY);
 		if (!context) {
 			throw new Error(
 				`The \`getEditorContext\` must be used inside the Slate component's context.`
@@ -65,7 +65,7 @@
 
 <script lang="ts">
 	import { EDITOR_TO_ON_CHANGE } from '../weakMaps';
-	import type { SvelteEditor } from '../withSvelte';
+	import type { ISvelteEditor } from '../withSvelte';
 	import type { Descendant, Range, Editor, NodeEntry, Selection } from 'slate';
 	import { setContext, getContext, SvelteComponentTyped } from 'svelte';
 	import { get, Writable } from 'svelte/store';

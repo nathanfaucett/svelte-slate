@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getEditor } from 'svelte-slate';
+	import { getEditor } from '$lib/components/Slate.svelte';
 	import MdImage from 'svelte-icons/md/MdImage.svelte';
 	import MdCheck from 'svelte-icons/md/MdCheck.svelte';
 	import Button from './Button.svelte';

@@ -1,19 +1,17 @@
 <script lang="ts">
-	import { getSelectionContext, getEditor } from '$lib/components/Slate.svelte';
+	import { getEditorContext } from '$lib/components/Slate.svelte';
 	import Button from './Button.svelte';
 	import { isBlockActive, toggleBlock } from './utils';
 
 	export let format: string;
 
-	const editor = getEditor();
+	const editorContext = getEditorContext();
 
-	const selectionContext = getSelectionContext();
-	$: selection = $selectionContext;
-
-	$: active = isBlockActive(editor, selection, format);
+	$: editor = $editorContext;
+	$: active = isBlockActive(editor, format);
 	$: onMouseDown = (event: MouseEvent) => {
 		event.preventDefault();
-		toggleBlock(editor, selection, format);
+		toggleBlock(editor, format);
 	};
 </script>
 

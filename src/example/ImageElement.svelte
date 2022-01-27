@@ -12,7 +12,7 @@
 		return element.type === 'image';
 	}
 
-	export function withImages<T extends SvelteEditor = SvelteEditor>(editor: T): T {
+	export function withImages<T extends ISvelteEditor = ISvelteEditor>(editor: T): T {
 		const { insertData, isVoid } = editor;
 
 		editor.isVoid = (element) => {
@@ -66,14 +66,10 @@
 </script>
 
 <script lang="ts">
-	import {
-		findPath,
-		getEditor,
-		getFocusedContext,
-		getReadOnlyContext,
-		getSelectedContext
-	} from 'svelte-slate';
-	import type { SvelteEditor } from 'svelte-slate';
+	import { getEditor, getFocusedContext, getReadOnlyContext } from '$lib/components/Slate.svelte';
+	import { getSelectedContext } from '$lib/components/ChildElement.svelte';
+	import type { ISvelteEditor } from '$lib/withSvelte';
+	import { findPath } from '$lib/utils';
 	import { Editor, Transforms } from 'slate';
 	import Button from './Button.svelte';
 	import MdDelete from 'svelte-icons/md/MdDelete.svelte';

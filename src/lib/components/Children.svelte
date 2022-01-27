@@ -39,12 +39,12 @@
 	$: decorate = $decorateContext;
 
 	let currentNode = node;
-	$: if (currentNode !== node) {
+	$: if (currentNode !== node || node === editor) {
 		currentNode = node;
 	}
-	let currentChildren = node.children;
-	$: if (currentChildren !== node.children) {
-		currentChildren = node.children;
+	let currentChildren = currentNode.children;
+	$: if (currentChildren !== currentNode.children) {
+		currentChildren = currentNode.children;
 	}
 
 	$: path = findPath(currentNode);
