@@ -3,19 +3,20 @@
 <script lang="ts">
 	import type { Element, Range } from 'slate';
 	import { Text as SlateText } from 'slate';
-	import type { SvelteComponent } from 'svelte';
 	import { onMount } from 'svelte';
+	import type { ILeafProps, IPlaceholderProps } from './Leaf.svelte';
 	import LeafComponent from './Leaf.svelte';
 	import { findKey } from '../utils';
 	import { EDITOR_TO_KEY_TO_ELEMENT, ELEMENT_TO_NODE, NODE_TO_ELEMENT } from '../weakMaps';
+	import type { ISvelteComponent } from './Slate.svelte';
 	import { getEditor } from './Slate.svelte';
 
 	export let decorations: Range[];
 	export let isLast: boolean;
 	export let parent: Element;
 	export let text: SlateText;
-	export let Placeholder: typeof SvelteComponent;
-	export let Leaf: typeof SvelteComponent;
+	export let Leaf: ISvelteComponent<ILeafProps>;
+	export let Placeholder: ISvelteComponent<IPlaceholderProps>;
 
 	const editor = getEditor();
 

@@ -6,7 +6,9 @@ export {
 	getReadOnlyContext,
 	getFocusedContext,
 	getDecorateContext,
-	getSelectionContext
+	getSelectionContext,
+	defaultDecorate,
+	DECORATE_CONTEXT_KEY
 } from './components/Slate.svelte';
 export { default as Editable } from './components/Editable.svelte';
 export {
@@ -28,6 +30,8 @@ export {
 	isFocused,
 	isReadOnly
 } from './utils';
+export { default as TextStringfrom } from './components/TextString.svelte';
+export { default as ZeroWidthString } from './components/ZeroWidthString.svelte';
 export { getSelectedContext } from './components/ChildElement.svelte';
 export { default as hotkeys } from './hotkeys';
 export { isHotkey, isKeyHotkey, createIsHotkey, createIsKeyHotkey } from './isHotkey';
