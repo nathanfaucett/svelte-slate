@@ -46,7 +46,7 @@
 	} from 'slate';
 	import { afterUpdate } from 'svelte';
 	import { onMount, tick } from 'svelte';
-	import { debounce, throttle } from 'throttle-debounce';
+	import { throttle } from 'throttle-debounce';
 	import scrollIntoView from 'scroll-into-view-if-needed';
 	import { direction } from '../direction';
 	import Children from './Children.svelte';
@@ -130,12 +130,12 @@
 		readOnly
 	};
 
-	$: decorations = decorate([editor, []]);
 	$: IS_READ_ONLY.set(editor, readOnly);
 	$: readOnlyContext.set(readOnly);
 	$: state.readOnly = readOnly;
 	$: decorateContext.set(decorate);
 
+	let decorations: Range[] = [];
 	$: if (
 		$editorContext.children.length === 1 &&
 		Array.from(SlateNode.texts($editorContext)).length === 1 &&
@@ -152,6 +152,8 @@
 				focus: start
 			} as any
 		];
+	} else {
+		decorations = decorate([editor, []]);
 	}
 
 	let prevAutoFocus: boolean;
@@ -204,14 +206,13 @@
 		}
 	}
 	const afterFlushOnDOMSelectionChange = () => tick().then(onDOMSelectionChange);
-	const throttledOnDOMSelectionChange = throttle(100, false, afterFlushOnDOMSelectionChange, false);
-	const debouncedOnDOMSelectionChange = debounce(0, throttledOnDOMSelectionChange);
+	const throttledOnDOMSelectionChange = throttle(10, false, afterFlushOnDOMSelectionChange, false);
 
 	onMount(() => {
 		const window = getDefaultView(ref);
 		if (window) {
 			EDITOR_TO_WINDOW.set(editor, window);
-			window.document.addEventListener('selectionchange', debouncedOnDOMSelectionChange);
+			window.document.addEventListener('selectionchange', throttledOnDOMSelectionChange);
 		}
 
 		EDITOR_TO_ELEMENT.set(editor, ref);
@@ -224,7 +225,7 @@
 
 			if (window) {
 				EDITOR_TO_WINDOW.delete(editor);
-				window.document.removeEventListener('selectionchange', debouncedOnDOMSelectionChange);
+				window.document.removeEventListener('selectionchange', throttledOnDOMSelectionChange);
 			}
 		};
 	});
