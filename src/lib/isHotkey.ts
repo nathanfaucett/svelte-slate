@@ -116,7 +116,7 @@ export interface IHotKey {
 	key?: string;
 	which?: number;
 }
-``;
+
 function parseHotkey(hotkey: string, options: IIsHotKeyOptions = {}): IHotKey {
 	const byKey = options && options.byKey;
 	const ret: IHotKey = {};

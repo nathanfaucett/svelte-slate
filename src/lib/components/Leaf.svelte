@@ -6,7 +6,7 @@
 	}
 
 	export interface IPlaceholderProps extends svelte.JSX.HTMLAttributes<HTMLElement> {
-		clientHeight: number;
+		clientHeight?: number;
 	}
 </script>
 
@@ -26,13 +26,14 @@
 	export let Placeholder: ISvelteComponent<IPlaceholderProps>;
 
 	let clientHeight: number;
-	let prevClientHeight: number;
-	$: if (clientHeight !== prevClientHeight && CAN_USE_DOM) {
+	let currentClientHeight: number;
+	$: if (currentClientHeight !== clientHeight && CAN_USE_DOM) {
 		const editorEl = document.querySelector<HTMLDivElement>('[data-svelte-editor="true"]');
 
 		if (editorEl) {
 			editorEl.style.minHeight = `${clientHeight}px`;
 		}
+		currentClientHeight = clientHeight;
 	}
 
 	onDestroy(() => {
@@ -40,7 +41,7 @@
 			const editorEl = document.querySelector<HTMLDivElement>('[data-svelte-editor="true"]');
 
 			if (editorEl) {
-				editorEl.style.minHeight = '';
+				editorEl.style.minHeight = 'auto';
 			}
 		}
 	});

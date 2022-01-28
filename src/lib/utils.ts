@@ -334,23 +334,26 @@ export function toSlatePoint<T extends boolean>(
 
 		if (leafNode) {
 			textNode = leafNode.closest('[data-slate-node="text"]');
-			const window = getWindow(editor);
-			const range = window.document.createRange();
-			range.setStart(textNode, 0);
-			range.setEnd(nearestNode, nearestOffset);
 
-			const contents = range.cloneContents();
-			const removals = [
-				...Array.prototype.slice.call(contents.querySelectorAll('[data-slate-zero-width]')),
-				...Array.prototype.slice.call(contents.querySelectorAll('[contenteditable=false]'))
-			];
+			if (textNode) {
+				const window = getWindow(editor);
+				const range = window.document.createRange();
+				range.setStart(textNode, 0);
+				range.setEnd(nearestNode, nearestOffset);
 
-			removals.forEach((el) => {
-				el.parentNode.removeChild(el);
-			});
+				const contents = range.cloneContents();
+				const removals = [
+					...Array.prototype.slice.call(contents.querySelectorAll('[data-slate-zero-width]')),
+					...Array.prototype.slice.call(contents.querySelectorAll('[contenteditable=false]'))
+				];
 
-			offset = contents.textContent.length;
-			domNode = textNode;
+				removals.forEach((el) => {
+					el.parentNode.removeChild(el);
+				});
+
+				offset = contents.textContent.length;
+				domNode = textNode;
+			}
 		} else if (voidNode) {
 			leafNode = voidNode.querySelector('[data-slate-leaf]');
 

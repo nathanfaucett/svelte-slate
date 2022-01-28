@@ -66,13 +66,13 @@
 <script lang="ts">
 	import { EDITOR_TO_ON_CHANGE } from '../weakMaps';
 	import type { ISvelteEditor } from '../withSvelte';
-	import type { Descendant, Range, Editor, NodeEntry, Selection } from 'slate';
+	import type { Descendant, Range, NodeEntry, Selection } from 'slate';
 	import { setContext, getContext, SvelteComponentTyped } from 'svelte';
 	import { get, Writable } from 'svelte/store';
 	import { writable } from 'svelte/store';
 	import { isSelectionEqual } from '$lib/utils';
 
-	export let editor: Editor;
+	export let editor: ISvelteEditor;
 	export let value: Descendant[] = editor.children;
 	export let selection = editor.selection;
 

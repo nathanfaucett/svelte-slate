@@ -77,10 +77,10 @@
 	import imageExtensions from 'image-extensions';
 
 	export let element: IImageElement;
-	export let ref: HTMLElement;
 	export let isInline: boolean;
 	export let isVoid: boolean;
 	export let contenteditable: boolean;
+	export let ref: HTMLElement = undefined;
 	export let dir: 'rtl' | 'ltr' = undefined;
 
 	const editor = getEditor();

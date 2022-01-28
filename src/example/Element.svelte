@@ -18,10 +18,10 @@
 	import CheckListItemElement, { isCheckListItemElement } from './CheckListItemElement.svelte';
 
 	export let element: IElement;
-	export let ref: HTMLElement;
 	export let isInline: boolean;
 	export let isVoid: boolean;
 	export let contenteditable: boolean;
+	export let ref: HTMLElement = undefined;
 	export let dir: 'rtl' | 'ltr' = undefined;
 </script>
 

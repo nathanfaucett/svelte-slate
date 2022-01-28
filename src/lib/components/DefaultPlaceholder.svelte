@@ -1,7 +1,7 @@
 <svelte:options immutable={true} />
 
 <script lang="ts">
-	export let clientHeight: number;
+	export let clientHeight: number = undefined;
 </script>
 
 <span bind:clientHeight data-slate-placeholder contenteditable="false"><slot /></span>

@@ -46,7 +46,7 @@
 	} from 'slate';
 	import { afterUpdate } from 'svelte';
 	import { onMount, tick } from 'svelte';
-	import { throttle } from 'throttle-debounce';
+	import { debounce } from 'throttle-debounce';
 	import scrollIntoView from 'scroll-into-view-if-needed';
 	import { direction } from '../direction';
 	import Children from './Children.svelte';
@@ -124,7 +124,7 @@
 	const state = {
 		isComposing: false,
 		hasInsertPrefixInCompositon: true,
-		isUpdatingSelection: null as number,
+		updateSelectionTimeoutId: null as number,
 		isDraggingInternally: false,
 		latestElement: null as Element,
 		readOnly
@@ -152,7 +152,7 @@
 				focus: start
 			} as any
 		];
-	} else {
+	} else if (decorations.length) {
 		decorations = decorate([editor, []]);
 	}
 
@@ -165,7 +165,9 @@
 	}
 
 	function onDOMSelectionChange() {
-		if (!state.isComposing && !state.isUpdatingSelection && !state.isDraggingInternally) {
+		if (state.updateSelectionTimeoutId) {
+			debouncedOnDOMSelectionChange();
+		} else if (!state.isComposing && !state.isDraggingInternally) {
 			const root = findDocumentOrShadowRoot(editor) as Document;
 			const el = toDOMNode(editor, editor);
 			const domSelection = root.getSelection();
@@ -199,20 +201,21 @@
 				});
 				if (range) {
 					Transforms.select(editor, range);
+					return;
 				}
-			} else {
-				Transforms.deselect(editor);
 			}
+
+			Transforms.deselect(editor);
 		}
 	}
 	const afterFlushOnDOMSelectionChange = () => tick().then(onDOMSelectionChange);
-	const throttledOnDOMSelectionChange = throttle(10, false, afterFlushOnDOMSelectionChange, false);
+	const debouncedOnDOMSelectionChange = debounce(0, afterFlushOnDOMSelectionChange);
 
 	onMount(() => {
 		const window = getDefaultView(ref);
 		if (window) {
 			EDITOR_TO_WINDOW.set(editor, window);
-			window.document.addEventListener('selectionchange', throttledOnDOMSelectionChange);
+			window.document.addEventListener('selectionchange', debouncedOnDOMSelectionChange);
 		}
 
 		EDITOR_TO_ELEMENT.set(editor, ref);
@@ -225,7 +228,7 @@
 
 			if (window) {
 				EDITOR_TO_WINDOW.delete(editor);
-				window.document.removeEventListener('selectionchange', throttledOnDOMSelectionChange);
+				window.document.removeEventListener('selectionchange', debouncedOnDOMSelectionChange);
 			}
 		};
 	});
@@ -272,8 +275,8 @@
 			return;
 		}
 
-		if (state.isUpdatingSelection) {
-			clearTimeout(state.isUpdatingSelection);
+		if (state.updateSelectionTimeoutId) {
+			clearTimeout(state.updateSelectionTimeoutId);
 		}
 		let timeoutId: number = setTimeout(() => {
 			if (newDomRange && IS_FIREFOX) {
@@ -281,12 +284,12 @@
 				el.focus();
 			}
 			Object.assign(state, {
-				isUpdatingSelection: null
+				updateSelectionTimeoutId: null
 			});
 		}) as any;
 
 		Object.assign(state, {
-			isUpdatingSelection: timeoutId
+			updateSelectionTimeoutId: timeoutId
 		});
 
 		const newDomRange =
@@ -627,7 +630,11 @@
 	}
 
 	function onFocus(event: FocusEvent) {
-		if (!state.readOnly && !state.isUpdatingSelection && hasEditableTarget(editor, event.target)) {
+		if (
+			!state.readOnly &&
+			!state.updateSelectionTimeoutId &&
+			hasEditableTarget(editor, event.target)
+		) {
 			const el = toDOMNode(editor, editor);
 			const root = findDocumentOrShadowRoot(editor);
 
@@ -644,7 +651,11 @@
 	}
 
 	function onBlur(event: FocusEvent) {
-		if (state.readOnly || state.isUpdatingSelection || !hasEditableTarget(editor, event.target)) {
+		if (
+			state.readOnly ||
+			state.updateSelectionTimeoutId ||
+			!hasEditableTarget(editor, event.target)
+		) {
 			return;
 		}
 
