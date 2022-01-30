@@ -38,6 +38,7 @@
 		display: flex;
 		flex-direction: column;
 		max-width: 768px;
+		padding: 0 1rem;
 		height: 100%;
 		margin: 0 auto;
 	}

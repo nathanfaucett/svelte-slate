@@ -165,9 +165,9 @@
 	}
 
 	function onDOMSelectionChange() {
-		if (state.updateSelectionTimeoutId) {
+		if (state.isComposing || state.isDraggingInternally || state.updateSelectionTimeoutId) {
 			debouncedOnDOMSelectionChange();
-		} else if (!state.isComposing && !state.isDraggingInternally) {
+		} else {
 			const root = findDocumentOrShadowRoot(editor) as Document;
 			const el = toDOMNode(editor, editor);
 			const domSelection = root.getSelection();

@@ -4,7 +4,7 @@
 	export let clientHeight: number = undefined;
 </script>
 
-<span bind:clientHeight data-slate-placeholder contenteditable="false"><slot /></span>
+<span bind:clientHeight data-slate-placeholder="true" contenteditable="false"><slot /></span>
 
 <style>
 	span {
