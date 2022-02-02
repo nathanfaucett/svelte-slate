@@ -1,8 +1,12 @@
 import { Editor, Transforms, Element as SlateElement } from 'slate';
 
 export function isMarkActive(editor: Editor, format: string): boolean {
-	const marks = Editor.marks(editor);
-	return marks ? marks[format] === true : false;
+	if (!editor.selection) {
+		return false;
+	} else {
+		const marks = Editor.marks(editor);
+		return marks ? marks[format] === true : false;
+	}
 }
 
 export function toggleMark(editor: Editor, format: string) {
@@ -18,16 +22,16 @@ export function toggleMark(editor: Editor, format: string) {
 export function isBlockActive(editor: Editor, format: string): boolean {
 	if (!editor.selection) {
 		return false;
+	} else {
+		const [match] = Array.from(
+			Editor.nodes(editor, {
+				at: Editor.unhangRange(editor, editor.selection),
+				match: (n) => !Editor.isEditor(n) && SlateElement.isElement(n) && n['type'] === format
+			})
+		);
+
+		return !!match;
 	}
-
-	const [match] = Array.from(
-		Editor.nodes(editor, {
-			at: Editor.unhangRange(editor, editor.selection),
-			match: (n) => !Editor.isEditor(n) && SlateElement.isElement(n) && n['type'] === format
-		})
-	);
-
-	return !!match;
 }
 
 const LIST_TYPES = ['numbered-list', 'bulleted-list'];

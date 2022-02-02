@@ -9,6 +9,7 @@
 
 - [slate](https://github.com/ianstormtaylor/slate)
 - [svelte kit](https://kit.svelte.dev/docs)
+- [svelte icons](https://svelte-icons.vercel.app/)
 
 tries to mimic the react api from [slate-react](https://github.com/ianstormtaylor/slate/tree/main/packages/slate-react) as much as possible
 
