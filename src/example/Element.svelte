@@ -6,7 +6,7 @@
 		children: (IElement | IText)[];
 	}
 
-	export type IElement = IBaseElement | IImageElement | ICheckListItemElement;
+	export type IElement = IBaseElement | IImageElement | ICheckListItemElement | IVoidElement;
 </script>
 
 <script lang="ts">
@@ -16,6 +16,8 @@
 	import ImageElement from './ImageElement.svelte';
 	import type { ICheckListItemElement } from './CheckListItemElement.svelte';
 	import CheckListItemElement, { isCheckListItemElement } from './CheckListItemElement.svelte';
+	import type { IVoidElement } from './VoidElement.svelte';
+	import VoidElement, { isVoidElement } from './VoidElement.svelte';
 
 	export let element: IElement;
 	export let isInline: boolean;
@@ -93,6 +95,13 @@
 		{isVoid}
 		{dir}
 		{contenteditable}><slot /></CheckListItemElement
+	>{:else if isVoidElement(element)}<VoidElement
+		bind:ref
+		{element}
+		{isInline}
+		{isVoid}
+		{dir}
+		{contenteditable}><slot /></VoidElement
 	>{:else}<p
 		bind:this={ref}
 		data-slate-node="element"

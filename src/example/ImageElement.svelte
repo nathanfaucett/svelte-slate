@@ -105,7 +105,6 @@
 	{dir}
 	contenteditable={false}
 >
-	<slot />
 	<div contenteditable={false} class="image">
 		<img src={element.url} alt="" class:selected />
 		<div class="delete" class:selected>
@@ -114,6 +113,7 @@
 			</Button>
 		</div>
 	</div>
+	<slot />
 </div>
 
 <style>

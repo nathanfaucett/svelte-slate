@@ -90,12 +90,12 @@
 </script>
 
 <svelte:component this={Element} bind:ref {isVoid} {isInline} {contenteditable} {element} {dir}
-	>{#if isVoid}{#if isInline}<span data-slate-spacer
+	>{#if isVoid && !readOnly}{#if isInline}<span data-slate-spacer
 				><svelte:component
 					this={Text}
 					{Placeholder}
 					{Leaf}
-					{decorations}
+					decorations={[]}
 					isLast={false}
 					parent={element}
 					text={voidText}
@@ -105,7 +105,7 @@
 					this={Text}
 					{Placeholder}
 					{Leaf}
-					{decorations}
+					decorations={[]}
 					isLast={false}
 					parent={element}
 					text={voidText}

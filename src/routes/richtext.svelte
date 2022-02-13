@@ -22,6 +22,8 @@
 	import MarkButton from '../example/MarkButton.svelte';
 	import BlockButton from '../example/BlockButton.svelte';
 	import { toggleMark } from '../example/utils';
+	import VoidButton from '../example/VoidButton.svelte';
+	import { withVoids } from '../example/VoidElement.svelte';
 	import MdFormatBold from 'svelte-icons/md/MdFormatBold.svelte';
 	import MdCode from 'svelte-icons/md/MdCode.svelte';
 	import MdLooksOne from 'svelte-icons/md/MdLooksOne.svelte';
@@ -32,7 +34,7 @@
 	import MdFormatListBulleted from 'svelte-icons/md/MdFormatListBulleted.svelte';
 	import MdFormatQuote from 'svelte-icons/md/MdFormatQuote.svelte';
 
-	const editor = withHistory(withImages(withCheckListItems(withSvelte(createEditor()))));
+	const editor = withHistory(withVoids(withImages(withCheckListItems(withSvelte(createEditor())))));
 	let value: Array<IText | IElement> = [
 		{
 			type: 'paragraph',
@@ -80,6 +82,10 @@
 			type: 'check-list-item',
 			checked: false,
 			children: [{ text: 'Todo' }]
+		},
+		{
+			type: 'void',
+			children: [{ text: 'Void' }]
 		}
 	];
 
@@ -115,6 +121,7 @@
 		<BlockButton format="bulleted-list"><MdFormatListBulleted /></BlockButton>
 		<ImageButton />
 		<CheckListItemButton />
+		<VoidButton />
 	</div>
 	<div class="editor">
 		<Editable {Element} {Leaf} {onKeyDown} placeholder="Enter some plain text..." />

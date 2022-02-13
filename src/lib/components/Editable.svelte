@@ -243,7 +243,7 @@
 
 		const hasDomSelection = domSelection.type !== 'None';
 
-		if (!hasDomSelection) {
+		if (!editor.selection && !hasDomSelection) {
 			return;
 		}
 
@@ -275,23 +275,6 @@
 			return;
 		}
 
-		if (state.updateSelectionTimeoutId) {
-			clearTimeout(state.updateSelectionTimeoutId);
-		}
-		let timeoutId: number = setTimeout(() => {
-			if (newDomRange && IS_FIREFOX) {
-				const el = toDOMNode(editor, editor);
-				el.focus();
-			}
-			Object.assign(state, {
-				updateSelectionTimeoutId: null
-			});
-		}) as any;
-
-		Object.assign(state, {
-			updateSelectionTimeoutId: timeoutId
-		});
-
 		const newDomRange =
 			editor.selection && hasDomSelectionInEditor && toDOMRange(editor, editor.selection);
 
@@ -315,6 +298,23 @@
 		} else {
 			domSelection.removeAllRanges();
 		}
+
+		if (state.updateSelectionTimeoutId) {
+			clearTimeout(state.updateSelectionTimeoutId);
+		}
+		let timeoutId: number = setTimeout(() => {
+			if (newDomRange && IS_FIREFOX) {
+				const el = toDOMNode(editor, editor);
+				el.focus();
+			}
+			Object.assign(state, {
+				updateSelectionTimeoutId: null
+			});
+		}) as any;
+
+		Object.assign(state, {
+			updateSelectionTimeoutId: timeoutId
+		});
 	}
 	afterUpdate(() => tick().then(onUpdate));
 
