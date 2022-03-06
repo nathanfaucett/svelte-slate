@@ -18,7 +18,8 @@
 	import type { Ancestor, Element as SlateElement, Path, NodeEntry, Selection } from 'slate';
 	import { Range, Editor } from 'slate';
 	import { getContext, setContext } from 'svelte';
-	import ElementComponent, { IElementProps } from './Element.svelte';
+	import type { IElementProps } from './Element.svelte';
+	import ElementComponent from './Element.svelte';
 	import { NODE_TO_INDEX, NODE_TO_PARENT } from '../weakMaps';
 	import { getChildDecorations } from './Children.svelte';
 	import { isDecoratorRangeListEqual, isSelectionEqual } from '$lib/utils';

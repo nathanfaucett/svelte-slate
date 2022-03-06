@@ -53,7 +53,8 @@
 	import DefaultElement from './DefaultElement.svelte';
 	import DefaultLeaf from './DefaultLeaf.svelte';
 	import DefaultPlaceholder from './DefaultPlaceholder.svelte';
-	import { getEditor, ISvelteComponent } from './Slate.svelte';
+	import type { ISvelteComponent } from './Slate.svelte';
+	import { getEditor } from './Slate.svelte';
 	import {
 		defaultDecorate,
 		getDecorateContext,

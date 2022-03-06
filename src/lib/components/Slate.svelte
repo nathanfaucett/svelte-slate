@@ -68,8 +68,8 @@
 	import type { ISvelteEditor } from '../withSvelte';
 	import type { Descendant, Range, NodeEntry, Selection } from 'slate';
 	import { setContext, getContext, SvelteComponentTyped } from 'svelte';
-	import { get, Writable } from 'svelte/store';
-	import { writable } from 'svelte/store';
+	import type { Writable } from 'svelte/store';
+	import { get, writable } from 'svelte/store';
 	import { isSelectionEqual } from '$lib/utils';
 
 	export let editor: ISvelteEditor;

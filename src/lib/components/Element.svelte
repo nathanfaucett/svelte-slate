@@ -1,5 +1,3 @@
-<svelte:options immutable={true} />
-
 <script lang="ts" context="module">
 	export interface IElementProps extends svelte.JSX.HTMLAttributes<HTMLElement> {
 		ref?: HTMLElement;
@@ -41,7 +39,6 @@
 
 	const readOnlyContext = getReadOnlyContext();
 	$: readOnly = $readOnlyContext;
-
 	$: isInline = editor.isInline(element);
 	$: key = findKey(element);
 
