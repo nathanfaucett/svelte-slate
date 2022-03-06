@@ -1,11 +1,11 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-0e42cda9.js",
+    "file": "start-ac3c85ac.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
-      "_vendor-43666288.js",
-      "_paths-4b3c6e7e.js"
+      "_vendor-5bfab0d8.js",
+      "_paths-396f020f.js"
     ],
     "dynamicImports": [
       "src/routes/__layout.svelte",
@@ -17,98 +17,98 @@
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "pages/__layout.svelte-196559dd.js",
+    "file": "pages/__layout.svelte-f55d0534.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-43666288.js",
-      "_paths-4b3c6e7e.js"
+      "_vendor-5bfab0d8.js",
+      "_paths-396f020f.js"
     ],
     "css": [
       "assets/pages/__layout.svelte-0bb3181d.css"
     ]
   },
   ".svelte-kit/runtime/components/error.svelte": {
-    "file": "error.svelte-8d77f456.js",
+    "file": "error.svelte-08b21199.js",
     "src": ".svelte-kit/runtime/components/error.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-43666288.js"
+      "_vendor-5bfab0d8.js"
     ]
   },
   "src/routes/index.svelte": {
-    "file": "pages/index.svelte-b6f7ef03.js",
+    "file": "pages/index.svelte-16ff712f.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-43666288.js",
-      "_paths-4b3c6e7e.js"
+      "_vendor-5bfab0d8.js",
+      "_paths-396f020f.js"
     ]
   },
   "src/routes/huge-document.svelte": {
-    "file": "pages/huge-document.svelte-d87769ad.js",
+    "file": "pages/huge-document.svelte-e10550e9.js",
     "src": "src/routes/huge-document.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-43666288.js",
-      "_withSvelte-2853399e.js",
-      "_BlockButton-5cc5fd49.js"
+      "_vendor-5bfab0d8.js",
+      "_withSvelte-b3aa6265.js",
+      "_BlockButton-6adcf4cb.js"
     ],
     "css": [
-      "assets/pages/richtext.svelte-3f8e5142.css"
+      "assets/pages/huge-document.svelte-f7d2f7b4.css"
     ]
   },
   "src/routes/richtext.svelte": {
-    "file": "pages/richtext.svelte-6e8dbc63.js",
+    "file": "pages/richtext.svelte-29c88222.js",
     "src": "src/routes/richtext.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-43666288.js",
-      "_withSvelte-2853399e.js",
-      "_BlockButton-5cc5fd49.js"
+      "_vendor-5bfab0d8.js",
+      "_withSvelte-b3aa6265.js",
+      "_BlockButton-6adcf4cb.js"
     ],
     "css": [
-      "assets/pages/richtext.svelte-3f8e5142.css"
+      "assets/pages/huge-document.svelte-f7d2f7b4.css"
     ]
   },
   "src/routes/default.svelte": {
-    "file": "pages/default.svelte-e372f48a.js",
+    "file": "pages/default.svelte-9cb000f5.js",
     "src": "src/routes/default.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-43666288.js",
-      "_withSvelte-2853399e.js"
+      "_vendor-5bfab0d8.js",
+      "_withSvelte-b3aa6265.js"
     ]
   },
-  "_vendor-43666288.js": {
-    "file": "chunks/vendor-43666288.js",
+  "_vendor-5bfab0d8.js": {
+    "file": "chunks/vendor-5bfab0d8.js",
     "css": [
       "assets/vendor-86f8c920.css"
     ]
   },
-  "_paths-4b3c6e7e.js": {
-    "file": "chunks/paths-4b3c6e7e.js"
+  "_paths-396f020f.js": {
+    "file": "chunks/paths-396f020f.js"
   },
-  "_withSvelte-2853399e.js": {
-    "file": "chunks/withSvelte-2853399e.js",
+  "_withSvelte-b3aa6265.js": {
+    "file": "chunks/withSvelte-b3aa6265.js",
     "imports": [
-      "_vendor-43666288.js"
+      "_vendor-5bfab0d8.js"
     ],
     "css": [
       "assets/withSvelte-3b6a31a3.css"
     ]
   },
-  "_BlockButton-5cc5fd49.js": {
-    "file": "chunks/BlockButton-5cc5fd49.js",
+  "_BlockButton-6adcf4cb.js": {
+    "file": "chunks/BlockButton-6adcf4cb.js",
     "imports": [
-      "_vendor-43666288.js",
-      "_withSvelte-2853399e.js"
+      "_vendor-5bfab0d8.js",
+      "_withSvelte-b3aa6265.js"
     ],
     "css": [
       "assets/BlockButton-185b7383.css"
