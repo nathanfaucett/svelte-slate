@@ -9,7 +9,12 @@ const pkg = JSON.parse(fs.readFileSync(new URL('package.json', import.meta.url),
 const config = {
 	preprocess: preprocess(),
 	kit: {
-		adapter: adapter(),
+		adapter: adapter({
+			pages: 'build',
+			assets: 'build',
+			fallback: 'index.html',
+			precompress: false
+		}),
 		appDir: 'internal',
 		paths: {
 			base: process.env.USE_BASE_PATH ? '/svelte-slate' : ''
