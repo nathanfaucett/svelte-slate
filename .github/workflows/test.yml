@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 jobs:
-  pages:
+  tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -14,5 +14,7 @@ jobs:
           node-version: 16.x
 
       - run: npm install -g npm@8.5.3
+      - run: npm install -g npx
+      - run: npx playwright install
       - run: npm ci
       - run: npm test
