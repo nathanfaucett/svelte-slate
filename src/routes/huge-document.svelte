@@ -1,4 +1,6 @@
 <script lang="ts" context="module">
+	export const prerender = true;
+
 	import { LoremIpsum } from 'lorem-ipsum';
 
 	const lorem = new LoremIpsum({

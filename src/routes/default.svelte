@@ -1,3 +1,7 @@
+<script context="module">
+	export const prerender = true;
+</script>
+
 <script lang="ts">
 	import { Slate, Editable, withSvelte } from 'svelte-slate';
 	import { createEditor } from 'slate';
