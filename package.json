@@ -1,7 +1,7 @@
 {
 	"name": "svelte-slate",
 	"description": "slate svelte view layer",
-	"version": "0.1.22",
+	"version": "0.1.23",
 	"license": "(MIT OR Apache-2.0)",
 	"type": "module",
 	"author": "Nathan Faucett",
@@ -22,7 +22,6 @@
 		"build": "svelte-kit build",
 		"package": "svelte-kit package",
 		"preview": "svelte-kit preview",
-		"test": "playwright test",
 		"clean": "rm -rf node_modules/.vite .svelte-kit package",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
@@ -31,7 +30,6 @@
 		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
 	},
 	"devDependencies": {
-		"@playwright/test": "1",
 		"@sveltejs/adapter-static": "next",
 		"@sveltejs/kit": "next",
 		"@types/is-url": "1",
@@ -46,7 +44,7 @@
 		"lorem-ipsum": "2",
 		"prettier": "2",
 		"prettier-plugin-svelte": "2",
-		"slate": "0.73",
+		"slate": "0",
 		"slate-history": "0",
 		"svelte": "3",
 		"svelte-check": "2",
@@ -58,13 +56,13 @@
 		"typescript": "4"
 	},
 	"peerDependencies": {
-		"slate": "0.73",
+		"slate": "0",
 		"svelte": "3",
 		"tslib": "2"
 	},
 	"dependencies": {
-		"fast-equals": "3.0",
-		"scroll-into-view-if-needed": "2.2",
-		"throttle-debounce": "3.0"
+		"fast-equals": "3",
+		"scroll-into-view-if-needed": "2",
+		"throttle-debounce": "3"
 	}
 }
