@@ -91,9 +91,9 @@
 				{ text: 'Test' },
 				{
 					type: 'void',
+					value: '',
 					children: [{ text: '' }]
-				},
-				{ text: '' }
+				}
 			]
 		}
 	];

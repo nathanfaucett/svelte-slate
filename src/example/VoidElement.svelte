@@ -5,7 +5,7 @@
 
 	export interface IVoidElement extends IBaseElement {
 		type: 'void';
-		url: string;
+		value: string;
 	}
 
 	export function isVoidElement(element: IBaseElement): element is IVoidElement {
@@ -36,6 +36,7 @@
 <script lang="ts">
 	import type { ISvelteEditor } from '$lib/withSvelte';
 	import { Editor, Transforms } from 'slate';
+	import { findPath, getEditor } from '$lib';
 
 	export let element: IVoidElement;
 	export let isInline: boolean;
@@ -44,7 +45,15 @@
 	export let ref: HTMLElement = undefined;
 	export let dir: 'rtl' | 'ltr' = undefined;
 
-	let value = '';
+	let editor = getEditor();
+
+	$: path = findPath(element);
+
+	function onUpdate(e: Event) {
+		Transforms.setNodes(editor, { value: (e.target as HTMLInputElement).value } as any, {
+			at: path
+		});
+	}
 </script>
 
 <div
@@ -58,8 +67,8 @@
 >
 	<slot />
 	<div contenteditable={false} class="void">
-		<input bind:value />
-		<h1>Hello, {value || 'world'}!</h1>
+		<input value={element.value} on:input={onUpdate} />
+		<h1>Hello, {element.value || 'world'}!</h1>
 	</div>
 </div>
 
