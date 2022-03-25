@@ -86,8 +86,15 @@
 			children: [{ text: 'Todo' }]
 		},
 		{
-			type: 'void',
-			children: [{ text: 'Void' }]
+			type: 'paragraph',
+			children: [
+				{ text: 'Test' },
+				{
+					type: 'void',
+					children: [{ text: '' }]
+				},
+				{ text: '' }
+			]
 		}
 	];
 

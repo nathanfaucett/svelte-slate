@@ -11,7 +11,6 @@
 <script lang="ts">
 	import { Editor, Node } from 'slate';
 	import type { Element as SlateElement, Range, Selection, Text as SlateText } from 'slate';
-	import { onMount } from 'svelte';
 	import { direction } from '../direction';
 	import Children from './Children.svelte';
 	import type { Key } from '../Key';
@@ -62,10 +61,6 @@
 	$: contenteditable = !readOnly;
 	let voidText: SlateText;
 	$: if (isVoid) {
-		if (!readOnly && isInline) {
-			contenteditable = false;
-		}
-
 		const [[text]] = Node.texts(element);
 		voidText = text;
 
@@ -79,11 +74,6 @@
 		NODE_TO_ELEMENT.set(element, ref);
 		ELEMENT_TO_NODE.set(ref, element);
 	}
-	onMount(() => {
-		EDITOR_TO_KEY_TO_ELEMENT.get(editor)?.set(currentKey, ref);
-		NODE_TO_ELEMENT.set(element, ref);
-		ELEMENT_TO_NODE.set(ref, element);
-	});
 </script>
 
 <svelte:component this={Element} bind:ref {isVoid} {isInline} {contenteditable} {element} {dir}

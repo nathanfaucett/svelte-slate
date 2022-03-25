@@ -3,7 +3,6 @@
 <script lang="ts">
 	import type { Element, Range } from 'slate';
 	import { Text as SlateText } from 'slate';
-	import { onMount } from 'svelte';
 	import type { ILeafProps, IPlaceholderProps } from './Leaf.svelte';
 	import LeafComponent from './Leaf.svelte';
 	import { findKey } from '../utils';
@@ -29,11 +28,6 @@
 		NODE_TO_ELEMENT.set(text, ref);
 		ELEMENT_TO_NODE.set(ref, text);
 	}
-	onMount(() => {
-		EDITOR_TO_KEY_TO_ELEMENT.get(editor)?.set(key, ref);
-		NODE_TO_ELEMENT.set(text, ref);
-		ELEMENT_TO_NODE.set(ref, text);
-	});
 </script>
 
 <span bind:this={ref} data-slate-node="text"

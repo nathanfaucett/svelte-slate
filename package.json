@@ -1,7 +1,7 @@
 {
 	"name": "svelte-slate",
 	"description": "slate svelte view layer",
-	"version": "0.1.23",
+	"version": "0.1.24",
 	"license": "(MIT OR Apache-2.0)",
 	"type": "module",
 	"author": "Nathan Faucett",
@@ -23,6 +23,7 @@
 		"package": "svelte-kit package",
 		"preview": "svelte-kit preview",
 		"clean": "rm -rf node_modules/.vite .svelte-kit package",
+		"test": "playwright test",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"publish": "npm run package && cd package && npm publish --access public",
@@ -30,6 +31,7 @@
 		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
 	},
 	"devDependencies": {
+		"@playwright/test": "1",
 		"@sveltejs/adapter-static": "next",
 		"@sveltejs/kit": "next",
 		"@types/is-url": "1",

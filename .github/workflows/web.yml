@@ -1,8 +1,11 @@
 name: Web
 
 on:
-  push:
+  workflow_run:
+    workflows: ['Test']
     branches: [main]
+    types:
+      - completed
 
 jobs:
   pages:

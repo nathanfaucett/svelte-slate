@@ -18,16 +18,18 @@
 		editor.isVoid = (element) => (isVoidElement(element as IBaseElement) ? true : isVoid(element));
 
 		editor.isInline = (element) =>
-			isVoidElement(element as IBaseElement) ? !!element['inline'] : isInline(element);
+			isVoidElement(element as IBaseElement) ? true : isInline(element);
 
 		return editor;
 	}
 
 	export function insertVoid(editor: Editor) {
-		Transforms.insertNodes(editor, {
-			type: 'void',
-			children: [{ text: '' }]
-		} as any);
+		Transforms.insertNodes(editor, [
+			{
+				type: 'void',
+				children: [{ text: '' }]
+			} as any
+		]);
 	}
 </script>
 
@@ -42,7 +44,7 @@
 	export let ref: HTMLElement = undefined;
 	export let dir: 'rtl' | 'ltr' = undefined;
 
-	let value = 'world';
+	let value = '';
 </script>
 
 <div
@@ -54,17 +56,18 @@
 	{dir}
 	{contenteditable}
 >
+	<slot />
 	<div contenteditable={false} class="void">
 		<input bind:value />
-		<h1>Hello, {value}!</h1>
+		<h1>Hello, {value || 'world'}!</h1>
 	</div>
-	<slot />
 </div>
 
 <style>
 	.container {
 		position: relative;
 		margin: 0;
+		padding: 0 0.25em;
 	}
 	.container[data-slate-inline='true'] {
 		display: inline-block;
