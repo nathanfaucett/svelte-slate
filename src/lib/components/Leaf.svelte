@@ -1,5 +1,3 @@
-<svelte:options immutable />
-
 <script lang="ts" context="module">
 	export interface ILeafProps extends svelte.JSX.HTMLAttributes<HTMLElement> {
 		leaf: SlateText;

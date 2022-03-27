@@ -1,5 +1,3 @@
-<svelte:options immutable />
-
 <script lang="ts">
 	import type { Text } from 'slate';
 	import { beforeUpdate } from 'svelte';

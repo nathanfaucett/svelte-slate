@@ -67,7 +67,7 @@
 	data-slate-inline={isInline}
 	data-slate-void={isVoid}
 	{dir}
-	contenteditable={false}
+	{contenteditable}
 >
 	<CodeEditor {language} {value} readOnly={!contenteditable} /><slot />
 </div>
