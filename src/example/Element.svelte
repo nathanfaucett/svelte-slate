@@ -1,4 +1,4 @@
-<svelte:options immutable={true} />
+<svelte:options immutable />
 
 <script lang="ts" context="module">
 	export interface IBaseElement {
@@ -6,7 +6,12 @@
 		children: (IElement | IText)[];
 	}
 
-	export type IElement = IBaseElement | IImageElement | ICheckListItemElement | IVoidElement;
+	export type IElement =
+		| IBaseElement
+		| IImageElement
+		| ICheckListItemElement
+		| IVoidElement
+		| ICodeElement;
 </script>
 
 <script lang="ts">
@@ -18,6 +23,7 @@
 	import CheckListItemElement, { isCheckListItemElement } from './CheckListItemElement.svelte';
 	import type { IVoidElement } from './VoidElement.svelte';
 	import VoidElement, { isVoidElement } from './VoidElement.svelte';
+	import CodeElement, { isCodeElement, type ICodeElement } from './CodeElement.svelte';
 
 	export let element: IElement;
 	export let isInline: boolean;
@@ -102,6 +108,13 @@
 		{isVoid}
 		{dir}
 		{contenteditable}><slot /></VoidElement
+	>{:else if isCodeElement(element)}<CodeElement
+		bind:ref
+		{element}
+		{isInline}
+		{isVoid}
+		{dir}
+		{contenteditable}><slot /></CodeElement
 	>{:else}<p
 		bind:this={ref}
 		data-slate-node="element"

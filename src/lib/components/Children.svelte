@@ -42,10 +42,6 @@
 	$: if (currentNode !== node || node === editor) {
 		currentNode = node;
 	}
-	let currentChildren = currentNode.children;
-	$: if (currentChildren !== currentNode.children) {
-		currentChildren = currentNode.children;
-	}
 
 	$: path = findPath(currentNode);
 	$: isLeafBlock =
@@ -54,7 +50,7 @@
 		Editor.hasInlines(editor, currentNode);
 </script>
 
-{#each currentChildren as child, index (findKey(child))}{#if SlateElement.isElement(child)}<ChildElement
+{#each currentNode.children as child, index (findKey(child))}{#if SlateElement.isElement(child)}<ChildElement
 			{Element}
 			{Placeholder}
 			{Leaf}

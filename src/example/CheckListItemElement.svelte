@@ -1,4 +1,4 @@
-<svelte:options immutable={true} />
+<svelte:options immutable />
 
 <script lang="ts" context="module">
 	import type { IBaseElement, IElement } from './Element.svelte';

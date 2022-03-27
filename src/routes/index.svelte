@@ -1,5 +1,5 @@
 <script context="module">
-  export const prerender = true;
+	export const prerender = true;
 </script>
 
 <script lang="ts">
@@ -8,6 +8,7 @@
 
 <ul>
 	<li><a href={`${base}/default`}>Default</a></li>
+	<li><a href={`${base}/editor`}>Editor</a></li>
 	<li><a href={`${base}/huge-document`}>Huge Document</a></li>
 	<li><a href={`${base}/richtext`}>Rich Text</a></li>
 </ul>

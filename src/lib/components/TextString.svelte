@@ -1,10 +1,20 @@
-<svelte:options immutable={true} />
+<svelte:options immutable />
 
 <script lang="ts">
-	export let text: string;
+	import type { Text } from 'slate';
+	import { beforeUpdate } from 'svelte';
+
+	export let leaf: Text;
 	export let isTrailing = false;
+
+	let ref: HTMLSpanElement;
+	beforeUpdate(() => {
+		if (ref) {
+			ref.textContent = leaf.text;
+		}
+	});
 </script>
 
-<span data-slate-string="true"
-	>{text}{#if isTrailing}{'\n'}{/if}</span
+<span bind:this={ref} data-slate-string="true"
+	>{leaf.text}{#if isTrailing}{'\n'}{/if}</span
 >

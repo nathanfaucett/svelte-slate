@@ -1,4 +1,4 @@
-<svelte:options immutable={true} />
+<svelte:options immutable />
 
 <script lang="ts">
 	import { findPath } from '../utils';
@@ -31,4 +31,4 @@
 {#if isVoid}<ZeroWidthString
 		length={Node.string(parent).length}
 	/>{:else if isLineBreak}<ZeroWidthString isLineBreak />{:else if isEmpty}<ZeroWidthString
-	/>{:else}<TextString {isTrailing} text={leaf.text} />{/if}
+	/>{:else}<TextString {isTrailing} {leaf} />{/if}

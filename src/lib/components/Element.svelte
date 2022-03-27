@@ -26,6 +26,7 @@
 	import type { ISvelteComponent } from './Slate.svelte';
 	import { getEditor, getReadOnlyContext } from './Slate.svelte';
 	import type { ILeafProps, IPlaceholderProps } from './Leaf.svelte';
+	import { onMount } from 'svelte';
 
 	export let element: SlateElement;
 	export let decorations: Range[];
@@ -61,6 +62,10 @@
 	$: contenteditable = !readOnly;
 	let voidText: SlateText;
 	$: if (isVoid) {
+		if (!readOnly && isInline) {
+			contenteditable = false;
+		}
+
 		const [[text]] = Node.texts(element);
 		voidText = text;
 
@@ -69,11 +74,17 @@
 	}
 
 	let ref: HTMLElement;
-	$: if (ref) {
+	let prevRef = ref;
+	function onRef() {
 		EDITOR_TO_KEY_TO_ELEMENT.get(editor)?.set(currentKey, ref);
 		NODE_TO_ELEMENT.set(element, ref);
 		ELEMENT_TO_NODE.set(ref, element);
 	}
+	$: if (prevRef !== ref) {
+		prevRef = ref;
+		onRef();
+	}
+	onMount(onRef);
 </script>
 
 <svelte:component this={Element} bind:ref {isVoid} {isInline} {contenteditable} {element} {dir}

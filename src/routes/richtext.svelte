@@ -26,6 +26,8 @@
 	import { toggleMark } from '../example/utils';
 	import VoidButton from '../example/VoidButton.svelte';
 	import { withVoids } from '../example/VoidElement.svelte';
+	import CodeButton from '../example/CodeButton.svelte';
+	import { withCode } from '../example/CodeElement.svelte';
 	import MdFormatBold from 'svelte-icons/md/MdFormatBold.svelte';
 	import MdCode from 'svelte-icons/md/MdCode.svelte';
 	import MdLooksOne from 'svelte-icons/md/MdLooksOne.svelte';
@@ -36,7 +38,9 @@
 	import MdFormatListBulleted from 'svelte-icons/md/MdFormatListBulleted.svelte';
 	import MdFormatQuote from 'svelte-icons/md/MdFormatQuote.svelte';
 
-	const editor = withHistory(withVoids(withImages(withCheckListItems(withSvelte(createEditor())))));
+	const editor = withHistory(
+		withCode(withVoids(withImages(withCheckListItems(withSvelte(createEditor())))))
+	);
 	let value: Array<IText | IElement> = [
 		{
 			type: 'paragraph',
@@ -95,6 +99,16 @@
 					children: [{ text: '' }]
 				}
 			]
+		},
+		{
+			type: 'code',
+			language: 'js',
+			children: [
+				{
+					type: 'code-line',
+					children: [{ text: 'console.log("Hello world!");' }]
+				}
+			]
 		}
 	];
 
@@ -131,6 +145,7 @@
 		<ImageButton />
 		<CheckListItemButton />
 		<VoidButton />
+		<CodeButton />
 	</div>
 	<div class="editor">
 		<Editable {Element} {Leaf} {onKeyDown} placeholder="Enter some plain text..." />

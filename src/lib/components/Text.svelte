@@ -1,4 +1,4 @@
-<svelte:options immutable={true} />
+<svelte:options immutable />
 
 <script lang="ts">
 	import type { Element, Range } from 'slate';
@@ -9,6 +9,7 @@
 	import { EDITOR_TO_KEY_TO_ELEMENT, ELEMENT_TO_NODE, NODE_TO_ELEMENT } from '../weakMaps';
 	import type { ISvelteComponent } from './Slate.svelte';
 	import { getEditor } from './Slate.svelte';
+	import { onMount } from 'svelte';
 
 	export let decorations: Range[];
 	export let isLast: boolean;
@@ -23,11 +24,17 @@
 	$: key = findKey(text);
 
 	let ref: HTMLSpanElement;
-	$: if (ref) {
+	let prevRef = ref;
+	function onRef() {
 		EDITOR_TO_KEY_TO_ELEMENT.get(editor)?.set(key, ref);
 		NODE_TO_ELEMENT.set(text, ref);
 		ELEMENT_TO_NODE.set(ref, text);
 	}
+	$: if (prevRef !== ref) {
+		prevRef = ref;
+		onRef();
+	}
+	onMount(onRef);
 </script>
 
 <span bind:this={ref} data-slate-node="text"
