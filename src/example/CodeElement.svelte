@@ -70,7 +70,8 @@
 
 <script lang="ts">
 	import type { Token } from 'prismjs';
-	import * as Prism from 'prismjs';
+	// @ts-ignore
+	import Prism from 'prismjs';
 	import 'prismjs';
 	import 'prismjs/components/prism-python.js';
 	import 'prismjs/components/prism-php.js';
@@ -114,7 +115,6 @@
 	createContext(LEAF_CONTEXT_KEY, CodeEditorLeaf);
 
 	const languageContext = createContext(LANGUAGE_CONTEXT_KEY, element.language);
-	$: prismLanguage = Prism.languages[$languageContext];
 
 	function onSelect(e: Event) {
 		const language = (e.target as HTMLSelectElement).value as string;
@@ -124,6 +124,7 @@
 
 	$: decorate = ([node, path]: NodeEntry): Range[] => {
 		const ranges: Range[] = [];
+		const prismLanguage = Prism.languages[$languageContext];
 
 		if (!Text.isText(node) || !prismLanguage) {
 			return ranges;

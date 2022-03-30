@@ -1,5 +1,5 @@
 import type { BaseEditor } from 'slate';
-import { Editor, Node, Path, Operation, Transforms, Range } from 'slate';
+import { Editor, Node, Path, type Operation, Transforms, Range } from 'slate';
 import type { Key } from './Key';
 import { EDITOR_TO_KEY_TO_ELEMENT, EDITOR_TO_ON_CHANGE, NODE_TO_KEY } from './weakMaps';
 import { isDOMText, getPlainText, getSlateFragmentAttribute } from './dom';
