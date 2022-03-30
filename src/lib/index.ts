@@ -7,7 +7,11 @@ export {
 	getDecorateContext,
 	getSelectionContext,
 	defaultDecorate,
-	DECORATE_CONTEXT_KEY
+	EDITOR_CONTEXT_KEY,
+	READ_ONLY_CONTEXT_KEY,
+	FOCUSED_CONTEXT_KEY,
+	DECORATE_CONTEXT_KEY,
+	SELECTION_CONTEXT_KEY
 } from './components/Slate.svelte';
 export { default as Editable } from './components/Editable.svelte';
 export {
@@ -28,6 +32,9 @@ export {
 	blur,
 	isFocused,
 	isReadOnly,
+	createContext,
+	createContextKey,
+	getFromContext,
 	type ISvelteComponent
 } from './utils';
 export { default as TextStringfrom } from './components/TextString.svelte';
