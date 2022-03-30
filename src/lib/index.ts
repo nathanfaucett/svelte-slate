@@ -13,7 +13,18 @@ export {
 	DECORATE_CONTEXT_KEY,
 	SELECTION_CONTEXT_KEY
 } from './components/Slate.svelte';
-export { default as Editable } from './components/Editable.svelte';
+export {
+	default as Editable,
+	ELEMENT_CONTEXT_KEY,
+	LEAF_CONTEXT_KEY,
+	PLACEHOLDER_CONTEXT_KEY,
+	getElementContext,
+	getLeafContext,
+	getPlaceholderContext,
+	hasTarget,
+	hasEditableTarget,
+	isTargetInsideNonReadonlyVoid
+} from './components/Editable.svelte';
 export {
 	findPath,
 	findKey,
