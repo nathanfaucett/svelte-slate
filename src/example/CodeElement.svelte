@@ -69,7 +69,8 @@
 </script>
 
 <script lang="ts">
-	import { languages, tokenize, type Token } from 'prismjs';
+	import type { Token } from 'prismjs';
+	import * as Prism from 'prismjs';
 	import 'prismjs';
 	import 'prismjs/components/prism-python.js';
 	import 'prismjs/components/prism-php.js';
@@ -113,7 +114,7 @@
 	createContext(LEAF_CONTEXT_KEY, CodeEditorLeaf);
 
 	const languageContext = createContext(LANGUAGE_CONTEXT_KEY, element.language);
-	$: prismLanguage = languages[$languageContext];
+	$: prismLanguage = Prism.languages[$languageContext];
 
 	function onSelect(e: Event) {
 		const language = (e.target as HTMLSelectElement).value as string;
@@ -127,7 +128,7 @@
 		if (!Text.isText(node) || !prismLanguage) {
 			return ranges;
 		} else {
-			const tokens = tokenize(node.text, prismLanguage);
+			const tokens = Prism.tokenize(node.text, prismLanguage);
 			let start = 0;
 
 			for (const token of tokens) {
