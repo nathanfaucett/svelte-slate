@@ -1,3 +1,4 @@
+export { getSelectedContext } from './components/ChildElement.svelte';
 export {
 	default as Slate,
 	getEditor,
@@ -7,11 +8,7 @@ export {
 	getDecorateContext,
 	getSelectionContext,
 	defaultDecorate,
-	EDITOR_CONTEXT_KEY,
-	READ_ONLY_CONTEXT_KEY,
-	FOCUSED_CONTEXT_KEY,
-	DECORATE_CONTEXT_KEY,
-	SELECTION_CONTEXT_KEY
+	DECORATE_CONTEXT_KEY
 } from './components/Slate.svelte';
 export {
 	default as Editable,
