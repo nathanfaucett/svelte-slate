@@ -15,7 +15,7 @@
 	import Children from './Children.svelte';
 	import type { Key } from '../Key';
 	import Text from './Text.svelte';
-	import { findKey } from '../utils';
+	import { findKey, getFromContext } from '../utils';
 	import {
 		EDITOR_TO_KEY_TO_ELEMENT,
 		ELEMENT_TO_NODE,
@@ -23,19 +23,17 @@
 		NODE_TO_INDEX,
 		NODE_TO_PARENT
 	} from '../weakMaps';
-	import type { ISvelteComponent } from './Slate.svelte';
 	import { getEditor, getReadOnlyContext } from './Slate.svelte';
-	import type { ILeafProps, IPlaceholderProps } from './Leaf.svelte';
-	import { onMount } from 'svelte';
+	import { ELEMENT_CONTEXT_KEY } from './Editable.svelte';
 
 	export let element: SlateElement;
 	export let decorations: Range[];
 	export let selection: Selection = null;
-	export let Element: ISvelteComponent<IElementProps>;
-	export let Leaf: ISvelteComponent<ILeafProps>;
-	export let Placeholder: ISvelteComponent<IPlaceholderProps>;
 
+	const ElementContext = getFromContext(ELEMENT_CONTEXT_KEY);
 	const editor = getEditor();
+
+	$: Element = $ElementContext;
 
 	const readOnlyContext = getReadOnlyContext();
 	$: readOnly = $readOnlyContext;
@@ -74,25 +72,17 @@
 	}
 
 	let ref: HTMLElement;
-	let prevRef = ref;
-	function onRef() {
+	$: if (ref) {
 		EDITOR_TO_KEY_TO_ELEMENT.get(editor)?.set(currentKey, ref);
 		NODE_TO_ELEMENT.set(element, ref);
 		ELEMENT_TO_NODE.set(ref, element);
 	}
-	$: if (prevRef !== ref) {
-		prevRef = ref;
-		onRef();
-	}
-	onMount(onRef);
 </script>
 
 <svelte:component this={Element} bind:ref {isVoid} {isInline} {contenteditable} {element} {dir}
 	>{#if isVoid && !readOnly}{#if isInline}<span data-slate-spacer
 				><svelte:component
 					this={Text}
-					{Placeholder}
-					{Leaf}
 					decorations={[]}
 					isLast={false}
 					parent={element}
@@ -101,21 +91,12 @@
 			>{:else}<div data-slate-spacer>
 				<svelte:component
 					this={Text}
-					{Placeholder}
-					{Leaf}
 					decorations={[]}
 					isLast={false}
 					parent={element}
 					text={voidText}
 				/>
-			</div>{/if}{:else}<Children
-			node={element}
-			{decorations}
-			{selection}
-			{Element}
-			{Placeholder}
-			{Leaf}
-		/>{/if}</svelte:component
+			</div>{/if}{:else}<Children node={element} {decorations} {selection} />{/if}</svelte:component
 >
 
 <style>

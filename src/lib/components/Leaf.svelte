@@ -14,14 +14,19 @@
 	import type { Text as SlateText, Element as SlateElement } from 'slate';
 	import { onDestroy } from 'svelte';
 	import String from './String.svelte';
-	import type { ISvelteComponent } from './Slate.svelte';
+	import { getFromContext } from '../utils';
+	import { LEAF_CONTEXT_KEY, PLACEHOLDER_CONTEXT_KEY } from './Editable.svelte';
 
 	export let isLast: boolean;
 	export let leaf: SlateText;
 	export let parent: SlateElement;
 	export let text: SlateText;
-	export let Leaf: ISvelteComponent<ILeafProps>;
-	export let Placeholder: ISvelteComponent<IPlaceholderProps>;
+
+	const LeafContext = getFromContext(LEAF_CONTEXT_KEY);
+	const PlaceholderContext = getFromContext(PLACEHOLDER_CONTEXT_KEY);
+
+	$: Leaf = $LeafContext;
+	$: Placeholder = $PlaceholderContext;
 
 	let clientHeight: number;
 	let currentClientHeight: number;

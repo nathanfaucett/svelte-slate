@@ -1,63 +1,28 @@
 <script lang="ts" context="module">
-	const EDITOR_CONTEXT_KEY = {};
-	const READ_ONLY_CONTEXT_KEY = {};
-	const FOCUSED_CONTEXT_KEY = {};
-	export const DECORATE_CONTEXT_KEY = {};
-	const SELECTION_CONTEXT_KEY = {};
-
-	export type ISvelteComponent<T extends Record<string, any>> = new (
-		...args: any[]
-	) => SvelteComponentTyped<T>;
+	export const EDITOR_CONTEXT_KEY = createContextKey<ISvelteEditor>();
+	export const READ_ONLY_CONTEXT_KEY = createContextKey<boolean>();
+	export const FOCUSED_CONTEXT_KEY = createContextKey<boolean>();
+	export const DECORATE_CONTEXT_KEY = createContextKey<(entry: NodeEntry) => Range[]>();
+	export const SELECTION_CONTEXT_KEY = createContextKey<Selection | null>();
 
 	export function getEditorContext() {
-		const context = getContext<Writable<ISvelteEditor>>(EDITOR_CONTEXT_KEY);
-		if (!context) {
-			throw new Error(
-				`The \`getEditorContext\` must be used inside the Slate component's context.`
-			);
-		}
-		return context;
+		return getFromContext(EDITOR_CONTEXT_KEY);
 	}
 	export function getEditor() {
 		return get(getEditorContext());
 	}
 	export function getReadOnlyContext() {
-		const context = getContext<Writable<boolean>>(READ_ONLY_CONTEXT_KEY);
-		if (!context) {
-			throw new Error(
-				`The \`getReadOnlyContext\` must be used inside the Slate component's context.`
-			);
-		}
-		return context;
+		return getFromContext(READ_ONLY_CONTEXT_KEY);
 	}
 	export function getFocusedContext() {
-		const context = getContext<Writable<boolean>>(FOCUSED_CONTEXT_KEY);
-		if (!context) {
-			throw new Error(
-				`The \`getFocusedContext\` must be used inside the Slate component's context.`
-			);
-		}
-		return context;
+		return getFromContext(FOCUSED_CONTEXT_KEY);
 	}
 	export function getDecorateContext() {
-		const context = getContext<Writable<(entry: NodeEntry) => Range[]>>(DECORATE_CONTEXT_KEY);
-		if (!context) {
-			throw new Error(
-				`The \`getDecorateContext\` must be used inside the Slate component's context.`
-			);
-		}
-		return context;
+		return getFromContext(DECORATE_CONTEXT_KEY);
 	}
 	export function getSelectionContext() {
-		const context = getContext<Writable<Selection>>(SELECTION_CONTEXT_KEY);
-		if (!context) {
-			throw new Error(
-				`The \`getSelectionContext\` must be used inside the Slate component's context.`
-			);
-		}
-		return context;
+		return getFromContext(SELECTION_CONTEXT_KEY);
 	}
-
 	export function defaultDecorate(_entry: NodeEntry): Range[] {
 		return [];
 	}
@@ -67,30 +32,18 @@
 	import { EDITOR_TO_ON_CHANGE } from '../weakMaps';
 	import type { ISvelteEditor } from '../withSvelte';
 	import type { Descendant, Range, NodeEntry, Selection } from 'slate';
-	import type { SvelteComponentTyped } from 'svelte';
-	import { setContext, getContext } from 'svelte';
-	import type { Writable } from 'svelte/store';
-	import { get, writable } from 'svelte/store';
-	import { isSelectionEqual } from '$lib/utils';
+	import { get } from 'svelte/store';
+	import { getFromContext, createContextKey, isSelectionEqual, createContext } from '$lib/utils';
 
 	export let editor: ISvelteEditor;
 	export let value: Descendant[] = editor.children;
 	export let selection = editor.selection;
 
-	const editorContext = writable(editor);
-	setContext(EDITOR_CONTEXT_KEY, editorContext);
-
-	const readOnlyContext = writable(true);
-	setContext(READ_ONLY_CONTEXT_KEY, readOnlyContext);
-
-	const focusedContext = writable(false);
-	setContext(FOCUSED_CONTEXT_KEY, focusedContext);
-
-	const decorateContext = writable(defaultDecorate);
-	setContext(DECORATE_CONTEXT_KEY, decorateContext);
-
-	const selectionContext = writable(editor.selection);
-	setContext(SELECTION_CONTEXT_KEY, selectionContext);
+	const editorContext = createContext(EDITOR_CONTEXT_KEY, editor);
+	const selectionContext = createContext(SELECTION_CONTEXT_KEY, editor.selection);
+	createContext(READ_ONLY_CONTEXT_KEY, true);
+	createContext(FOCUSED_CONTEXT_KEY, false);
+	createContext(DECORATE_CONTEXT_KEY, defaultDecorate);
 
 	function onChange() {
 		selection = editor.selection;

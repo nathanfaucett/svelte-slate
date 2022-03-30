@@ -1,20 +1,15 @@
 <script lang="ts">
 	import type { Element, Range } from 'slate';
 	import { Text as SlateText } from 'slate';
-	import type { ILeafProps, IPlaceholderProps } from './Leaf.svelte';
-	import LeafComponent from './Leaf.svelte';
+	import Leaf from './Leaf.svelte';
 	import { findKey } from '../utils';
 	import { EDITOR_TO_KEY_TO_ELEMENT, ELEMENT_TO_NODE, NODE_TO_ELEMENT } from '../weakMaps';
-	import type { ISvelteComponent } from './Slate.svelte';
 	import { getEditor } from './Slate.svelte';
-	import { onMount } from 'svelte';
 
 	export let decorations: Range[];
 	export let isLast: boolean;
 	export let parent: Element;
 	export let text: SlateText;
-	export let Leaf: ISvelteComponent<ILeafProps>;
-	export let Placeholder: ISvelteComponent<IPlaceholderProps>;
 
 	const editor = getEditor();
 
@@ -22,24 +17,16 @@
 	$: key = findKey(text);
 
 	let ref: HTMLSpanElement;
-	let prevRef = ref;
-	function onRef() {
+	$: if (ref) {
 		EDITOR_TO_KEY_TO_ELEMENT.get(editor)?.set(key, ref);
 		NODE_TO_ELEMENT.set(text, ref);
 		ELEMENT_TO_NODE.set(ref, text);
 	}
-	$: if (prevRef !== ref) {
-		prevRef = ref;
-		onRef();
-	}
-	onMount(onRef);
 </script>
 
 <span bind:this={ref} data-slate-node="text"
 	>{#each leaves as leaf, index (`${key}-${index}`)}<svelte:component
-			this={LeafComponent}
-			{Placeholder}
-			{Leaf}
+			this={Leaf}
 			isLast={isLast && index === leaves.length - 1}
 			{parent}
 			{leaf}

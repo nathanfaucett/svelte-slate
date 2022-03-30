@@ -112,7 +112,7 @@
 		}
 	];
 
-	$: onKeyDown = (event: KeyboardEvent) => {
+	function onKeyDown(event: KeyboardEvent) {
 		for (const hotkey in HOTKEYS) {
 			if (isHotkey(hotkey, event)) {
 				event.preventDefault();
@@ -120,7 +120,7 @@
 				toggleMark(editor, mark);
 			}
 		}
-	};
+	}
 </script>
 
 <p>

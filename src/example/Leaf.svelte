@@ -25,7 +25,7 @@
 
 <style>
 	.bold {
-		font-weight: bold;
+		font-weight: 900;
 	}
 	.italic {
 		font-style: italic;

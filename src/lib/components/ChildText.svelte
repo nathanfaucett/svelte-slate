@@ -1,13 +1,11 @@
 <script lang="ts">
-	import type { Ancestor, Text as SlateText, Path, NodeEntry, Range } from 'slate';
+	import type { Ancestor, Text as SlateText, Path, Range } from 'slate';
 	import { Editor } from 'slate';
 	import Text from './Text.svelte';
 	import { NODE_TO_INDEX, NODE_TO_PARENT } from '../weakMaps';
 	import { getChildDecorations } from './Children.svelte';
 	import { isDecoratorRangeListEqual } from '$lib/utils';
-	import type { ISvelteComponent } from './Slate.svelte';
-	import { getEditor } from './Slate.svelte';
-	import type { ILeafProps, IPlaceholderProps } from './Leaf.svelte';
+	import { getDecorateContext, getEditor } from './Slate.svelte';
 
 	export let parent: Ancestor;
 	export let text: SlateText;
@@ -15,10 +13,8 @@
 	export let index: number;
 	export let isLeafBlock: boolean;
 	export let decorations: Range[];
-	export let decorate: (entry: NodeEntry) => Range[];
-	export let Leaf: ISvelteComponent<ILeafProps>;
-	export let Placeholder: ISvelteComponent<IPlaceholderProps>;
 
+	const decorateContext = getDecorateContext();
 	const editor = getEditor();
 
 	let currentIndex = index;
@@ -44,7 +40,7 @@
 	$: isLast = isLeafBlock && currentIndex === currentParent.children.length - 1;
 	$: range = Editor.range(editor, childPath);
 	$: childDecorations = getChildDecorations(
-		decorate([currentText, childPath]),
+		$decorateContext([currentText, childPath]),
 		range,
 		currentDecorations
 	);
@@ -52,10 +48,8 @@
 
 <svelte:component
 	this={Text}
-	{Placeholder}
-	{Leaf}
 	decorations={childDecorations}
 	{isLast}
-	{parent}
-	{text}
+	parent={currentParent}
+	text={currentText}
 />

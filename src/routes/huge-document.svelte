@@ -68,7 +68,7 @@
 	const editor = withHistory(withImages(withSvelte(createEditor())));
 	let value = createValue(100, 7);
 
-	$: onKeyDown = (event: KeyboardEvent) => {
+	function onKeyDown(event: KeyboardEvent) {
 		for (const hotkey in HOTKEYS) {
 			if (isHotkey(hotkey, event)) {
 				event.preventDefault();
@@ -76,7 +76,7 @@
 				toggleMark(editor, mark);
 			}
 		}
-	};
+	}
 </script>
 
 <p>

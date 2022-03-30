@@ -1,46 +1,35 @@
 <script lang="ts" context="module">
-	const SELECTED_CONTEXT_KEY = {};
+	const SELECTED_CONTEXT_KEY = createContextKey<boolean>();
 
 	export function getSelectedContext() {
-		const context = getContext<Writable<boolean>>(SELECTED_CONTEXT_KEY);
-		if (!context) {
-			throw new Error(
-				`The \`getSelectedContext\` must be used inside a Slate Element component's context.`
-			);
-		}
-		return context;
+		return getFromContext(SELECTED_CONTEXT_KEY);
 	}
 </script>
 
 <script lang="ts">
-	import type { Writable } from 'svelte/store';
-	import { writable } from 'svelte/store';
-	import type { Ancestor, Element as SlateElement, Path, NodeEntry, Selection } from 'slate';
+	import type { Ancestor, Element as SlateElement, Path, Selection } from 'slate';
 	import { Range, Editor } from 'slate';
-	import { getContext, setContext } from 'svelte';
-	import type { IElementProps } from './Element.svelte';
-	import ElementComponent from './Element.svelte';
+	import Element from './Element.svelte';
 	import { NODE_TO_INDEX, NODE_TO_PARENT } from '../weakMaps';
 	import { getChildDecorations } from './Children.svelte';
-	import { isDecoratorRangeListEqual, isSelectionEqual } from '$lib/utils';
-	import type { ISvelteComponent } from './Slate.svelte';
-	import { getEditor } from './Slate.svelte';
-	import type { ILeafProps, IPlaceholderProps } from './Leaf.svelte';
+	import {
+		createContext,
+		createContextKey,
+		getFromContext,
+		isDecoratorRangeListEqual,
+		isSelectionEqual
+	} from '$lib/utils';
+	import { getDecorateContext, getEditor } from './Slate.svelte';
 
 	export let parent: Ancestor;
 	export let element: SlateElement;
 	export let path: Path;
 	export let index: number;
-	export let decorate: (entry: NodeEntry) => Range[];
 	export let decorations: Range[];
 	export let selection: Selection = null;
-	export let Element: ISvelteComponent<IElementProps>;
-	export let Leaf: ISvelteComponent<ILeafProps>;
-	export let Placeholder: ISvelteComponent<IPlaceholderProps>;
 
-	const selectedContext = writable(false);
-	setContext(SELECTED_CONTEXT_KEY, selectedContext);
-
+	const decorateContext = getDecorateContext();
+	const selectedContext = createContext(SELECTED_CONTEXT_KEY, false);
 	const editor = getEditor();
 
 	let currentIndex = index;
@@ -69,7 +58,7 @@
 	$: childPath = path.concat(currentIndex);
 	$: range = Editor.range(editor, childPath);
 	$: childDecorations = getChildDecorations(
-		decorate([currentElement, childPath]),
+		$decorateContext([currentElement, childPath]),
 		range,
 		currentDecorations
 	);
@@ -78,11 +67,8 @@
 </script>
 
 <svelte:component
-	this={ElementComponent}
-	{Element}
-	{Placeholder}
-	{Leaf}
+	this={Element}
 	decorations={childDecorations}
-	{element}
+	element={currentElement}
 	selection={childSelection}
 />

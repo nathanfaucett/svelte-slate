@@ -1,4 +1,18 @@
 <script lang="ts" context="module">
+	export const ELEMENT_CONTEXT_KEY = createContextKey<ISvelteComponent<IElementProps>>();
+	export const LEAF_CONTEXT_KEY = createContextKey<ISvelteComponent<ILeafProps>>();
+	export const PLACEHOLDER_CONTEXT_KEY = createContextKey<ISvelteComponent<IPlaceholderProps>>();
+
+	export function getElementContext() {
+		return getFromContext(ELEMENT_CONTEXT_KEY);
+	}
+	export function getLeafContext() {
+		return getFromContext(LEAF_CONTEXT_KEY);
+	}
+	export function getPlaceholderContext() {
+		return getFromContext(PLACEHOLDER_CONTEXT_KEY);
+	}
+
 	type DeferredOperation = () => void;
 
 	export function hasTarget(editor: ISvelteEditor, target: EventTarget | null): target is Node {
@@ -53,7 +67,6 @@
 	import DefaultElement from './DefaultElement.svelte';
 	import DefaultLeaf from './DefaultLeaf.svelte';
 	import DefaultPlaceholder from './DefaultPlaceholder.svelte';
-	import type { ISvelteComponent } from './Slate.svelte';
 	import { getEditor } from './Slate.svelte';
 	import {
 		defaultDecorate,
@@ -76,17 +89,21 @@
 	import { DOMNode, DOMRange, getDefaultView, isDOMElement, isPlainTextOnlyPaste } from '../dom';
 	import { isDOMNode } from '../dom';
 	import {
+		createContext,
+		createContextKey,
 		findDocumentOrShadowRoot,
 		findEventRange,
 		findPath,
 		focus,
+		getFromContext,
 		hasDOMNode,
 		hasRange,
 		isFocused,
 		toDOMNode,
 		toDOMRange,
 		toSlateNode,
-		toSlateRange
+		toSlateRange,
+		type ISvelteComponent
 	} from '../utils';
 	import type { ISvelteEditor } from '../withSvelte';
 	import {
@@ -114,6 +131,14 @@
 	export let autocorrect: string = 'true';
 	export let autocapitalize: string = 'true';
 	export let onKeyDown: (event: KeyboardEvent) => void | false = () => undefined;
+
+	const ElementContext = createContext(ELEMENT_CONTEXT_KEY, Element);
+	const LeafContext = createContext(LEAF_CONTEXT_KEY, Leaf);
+	const PlaceholderContext = createContext(PLACEHOLDER_CONTEXT_KEY, Placeholder);
+
+	$: ElementContext.set(Element);
+	$: LeafContext.set(Leaf);
+	$: PlaceholderContext.set(Placeholder);
 
 	const editor = getEditor();
 	const editorContext = getEditorContext();
@@ -917,14 +942,7 @@
 	on:drop={onDrop}
 	on:dragend={onDragEnd}
 >
-	<Children
-		node={$editorContext}
-		selection={$selectionContext}
-		{decorations}
-		{Element}
-		{Leaf}
-		{Placeholder}
-	/>
+	<Children node={$editorContext} selection={$selectionContext} {decorations} />
 </div>
 
 <style>

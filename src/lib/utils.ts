@@ -1,4 +1,6 @@
 import { Editor, Node, Path, Point, Range, Transforms } from 'slate';
+import { writable, type Writable } from 'svelte/store';
+import { getContext, setContext } from 'svelte';
 import { shallowEqual } from 'fast-equals';
 import { Key } from './Key';
 import {
@@ -27,6 +29,11 @@ import {
 } from './dom';
 import { IS_CHROME, IS_FIREFOX } from './environment';
 import type { ISvelteEditor } from './withSvelte';
+import type { SvelteComponentTyped } from 'svelte';
+
+export type ISvelteComponent<T extends Record<string, any>> = new (
+	...args: any[]
+) => SvelteComponentTyped<T>;
 
 export function getWindow(editor: ISvelteEditor): Window {
 	const window = EDITOR_TO_WINDOW.get(editor);
@@ -498,4 +505,24 @@ export function isDecoratorRangeListEqual(list?: Range[], another?: Range[]): bo
 
 export function isSelectionEqual(selection: Range, other: Range): boolean {
 	return selection === other || (!!selection && !!other && Range.equals(selection, other));
+}
+
+export type IContextKey<T> = { _type: T };
+
+export function createContextKey<T>(): IContextKey<T> {
+	return {} as IContextKey<T>;
+}
+
+export function getFromContext<T>(key: IContextKey<T>) {
+	const context = getContext<Writable<T>>(key);
+	if (!context) {
+		throw new Error(`Must be used inside the Slate component's context.`);
+	}
+	return context;
+}
+
+export function createContext<T>(key: IContextKey<T>, intialValue: T): Writable<T> {
+	const store = writable(intialValue);
+	setContext(key, store);
+	return store;
 }

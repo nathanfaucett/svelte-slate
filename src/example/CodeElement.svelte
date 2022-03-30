@@ -1,5 +1,21 @@
 <script lang="ts" context="module">
-	import type { IBaseElement } from './Element.svelte';
+	import type { IBaseElement, IElement } from './Element.svelte';
+
+	const LANGUAGE_CONTEXT_KEY = createContextKey<string>();
+
+	export function getLanguageContext() {
+		return getFromContext(LANGUAGE_CONTEXT_KEY);
+	}
+
+	function getLength(token: string | Token) {
+		if (typeof token === 'string') {
+			return token.length;
+		} else if (typeof token.content === 'string') {
+			return token.content.length;
+		} else {
+			return (token.content as Array<string | Token>).reduce((l, t) => l + getLength(t), 0);
+		}
+	}
 
 	export interface ICodeElement extends IBaseElement {
 		type: 'code';
@@ -12,9 +28,32 @@
 	}
 
 	export function withCode<T extends ISvelteEditor = ISvelteEditor>(editor: T): T {
-		const { isVoid } = editor;
+		const { deleteBackward } = editor;
 
-		editor.isVoid = (element) => (isCodeElement(element as IBaseElement) ? true : isVoid(element));
+		editor.deleteBackward = (...args) => {
+			if (editor.selection && Range.isCollapsed(editor.selection)) {
+				const [match] = Editor.nodes(editor, {
+					match: (n) => !Editor.isEditor(n) && SlateElement.isElement(n) && n['type'] === 'code'
+				});
+
+				if (match) {
+					const [, path] = match;
+					const start = Editor.start(editor, path);
+
+					if (Point.equals(editor.selection.anchor, start)) {
+						const newProperties: Partial<IElement> = {
+							type: 'paragraph'
+						};
+						Transforms.setNodes(editor, newProperties, {
+							match: (n) => !Editor.isEditor(n) && SlateElement.isElement(n) && n['type'] === 'code'
+						});
+						return;
+					}
+				}
+			}
+
+			deleteBackward(...args);
+		};
 
 		return editor;
 	}
@@ -30,10 +69,36 @@
 </script>
 
 <script lang="ts">
-	import { Editor, Transforms } from 'slate';
-	import CodeEditor from './CodeEditor.svelte';
-	import { findPath, getEditor, type ISvelteEditor } from '$lib';
+	import { languages, tokenize, type Token } from 'prismjs';
+	import 'prismjs';
+	import 'prismjs/components/prism-python.js';
+	import 'prismjs/components/prism-php.js';
+	import 'prismjs/components/prism-sql.js';
+	import 'prismjs/components/prism-java.js';
+	import 'prismjs/components/prism-typescript.js';
+	import 'prismjs/components/prism-elixir.js';
+	import 'prismjs/components/prism-css.js';
+	import 'prismjs/components/prism-c.js';
+	import 'prismjs/components/prism-cpp.js';
+	import 'prismjs/components/prism-rust.js';
+	import 'prismjs/components/prism-bash.js';
+	import 'prismjs/components/prism-sass.js';
+	import 'prismjs/components/prism-scala.js';
+	import {
+		Editor,
+		Range,
+		Transforms,
+		Point,
+		Element as SlateElement,
+		type NodeEntry,
+		Text
+	} from 'slate';
 	import type { ICodeEditorElement } from './CodeEditorElement.svelte';
+	import { DECORATE_CONTEXT_KEY, findPath, getEditor, type ISvelteEditor } from '$lib';
+	import { createContext, createContextKey, getFromContext } from '$lib/utils';
+	import CodeEditorElement from './CodeEditorElement.svelte';
+	import CodeEditorLeaf from './CodeEditorLeaf.svelte';
+	import { ELEMENT_CONTEXT_KEY, LEAF_CONTEXT_KEY } from '$lib/components/Editable.svelte';
 
 	export let element: ICodeElement;
 	export let isInline: boolean;
@@ -44,24 +109,51 @@
 
 	const editor = getEditor();
 
-	$: path = findPath(element);
+	createContext(ELEMENT_CONTEXT_KEY, CodeEditorElement);
+	createContext(LEAF_CONTEXT_KEY, CodeEditorLeaf);
 
-	let value: Array<ICodeEditorElement> = element.children;
-	let prevValue = value;
-	$: if (value !== prevValue) {
-		prevValue = value;
-		Transforms.setNodes(editor, { children: value } as any, { at: path });
+	const languageContext = createContext(LANGUAGE_CONTEXT_KEY, element.language);
+	$: prismLanguage = languages[$languageContext];
+
+	function onSelect(e: Event) {
+		const language = (e.target as HTMLSelectElement).value as string;
+		languageContext.set(language);
+		Transforms.setNodes(editor, { language } as any, { at: findPath(element) });
 	}
 
-	let language: string = element.language;
-	let prevLanguage = language;
-	$: if (language !== prevLanguage) {
-		prevLanguage = language;
-		Transforms.setNodes(editor, { language } as any, { at: path });
-	}
+	$: decorate = ([node, path]: NodeEntry): Range[] => {
+		const ranges: Range[] = [];
+
+		if (!Text.isText(node) || !prismLanguage) {
+			return ranges;
+		} else {
+			const tokens = tokenize(node.text, prismLanguage);
+			let start = 0;
+
+			for (const token of tokens) {
+				const length = getLength(token);
+				const end = start + length;
+
+				if (typeof token !== 'string') {
+					ranges.push({
+						[token.type]: true,
+						anchor: { path, offset: start },
+						focus: { path, offset: end }
+					});
+				}
+
+				start = end;
+			}
+
+			return ranges;
+		}
+	};
+	const decorateContext = createContext(DECORATE_CONTEXT_KEY, decorate);
+	$: decorateContext.set(decorate);
 </script>
 
 <div
+	class="code-element"
 	bind:this={ref}
 	data-slate-node="element"
 	data-slate-inline={isInline}
@@ -69,5 +161,43 @@
 	{dir}
 	{contenteditable}
 >
-	<CodeEditor {language} {value} readOnly={!contenteditable} /><slot />
+	<div class="language-select" contenteditable={false}>
+		<select value={element.language} on:change={onSelect} contenteditable={false}>
+			<option value="js">JavaScript</option>
+			<option value="typescript">TypeScript</option>
+			<option value="python">Python</option>
+			<option value="php">PHP</option>
+			<option value="sql">SQL</option>
+			<option value="java">Java</option>
+			<option value="elixir">Elixir</option>
+			<option value="css">CSS</option>
+			<option value="c">C</option>
+			<option value="cpp">C++</option>
+			<option value="rust">Rust</option>
+			<option value="bash">Bash</option>
+			<option value="sass">Sass</option>
+			<option value="scala">Scala</option>
+		</select>
+	</div>
+	<ol {contenteditable}>
+		<slot />
+	</ol>
 </div>
+
+<style>
+	.code-element {
+		position: relative;
+		font-family: monospace;
+		background: #f1f1f1;
+		padding: 0.25rem;
+		border: 1px solid #ccc;
+	}
+	.language-select {
+		padding-bottom: 0.25rem;
+		border-bottom: 1px solid #ccc;
+	}
+	ol {
+		padding-left: 2rem;
+		margin: 0;
+	}
+</style>

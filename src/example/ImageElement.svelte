@@ -95,7 +95,7 @@
 </script>
 
 <div
-	class="container"
+	class="image-element"
 	bind:this={ref}
 	data-slate-node="element"
 	data-slate-inline={isInline}
@@ -115,7 +115,7 @@
 </div>
 
 <style>
-	.container {
+	.image-element {
 		position: relative;
 		margin: 0;
 	}
