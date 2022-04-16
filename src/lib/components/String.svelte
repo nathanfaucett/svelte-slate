@@ -1,3 +1,5 @@
+<svelte:options immutable />
+
 <script lang="ts">
 	import { findPath } from '../utils';
 	import type { Text as SlateText, Element as SlateElement } from 'slate';

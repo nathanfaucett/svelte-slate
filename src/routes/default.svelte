@@ -10,7 +10,7 @@
 	const editor = withHistory(withSvelte(createEditor()));
 	let value = [
 		{
-			children: [{ text: 'This is editable' }]
+			children: [{ text: 'This is editable.' }]
 		}
 	];
 </script>

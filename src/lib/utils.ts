@@ -31,7 +31,7 @@ import { IS_CHROME, IS_FIREFOX } from './environment';
 import type { ISvelteEditor } from './withSvelte';
 import type { SvelteComponentTyped } from 'svelte';
 
-export type ISvelteComponent<T extends Record<string, any>> = new (
+export type ISvelteComponent<T extends Record<string, any> = Record<string, any>> = new (
 	...args: any[]
 ) => SvelteComponentTyped<T>;
 

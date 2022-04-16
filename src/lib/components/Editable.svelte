@@ -463,7 +463,10 @@
 					break;
 				}
 
-				case 'insertLineBreak':
+				case 'insertLineBreak': {
+					Editor.insertSoftBreak(editor);
+					break;
+				}
 				case 'insertParagraph': {
 					Editor.insertBreak(editor);
 					break;
@@ -475,6 +478,12 @@
 				case 'insertFromYank':
 				case 'insertReplacementText':
 				case 'insertText': {
+					if (editor.selection) {
+						if (Range.isExpanded(editor.selection)) {
+							Editor.deleteFragment(editor);
+						}
+					}
+
 					if (type === 'insertFromComposition') {
 						if (state.isComposing) {
 							state.isComposing = false;
@@ -489,7 +498,6 @@
 							Editor.insertText(editor, data);
 						}
 					}
-
 					break;
 				}
 			}
@@ -630,6 +638,7 @@
 						Editor.deleteForward(editor, { unit: 'word' });
 					}
 				}
+				return onKeyDown(event);
 			} else {
 				if (IS_CHROME || IS_SAFARI) {
 					if (

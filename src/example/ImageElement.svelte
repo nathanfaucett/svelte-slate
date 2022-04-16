@@ -11,7 +11,7 @@
 	}
 
 	export function withImages<T extends ISvelteEditor = ISvelteEditor>(editor: T): T {
-		const { insertData, isVoid } = editor;
+		const { insertData, isVoid, deleteFragment } = editor;
 
 		editor.isVoid = (element) => {
 			return isImageElement(element as IBaseElement) ? true : isVoid(element);
@@ -43,6 +43,26 @@
 			}
 		};
 
+		editor.deleteFragment = (direction) => {
+			if (editor.selection && Range.isExpanded(editor.selection)) {
+				const images = Array.from(
+					Editor.nodes(editor, {
+						match: isImageElement
+					})
+				);
+
+				if (!!images.length) {
+					const [, cellPath] = images[images.length - 1];
+					Transforms.delete(editor, {
+						at: cellPath,
+						voids: true
+					});
+				}
+			}
+
+			deleteFragment(direction);
+		};
+
 		return editor;
 	}
 
@@ -68,7 +88,7 @@
 	import { getSelectedContext } from '$lib/components/ChildElement.svelte';
 	import type { ISvelteEditor } from '$lib/withSvelte';
 	import { findPath } from '$lib/utils';
-	import { Editor, Transforms } from 'slate';
+	import { Editor, Range, Transforms } from 'slate';
 	import Button from './Button.svelte';
 	import MdDelete from 'svelte-icons/md/MdDelete.svelte';
 	import isUrl from 'is-url';

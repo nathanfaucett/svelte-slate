@@ -22,12 +22,10 @@
 	}
 
 	export function insertVoid(editor: Editor) {
-		Transforms.insertNodes(editor, [
-			{
-				type: 'void',
-				children: [{ text: '' }]
-			} as any
-		]);
+		Transforms.insertNodes(editor, {
+			type: 'void',
+			children: [{ text: '' }]
+		} as any);
 	}
 </script>
 
@@ -45,11 +43,9 @@
 
 	let editor = getEditor();
 
-	$: path = findPath(element);
-
 	function onUpdate(e: Event) {
 		Transforms.setNodes(editor, { value: (e.target as HTMLInputElement).value } as any, {
-			at: path
+			at: findPath(element)
 		});
 	}
 </script>
@@ -63,11 +59,11 @@
 	{dir}
 	{contenteditable}
 >
-	<slot />
 	<div contenteditable={false} class="void">
 		<input value={element.value} on:input={onUpdate} />
 		<h1>Hello, {element.value || 'world'}!</h1>
 	</div>
+	<slot />
 </div>
 
 <style>

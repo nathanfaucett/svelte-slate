@@ -51,26 +51,27 @@
 	}
 	EDITOR_TO_ON_CHANGE.set(editor, onChange);
 
-	let prevEditor = editor;
-	$: if (editor !== prevEditor) {
-		prevEditor = editor;
+	let currentEditor = editor;
+	$: if (currentEditor !== editor) {
+		currentEditor = editor;
+		EDITOR_TO_ON_CHANGE.set(editor, onChange);
 		editorContext.set(editor);
 	}
 
-	let prevValue: Descendant[];
-	$: if (prevValue !== value) {
-		editorContext.update((state) => {
-			state.children = value;
-			return state;
+	let currentValue: Descendant[];
+	$: if (currentValue !== value) {
+		editorContext.update((editor) => {
+			editor.children = value;
+			return editor;
 		});
-		prevValue = value;
+		currentValue = value;
 	}
 
-	let prevSelection: Selection;
-	$: if (!isSelectionEqual(prevSelection, selection)) {
+	let currentSelection: Selection;
+	$: if (!isSelectionEqual(currentSelection, selection)) {
 		selectionContext.set(selection);
 		editorContext.set(editor);
-		prevSelection = selection;
+		currentSelection = selection;
 	}
 </script>
 

@@ -25,6 +25,10 @@
 	$: if (currentText !== text) {
 		currentText = text;
 	}
+	let currentPath = path;
+	$: if (currentPath !== path) {
+		currentPath = path;
+	}
 	let currentParent = parent;
 	$: if (currentParent !== parent) {
 		currentParent = parent;
@@ -36,11 +40,12 @@
 
 	$: NODE_TO_INDEX.set(currentText, currentIndex);
 	$: NODE_TO_PARENT.set(currentText, currentParent);
-	$: childPath = path.concat(currentIndex);
+	$: childPath = currentPath.concat(currentIndex);
 	$: isLast = isLeafBlock && currentIndex === currentParent.children.length - 1;
 	$: range = Editor.range(editor, childPath);
+	$: decorate = $decorateContext;
 	$: childDecorations = getChildDecorations(
-		$decorateContext([currentText, childPath]),
+		decorate([currentText, childPath]),
 		range,
 		currentDecorations
 	);

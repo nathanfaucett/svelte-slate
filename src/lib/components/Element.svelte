@@ -1,3 +1,5 @@
+<svelte:options immutable />
+
 <script lang="ts" context="module">
 	export interface IElementProps extends svelte.JSX.HTMLAttributes<HTMLElement> {
 		ref?: HTMLElement;
@@ -13,7 +15,6 @@
 	import type { Element as SlateElement, Range, Selection, Text as SlateText } from 'slate';
 	import { direction } from '../direction';
 	import Children from './Children.svelte';
-	import type { Key } from '../Key';
 	import Text from './Text.svelte';
 	import { findKey, getFromContext } from '../utils';
 	import {
@@ -39,13 +40,6 @@
 	$: readOnly = $readOnlyContext;
 	$: isInline = editor.isInline(element);
 	$: key = findKey(element);
-
-	let currentKey: Key;
-	let prevKey: Key;
-	$: if (prevKey !== key) {
-		currentKey = key;
-		prevKey = key;
-	}
 
 	let dir: string;
 	$: if (!isInline && Editor.hasInlines(editor, element)) {
@@ -73,7 +67,7 @@
 
 	let ref: HTMLElement;
 	$: if (ref) {
-		EDITOR_TO_KEY_TO_ELEMENT.get(editor)?.set(currentKey, ref);
+		EDITOR_TO_KEY_TO_ELEMENT.get(editor)?.set(key, ref);
 		NODE_TO_ELEMENT.set(element, ref);
 		ELEMENT_TO_NODE.set(ref, element);
 	}

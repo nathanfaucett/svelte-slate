@@ -44,6 +44,10 @@
 	$: if (currentElement !== element) {
 		currentElement = element;
 	}
+	let currentPath = path;
+	$: if (currentPath !== path) {
+		currentPath = path;
+	}
 	let currentDecorations = decorations;
 	$: if (!isDecoratorRangeListEqual(currentDecorations, decorations)) {
 		currentDecorations = decorations;
@@ -55,10 +59,11 @@
 
 	$: NODE_TO_INDEX.set(currentElement, currentIndex);
 	$: NODE_TO_PARENT.set(currentElement, currentParent);
-	$: childPath = path.concat(currentIndex);
+	$: childPath = currentPath.concat(currentIndex);
 	$: range = Editor.range(editor, childPath);
+	$: decorate = $decorateContext;
 	$: childDecorations = getChildDecorations(
-		$decorateContext([currentElement, childPath]),
+		decorate([currentElement, childPath]),
 		range,
 		currentDecorations
 	);
