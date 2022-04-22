@@ -4,7 +4,7 @@
 	import type { Text } from 'slate';
 
 	export const leaf: Text = {
-		text: "example",
+		text: "default",
 	};
 </script>
 

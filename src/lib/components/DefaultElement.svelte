@@ -6,7 +6,7 @@
 	export const element: Element = {
 		children: [
 			{
-				text: "example",
+				text: "default",
 			}
 		]
 	}
