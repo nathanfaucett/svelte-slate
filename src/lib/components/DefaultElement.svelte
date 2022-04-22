@@ -3,7 +3,13 @@
 <script lang="ts">
 	import type { Element } from 'slate';
 
-	export let element: Element;
+	export const element: Element = {
+		children: [
+			{
+				text: "example",
+			}
+		]
+	}
 	export let isInline: boolean;
 	export let isVoid: boolean;
 	export let contenteditable: boolean;
