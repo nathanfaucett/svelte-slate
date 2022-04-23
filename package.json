@@ -1,7 +1,7 @@
 {
 	"name": "svelte-slate",
 	"description": "slate svelte view layer",
-	"version": "0.1.29",
+	"version": "0.1.30",
 	"license": "(MIT OR Apache-2.0)",
 	"type": "module",
 	"author": "Nathan Faucett",
@@ -42,7 +42,6 @@
 		"eslint": "8",
 		"eslint-config-prettier": "8",
 		"eslint-plugin-svelte3": "3",
-		"image-extensions": "1",
 		"is-url": "1",
 		"lorem-ipsum": "2",
 		"prettier": "2",

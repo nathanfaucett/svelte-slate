@@ -1,3 +1,5 @@
+<svelte:options immutable />
+
 <script lang="ts" context="module">
 	import type { IBaseElement } from './Element.svelte';
 
@@ -36,7 +38,7 @@
 						reader.readAsDataURL(file);
 					}
 				}
-			} else if (isImageUrl(text)) {
+			} else if (isUrl(text)) {
 				insertImage(editor, text);
 			} else {
 				insertData(data);
@@ -70,21 +72,10 @@
 		const image = { type: 'image', url, children: [{ text: '' }] };
 		Transforms.insertNodes(editor, image);
 	}
-
-	export function isImageUrl(url: string): boolean {
-		if (!url) {
-			return false;
-		}
-		if (!isUrl(url)) {
-			return false;
-		}
-		const ext = new URL(url).pathname.split('.').pop();
-		return imageExtensions.includes(ext);
-	}
 </script>
 
 <script lang="ts">
-	import { getEditor, getFocusedContext, getReadOnlyContext } from '$lib/components/Slate.svelte';
+	import { getEditor, getFocusedContext } from '$lib/components/Slate.svelte';
 	import { getSelectedContext } from '$lib/components/ChildElement.svelte';
 	import type { ISvelteEditor } from '$lib/withSvelte';
 	import { findPath } from '$lib/utils';
@@ -92,7 +83,6 @@
 	import Button from './Button.svelte';
 	import MdDelete from 'svelte-icons/md/MdDelete.svelte';
 	import isUrl from 'is-url';
-	import imageExtensions from 'image-extensions';
 
 	export let element: IImageElement;
 	export let isInline: boolean;
@@ -104,9 +94,8 @@
 	const editor = getEditor();
 	const selectedContext = getSelectedContext();
 	const focusedContext = getFocusedContext();
-	const readOnlyContext = getReadOnlyContext();
 
-	$: selected = $readOnlyContext ? false : $selectedContext && $focusedContext;
+	$: selected = !contenteditable ? false : $selectedContext && $focusedContext;
 	$: path = findPath(element);
 
 	function onRemove() {

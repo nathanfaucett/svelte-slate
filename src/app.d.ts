@@ -9,8 +9,8 @@ declare namespace App {
 	// interface Stuff {}
 }
 
-declare module 'globals' {
-	global {
-		const PACKAGE_JSON: typeof import('../package.json');
-	}
+declare global {
+	const PACKAGE_JSON: typeof import('../package.json');
 }
+
+export {};

@@ -12,6 +12,7 @@
 <script lang="ts">
 	import type { ICodeEditorText } from './CodeEditorLeaf.svelte';
 
+	// svelte-ignore unused-export-let
 	export let element: ICodeEditorElement;
 	export let isInline: boolean;
 	export let isVoid: boolean;

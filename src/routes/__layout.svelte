@@ -4,12 +4,14 @@
 	import FaGithubSquare from 'svelte-icons/fa/FaGithubSquare.svelte';
 </script>
 
+<!-- svelte-ignore missing-declaration -->
 <svelte:head>
 	<meta name="description" content={PACKAGE_JSON.description} />
 	<meta name="keywords" content={PACKAGE_JSON.keywords.join(', ')} />
 </svelte:head>
 
 <div class="container">
+	<!-- svelte-ignore missing-declaration -->
 	<h1><a href={`${base}/`}>Svelte Slate {PACKAGE_JSON.version} Examples</a></h1>
 	<div class="content">
 		<slot />
