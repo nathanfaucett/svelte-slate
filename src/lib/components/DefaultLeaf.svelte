@@ -3,9 +3,8 @@
 <script lang="ts">
 	import type { Text } from 'slate';
 
-	export const leaf: Text = {
-		text: "default",
-	};
+	// svelte-ignore unused-export-let
+	export let leaf: Text;
 </script>
 
 <span data-slate-leaf="true"><slot /></span>

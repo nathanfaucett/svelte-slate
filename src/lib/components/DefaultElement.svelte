@@ -3,13 +3,8 @@
 <script lang="ts">
 	import type { Element } from 'slate';
 
-	export const element: Element = {
-		children: [
-			{
-				text: "default",
-			}
-		]
-	}
+	// svelte-ignore unused-export-let
+	export let element: Element;
 	export let isInline: boolean;
 	export let isVoid: boolean;
 	export let contenteditable: boolean;
