@@ -3,6 +3,7 @@
 <script lang="ts">
 	import type { Text } from 'slate';
 
+	// svelte-ignore unused-export-let
 	export let leaf: Text;
 </script>
 
