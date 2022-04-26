@@ -9,7 +9,7 @@
 	$: editor = $editorContext;
 	$: active = isBlockActive(editor, 'code');
 
-	$: onMouseDown = () => insertCode(editor);
+	$: onMouseDown = () => !active && insertCode(editor);
 </script>
 
 <Button {active} {onMouseDown}>
