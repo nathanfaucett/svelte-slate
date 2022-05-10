@@ -1,6 +1,6 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-5e93490f.js",
+    "file": "start-7ce523b4.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -42,25 +42,25 @@
     ]
   },
   "src/routes/default.svelte": {
-    "file": "pages/default.svelte-7a47882a.js",
+    "file": "pages/default.svelte-6c7486fe.js",
     "src": "src/routes/default.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_index-cff64fc9.js",
-      "_index.es-4f86bd01.js",
+      "_index.es-53f9368c.js",
       "_index-17136efe.js"
     ]
   },
   "src/routes/editor.svelte": {
-    "file": "pages/editor.svelte-a717d962.js",
+    "file": "pages/editor.svelte-4c1d30af.js",
     "src": "src/routes/editor.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_index-cff64fc9.js",
-      "_index.es-4f86bd01.js",
-      "_Leaf-c1c3c36a.js",
+      "_index.es-53f9368c.js",
+      "_Leaf-9d835e80.js",
       "_index-17136efe.js",
       "_IconBase-67c45cdf.js"
     ],
@@ -69,15 +69,15 @@
     ]
   },
   "src/routes/huge-document.svelte": {
-    "file": "pages/huge-document.svelte-766e8c91.js",
+    "file": "pages/huge-document.svelte-f983b8d8.js",
     "src": "src/routes/huge-document.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_index-cff64fc9.js",
-      "_index.es-4f86bd01.js",
-      "_Leaf-c1c3c36a.js",
-      "_MdFormatQuote-dfec3c12.js",
+      "_index.es-53f9368c.js",
+      "_Leaf-9d835e80.js",
+      "_MdFormatQuote-c9d4a933.js",
       "_index-17136efe.js",
       "_IconBase-67c45cdf.js"
     ],
@@ -96,16 +96,16 @@
     ]
   },
   "src/routes/richtext.svelte": {
-    "file": "pages/richtext.svelte-66977488.js",
+    "file": "pages/richtext.svelte-c6da40fd.js",
     "src": "src/routes/richtext.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_index-cff64fc9.js",
-      "_index.es-4f86bd01.js",
-      "_Leaf-c1c3c36a.js",
+      "_index.es-53f9368c.js",
+      "_Leaf-9d835e80.js",
       "_IconBase-67c45cdf.js",
-      "_MdFormatQuote-dfec3c12.js",
+      "_MdFormatQuote-c9d4a933.js",
       "_index-17136efe.js"
     ],
     "css": [
@@ -133,8 +133,8 @@
       "assets/IconBase-05c40767.css"
     ]
   },
-  "_index.es-4f86bd01.js": {
-    "file": "chunks/index.es-4f86bd01.js",
+  "_index.es-53f9368c.js": {
+    "file": "chunks/index.es-53f9368c.js",
     "imports": [
       "_index-cff64fc9.js",
       "_index-17136efe.js"
@@ -143,24 +143,24 @@
       "assets/index.es-c8cd14b3.css"
     ]
   },
-  "_Leaf-c1c3c36a.js": {
-    "file": "chunks/Leaf-c1c3c36a.js",
+  "_Leaf-9d835e80.js": {
+    "file": "chunks/Leaf-9d835e80.js",
     "imports": [
       "_index-cff64fc9.js",
-      "_index.es-4f86bd01.js",
+      "_index.es-53f9368c.js",
       "_IconBase-67c45cdf.js"
     ],
     "css": [
       "assets/Leaf-911130d8.css"
     ]
   },
-  "_MdFormatQuote-dfec3c12.js": {
-    "file": "chunks/MdFormatQuote-dfec3c12.js",
+  "_MdFormatQuote-c9d4a933.js": {
+    "file": "chunks/MdFormatQuote-c9d4a933.js",
     "imports": [
       "_index-cff64fc9.js",
-      "_index.es-4f86bd01.js",
+      "_index.es-53f9368c.js",
       "_IconBase-67c45cdf.js",
-      "_Leaf-c1c3c36a.js"
+      "_Leaf-9d835e80.js"
     ],
     "css": [
       "assets/MdFormatQuote-3fcaafdd.css"
