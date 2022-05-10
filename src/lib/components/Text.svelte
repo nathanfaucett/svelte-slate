@@ -3,7 +3,7 @@
 <script lang="ts">
 	import type { Element, Range } from 'slate';
 	import { Text as SlateText } from 'slate';
-	import Leaf from './Leaf.svelte';
+	import InternalLeaf from './InternalLeaf.svelte';
 	import { findKey } from '../utils';
 	import { EDITOR_TO_KEY_TO_ELEMENT, ELEMENT_TO_NODE, NODE_TO_ELEMENT } from '../weakMaps';
 	import { getEditor } from './Slate.svelte';
@@ -28,7 +28,7 @@
 
 <span bind:this={ref} data-slate-node="text"
 	>{#each leaves as leaf, index (`${key}-${index}`)}<svelte:component
-			this={Leaf}
+			this={InternalLeaf}
 			isLast={isLast && index === leaves.length - 1}
 			{parent}
 			{leaf}

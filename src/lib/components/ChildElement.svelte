@@ -9,7 +9,7 @@
 <script lang="ts">
 	import type { Ancestor, Element as SlateElement, Path, Selection } from 'slate';
 	import { Range, Editor } from 'slate';
-	import Element from './Element.svelte';
+	import InternalElement from './InternalElement.svelte';
 	import { NODE_TO_INDEX, NODE_TO_PARENT } from '../weakMaps';
 	import { getChildDecorations } from './Children.svelte';
 	import {
@@ -72,7 +72,7 @@
 </script>
 
 <svelte:component
-	this={Element}
+	this={InternalElement}
 	decorations={childDecorations}
 	element={currentElement}
 	selection={childSelection}

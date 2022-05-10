@@ -115,8 +115,8 @@
 		NODE_TO_ELEMENT,
 		PLACEHOLDER_SYMBOL
 	} from '../weakMaps';
-	import type { IElementProps } from './Element.svelte';
-	import type { ILeafProps, IPlaceholderProps } from './Leaf.svelte';
+	import type { IElementProps } from './InternalElement.svelte';
+	import type { ILeafProps, IPlaceholderProps } from './InternalLeaf.svelte';
 
 	export let Element: ISvelteComponent<IElementProps> = DefaultElement;
 	export let Leaf: ISvelteComponent<ILeafProps> = DefaultLeaf;
