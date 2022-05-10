@@ -51,10 +51,4 @@
 	);
 </script>
 
-<svelte:component
-	this={Text}
-	decorations={childDecorations}
-	{isLast}
-	parent={currentParent}
-	text={currentText}
-/>
+<Text decorations={childDecorations} {isLast} parent={currentParent} text={currentText} />

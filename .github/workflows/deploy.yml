@@ -1,13 +1,24 @@
-name: Web
+name: Deploy
 
 on:
-  workflow_run:
-    workflows: ['Test']
+  push:
     branches: [main]
-    types:
-      - completed
 
 jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+
+      - run: npm install -g npm@8.5.3
+      - run: npx playwright install-deps
+      - run: npm ci
+      - env:
+          CI: true
+        run: npm test
   pages:
     runs-on: ubuntu-latest
     env:
