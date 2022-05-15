@@ -14,8 +14,8 @@ jobs:
           node-version: 16.x
 
       - run: npm install -g npm@8.5.3
-      - run: npx playwright install-deps
       - run: npm ci
+      - run: npx playwright install
       - env:
           CI: true
         run: npm test
