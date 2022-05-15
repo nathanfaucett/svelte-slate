@@ -10,5 +10,6 @@
 	<li><a href={`${base}/default`}>Default</a></li>
 	<li><a href={`${base}/editor`}>Editor</a></li>
 	<li><a href={`${base}/huge-document`}>Huge Document</a></li>
+	<li><a href={`${base}/plugins`}>Plugins</a></li>
 	<li><a href={`${base}/richtext`}>Rich Text</a></li>
 </ul>

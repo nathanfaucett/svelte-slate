@@ -1,13 +1,20 @@
 <svelte:options immutable />
 
 <script lang="ts" context="module">
-	export interface IElementProps extends svelte.JSX.HTMLAttributes<HTMLElement> {
+	export interface IElementProps<T extends SlateElement = SlateElement>
+		extends svelte.JSX.HTMLAttributes<HTMLElement> {
 		ref?: HTMLElement;
-		element: SlateElement;
+		element: T;
 		isVoid: boolean;
 		isInline: boolean;
 		dir?: 'rtl' | 'ltr';
 	}
+
+	export type IElementType<T extends IElementProps = IElementProps> = T extends IElementProps<
+		infer T
+	>
+		? T
+		: never;
 </script>
 
 <script lang="ts">

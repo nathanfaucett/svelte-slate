@@ -1,15 +1,17 @@
 <svelte:options immutable />
 
 <script lang="ts" context="module">
-	import type { IBaseElement, IElement } from './InernalElement.svelte';
+	import type { IElement } from './Element.svelte';
 
-	export interface ICheckListItemElement extends IBaseElement {
+	export const CHECK_LIST_ITEM_TYPE: string = 'check-list-item';
+
+	export interface ICheckListItemElement extends IElement {
 		type: 'check-list-item';
 		checked: boolean;
 	}
 
-	export function isCheckListItemElement(element: IBaseElement): element is ICheckListItemElement {
-		return element.type === 'check-list-item';
+	export function isCheckListItemElement(element: IElement): element is ICheckListItemElement {
+		return element.type === CHECK_LIST_ITEM_TYPE;
 	}
 
 	export function withCheckListItems<T extends ISvelteEditor = ISvelteEditor>(editor: T): T {
@@ -19,7 +21,7 @@
 			if (editor.selection && Range.isCollapsed(editor.selection)) {
 				const [match] = Editor.nodes(editor, {
 					match: (n) =>
-						!Editor.isEditor(n) && SlateElement.isElement(n) && n['type'] === 'check-list-item'
+						!Editor.isEditor(n) && SlateElement.isElement(n) && n['type'] === CHECK_LIST_ITEM_TYPE
 				});
 
 				if (match) {
@@ -32,7 +34,9 @@
 						};
 						Transforms.setNodes(editor, newProperties, {
 							match: (n) =>
-								!Editor.isEditor(n) && SlateElement.isElement(n) && n['type'] === 'check-list-item'
+								!Editor.isEditor(n) &&
+								SlateElement.isElement(n) &&
+								n['type'] === CHECK_LIST_ITEM_TYPE
 						});
 						return;
 					}
@@ -46,16 +50,16 @@
 	}
 
 	export function insertCheckListItem(editor: Editor) {
-		const isActive = isBlockActive(editor, 'check-list-item');
+		const isActive = isBlockActive(editor, CHECK_LIST_ITEM_TYPE);
 
 		if (isActive) {
 			Transforms.unwrapNodes(editor, {
 				match: (n) =>
-					!Editor.isEditor(n) && SlateElement.isElement(n) && n['type'] === 'check-list-item',
+					!Editor.isEditor(n) && SlateElement.isElement(n) && n['type'] === CHECK_LIST_ITEM_TYPE,
 				split: true
 			});
 		} else {
-			const block = { type: 'check-list-item', checked: false, children: [] };
+			const block = { type: CHECK_LIST_ITEM_TYPE, checked: false, children: [] };
 			Transforms.wrapNodes(editor, block);
 		}
 	}

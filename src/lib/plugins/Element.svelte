@@ -1,18 +1,22 @@
 <svelte:options immutable />
 
 <script lang="ts" context="module">
-	export interface IBaseElement {
+	export interface IBaseElement extends ISlateElement {
 		type: string;
-		children: (IBaseElement | IText)[];
+	}
+
+	export interface IElement extends IBaseElement {
+		children: Array<IElement | IText>;
 	}
 </script>
 
 <script lang="ts">
+	import type { Element as ISlateElement } from 'slate';
 	import DefaultElement from '../components/DefaultElement.svelte';
-	import { getPluginsContext } from './PluginEditable.svelte';
-	import type { IText } from './PluginLeaf.svelte';
+	import { getPluginsContext } from './Slate.svelte';
+	import type { IText } from './Leaf.svelte';
 
-	export let element: IBaseElement;
+	export let element: IElement;
 	export let isInline: boolean;
 	export let isVoid: boolean;
 	export let contenteditable: boolean;
@@ -25,12 +29,6 @@
 	$: Element = plugins[element.type] || DefaultElement;
 </script>
 
-<svelte:component
-	this={Element}
-	bind:ref
-	bind:dir
-	{element}
-	{isInline}
-	{isVoid}
-	{contenteditable}
-/>
+<svelte:component this={Element} bind:ref bind:dir {element} {isInline} {isVoid} {contenteditable}
+	><slot /></svelte:component
+>
