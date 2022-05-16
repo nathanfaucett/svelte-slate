@@ -34,4 +34,4 @@ tries to mimic the react api from [slate-react](https://github.com/ianstormtaylo
 
 ## Custom Rendering
 
-Default components for elements, leafs, and placeholders are provider but can easily be overridden see [Element.svelte](src/example/Element.svelte) and [Leaf.svelte](src/example/Leaf.svelte) and then can be used in the editable component like `<Editable {Element} {Leaf} />`
+Default components for elements, leafs, and placeholders are provider but can easily be overridden see [Element.svelte](src/lib/plugins/Element.svelte) and [Leaf.svelte](src/lib/plugins/Leaf.svelte) and then can be used in the editable component like `<Editable {Element} {Leaf} />`
