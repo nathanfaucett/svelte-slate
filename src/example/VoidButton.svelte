@@ -3,7 +3,7 @@
 	import MdTexture from 'svelte-icons/md/MdTexture.svelte';
 	import Button from './Button.svelte';
 	import { insertVoid } from './VoidElement.svelte';
-	import { isBlockActive } from './utils';
+	import { isBlockActive } from '$lib/plugins/utils';
 
 	const editorContext = getEditorContext();
 

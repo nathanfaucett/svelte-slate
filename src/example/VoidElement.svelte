@@ -1,24 +1,23 @@
 <svelte:options immutable />
 
 <script lang="ts" context="module">
-	import type { IBaseElement } from './Element.svelte';
+	import type { IElement } from '$lib/plugins/Element.svelte';
 
-	export interface IVoidElement extends IBaseElement {
+	export interface IVoidElement extends IElement {
 		type: 'void';
 		value: string;
 	}
 
-	export function isVoidElement(element: IBaseElement): element is IVoidElement {
+	export function isVoidElement(element: IElement): element is IVoidElement {
 		return element.type === 'void';
 	}
 
 	export function withVoids<T extends ISvelteEditor = ISvelteEditor>(editor: T): T {
 		const { isVoid, isInline } = editor;
 
-		editor.isVoid = (element) => (isVoidElement(element as IBaseElement) ? true : isVoid(element));
+		editor.isVoid = (element) => (isVoidElement(element as IElement) ? true : isVoid(element));
 
-		editor.isInline = (element) =>
-			isVoidElement(element as IBaseElement) ? true : isInline(element);
+		editor.isInline = (element) => (isVoidElement(element as IElement) ? true : isInline(element));
 
 		return editor;
 	}

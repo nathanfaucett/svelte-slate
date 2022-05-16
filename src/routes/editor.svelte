@@ -6,17 +6,15 @@
 	import { Slate, Editable, withSvelte } from 'svelte-slate';
 	import { createEditor } from 'slate';
 	import { withHistory } from 'slate-history';
-	import type { IElement } from '../example/Element.svelte';
-	import type { IText } from '../example/Leaf.svelte';
 	import Element from '../example/Element.svelte';
-	import Leaf from '../example/Leaf.svelte';
-	import { withCode } from '../example/CodeElement.svelte';
+	import Leaf from '$lib/plugins/Leaf.svelte';
+	import { withCode } from '$lib/plugins/CodeElement.svelte';
 
 	const editor = withHistory(withCode(withSvelte(createEditor())));
-	let value: Array<IText | IElement> = [
+	let value = [
 		{
 			type: 'code',
-			language: 'js',
+			language: 'javascript',
 			children: [
 				{
 					type: 'code-line',

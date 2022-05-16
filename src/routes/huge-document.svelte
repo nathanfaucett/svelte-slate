@@ -46,13 +46,13 @@
 	import { Slate, Editable, withSvelte, isHotkey } from 'svelte-slate';
 	import { createEditor } from 'slate';
 	import { withHistory } from 'slate-history';
-	import type { IElement } from '../example/Element.svelte';
-	import type { IText } from '../example/Leaf.svelte';
+	import type { IText } from '$lib/plugins/Leaf.svelte';
+	import type { IElement } from '$lib/plugins/Element.svelte';
 	import Element from '../example/Element.svelte';
-	import Leaf from '../example/Leaf.svelte';
-	import { withImages } from '../example/ImageElement.svelte';
+	import Leaf from '$lib/plugins/Leaf.svelte';
+	import { withImages } from '$lib/plugins/ImageElement.svelte';
 	import ImageButton from '../example/ImageButton.svelte';
-	import { toggleMark } from '../example/utils';
+	import { toggleMark } from '$lib/plugins/utils';
 	import MarkButton from '../example/MarkButton.svelte';
 	import BlockButton from '../example/BlockButton.svelte';
 	import MdFormatBold from 'svelte-icons/md/MdFormatBold.svelte';

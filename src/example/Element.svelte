@@ -1,29 +1,14 @@
 <svelte:options immutable />
 
-<script lang="ts" context="module">
-	export interface IBaseElement {
-		type: string;
-		children: (IElement | IText)[];
-	}
-
-	export type IElement =
-		| IBaseElement
-		| IImageElement
-		| ICheckListItemElement
-		| IVoidElement
-		| ICodeElement;
-</script>
-
 <script lang="ts">
-	import type { IImageElement } from './ImageElement.svelte';
-	import { isImageElement } from './ImageElement.svelte';
-	import type { IText } from './Leaf.svelte';
-	import ImageElement from './ImageElement.svelte';
-	import type { ICheckListItemElement } from './CheckListItemElement.svelte';
-	import CheckListItemElement, { isCheckListItemElement } from './CheckListItemElement.svelte';
-	import type { IVoidElement } from './VoidElement.svelte';
+	import type { IElement } from '$lib/plugins/Element.svelte';
+	import { isImageElement } from '$lib/plugins/ImageElement.svelte';
+	import ImageElement from '$lib/plugins/ImageElement.svelte';
+	import CheckListItemElement, {
+		isCheckListItemElement
+	} from '$lib/plugins//CheckListItemElement.svelte';
 	import VoidElement, { isVoidElement } from './VoidElement.svelte';
-	import CodeElement, { isCodeElement, type ICodeElement } from './CodeElement.svelte';
+	import CodeElement, { isCodeElement } from '$lib/plugins/CodeElement.svelte';
 
 	export let element: IElement;
 	export let isInline: boolean;

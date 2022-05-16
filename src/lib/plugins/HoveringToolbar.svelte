@@ -1,7 +1,7 @@
 <svelte:options immutable={true} />
 
 <script lang="ts" context="module">
-	function repositionElement(ref: HTMLElement, container: HTMLElement, retired = 2) {
+	function repositionElement(ref: HTMLElement, container: HTMLElement, retired = 2, offsetY = 4) {
 		const domSelection = window.getSelection();
 
 		if (domSelection.type.toLowerCase() === 'none') {
@@ -23,9 +23,9 @@
 			ref.style.left = `${rect.left + window.pageXOffset - ref.offsetWidth / 2 + rect.width / 2}px`;
 		}
 		if (rect.top + window.pageYOffset - ref.offsetHeight < viewRect.top) {
-			ref.style.top = `${rect.bottom + window.pageYOffset + 4}px`;
+			ref.style.top = `${rect.bottom + window.pageYOffset + offsetY}px`;
 		} else {
-			ref.style.top = `${rect.top + window.pageYOffset - ref.offsetHeight - 4}px`;
+			ref.style.top = `${rect.top + window.pageYOffset - ref.offsetHeight - offsetY}px`;
 		}
 		ref.style.opacity = '1';
 	}
@@ -39,6 +39,7 @@
 
 	export let container: HTMLElement = undefined;
 	export let open = false;
+	export let offsetY = 4;
 
 	$: if (container === undefined && typeof document !== 'undefined') {
 		container = document.body;
@@ -69,7 +70,7 @@
 				})
 			);
 			if (!match) {
-				repositionElement(ref, container);
+				repositionElement(ref, container, offsetY);
 				open = true;
 			}
 		}
@@ -77,7 +78,7 @@
 
 	$: if (ref) {
 		if (open) {
-			repositionElement(ref, container);
+			repositionElement(ref, container, offsetY);
 		} else {
 			ref.removeAttribute('style');
 		}
@@ -92,9 +93,7 @@
 
 <style>
 	.menu {
-		background-color: #fff;
-		border: 1px solid #888;
-		padding: 0.25rem;
+		background: transparent;
 		position: absolute;
 		z-index: 10000;
 		top: -10000px;

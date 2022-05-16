@@ -13,21 +13,19 @@
 	import { Slate, Editable, withSvelte, isHotkey } from 'svelte-slate';
 	import { createEditor } from 'slate';
 	import { withHistory } from 'slate-history';
-	import type { IElement } from '../example/Element.svelte';
-	import type { IText } from '../example/Leaf.svelte';
 	import Element from '../example/Element.svelte';
-	import Leaf from '../example/Leaf.svelte';
-	import { withCheckListItems } from '../example/CheckListItemElement.svelte';
+	import Leaf from '$lib/plugins/Leaf.svelte';
+	import { withCheckListItems } from '$lib/plugins/CheckListItemElement.svelte';
 	import CheckListItemButton from '../example/CheckListItemButton.svelte';
-	import { withImages } from '../example/ImageElement.svelte';
+	import { withImages } from '$lib/plugins/ImageElement.svelte';
 	import ImageButton from '../example/ImageButton.svelte';
 	import MarkButton from '../example/MarkButton.svelte';
 	import BlockButton from '../example/BlockButton.svelte';
-	import { toggleMark } from '../example/utils';
+	import { toggleMark } from '$lib/plugins/utils';
 	import VoidButton from '../example/VoidButton.svelte';
 	import { withVoids } from '../example/VoidElement.svelte';
 	import CodeButton from '../example/CodeButton.svelte';
-	import { withCode } from '../example/CodeElement.svelte';
+	import { withCode } from '$lib/plugins/CodeElement.svelte';
 	import MdFormatBold from 'svelte-icons/md/MdFormatBold.svelte';
 	import MdCode from 'svelte-icons/md/MdCode.svelte';
 	import MdLooksOne from 'svelte-icons/md/MdLooksOne.svelte';
@@ -41,7 +39,7 @@
 	const editor = withHistory(
 		withCode(withVoids(withImages(withCheckListItems(withSvelte(createEditor())))))
 	);
-	let value: Array<IText | IElement> = [
+	let value = [
 		{
 			type: 'paragraph',
 			children: [
@@ -102,7 +100,7 @@
 		},
 		{
 			type: 'code',
-			language: 'js',
+			language: 'javascript',
 			children: [
 				{
 					type: 'code-line',
