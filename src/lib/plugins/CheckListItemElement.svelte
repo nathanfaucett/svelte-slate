@@ -116,7 +116,7 @@
 		align-items: center;
 	}
 	.checkbox {
-		margin-right: 0.75em;
+		margin-right: 0.75rem;
 	}
 	.content {
 		flex: 1;

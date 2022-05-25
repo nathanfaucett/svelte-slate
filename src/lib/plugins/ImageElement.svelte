@@ -134,8 +134,8 @@
 	.delete {
 		display: none;
 		position: absolute;
-		top: 0.5em;
-		right: 0.5em;
+		top: 0.5rem;
+		right: 0.5rem;
 	}
 	.delete.selected {
 		display: inline;
@@ -143,9 +143,9 @@
 	.delete button {
 		border: 1px solid #333;
 		background: #f1f1f1;
-		font-size: 1.2em;
-		line-height: 0.6em;
-		padding: 0.2em;
+		font-size: 1.2rem;
+		line-height: 0.6rem;
+		padding: 0.2rem;
 		font-weight: bold;
 		color: #333;
 	}

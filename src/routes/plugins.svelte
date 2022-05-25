@@ -26,13 +26,16 @@
 	import MdFormatListNumbered from 'svelte-icons/md/MdFormatListNumbered.svelte';
 	import MdFormatListBulleted from 'svelte-icons/md/MdFormatListBulleted.svelte';
 	import MdFormatQuote from 'svelte-icons/md/MdFormatQuote.svelte';
+	import MathButton from '../example/MathButton.svelte';
+	import MathElement, { MATH_TYPE, withMath } from '$lib/plugins/MathElement.svelte';
 
 	const editor = withHistory(withSvelte(createEditor()));
 	let plugins = {
 		...DEFAULT_PLUGINS,
 		[IMAGE_TYPE]: [ImageElement, withImages],
 		[CHECK_LIST_ITEM_TYPE]: CheckListItemElement,
-		[CODE_TYPE]: [CodeElement, withCode]
+		[CODE_TYPE]: [CodeElement, withCode],
+		[MATH_TYPE]: [MathElement, withMath]
 	};
 	let value = [
 		{
@@ -81,6 +84,12 @@
 			type: 'check-list-item',
 			checked: false,
 			children: [{ text: 'Todo' }]
+		},
+		{
+			type: 'math',
+			inline: false,
+			math: '\\frac{\\pi}{2}',
+			children: [{ text: '' }]
 		},
 		{
 			type: 'code',
@@ -132,7 +141,6 @@
 	let ref: HTMLDivElement;
 
 	function onLongPress() {
-		console.log('long press');
 		if (!isReadOnly(editor)) {
 			const [match] = Array.from(
 				Editor.nodes(editor, {
@@ -170,6 +178,7 @@
 			<ImageButton />
 			<CheckListItemButton />
 			<CodeButton />
+			<MathButton />
 		</div>
 	</HoveringToolbar>
 	<div class="editor" use:longpress on:longpress={onLongPress}>

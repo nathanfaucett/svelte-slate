@@ -30,7 +30,7 @@
 
 <style>
 	h1 {
-		margin: 0.67em 0 0 0;
+		margin: 0.67rem 0 0 0;
 		border-bottom: 1px solid #888;
 	}
 	h1 a {

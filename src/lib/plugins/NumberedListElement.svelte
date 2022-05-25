@@ -44,6 +44,6 @@
 	ul {
 		position: relative;
 		margin: 0;
-		padding-inline-start: 1.5em;
+		padding-inline-start: 1.5rem;
 	}
 </style>

@@ -55,3 +55,11 @@ export function toggleBlock(editor: Editor, format: string) {
 		Transforms.wrapNodes(editor, block);
 	}
 }
+
+export function setSelection(node: Node) {
+	const selection = window.getSelection();
+	selection.removeAllRanges();
+	const range = document.createRange();
+	range.selectNodeContents(node);
+	selection.addRange(range);
+}

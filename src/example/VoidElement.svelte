@@ -71,7 +71,7 @@
 	.container {
 		position: relative;
 		margin: 0;
-		padding: 0 0.25em;
+		padding: 0 0.25rem;
 	}
 	.container[data-slate-inline='true'] {
 		display: inline-block;
