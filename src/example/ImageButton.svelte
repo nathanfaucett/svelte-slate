@@ -52,7 +52,7 @@
 	}
 	input {
 		flex-grow: 1;
-		border: 1px solid #888;
+		border: 1px solid black;
 		border-right: none;
 		padding: 0.25rem 0.5rem;
 		width: 100%;

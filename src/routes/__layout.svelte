@@ -31,7 +31,7 @@
 <style>
 	h1 {
 		margin: 0.67rem 0 0 0;
-		border-bottom: 1px solid #888;
+		border-bottom: 1px solid black;
 	}
 	h1 a {
 		text-decoration: none;
@@ -52,7 +52,7 @@
 		flex-direction: row;
 		flex-grow: 0;
 		padding: 0.5rem 0;
-		border-top: 1px solid #888;
+		border-top: 1px solid black;
 	}
 	.footer .left {
 		flex: 1;

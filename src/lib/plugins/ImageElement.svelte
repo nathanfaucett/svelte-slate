@@ -128,7 +128,7 @@
 		max-width: 100%;
 	}
 	.image img.selected {
-		box-shadow: 0 0 0 1px #333;
+		box-shadow: 0 0 0 1px black;
 	}
 
 	.delete {
@@ -141,12 +141,14 @@
 		display: inline;
 	}
 	.delete button {
-		border: 1px solid #333;
-		background: #f1f1f1;
-		font-size: 1.2rem;
-		line-height: 0.6rem;
-		padding: 0.2rem;
-		font-weight: bold;
-		color: #333;
+		cursor: pointer;
+		border: 1px solid black;
+		padding: 0;
+		width: 1.5rem;
+		height: 1.5rem;
+		color: black;
+		font-size: 1.5rem;
+		line-height: 1.5rem;
+		background-color: white;
 	}
 </style>

@@ -3,6 +3,7 @@
 	import Button from './Button.svelte';
 	import { insertMath } from '$lib/plugins/MathElement.svelte';
 	import { isBlockActive } from '$lib/plugins/utils';
+	import MdFunctions from 'svelte-icons/md/MdFunctions.svelte';
 
 	const editorContext = getEditorContext();
 	const focusedContext = getFocusedContext();
@@ -21,5 +22,5 @@
 </script>
 
 <Button {active} {onMouseDown}>
-	<i class="bi bi-plus-slash-minus" />
+	<MdFunctions />
 </Button>

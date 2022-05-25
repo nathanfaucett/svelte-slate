@@ -157,7 +157,12 @@
 	{dir}
 	{contenteditable}
 >
-	<div class="math-value" contenteditable={false} class:math-selected={selected}>
+	<div
+		class="math-value"
+		contenteditable={false}
+		class:math-inline={currentInline}
+		class:math-selected={selected}
+	>
 		<span bind:this={mathElement} />
 		<div class="math-edit" bind:this={mathEditElement} class:math-selected={selected}>
 			<button on:mousedown={onEdit} on:touchstart={onEdit}><MdEdit /></button>
@@ -183,7 +188,7 @@
 		position: relative;
 	}
 	.math-value.math-selected {
-		box-shadow: 0 0 0 1px #333;
+		box-shadow: 0 0 0 1px black;
 	}
 
 	.math-edit {
@@ -203,7 +208,7 @@
 
 	button {
 		cursor: pointer;
-		border: 1px solid #333;
+		border: 1px solid black;
 		padding: 0;
 		width: 2rem;
 		height: 2rem;

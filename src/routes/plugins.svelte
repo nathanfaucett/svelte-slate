@@ -192,7 +192,7 @@
 	}
 	.toolbar {
 		background-color: white;
-		border: 1px solid #333;
+		border: 1px solid black;
 		padding: 0.25rem;
 	}
 </style>

@@ -72,7 +72,7 @@
 
 <style>
 	.math-editor-body {
-		border: 1px solid #333;
+		border: 1px solid black;
 		padding: 0.25rem;
 		display: block;
 		background-color: white;
@@ -94,14 +94,14 @@
 	}
 	textarea {
 		border: none;
-		border-bottom: 1px solid #888;
+		border-bottom: 1px solid black;
 		padding: 0;
 		width: 100%;
 		outline: none;
 	}
 	button {
 		cursor: pointer;
-		border: 1px solid #333;
+		border: 1px solid black;
 		padding: 0;
 		margin: 0.25rem;
 		width: 1.5rem;

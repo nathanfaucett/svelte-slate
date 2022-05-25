@@ -14,14 +14,13 @@
 <style>
 	button {
 		cursor: pointer;
-		color: #333;
-		background: #fff;
-		border: 1px solid #888;
+		color: black;
+		background: white;
+		border: 1px solid black;
 		padding: 0.25rem;
 		margin: 0;
 	}
 	button.active {
-		color: #888;
 		background: #aaa;
 	}
 	div {
