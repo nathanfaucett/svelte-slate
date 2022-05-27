@@ -3,6 +3,7 @@
 	import { onMount } from 'svelte';
 	import { getEditorContext, getFocusedContext, isHotkey } from 'svelte-slate';
 	import Button from './Button.svelte';
+	import MdFunctions from 'svelte-icons/md/MdFunctions.svelte';
 	import MathEditor from 'svelte-slate/plugins/MathEditor.svelte';
 	import { insertMath, MATH_TYPE } from 'svelte-slate/plugins/MathElement.svelte';
 	import { isBlockActive } from 'svelte-slate/plugins/utils';
@@ -55,5 +56,5 @@
 <MathEditor bind:open bind:math bind:inline {onDone} />
 
 <Button {active} {onMouseDown}>
-	<i class="bi bi-plus-slash-minus" />
+	<MdFunctions />
 </Button>

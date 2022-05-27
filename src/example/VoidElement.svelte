@@ -1,7 +1,7 @@
 <svelte:options immutable />
 
 <script lang="ts" context="module">
-	import type { IElement } from '$lib/plugins/Element.svelte';
+	import type { IElement } from 'svelte-slate/plugins/Element.svelte';
 
 	export interface IVoidElement extends IElement {
 		type: 'void';
@@ -31,9 +31,9 @@
 </script>
 
 <script lang="ts">
-	import type { ISvelteEditor } from '$lib/withSvelte';
+	import type { ISvelteEditor } from 'svelte-slate/withSvelte';
 	import { Editor, Transforms } from 'slate';
-	import { findPath, getEditor } from '$lib';
+	import { findPath, getEditor } from 'svelte-slate';
 
 	export let element: IVoidElement;
 	export let isInline: boolean;

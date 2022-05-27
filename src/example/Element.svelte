@@ -1,14 +1,14 @@
 <svelte:options immutable />
 
 <script lang="ts">
-	import type { IElement } from '$lib/plugins/Element.svelte';
-	import { isImageElement } from '$lib/plugins/ImageElement.svelte';
-	import ImageElement from '$lib/plugins/ImageElement.svelte';
+	import type { IElement } from 'svelte-slate/plugins/Element.svelte';
+	import { isImageElement } from 'svelte-slate/plugins/ImageElement.svelte';
+	import ImageElement from 'svelte-slate/plugins/ImageElement.svelte';
 	import CheckListItemElement, {
 		isCheckListItemElement
-	} from '$lib/plugins//CheckListItemElement.svelte';
+	} from 'svelte-slate/plugins//CheckListItemElement.svelte';
 	import VoidElement, { isVoidElement } from './VoidElement.svelte';
-	import CodeElement, { isCodeElement } from '$lib/plugins/CodeElement.svelte';
+	import CodeElement, { isCodeElement } from 'svelte-slate/plugins/CodeElement.svelte';
 
 	export let element: IElement;
 	export let isInline: boolean;

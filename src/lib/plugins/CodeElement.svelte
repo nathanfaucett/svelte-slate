@@ -113,7 +113,7 @@
 	} from 'svelte-slate';
 	import CodeEditorElement from './CodeEditorElement.svelte';
 	import CodeEditorLeaf from './CodeEditorLeaf.svelte';
-	import { ELEMENT_CONTEXT_KEY, LEAF_CONTEXT_KEY } from 'svelte-slate/components/Editable.svelte';
+	import { ELEMENT_CONTEXT_KEY, LEAF_CONTEXT_KEY } from '$lib/components/Editable.svelte';
 
 	export let element: ICodeElement;
 	export let isInline: boolean;

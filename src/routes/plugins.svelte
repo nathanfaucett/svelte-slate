@@ -174,8 +174,8 @@
 			<MarkButton format="italic"><MdFormatItalic /></MarkButton>
 			<MarkButton format="underline"><MdFormatUnderlined /></MarkButton>
 			<MarkButton format="code"><MdCode /></MarkButton>
-			<BlockButton format="heading-one"><MdLooksOne /></BlockButton>
-			<BlockButton format="heading-two"><MdLooksTwo /></BlockButton>
+			<BlockButton format="heading1"><MdLooksOne /></BlockButton>
+			<BlockButton format="heading2"><MdLooksTwo /></BlockButton>
 			<BlockButton format="block-quote"><MdFormatQuote /></BlockButton>
 			<BlockButton format="numbered-list"><MdFormatListNumbered /></BlockButton>
 			<BlockButton format="bulleted-list"><MdFormatListBulleted /></BlockButton>

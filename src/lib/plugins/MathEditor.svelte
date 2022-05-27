@@ -3,6 +3,7 @@
 <script lang="ts">
 	import katex from 'katex';
 	import { tick } from 'svelte';
+	import { clickoutside } from './clickoutside';
 	import MdDelete from 'svelte-icons/md/MdDelete.svelte';
 	import MdCheck from 'svelte-icons/md/MdCheck.svelte';
 	import MdFormatIndentIncrease from 'svelte-icons/md/MdFormatIndentIncrease.svelte';
@@ -16,12 +17,24 @@
 	export let onDone: (math: string, inline: boolean) => void;
 	export let onDelete: () => void = undefined;
 
+	let openedAt = Date.now();
+	let prevOpen = open;
+	$: if (prevOpen !== open) {
+		openedAt = Date.now();
+		prevOpen = open;
+	}
+
 	function onDoneInternal() {
 		open = false;
 		onDone(math, inline);
 	}
 	function onInlineChange() {
 		inline = !inline;
+	}
+	function onClickOutside() {
+		if (openedAt + 500 < Date.now()) {
+			open = false;
+		}
 	}
 
 	let textarea: HTMLTextAreaElement;
@@ -41,7 +54,7 @@
 </script>
 
 <Hovering {container} bind:open>
-	<div class="math-editor-body">
+	<div class="math-editor-body" use:clickoutside on:clickoutside={onClickOutside}>
 		<div class="math-editor-content">
 			<div class="math-editor-math">
 				<div>
@@ -76,7 +89,6 @@
 		padding: 0.25rem;
 		display: block;
 		background-color: white;
-		min-width: 384px;
 	}
 	.math-editor-content {
 		display: flex;
@@ -96,7 +108,8 @@
 		border: none;
 		border-bottom: 1px solid black;
 		padding: 0;
-		width: 100%;
+		min-width: 384px;
+		min-height: 64px;
 		outline: none;
 	}
 	button {
