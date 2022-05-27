@@ -83,7 +83,8 @@
 	const focusedContext = getFocusedContext();
 	const readOnlyContext = getReadOnlyContext();
 
-	$: selected = $readOnlyContext ? false : $selectedContext && $focusedContext;
+	$: readOnly = $readOnlyContext;
+	$: selected = readOnly ? false : $selectedContext && $focusedContext;
 	$: path = findPath(element);
 	let currentMath = element.math;
 	$: if (currentMath !== element.math) {
@@ -103,7 +104,7 @@
 				Transforms.insertNodes(
 					editor,
 					{
-						type: 'paragraph',
+						type: PARAGRAPH_TYPE,
 						children: [node]
 					} as any,
 					{ at: path }
@@ -159,6 +160,7 @@
 >
 	<div
 		class="math-value"
+		class:math-selectable={!readOnly}
 		contenteditable={false}
 		class:math-inline={currentInline}
 		class:math-selected={selected}
@@ -186,6 +188,9 @@
 		white-space: initial !important;
 		display: block;
 		position: relative;
+	}
+	.math-value.math-selectable {
+		cursor: pointer;
 	}
 	.math-value.math-selected {
 		box-shadow: 0 0 0 1px black;
