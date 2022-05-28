@@ -182,7 +182,7 @@
 			<ImageButton />
 			<CheckListItemButton />
 			<CodeButton />
-			<MathButton />
+			<MathButton container={ref} />
 		</div>
 	</HoveringToolbar>
 	<div class="editor" use:longpress on:longpress={onLongPress}>
