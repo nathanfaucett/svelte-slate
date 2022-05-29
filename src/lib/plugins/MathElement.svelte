@@ -113,7 +113,7 @@
 				Transforms.insertNodes(editor, node, { at: path.slice(0, -1) });
 			}
 		} else {
-			Transforms.setNodes(editor, { math } as any, { at: path });
+			Transforms.setNodes(editor, { math, inline } as any, { at: path });
 			open = false;
 		}
 	}
@@ -136,13 +136,11 @@
 
 	let mathElement: HTMLElement;
 	$: if (mathElement) {
-		if (currentMath) {
-			katex.render(currentMath, mathElement, {
-				displayMode: !currentInline,
-				output: 'html',
-				throwOnError: false
-			});
-		}
+		katex.render(currentMath, mathElement, {
+			displayMode: !currentInline,
+			output: 'html',
+			throwOnError: false
+		});
 	}
 </script>
 
@@ -179,6 +177,8 @@
 	}
 
 	.math-element {
+		word-wrap: initial !important;
+		white-space: initial !important;
 		position: relative;
 		margin: 0;
 	}
@@ -191,6 +191,9 @@
 	}
 	.math-value.math-selectable {
 		cursor: pointer;
+	}
+	.math-value.math-selectable:hover {
+		box-shadow: 0 0 0 1px black;
 	}
 	.math-value.math-selected {
 		box-shadow: 0 0 0 1px black;
