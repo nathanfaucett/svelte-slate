@@ -1,6 +1,6 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-938a0777.js",
+    "file": "start-d8782de7.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -21,7 +21,7 @@
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "pages/__layout.svelte-7dead4c4.js",
+    "file": "pages/__layout.svelte-444ec9e5.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -101,7 +101,7 @@
     ]
   },
   "src/routes/plugins.svelte": {
-    "file": "pages/plugins.svelte-4d6c99e8.js",
+    "file": "pages/plugins.svelte-34ee15da.js",
     "src": "src/routes/plugins.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -116,7 +116,7 @@
       "_preload-helper-f7a65540.js"
     ],
     "css": [
-      "assets/pages/plugins.svelte-4cbb202e.css"
+      "assets/pages/plugins.svelte-14de3a69.css"
     ],
     "assets": [
       "assets/KaTeX_AMS-Regular-0cdd387c.woff2",
