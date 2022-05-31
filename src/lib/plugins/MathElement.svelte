@@ -182,6 +182,9 @@
 		position: relative;
 		margin: 0;
 	}
+	.math-element.math-inline {
+		margin: 0 0 0 -3px;
+	}
 
 	.math-value {
 		word-wrap: initial !important;
@@ -199,6 +202,10 @@
 		box-shadow: 0 0 0 1px black;
 	}
 
+	.math-inline {
+		display: inline-block;
+	}
+
 	.math-edit {
 		display: none;
 		position: absolute;
@@ -208,10 +215,6 @@
 	}
 	.math-edit.math-selected {
 		display: inline;
-	}
-
-	.math-inline {
-		display: inline-block;
 	}
 
 	button {

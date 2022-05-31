@@ -1,5 +1,21 @@
 <svelte:options immutable />
 
+<script lang="ts" context="module">
+	function isDescendant(parent: Node, child?: Node): boolean {
+		if (child) {
+			let parentNode = child.parentNode;
+
+			while (parentNode) {
+				if (parent === parentNode) {
+					return true;
+				}
+				parentNode = parentNode.parentNode;
+			}
+		}
+		return false;
+	}
+</script>
+
 <script lang="ts">
 	import katex from 'katex';
 	import { tick } from 'svelte';
@@ -31,13 +47,18 @@
 	function onInlineChange() {
 		inline = !inline;
 	}
+
+	let rootElement: HTMLDivElement;
 	function onClickOutside() {
-		if (openedAt + 500 < Date.now()) {
+		if (
+			openedAt + 500 < Date.now() &&
+			!isDescendant(rootElement, window.getSelection().focusNode)
+		) {
 			open = false;
 		}
 	}
 
-	let textarea: HTMLTextAreaElement;
+	let textareaElement: HTMLTextAreaElement;
 	let mathDisplayElement: HTMLElement;
 	$: if (open && mathDisplayElement) {
 		katex.render(math, mathDisplayElement, {
@@ -46,19 +67,24 @@
 			throwOnError: false
 		});
 	}
-	$: if (open && textarea) {
+	$: if (open && textareaElement) {
 		tick().then(() => {
-			textarea.focus();
+			textareaElement.focus();
 		});
 	}
 </script>
 
 <Hovering {container} bind:open>
-	<div class="math-editor-body" use:clickoutside on:clickoutside={onClickOutside}>
+	<div
+		bind:this={rootElement}
+		class="math-editor-body"
+		use:clickoutside
+		on:clickoutside={onClickOutside}
+	>
 		<div class="math-editor-content">
 			<div class="math-editor-math">
 				<div>
-					<textarea bind:this={textarea} bind:value={math} />
+					<textarea bind:this={textareaElement} bind:value={math} />
 				</div>
 				<div>
 					<span bind:this={mathDisplayElement} />
