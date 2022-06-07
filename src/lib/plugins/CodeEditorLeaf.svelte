@@ -20,6 +20,7 @@
 		char?: boolean;
 		function?: boolean;
 		'class-name'?: boolean;
+		'attr-name'?: boolean;
 	}
 </script>
 

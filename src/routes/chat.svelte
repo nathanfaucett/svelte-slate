@@ -3,7 +3,7 @@
 </script>
 
 <script lang="ts">
-	import { isReadOnly, withSvelte } from 'svelte-slate';
+	import { isHotkey, isReadOnly, withSvelte } from 'svelte-slate';
 	import Slate from 'svelte-slate/plugins/Slate.svelte';
 	import Editable from 'svelte-slate/plugins/Editable.svelte';
 	import { createEditor, Editor, type BaseRange } from 'slate';
@@ -40,105 +40,22 @@
 	let value = [
 		{
 			type: 'paragraph',
-			children: [
-				{ text: 'This is editable ' },
-				{ text: 'rich', bold: true },
-				{ text: ' text, ' },
-				{ text: 'much', italic: true },
-				{ text: ' better than a ' },
-				{ text: '<textarea>', code: true },
-				{ text: '!' }
-			]
-		},
-		{
-			type: 'paragraph',
-			children: [
-				{
-					text: "Since it's rich text, you can do things like turn a selection of text "
-				},
-				{ text: 'bold', bold: true },
-				{
-					text: ', or add a semantically rendered block quote in the middle of the page, like this:'
-				}
-			]
-		},
-		{
-			type: 'block-quote',
-			children: [{ text: 'A wise quote.' }]
-		},
-		{
-			type: 'image',
-			url: 'https://source.unsplash.com/kFrdX5IeQzI',
 			children: [{ text: '' }]
-		},
-		{
-			type: 'paragraph',
-			children: [{ text: 'Try it out for yourself!' }]
-		},
-		{
-			type: 'check-list-item',
-			checked: true,
-			children: [{ text: 'Checked list item' }]
-		},
-		{
-			type: 'check-list-item',
-			checked: false,
-			children: [{ text: 'Todo' }]
-		},
-		{
-			type: 'math',
-			inline: false,
-			math: '\\frac{\\pi}{2}',
-			children: [{ text: '' }]
-		},
-		{
-			type: 'code',
-			language: 'javascript',
-			children: [
-				{
-					type: 'code-line',
-					children: [{ text: 'console.log("Hello world!");' }]
-				}
-			]
-		},
-		{
-			type: 'heading3',
-			children: [{ text: 'Numbered Lists' }]
-		},
-		{
-			type: 'numbered-list',
-			children: [
-				{
-					type: 'list-item',
-					children: [{ text: 'One' }]
-				},
-				{
-					type: 'list-item',
-					children: [{ text: 'Two' }]
-				}
-			]
-		},
-		{
-			type: 'heading3',
-			children: [{ text: 'Bulleted Lists' }]
-		},
-		{
-			type: 'bulleted-list',
-			children: [
-				{
-					type: 'list-item',
-					children: [{ text: 'One' }]
-				},
-				{
-					type: 'list-item',
-					children: [{ text: 'Two' }]
-				}
-			]
 		}
 	];
 
 	let open = false;
 	let ref: HTMLDivElement;
+
+	function onKeyDown(e: KeyboardEvent) {
+		if (e.key === 'Enter') {
+			e.preventDefault();
+			return false;
+		}
+		if (isHotkey('shift+enter', e)) {
+			Editor.insertBreak(editor);
+		}
+	}
 
 	function onLongPress() {
 		if (!isReadOnly(editor)) {
@@ -158,8 +75,7 @@
 <p>
 	<a
 		target="_blank"
-		href="https://github.com/nathanfaucett/svelte-slate/blob/main/src/routes/plugins.svelte"
-		>Source</a
+		href="https://github.com/nathanfaucett/svelte-slate/blob/main/src/routes/chat.svelte">Source</a
 	>
 </p>
 
@@ -182,7 +98,7 @@
 		</div>
 	</HoveringToolbar>
 	<div class="editor" use:longpress on:longpress={onLongPress}>
-		<Editable bind:ref placeholder="Enter some plain text..." />
+		<Editable bind:ref placeholder="Enter some plain text..." {onKeyDown} />
 	</div>
 </Slate>
 

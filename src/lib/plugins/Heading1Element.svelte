@@ -20,8 +20,8 @@
 	export let isInline: boolean;
 	export let isVoid: boolean;
 	export let contenteditable: boolean;
-	export let ref: HTMLElement = undefined;
-	export let dir: 'rtl' | 'ltr' = undefined;
+	export let ref: HTMLElement | undefined = undefined;
+	export let dir: 'rtl' | 'ltr' | undefined = undefined;
 </script>
 
 <h1

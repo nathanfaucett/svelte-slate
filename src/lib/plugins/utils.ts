@@ -1,11 +1,12 @@
 import { Editor, Transforms, Element as SlateElement } from 'slate';
+import type { IElement } from './Element.svelte';
 
 export function isMarkActive(editor: Editor, format: string): boolean {
 	if (!editor.selection) {
 		return false;
 	} else {
 		const marks = Editor.marks(editor);
-		return marks ? marks[format] === true : false;
+		return marks ? (marks as any)[format] === true : false;
 	}
 }
 
@@ -26,7 +27,8 @@ export function isBlockActive(editor: Editor, format: string): boolean {
 		const [match] = Array.from(
 			Editor.nodes(editor, {
 				at: Editor.unhangRange(editor, editor.selection),
-				match: (n) => !Editor.isEditor(n) && SlateElement.isElement(n) && n['type'] === format
+				match: (n) =>
+					!Editor.isEditor(n) && SlateElement.isElement(n) && (n as IElement)['type'] === format
 			})
 		);
 
@@ -42,7 +44,9 @@ export function toggleBlock(editor: Editor, format: string) {
 
 	Transforms.unwrapNodes(editor, {
 		match: (n) =>
-			!Editor.isEditor(n) && SlateElement.isElement(n) && LIST_TYPES.includes(n['type']),
+			!Editor.isEditor(n) &&
+			SlateElement.isElement(n) &&
+			LIST_TYPES.includes((n as IElement)['type']),
 		split: true
 	});
 	const newProperties = {
@@ -58,6 +62,9 @@ export function toggleBlock(editor: Editor, format: string) {
 
 export function setSelection(node: Node) {
 	const selection = window.getSelection();
+	if (!selection) {
+		return;
+	}
 	selection.removeAllRanges();
 	const range = document.createRange();
 	range.selectNodeContents(node);

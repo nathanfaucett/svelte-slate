@@ -8,7 +8,7 @@
 	import { insertMath, MATH_TYPE } from 'svelte-slate/plugins/MathElement.svelte';
 	import { isBlockActive } from 'svelte-slate/plugins/utils';
 
-	export let container: HTMLElement = undefined;
+	export let container: HTMLElement | undefined = undefined;
 
 	const editorContext = getEditorContext();
 	const focusedContext = getFocusedContext();

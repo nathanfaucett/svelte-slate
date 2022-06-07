@@ -108,6 +108,9 @@ export function withSvelte<T extends Editor>(editor: T): T & ISvelteEditor {
 		}
 
 		const domRange = toDOMRange(e, selection);
+		if (!domRange) {
+			return;
+		}
 		let contents = domRange.cloneContents();
 		let attach = contents.childNodes[0] as HTMLElement;
 

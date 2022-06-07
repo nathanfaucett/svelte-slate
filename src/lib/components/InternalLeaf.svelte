@@ -20,7 +20,7 @@
 	import { LEAF_CONTEXT_KEY, PLACEHOLDER_CONTEXT_KEY } from './Editable.svelte';
 
 	export let isLast: boolean;
-	export let leaf: SlateText;
+	export let leaf: SlateText & { placeholder?: string };
 	export let parent: SlateElement;
 	export let text: SlateText;
 
@@ -54,6 +54,6 @@
 
 <svelte:component this={Leaf} {leaf}
 	>{#if PLACEHOLDER_SYMBOL in leaf}<svelte:component this={Placeholder} bind:clientHeight
-			>{leaf['placeholder']}</svelte:component
+			>{leaf.placeholder}</svelte:component
 		>{/if}<String {isLast} {leaf} {parent} {text} /></svelte:component
 >

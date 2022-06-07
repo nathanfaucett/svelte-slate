@@ -2,14 +2,23 @@ import { Range, Editor } from 'slate';
 import { toDOMRange } from './utils';
 import type { ISvelteEditor } from './withSvelte';
 
-function doRectsIntersect(rect: DOMRect, compareRect: DOMRect) {
+function doRectsIntersect(rect?: DOMRect, compareRect?: DOMRect) {
+	if (rect === compareRect) {
+		return true;
+	}
+	if (!rect) {
+		return false;
+	}
+	if (!compareRect) {
+		return false;
+	}
 	const middle = (compareRect.top + compareRect.bottom) / 2;
 	return rect.top <= middle && rect.bottom >= middle;
 }
 
 function areRangesSameLine(editor: ISvelteEditor, range1: Range, range2: Range) {
-	const rect1 = toDOMRange(editor, range1).getBoundingClientRect();
-	const rect2 = toDOMRange(editor, range2).getBoundingClientRect();
+	const rect1 = toDOMRange(editor, range1)?.getBoundingClientRect();
+	const rect2 = toDOMRange(editor, range2)?.getBoundingClientRect();
 	return doRectsIntersect(rect1, rect2) && doRectsIntersect(rect2, rect1);
 }
 

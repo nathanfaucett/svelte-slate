@@ -21,7 +21,9 @@
 			if (editor.selection && Range.isCollapsed(editor.selection)) {
 				const [match] = Editor.nodes(editor, {
 					match: (n) =>
-						!Editor.isEditor(n) && SlateElement.isElement(n) && n['type'] === CHECK_LIST_ITEM_TYPE
+						!Editor.isEditor(n) &&
+						SlateElement.isElement(n) &&
+						(n as IElement).type === CHECK_LIST_ITEM_TYPE
 				});
 
 				if (match) {
@@ -36,7 +38,7 @@
 							match: (n) =>
 								!Editor.isEditor(n) &&
 								SlateElement.isElement(n) &&
-								n['type'] === CHECK_LIST_ITEM_TYPE
+								(n as IElement).type === CHECK_LIST_ITEM_TYPE
 						});
 						return;
 					}
@@ -55,7 +57,9 @@
 		if (isActive) {
 			Transforms.unwrapNodes(editor, {
 				match: (n) =>
-					!Editor.isEditor(n) && SlateElement.isElement(n) && n['type'] === CHECK_LIST_ITEM_TYPE,
+					!Editor.isEditor(n) &&
+					SlateElement.isElement(n) &&
+					(n as IElement).type === CHECK_LIST_ITEM_TYPE,
 				split: true
 			});
 		} else {
@@ -76,8 +80,8 @@
 	export let isInline: boolean;
 	export let isVoid: boolean;
 	export let contenteditable: boolean;
-	export let ref: HTMLElement = undefined;
-	export let dir: 'rtl' | 'ltr' = undefined;
+	export let ref: HTMLElement | undefined = undefined;
+	export let dir: 'rtl' | 'ltr' | undefined = undefined;
 
 	const editor = getEditor();
 

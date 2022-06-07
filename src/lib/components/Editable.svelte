@@ -121,16 +121,16 @@
 	export let Element: ISvelteComponent<IElementProps> = DefaultElement;
 	export let Leaf: ISvelteComponent<ILeafProps> = DefaultLeaf;
 	export let Placeholder: ISvelteComponent<IPlaceholderProps> = DefaultPlaceholder;
-	export let placeholder: string = undefined;
+	export let placeholder: string | undefined = undefined;
 	export let readOnly = false;
 	export let autoFocus = false;
 	export let decorate = defaultDecorate;
 	export let scrollSelectionIntoView = defaultScrollSelectionIntoView;
-	export let ref: HTMLDivElement = undefined;
+	export let ref: HTMLDivElement | undefined = undefined;
 	export let spellcheck = true;
 	export let autocorrect: string = 'true';
 	export let autocapitalize: string = 'true';
-	export let onKeyDown: (event: KeyboardEvent) => void | false = () => undefined;
+	export let onKeyDown: svelteHTML.KeyboardEventHandler<HTMLElement> = () => undefined;
 
 	const ElementContext = createContext(ELEMENT_CONTEXT_KEY, Element);
 	const LeafContext = createContext(LEAF_CONTEXT_KEY, Leaf);
@@ -147,12 +147,19 @@
 	const decorateContext = getDecorateContext();
 	const selectionContext = getSelectionContext();
 	const deferredOperations: DeferredOperation[] = [];
-	const state = {
+	const state: {
+		isComposing: boolean;
+		hasInsertPrefixInCompositon: boolean;
+		updateSelectionTimeoutId: ReturnType<typeof setTimeout> | null;
+		isDraggingInternally: boolean;
+		latestElement: Element | null;
+		readOnly: boolean;
+	} = {
 		isComposing: false,
 		hasInsertPrefixInCompositon: true,
-		updateSelectionTimeoutId: null as number,
+		updateSelectionTimeoutId: null,
 		isDraggingInternally: false,
-		latestElement: null as Element,
+		latestElement: null,
 		readOnly
 	};
 
@@ -244,9 +251,9 @@
 			window.document.addEventListener('selectionchange', debouncedOnDOMSelectionChange);
 		}
 
-		EDITOR_TO_ELEMENT.set(editor, ref);
-		NODE_TO_ELEMENT.set(editor, ref);
-		ELEMENT_TO_NODE.set(ref, editor);
+		EDITOR_TO_ELEMENT.set(editor, ref as HTMLDivElement);
+		NODE_TO_ELEMENT.set(editor, ref as HTMLDivElement);
+		ELEMENT_TO_NODE.set(ref as HTMLDivElement, editor);
 
 		return () => {
 			EDITOR_TO_ELEMENT.delete(editor);
@@ -511,7 +518,7 @@
 		deferredOperations.length = 0;
 	}
 
-	function onKeyDownInternal(event: KeyboardEvent) {
+	function onKeyDownInternal(event: KeyboardEvent & { currentTarget: EventTarget & HTMLElement }) {
 		if (!state.readOnly && !state.isComposing && hasEditableTarget(editor, event.target)) {
 			const element =
 				editor.children[editor.selection !== null ? editor.selection.focus.path[0] : 0];
@@ -826,7 +833,9 @@
 		if (!state.readOnly && hasEditableTarget(editor, event.target)) {
 			if (!HAS_BEFORE_INPUT_SUPPORT || isPlainTextOnlyPaste(event)) {
 				event.preventDefault();
-				editor.insertData(event.clipboardData);
+				if (event.clipboardData) {
+					editor.insertData(event.clipboardData);
+				}
 			}
 		}
 	}

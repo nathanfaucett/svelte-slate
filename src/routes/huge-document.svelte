@@ -72,7 +72,7 @@
 		for (const hotkey in HOTKEYS) {
 			if (isHotkey(hotkey, event)) {
 				event.preventDefault();
-				const mark = HOTKEYS[hotkey];
+				const mark = (HOTKEYS as any)[hotkey];
 				toggleMark(editor, mark);
 			}
 		}

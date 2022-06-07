@@ -3,7 +3,7 @@
 <script lang="ts" context="module">
 	import type { IBaseElement, IElement } from './Element.svelte';
 
-	export const LANGUAGE_CONTEXT_KEY = createContextKey<string>();
+	export const LANGUAGE_CONTEXT_KEY = createContextKey<keyof typeof languages>();
 	export const CODE_TYPE: string = 'code';
 
 	export function getLanguageContext() {
@@ -13,7 +13,7 @@
 	const LANG_LOADING: Record<string, boolean> = {};
 	const LANG_LOADED: Record<string, boolean> = {};
 
-	async function loadLanguage(name: string): Promise<Grammar> {
+	async function loadLanguage(name: keyof typeof languages): Promise<Grammar> {
 		if (!LANG_LOADING[name] && !LANG_LOADED[name]) {
 			LANG_LOADING[name] = true;
 			const loader = languages[name];
@@ -33,7 +33,7 @@
 		return Prism.languages[name];
 	}
 
-	function getLength(token: string | Token) {
+	function getLength(token: string | Token): number {
 		if (typeof token === 'string') {
 			return token.length;
 		} else if (typeof token.content === 'string') {
@@ -59,7 +59,7 @@
 		editor.deleteBackward = (...args) => {
 			if (editor.selection && Range.isCollapsed(editor.selection)) {
 				const [match] = Editor.nodes(editor, {
-					match: isCodeElement
+					match: isCodeElement as any
 				});
 
 				if (match) {
@@ -71,7 +71,7 @@
 							type: 'paragraph'
 						};
 						Transforms.setNodes(editor, newProperties, {
-							match: isCodeElement
+							match: isCodeElement as any
 						});
 						return;
 					}
@@ -119,23 +119,26 @@
 	export let isInline: boolean;
 	export let isVoid: boolean;
 	export let contenteditable: boolean;
-	export let ref: HTMLElement = undefined;
-	export let dir: 'rtl' | 'ltr' = undefined;
+	export let ref: HTMLElement | undefined = undefined;
+	export let dir: 'rtl' | 'ltr' | undefined = undefined;
 
 	const editor = getEditor();
 
 	createContext(ELEMENT_CONTEXT_KEY, CodeEditorElement);
 	createContext(LEAF_CONTEXT_KEY, CodeEditorLeaf);
 
-	const languageNames = Object.keys(languages).sort();
-	const languageContext = createContext(LANGUAGE_CONTEXT_KEY, element.language);
+	const languageNames = Object.keys(languages).sort() as Array<keyof typeof languages>;
+	const languageContext = createContext<keyof typeof languages>(
+		LANGUAGE_CONTEXT_KEY,
+		element.language as keyof typeof languages
+	);
 	let prismLanguage: Grammar | undefined;
 	$: loadLanguage($languageContext).then((lang) => {
 		prismLanguage = lang;
 	});
 
 	function onSelect(e: Event) {
-		const language = (e.target as HTMLSelectElement).value as string;
+		const language = (e.target as HTMLSelectElement).value as keyof typeof languages;
 		languageContext.set(language);
 		Transforms.setNodes(editor, { language } as any, { at: findPath(element) });
 	}

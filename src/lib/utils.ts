@@ -86,7 +86,10 @@ export function findDocumentOrShadowRoot(editor: ISvelteEditor): Document | Shad
 	const el = toDOMNode(editor, editor);
 	const root = el.getRootNode();
 
-	if ((root instanceof Document || root instanceof ShadowRoot) && root['getSelection'] != null) {
+	if (
+		(root instanceof Document || root instanceof ShadowRoot) &&
+		(root as Document).getSelection != null
+	) {
 		return root;
 	}
 
@@ -123,7 +126,7 @@ export function focus(editor: ISvelteEditor): void {
 
 export function deselect(editor: ISvelteEditor): void {
 	const root = findDocumentOrShadowRoot(editor);
-	const domSelection = root['getSelection']();
+	const domSelection = (root as Document).getSelection();
 
 	if (domSelection && domSelection.rangeCount > 0) {
 		domSelection.removeAllRanges();
@@ -141,12 +144,12 @@ export function hasDOMNode(
 ): boolean {
 	const { editable = false } = options;
 	const editorEl = toDOMNode(editor, editor);
-	let targetEl: HTMLElement;
+	let targetEl: HTMLElement | null = null;
 
 	try {
 		targetEl = (isDOMElement(target) ? target : target.parentElement) as HTMLElement;
 	} catch (err) {
-		if (!err.message.includes('Permission denied to access property "nodeType"')) {
+		if (!(err as Error).message.includes('Permission denied to access property "nodeType"')) {
 			throw err;
 		}
 	}
@@ -175,7 +178,7 @@ export function toDOMNode(editor: ISvelteEditor, node: Node, throwError = true):
 		throw new Error(`Cannot resolve a DOM node from Slate node: ${JSON.stringify(node)}`);
 	}
 
-	return domNode;
+	return domNode as HTMLElement;
 }
 
 export function hasDOMPoint(editor: ISvelteEditor, point: Point): boolean {
@@ -220,14 +223,18 @@ export function toDOMPoint(editor: ISvelteEditor, point: Point, throwError = tru
 		throw new Error(`Cannot resolve a DOM point from Slate point: ${JSON.stringify(point)}`);
 	}
 
-	return domPoint;
+	return domPoint as DOMPoint;
 }
 
 export function hasDOMRange(editor: ISvelteEditor, range: Range): boolean {
 	return !!toDOMRange(editor, range, false);
 }
 
-export function toDOMRange(editor: ISvelteEditor, range: Range, throwError = true): DOMRange {
+export function toDOMRange(
+	editor: ISvelteEditor,
+	range: Range,
+	throwError = true
+): DOMRange | undefined {
 	const { anchor, focus } = range;
 	const isBackward = Range.isBackward(range);
 	const domAnchor = toDOMPoint(editor, anchor, throwError);
@@ -294,13 +301,13 @@ export function findEventRange(editor: ISvelteEditor, event: any): Range {
 		}
 	}
 
-	let domRange: DOMRange;
+	let domRange: DOMRange | null = null;
 	const { document } = getWindow(editor);
 
 	if (document.caretRangeFromPoint) {
 		domRange = document.caretRangeFromPoint(x, y);
 	} else {
-		const position = document['caretPositionFromPoint'](x, y);
+		const position = (document as any).caretPositionFromPoint(x, y);
 
 		if (position) {
 			domRange = document.createRange();
@@ -358,7 +365,7 @@ export function toSlatePoint<T extends boolean>(
 					el.parentNode.removeChild(el);
 				});
 
-				offset = contents.textContent.length;
+				offset = contents?.textContent?.length || 0;
 				domNode = textNode;
 			}
 		} else if (voidNode) {
@@ -369,16 +376,16 @@ export function toSlatePoint<T extends boolean>(
 			} else {
 				textNode = leafNode.closest('[data-slate-node="text"]');
 				domNode = leafNode;
-				offset = domNode.textContent.length;
+				offset = domNode?.textContent?.length || 0;
 				domNode.querySelectorAll('[data-slate-zero-width]').forEach((el) => {
-					offset -= el.textContent.length;
+					offset -= el?.textContent?.length || 0;
 				});
 			}
 		}
 
 		if (
 			domNode &&
-			offset === domNode.textContent.length &&
+			offset === domNode?.textContent?.length &&
 			(parentNode.hasAttribute('data-slate-zero-width') ||
 				(IS_FIREFOX && domNode.textContent?.endsWith('\n\n')))
 		) {
@@ -408,11 +415,11 @@ export function toSlateRange<T extends boolean>(
 ): T extends true ? Range | null : Range {
 	const { exactMatch, suppressThrow } = options;
 	const el = isDOMSelection(domRange) ? domRange.anchorNode : domRange.startContainer;
-	let anchorNode: DOMNode;
-	let anchorOffset: number;
-	let focusNode: DOMNode;
-	let focusOffset: number;
-	let isCollapsed: boolean;
+	let anchorNode: DOMNode | null = null;
+	let anchorOffset: number = 0;
+	let focusNode: DOMNode | null = null;
+	let focusOffset: number = 0;
+	let isCollapsed: boolean = false;
 
 	if (el) {
 		if (isDOMSelection(domRange)) {
@@ -480,6 +487,12 @@ export function isDecoratorRangeListEqual(list?: Range[], another?: Range[]): bo
 	if (list === another) {
 		return true;
 	}
+	if (!list) {
+		return false;
+	}
+	if (!another) {
+		return false;
+	}
 	if (list.length !== another.length) {
 		return false;
 	}
@@ -493,7 +506,7 @@ export function isDecoratorRangeListEqual(list?: Range[], another?: Range[]): bo
 
 		if (
 			!Range.equals(range, other) ||
-			range[PLACEHOLDER_SYMBOL] !== other[PLACEHOLDER_SYMBOL] ||
+			(range as any)[PLACEHOLDER_SYMBOL] !== (other as any)[PLACEHOLDER_SYMBOL] ||
 			!shallowEqual(rangeOwnProps, otherOwnProps)
 		) {
 			return false;
@@ -503,7 +516,7 @@ export function isDecoratorRangeListEqual(list?: Range[], another?: Range[]): bo
 	return true;
 }
 
-export function isSelectionEqual(selection: Range, other: Range): boolean {
+export function isSelectionEqual(selection: Range | null, other: Range | null): boolean {
 	return selection === other || (!!selection && !!other && Range.equals(selection, other));
 }
 

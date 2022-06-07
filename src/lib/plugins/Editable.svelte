@@ -15,34 +15,46 @@
 	import type { ISvelteComponent } from '$lib/utils';
 	import { toggleMark } from './utils';
 	import DefaultPlaceholder from '../components/DefaultPlaceholder.svelte';
-	import Editable from '../components/Editable.svelte';
+	import Editable, { defaultScrollSelectionIntoView } from '../components/Editable.svelte';
 	import type { IPlaceholderProps } from '../components/InternalLeaf.svelte';
 	import Element from './Element.svelte';
 	import Leaf from './Leaf.svelte';
-	import { getEditor } from '$lib/components/Slate.svelte';
+	import { defaultDecorate, getEditor } from '$lib/components/Slate.svelte';
+	import { getOnClickContext, getOnKeyDownContext } from './Slate.svelte';
 
 	export let Placeholder: ISvelteComponent<IPlaceholderProps> = DefaultPlaceholder;
-	export let placeholder: string = undefined;
+	export let placeholder: string | undefined = undefined;
 	export let readOnly = false;
 	export let autoFocus = false;
-	export let decorate = undefined;
-	export let scrollSelectionIntoView = undefined;
-	export let ref: HTMLDivElement = undefined;
+	export let decorate: typeof defaultDecorate | undefined = undefined;
+	export let scrollSelectionIntoView: typeof defaultScrollSelectionIntoView | undefined = undefined;
+	export let ref: HTMLDivElement | undefined = undefined;
 	export let spellcheck = true;
 	export let autocorrect: string = 'true';
 	export let autocapitalize: string = 'true';
-	export let onKeyDown: (event: KeyboardEvent) => void | false = defaultOnKeyDown;
+	export let onKeyDown: svelteHTML.KeyboardEventHandler<HTMLElement> = () => undefined;
 
 	const editor = getEditor();
+	const onClickContext = getOnClickContext();
+	const onKeyDownContext = getOnKeyDownContext();
 
-	function defaultOnKeyDown(event: KeyboardEvent) {
+	$: onClickHandler = $onClickContext;
+	$: onKeyDownHandler = $onKeyDownContext;
+
+	function onKeyDownInternal(event: KeyboardEvent & { currentTarget: EventTarget & HTMLElement }) {
 		for (const hotkey in HOTKEYS) {
 			if (isHotkey(hotkey, event)) {
 				event.preventDefault();
-				const mark = HOTKEYS[hotkey];
+				const mark = (HOTKEYS as any)[hotkey];
 				toggleMark(editor, mark);
+				return;
 			}
 		}
+		const returnValue = onKeyDown(event);
+		if (event.defaultPrevented || returnValue === false) {
+			return undefined;
+		}
+		return onKeyDownHandler(event);
 	}
 </script>
 
@@ -60,5 +72,6 @@
 	{spellcheck}
 	{autocorrect}
 	{autocapitalize}
-	{onKeyDown}
+	onClick={onClickHandler}
+	onKeyDown={onKeyDownInternal}
 />

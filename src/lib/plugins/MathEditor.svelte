@@ -26,12 +26,12 @@
 	import MdFormatAlignJustify from 'svelte-icons/md/MdFormatAlignJustify.svelte';
 	import Hovering from './Hovering.svelte';
 
-	export let container: HTMLElement = undefined;
+	export let container: HTMLElement | undefined = undefined;
 	export let open = false;
 	export let math: string = '';
 	export let inline: boolean = true;
 	export let onDone: (math: string, inline: boolean) => void;
-	export let onDelete: () => void = undefined;
+	export let onDelete: (() => void) | undefined = undefined;
 
 	let openedAt = Date.now();
 	let prevOpen = open;
@@ -52,7 +52,7 @@
 	function onClickOutside() {
 		if (
 			openedAt + 500 < Date.now() &&
-			!isDescendant(rootElement, window.getSelection().focusNode)
+			!isDescendant(rootElement, window.getSelection()?.focusNode as Node)
 		) {
 			open = false;
 		}

@@ -1,12 +1,12 @@
-<svelte:options immutable={true} />
+<svelte:options immutable />
 
 <script lang="ts">
-	import { Editor, Range } from 'slate';
+	import { Editor, Range, type BaseRange } from 'slate';
 	import { getEditorContext, getFocusedContext, getSelectionContext } from 'svelte-slate';
 	import { isCodeElement } from './CodeElement.svelte';
 	import Hovering, { repositionElement } from './Hovering.svelte';
 
-	export let container: HTMLElement = undefined;
+	export let container: HTMLElement | undefined = undefined;
 	export let open = false;
 	export let offsetY = 4;
 
@@ -30,12 +30,12 @@
 		} else {
 			const [match] = Array.from(
 				Editor.nodes(editor, {
-					at: Editor.unhangRange(editor, editor.selection),
-					match: isCodeElement
+					at: Editor.unhangRange(editor, editor.selection as BaseRange),
+					match: isCodeElement as any
 				})
 			);
 			if (!match) {
-				repositionElement(ref, container, offsetY);
+				repositionElement(ref, container as HTMLElement, offsetY);
 				open = true;
 			}
 		}

@@ -1,4 +1,4 @@
-<svelte:options immutable={true} />
+<svelte:options immutable />
 
 <script lang="ts" context="module">
 	export function repositionElement(
@@ -9,7 +9,7 @@
 	) {
 		const domSelection = window.getSelection();
 
-		if (domSelection.type.toLowerCase() === 'none') {
+		if (!domSelection || domSelection.type.toLowerCase() === 'none') {
 			if (retired > 0) {
 				setTimeout(() => {
 					repositionElement(ref, container, retired - 1);
@@ -39,8 +39,8 @@
 <script lang="ts">
 	import Portal from 'svelte-portal/src/Portal.svelte';
 
-	export let container: HTMLElement = undefined;
-	export let ref: HTMLElement = undefined;
+	export let container: HTMLElement | undefined = undefined;
+	export let ref: HTMLElement | undefined = undefined;
 	export let open = false;
 	export let offsetY = 4;
 
@@ -49,7 +49,7 @@
 	}
 	$: if (ref) {
 		if (open) {
-			repositionElement(ref, container, offsetY);
+			repositionElement(ref, container as HTMLElement, offsetY);
 		} else {
 			ref.removeAttribute('style');
 		}

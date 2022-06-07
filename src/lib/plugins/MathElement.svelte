@@ -20,7 +20,9 @@
 		const { isVoid, isInline, insertBreak } = editor;
 
 		editor.isInline = (element) =>
-			isMathElement(element as IElement) ? !!element['inline'] : isInline(element);
+			isMathElement(element as IElement)
+				? !!(element as IMathElement)['inline']
+				: isInline(element);
 
 		editor.isVoid = (element) => (isMathElement(element as IElement) ? true : isVoid(element));
 
@@ -75,8 +77,8 @@
 	export let isInline: boolean;
 	export let isVoid: boolean;
 	export let contenteditable: boolean;
-	export let ref: HTMLElement = undefined;
-	export let dir: 'rtl' | 'ltr' = undefined;
+	export let ref: HTMLElement | undefined = undefined;
+	export let dir: 'rtl' | 'ltr' | undefined = undefined;
 
 	const editor = getEditor();
 	const selectedContext = getSelectedContext();

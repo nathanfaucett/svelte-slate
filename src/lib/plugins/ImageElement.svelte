@@ -42,7 +42,7 @@
 					if (mime === IMAGE_TYPE) {
 						reader.addEventListener('load', () => {
 							const url = reader.result;
-							insertImage(editor, url);
+							insertImage(editor, url as string);
 						});
 
 						reader.readAsDataURL(file);
@@ -80,8 +80,8 @@
 	export let isVoid: boolean;
 	// svelte-ignore unused-export-let
 	export let contenteditable: boolean;
-	export let ref: HTMLElement = undefined;
-	export let dir: 'rtl' | 'ltr' = undefined;
+	export let ref: HTMLElement | undefined = undefined;
+	export let dir: 'rtl' | 'ltr' | undefined = undefined;
 
 	const editor = getEditor();
 	const selectedContext = getSelectedContext();

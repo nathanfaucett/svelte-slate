@@ -1,14 +1,14 @@
 const IS_MAC =
 	typeof window != 'undefined' && /Mac|iPod|iPhone|iPad/.test(window.navigator.platform);
 
-const MODIFIERS = {
+const MODIFIERS: { [name: string]: string } = {
 	alt: 'altKey',
 	control: 'ctrlKey',
 	meta: 'metaKey',
 	shift: 'shiftKey'
 };
 
-const ALIASES = {
+const ALIASES: { [name: string]: string } = {
 	add: '+',
 	break: 'pause',
 	cmd: 'meta',
@@ -32,7 +32,7 @@ const ALIASES = {
 	windows: 'meta'
 };
 
-const CODES = {
+const CODES: { [name: string]: number } = {
 	backspace: 8,
 	tab: 9,
 	enter: 13,
@@ -126,7 +126,7 @@ function parseHotkey(hotkey: string, options: IIsHotKeyOptions = {}): IHotKey {
 	const { length } = values;
 
 	for (const k in MODIFIERS) {
-		ret[MODIFIERS[k]] = false;
+		(ret as any)[MODIFIERS[k]] = false;
 	}
 
 	for (let value of values) {
@@ -136,7 +136,7 @@ function parseHotkey(hotkey: string, options: IIsHotKeyOptions = {}): IHotKey {
 			value = value.slice(0, -1);
 		}
 
-		const name = toKeyName(value);
+		const name = toKeyName(value) as string;
 		const modifier = MODIFIERS[name];
 
 		if (value.length > 1 && !modifier && !ALIASES[value] && !CODES[name]) {
@@ -152,7 +152,7 @@ function parseHotkey(hotkey: string, options: IIsHotKeyOptions = {}): IHotKey {
 		}
 
 		if (modifier) {
-			ret[modifier] = optional ? null : true;
+			(ret as any)[modifier] = optional ? null : true;
 		}
 	}
 
@@ -161,7 +161,7 @@ function parseHotkey(hotkey: string, options: IIsHotKeyOptions = {}): IHotKey {
 
 function compareHotkey(object: IHotKey, event: KeyboardEvent): boolean {
 	for (const key in object) {
-		const expected = object[key];
+		const expected = (object as any)[key];
 		let actual;
 
 		if (expected == null) {
@@ -173,7 +173,7 @@ function compareHotkey(object: IHotKey, event: KeyboardEvent): boolean {
 		} else if (key === 'which') {
 			actual = expected === 91 && event.which === 93 ? 91 : event.which;
 		} else {
-			actual = event[key];
+			actual = (event as any)[key];
 		}
 
 		if (actual == null && expected === false) {
@@ -189,7 +189,7 @@ function compareHotkey(object: IHotKey, event: KeyboardEvent): boolean {
 }
 
 function toKeyCode(name: string): number | undefined {
-	name = toKeyName(name);
+	name = toKeyName(name) as string;
 	const code = CODES[name] || name.toUpperCase().charCodeAt(0);
 	return code;
 }
