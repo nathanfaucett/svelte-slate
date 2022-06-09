@@ -131,6 +131,8 @@
 	export let autocorrect: string = 'true';
 	export let autocapitalize: string = 'true';
 	export let onKeyDown: svelteHTML.KeyboardEventHandler<HTMLElement> = () => undefined;
+	export let onBeforeInput: svelteHTML.EventHandler<InputEvent, HTMLElement> = () => undefined;
+	export let onClick: svelteHTML.EventHandler<MouseEvent, HTMLElement> = () => undefined;
 
 	const ElementContext = createContext(ELEMENT_CONTEXT_KEY, Element);
 	const LeafContext = createContext(LEAF_CONTEXT_KEY, Leaf);
@@ -351,10 +353,14 @@
 	}
 	afterUpdate(() => tick().then(onUpdate));
 
-	function onBeforeInput(event: InputEvent) {
+	function onBeforeInputInternal(event: InputEvent & { currentTarget: EventTarget & HTMLElement }) {
 		if (!state.readOnly && hasEditableTarget(editor, event.target)) {
 			const type = event.inputType;
 			const data = (event as any).dataTransfer || event.data || undefined;
+
+			if (onBeforeInput(event) === false || event.defaultPrevented) {
+				return;
+			}
 
 			if (type === 'insertCompositionText' || type === 'deleteCompositionText') {
 				return;
@@ -734,7 +740,7 @@
 		focusedContext.set(false);
 	}
 
-	function onClick(event: Event) {
+	function onClickInternal(event: MouseEvent & { currentTarget: EventTarget & HTMLElement }) {
 		if (!state.readOnly && hasTarget(editor, event.target) && isDOMNode(event.target)) {
 			const node = toSlateNode(event.target);
 			const path = findPath(node);
@@ -755,6 +761,7 @@
 					}
 				}
 			}
+			return onClick(event);
 		}
 	}
 
@@ -943,12 +950,12 @@
 	data-slate-node="value"
 	contenteditable={!state.readOnly}
 	z-index={-1}
-	on:beforeinput={onBeforeInput}
+	on:beforeinput={onBeforeInputInternal}
 	on:keydown={onKeyDownInternal}
 	on:input={onInput}
 	on:focus={onFocus}
 	on:blur={onBlur}
-	on:click={onClick}
+	on:click={onClickInternal}
 	on:compositionend={onCompositionEnd}
 	on:compositionupdate={onCompositionUpdate}
 	on:compositionstart={onCompositionStart}

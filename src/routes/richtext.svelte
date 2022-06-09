@@ -1,6 +1,4 @@
 <script lang="ts" context="module">
-	export const prerender = true;
-
 	const HOTKEYS = {
 		'mod+b': 'bold',
 		'mod+i': 'italic',

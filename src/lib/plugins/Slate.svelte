@@ -5,17 +5,20 @@
 	export const ON_CLICK_CONTEXT_KEY = createContextKey<svelteHTML.MouseEventHandler<HTMLElement>>();
 	export const ON_KEY_DOWN_CONTEXT_KEY =
 		createContextKey<svelteHTML.KeyboardEventHandler<HTMLElement>>();
+	export const ON_BEFORE_INPUT_CONTEXT_KEY =
+		createContextKey<svelteHTML.EventHandler<InputEvent, HTMLElement>>();
 
 	export function getPluginsContext() {
 		return getFromContext(PLUGINS_CONTEXT_KEY);
 	}
-
 	export function getOnClickContext() {
 		return getFromContext(ON_CLICK_CONTEXT_KEY);
 	}
-
 	export function getOnKeyDownContext() {
 		return getFromContext(ON_KEY_DOWN_CONTEXT_KEY);
+	}
+	export function getOnBeforeInputContext() {
+		return getFromContext(ON_BEFORE_INPUT_CONTEXT_KEY);
 	}
 
 	export type IWithFn<E extends ISvelteEditor = ISvelteEditor> = (editor: E) => E;
@@ -23,6 +26,7 @@
 	export interface IPluginEvents {
 		onClick: svelteHTML.MouseEventHandler<HTMLElement>;
 		onKeyDown: svelteHTML.KeyboardEventHandler<HTMLElement>;
+		onBeforeInput: svelteHTML.EventHandler<InputEvent, HTMLElement>;
 	}
 
 	export type IBasePlugin<
@@ -118,14 +122,17 @@
 	$: currentPlugins = getCurrentPlugins(plugins);
 	$: onClick = getCurrentEvent('onClick', plugins);
 	$: onKeyDown = getCurrentEvent('onKeyDown', plugins);
+	$: onBeforeInput = getCurrentEvent('onBeforeInput', plugins);
 
 	const pluginsContext = createContext(PLUGINS_CONTEXT_KEY, currentPlugins);
 	const onClickContext = createContext(ON_CLICK_CONTEXT_KEY, onClick);
 	const onKeyDownContext = createContext(ON_KEY_DOWN_CONTEXT_KEY, onKeyDown);
+	const onBeforeInputContext = createContext(ON_BEFORE_INPUT_CONTEXT_KEY, onBeforeInput);
 
 	$: pluginsContext.set(currentPlugins);
 	$: onClickContext.set(onClick);
 	$: onKeyDownContext.set(onKeyDown);
+	$: onBeforeInputContext.set(onBeforeInput);
 </script>
 
 <Slate bind:editor bind:value bind:selection><slot /></Slate>

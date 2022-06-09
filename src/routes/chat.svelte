@@ -1,9 +1,5 @@
-<script lang="ts" context="module">
-	export const prerender = true;
-</script>
-
 <script lang="ts">
-	import { isHotkey, isReadOnly, withSvelte } from 'svelte-slate';
+	import { isReadOnly, withSvelte } from 'svelte-slate';
 	import Slate from 'svelte-slate/plugins/Slate.svelte';
 	import Editable from 'svelte-slate/plugins/Editable.svelte';
 	import { createEditor, Editor, type BaseRange } from 'slate';
@@ -48,12 +44,18 @@
 	let ref: HTMLDivElement;
 
 	function onKeyDown(e: KeyboardEvent) {
-		if (e.key === 'Enter') {
+		if (e.key === 'Enter' && !e.shiftKey) {
 			e.preventDefault();
+			Editor.deleteBackward(editor);
 			return false;
 		}
-		if (isHotkey('shift+enter', e)) {
-			Editor.insertBreak(editor);
+	}
+
+	function onBeforeInput(e: KeyboardEvent) {
+		if (e.type === 'insertLineBreak') {
+			e.preventDefault();
+			e.stopPropagation();
+			return false;
 		}
 	}
 
@@ -98,7 +100,7 @@
 		</div>
 	</HoveringToolbar>
 	<div class="editor" use:longpress on:longpress={onLongPress}>
-		<Editable bind:ref placeholder="Enter some plain text..." {onKeyDown} />
+		<Editable bind:ref placeholder="Enter some plain text..." {onKeyDown} {onBeforeInput} />
 	</div>
 </Slate>
 
