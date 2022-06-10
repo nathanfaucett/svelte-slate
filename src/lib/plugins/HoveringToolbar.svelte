@@ -4,7 +4,7 @@
 	import { Editor, Range, type BaseRange } from 'slate';
 	import { getEditorContext, getFocusedContext, getSelectionContext } from 'svelte-slate';
 	import { isCodeElement } from './CodeElement.svelte';
-	import Hovering, { repositionElement } from './Hovering.svelte';
+	import Hovering from './Hovering.svelte';
 
 	export let container: HTMLElement | undefined = undefined;
 	export let open = false;
@@ -25,7 +25,6 @@
 			Range.isCollapsed(selection) ||
 			Editor.string(editor, selection) === ''
 		) {
-			ref.removeAttribute('style');
 			open = false;
 		} else {
 			const [match] = Array.from(
@@ -35,13 +34,12 @@
 				})
 			);
 			if (!match) {
-				repositionElement(ref, container as HTMLElement, offsetY);
 				open = true;
 			}
 		}
 	}
 </script>
 
-<Hovering bind:open bind:ref>
+<Hovering bind:open bind:ref {container} {offsetY}>
 	<slot />
 </Hovering>

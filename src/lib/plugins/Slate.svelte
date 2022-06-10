@@ -73,7 +73,7 @@
 		plugins: IPlugins<T, E>
 	) {
 		return Object.entries(plugins).reduce((plugins, [type, plugin]) => {
-			plugins[type] = Array.isArray(plugin) ? plugin[0] : plugin;
+			plugins[type] = isBasePlugin(plugin) ? plugin.component : plugin;
 			return plugins;
 		}, {} as IPluginsContext);
 	}

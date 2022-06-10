@@ -13,7 +13,6 @@ const config = {
 			pages: 'build',
 			assets: 'build',
 			fallback: 'index.html',
-			trailingSlash: 'always',
 			precompress: true
 		}),
 		appDir: 'internal',

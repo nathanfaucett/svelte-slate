@@ -20,6 +20,7 @@
 		const domRange = domSelection.getRangeAt(0);
 		const rect = domRange.getBoundingClientRect();
 		const viewRect = container.getBoundingClientRect();
+
 		if (rect.left + window.pageXOffset - ref.offsetWidth / 2 < viewRect.left) {
 			ref.style.left = `${viewRect.left + window.pageXOffset}px`;
 		} else if (rect.right + window.pageXOffset + ref.offsetWidth / 2 > viewRect.right) {
