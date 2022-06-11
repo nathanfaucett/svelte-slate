@@ -1,6 +1,6 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-c7345592.js",
+    "file": "start-1e2ffbe7.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -45,17 +45,17 @@
     ]
   },
   "src/routes/chat.svelte": {
-    "file": "pages/chat.svelte-515b2e8d.js",
+    "file": "pages/chat.svelte-f09be424.js",
     "src": "src/routes/chat.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_index-787bdfcb.js",
-      "_index.es-57c7fadf.js",
-      "_MathButton-d279a174.js",
-      "_CodeElement-cf09dace.js",
-      "_MdFormatQuote-4da27e55.js",
-      "_CheckListItemButton-48d19a49.js",
+      "_index.es-87790ca6.js",
+      "_MathButton-c2cec9f5.js",
+      "_CodeElement-fa68c21b.js",
+      "_MdFormatQuote-b29ba49b.js",
+      "_CheckListItemButton-5706d950.js",
       "_index-c1002126.js",
       "_IconBase-32ce22a2.js",
       "_preload-helper-f7a65540.js"
@@ -65,26 +65,26 @@
     ]
   },
   "src/routes/default.svelte": {
-    "file": "pages/default.svelte-528129cb.js",
+    "file": "pages/default.svelte-7377c9c0.js",
     "src": "src/routes/default.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_index-787bdfcb.js",
-      "_index.es-57c7fadf.js",
+      "_index.es-87790ca6.js",
       "_index-c1002126.js"
     ]
   },
   "src/routes/editor.svelte": {
-    "file": "pages/editor.svelte-d6835bfc.js",
+    "file": "pages/editor.svelte-c740bbf0.js",
     "src": "src/routes/editor.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_index-787bdfcb.js",
-      "_index.es-57c7fadf.js",
-      "_Element-60cf5eef.js",
-      "_CodeElement-cf09dace.js",
+      "_index.es-87790ca6.js",
+      "_Element-fd73aa3a.js",
+      "_CodeElement-fa68c21b.js",
       "_index-c1002126.js",
       "_preload-helper-f7a65540.js"
     ],
@@ -93,22 +93,22 @@
     ]
   },
   "src/routes/huge-document.svelte": {
-    "file": "pages/huge-document.svelte-805fbcba.js",
+    "file": "pages/huge-document.svelte-b95725a1.js",
     "src": "src/routes/huge-document.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_index-787bdfcb.js",
-      "_index.es-57c7fadf.js",
-      "_Element-60cf5eef.js",
-      "_CodeElement-cf09dace.js",
-      "_MdFormatQuote-4da27e55.js",
+      "_index.es-87790ca6.js",
+      "_Element-fd73aa3a.js",
+      "_CodeElement-fa68c21b.js",
+      "_MdFormatQuote-b29ba49b.js",
       "_index-c1002126.js",
       "_preload-helper-f7a65540.js",
       "_IconBase-32ce22a2.js"
     ],
     "css": [
-      "assets/pages/huge-document.svelte-ce840cc4.css"
+      "assets/pages/richtext.svelte-fbd58915.css"
     ]
   },
   "src/routes/index.svelte": {
@@ -122,17 +122,17 @@
     ]
   },
   "src/routes/plugins.svelte": {
-    "file": "pages/plugins.svelte-4443b68c.js",
+    "file": "pages/plugins.svelte-0e77ff73.js",
     "src": "src/routes/plugins.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_index-787bdfcb.js",
-      "_index.es-57c7fadf.js",
-      "_MathButton-d279a174.js",
-      "_CodeElement-cf09dace.js",
-      "_MdFormatQuote-4da27e55.js",
-      "_CheckListItemButton-48d19a49.js",
+      "_index.es-87790ca6.js",
+      "_MathButton-c2cec9f5.js",
+      "_CodeElement-fa68c21b.js",
+      "_MdFormatQuote-b29ba49b.js",
+      "_CheckListItemButton-5706d950.js",
       "_index-c1002126.js",
       "_IconBase-32ce22a2.js",
       "_preload-helper-f7a65540.js"
@@ -142,23 +142,23 @@
     ]
   },
   "src/routes/richtext.svelte": {
-    "file": "pages/richtext.svelte-d8ada992.js",
+    "file": "pages/richtext.svelte-4b27a8ec.js",
     "src": "src/routes/richtext.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_index-787bdfcb.js",
-      "_index.es-57c7fadf.js",
-      "_Element-60cf5eef.js",
-      "_CodeElement-cf09dace.js",
-      "_CheckListItemButton-48d19a49.js",
-      "_MdFormatQuote-4da27e55.js",
+      "_index.es-87790ca6.js",
+      "_Element-fd73aa3a.js",
+      "_CodeElement-fa68c21b.js",
+      "_CheckListItemButton-5706d950.js",
+      "_MdFormatQuote-b29ba49b.js",
       "_IconBase-32ce22a2.js",
       "_index-c1002126.js",
       "_preload-helper-f7a65540.js"
     ],
     "css": [
-      "assets/pages/huge-document.svelte-ce840cc4.css"
+      "assets/pages/richtext.svelte-fbd58915.css"
     ]
   },
   "_index-787bdfcb.js": {
@@ -185,8 +185,8 @@
       "assets/IconBase-05c40767.css"
     ]
   },
-  "_index.es-57c7fadf.js": {
-    "file": "chunks/index.es-57c7fadf.js",
+  "_index.es-87790ca6.js": {
+    "file": "chunks/index.es-87790ca6.js",
     "imports": [
       "_index-787bdfcb.js",
       "_index-c1002126.js"
@@ -195,17 +195,17 @@
       "assets/index.es-c8cd14b3.css"
     ]
   },
-  "_MathButton-d279a174.js": {
-    "file": "chunks/MathButton-d279a174.js",
+  "_MathButton-c2cec9f5.js": {
+    "file": "chunks/MathButton-c2cec9f5.js",
     "imports": [
       "_index-787bdfcb.js",
-      "_index.es-57c7fadf.js",
-      "_CodeElement-cf09dace.js",
-      "_MdFormatQuote-4da27e55.js",
+      "_index.es-87790ca6.js",
+      "_CodeElement-fa68c21b.js",
+      "_MdFormatQuote-b29ba49b.js",
       "_IconBase-32ce22a2.js"
     ],
     "css": [
-      "assets/MathButton-e50b465a.css"
+      "assets/MathButton-33321577.css"
     ],
     "assets": [
       "assets/KaTeX_AMS-Regular-0cdd387c.woff2",
@@ -269,11 +269,11 @@
       "assets/KaTeX_Typewriter-Regular-f01f3e87.ttf"
     ]
   },
-  "_CodeElement-cf09dace.js": {
-    "file": "chunks/CodeElement-cf09dace.js",
+  "_CodeElement-fa68c21b.js": {
+    "file": "chunks/CodeElement-fa68c21b.js",
     "imports": [
       "_index-787bdfcb.js",
-      "_index.es-57c7fadf.js",
+      "_index.es-87790ca6.js",
       "_preload-helper-f7a65540.js"
     ],
     "dynamicImports": [
@@ -569,37 +569,37 @@
       "node_modules/prismjs/components/prism-zig.min.js"
     ],
     "css": [
-      "assets/CodeElement-82d39a30.css"
+      "assets/CodeElement-8a7ebb77.css"
     ]
   },
-  "_MdFormatQuote-4da27e55.js": {
-    "file": "chunks/MdFormatQuote-4da27e55.js",
+  "_MdFormatQuote-b29ba49b.js": {
+    "file": "chunks/MdFormatQuote-b29ba49b.js",
     "imports": [
       "_index-787bdfcb.js",
-      "_index.es-57c7fadf.js",
+      "_index.es-87790ca6.js",
       "_IconBase-32ce22a2.js",
-      "_CodeElement-cf09dace.js"
+      "_CodeElement-fa68c21b.js"
     ],
     "css": [
       "assets/MdFormatQuote-fdbfc323.css"
     ]
   },
-  "_CheckListItemButton-48d19a49.js": {
-    "file": "chunks/CheckListItemButton-48d19a49.js",
+  "_CheckListItemButton-5706d950.js": {
+    "file": "chunks/CheckListItemButton-5706d950.js",
     "imports": [
       "_index-787bdfcb.js",
-      "_index.es-57c7fadf.js",
-      "_MdFormatQuote-4da27e55.js",
-      "_CodeElement-cf09dace.js",
+      "_index.es-87790ca6.js",
+      "_MdFormatQuote-b29ba49b.js",
+      "_CodeElement-fa68c21b.js",
       "_IconBase-32ce22a2.js"
     ]
   },
-  "_Element-60cf5eef.js": {
-    "file": "chunks/Element-60cf5eef.js",
+  "_Element-fd73aa3a.js": {
+    "file": "chunks/Element-fd73aa3a.js",
     "imports": [
       "_index-787bdfcb.js",
-      "_CodeElement-cf09dace.js",
-      "_index.es-57c7fadf.js"
+      "_CodeElement-fa68c21b.js",
+      "_index.es-87790ca6.js"
     ],
     "css": [
       "assets/Element-3ed67a07.css"
