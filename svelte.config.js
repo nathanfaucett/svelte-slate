@@ -19,6 +19,9 @@ const config = {
 		paths: {
 			base: process.env.USE_BASE_PATH ? '/svelte-slate' : ''
 		},
+		prerender: {
+			default: true
+		},
 		vite: {
 			define: {
 				PACKAGE_JSON: JSON.stringify(pkg)
