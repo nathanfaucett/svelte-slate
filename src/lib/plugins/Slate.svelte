@@ -2,32 +2,12 @@
 
 <script lang="ts" context="module">
 	export const PLUGINS_CONTEXT_KEY = createContextKey<IPluginsContext>();
-	export const ON_CLICK_CONTEXT_KEY = createContextKey<svelteHTML.MouseEventHandler<HTMLElement>>();
-	export const ON_KEY_DOWN_CONTEXT_KEY =
-		createContextKey<svelteHTML.KeyboardEventHandler<HTMLElement>>();
-	export const ON_BEFORE_INPUT_CONTEXT_KEY =
-		createContextKey<svelteHTML.EventHandler<InputEvent, HTMLElement>>();
 
 	export function getPluginsContext() {
 		return getFromContext(PLUGINS_CONTEXT_KEY);
 	}
-	export function getOnClickContext() {
-		return getFromContext(ON_CLICK_CONTEXT_KEY);
-	}
-	export function getOnKeyDownContext() {
-		return getFromContext(ON_KEY_DOWN_CONTEXT_KEY);
-	}
-	export function getOnBeforeInputContext() {
-		return getFromContext(ON_BEFORE_INPUT_CONTEXT_KEY);
-	}
 
 	export type IWithFn<E extends ISvelteEditor = ISvelteEditor> = (editor: E) => E;
-
-	export interface IPluginEvents {
-		onClick: svelteHTML.MouseEventHandler<HTMLElement>;
-		onKeyDown: svelteHTML.KeyboardEventHandler<HTMLElement>;
-		onBeforeInput: svelteHTML.EventHandler<InputEvent, HTMLElement>;
-	}
 
 	export type IBasePlugin<
 		T extends ISvelteComponent<IElementProps> = ISvelteComponent<IElementProps>,
@@ -35,7 +15,7 @@
 	> = {
 		component: T;
 		withFn?: IWithFn<E>;
-	} & Partial<IPluginEvents>;
+	};
 
 	export type IPlugin<
 		T extends ISvelteComponent<IElementProps> = ISvelteComponent<IElementProps>,
@@ -77,26 +57,6 @@
 			return plugins;
 		}, {} as IPluginsContext);
 	}
-	function getCurrentEvent<
-		K extends keyof IPluginEvents,
-		T extends ISvelteComponent<IElementProps>,
-		E extends ISvelteEditor
-	>(name: K, plugins: IPlugins<T, E>): IPluginEvents[K] {
-		const handlers = Object.values(plugins)
-			.map((plugin) => (isBasePlugin(plugin) ? plugin[name] : undefined))
-			.filter((plugin) => !!plugin) as Array<IPluginEvents[K]>;
-
-		return (event: any) => {
-			let returnValue = undefined;
-			for (const handler of handlers) {
-				returnValue = handler(event);
-				if (event.defaultPrevented || returnValue === false) {
-					break;
-				}
-			}
-			return returnValue;
-		};
-	}
 </script>
 
 <script lang="ts">
@@ -120,19 +80,10 @@
 	let originalEditor = editor;
 	$: editor = getCurrentEditor(originalEditor, plugins);
 	$: currentPlugins = getCurrentPlugins(plugins);
-	$: onClick = getCurrentEvent('onClick', plugins);
-	$: onKeyDown = getCurrentEvent('onKeyDown', plugins);
-	$: onBeforeInput = getCurrentEvent('onBeforeInput', plugins);
 
 	const pluginsContext = createContext(PLUGINS_CONTEXT_KEY, currentPlugins);
-	const onClickContext = createContext(ON_CLICK_CONTEXT_KEY, onClick);
-	const onKeyDownContext = createContext(ON_KEY_DOWN_CONTEXT_KEY, onKeyDown);
-	const onBeforeInputContext = createContext(ON_BEFORE_INPUT_CONTEXT_KEY, onBeforeInput);
 
 	$: pluginsContext.set(currentPlugins);
-	$: onClickContext.set(onClick);
-	$: onKeyDownContext.set(onKeyDown);
-	$: onBeforeInputContext.set(onBeforeInput);
 </script>
 
 <Slate bind:editor bind:value bind:selection><slot /></Slate>

@@ -45,16 +45,7 @@
 
 	function onKeyDown(e: KeyboardEvent) {
 		if (e.key === 'Enter' && !e.shiftKey) {
-			e.preventDefault();
 			Editor.deleteBackward(editor);
-			return false;
-		}
-	}
-
-	function onBeforeInput(e: KeyboardEvent) {
-		if (e.type === 'insertLineBreak') {
-			e.preventDefault();
-			e.stopPropagation();
 			return false;
 		}
 	}
@@ -96,11 +87,11 @@
 			<ImageButton />
 			<CheckListItemButton />
 			<CodeButton />
-			<MathButton container={ref} />
+			<MathButton />
 		</div>
 	</HoveringToolbar>
 	<div class="editor" use:longpress on:longpress={onLongPress}>
-		<Editable bind:ref placeholder="Enter some plain text..." {onKeyDown} {onBeforeInput} />
+		<Editable bind:ref placeholder="Enter some plain text..." {onKeyDown} />
 	</div>
 </Slate>
 

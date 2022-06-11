@@ -72,6 +72,7 @@
 	import { PARAGRAPH_TYPE } from './ParagraphElement.svelte';
 	import MdEdit from 'svelte-icons/md/MdEdit.svelte';
 	import { setSelection } from './utils';
+	import MdDelete from 'svelte-icons/md/MdDelete.svelte';
 
 	export let element: IMathElement;
 	export let isInline: boolean;
@@ -146,7 +147,7 @@
 	}
 </script>
 
-<MathEditor container={ref} bind:open bind:math bind:inline {onDone} {onDelete} />
+<MathEditor bind:open bind:math bind:inline {onDone} />
 
 <div
 	class="math-element"
@@ -168,6 +169,7 @@
 		<span bind:this={mathElement} />
 		<div class="math-edit" bind:this={mathEditElement} class:math-selected={selected}>
 			<button on:mousedown={onEdit} on:touchstart={onEdit}><MdEdit /></button>
+			<button on:mousedown={onDelete} on:touchstart={onDelete}><MdDelete /></button>
 		</div>
 	</div>
 	<slot />
@@ -209,22 +211,25 @@
 	}
 
 	.math-edit {
+		width: 3.25rem;
 		display: none;
 		position: absolute;
-		top: -2rem;
-		left: calc(50% - 1rem);
+		top: -1.75rem;
+		left: calc(50% - 1.6rem);
 		background-color: white;
 	}
 	.math-edit.math-selected {
-		display: inline;
+		display: block;
 	}
 
 	button {
+		display: inline-block;
 		cursor: pointer;
 		border: 1px solid black;
+		margin: 0;
 		padding: 0;
-		width: 2rem;
-		height: 2rem;
+		width: 1.5rem;
+		height: 1.5rem;
 		background-color: white;
 	}
 </style>

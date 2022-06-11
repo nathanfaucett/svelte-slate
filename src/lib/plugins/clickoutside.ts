@@ -1,6 +1,6 @@
 export function clickoutside(node: HTMLElement) {
 	function onClick(event: Event & { target: EventTarget | null }) {
-		if (node && !node.contains(event.target as Node) && !event.defaultPrevented) {
+		if (node && !node.contains(event.target as Node) && !event.cancelBubble) {
 			node.dispatchEvent(new CustomEvent('clickoutside', event));
 		}
 	}

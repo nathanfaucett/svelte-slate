@@ -7,8 +7,10 @@ export {
 	getFocusedContext,
 	getDecorateContext,
 	getSelectionContext,
+	getContainerContext,
 	defaultDecorate,
-	DECORATE_CONTEXT_KEY
+	DECORATE_CONTEXT_KEY,
+	addEventListener
 } from './components/Slate.svelte';
 export {
 	default as Editable,

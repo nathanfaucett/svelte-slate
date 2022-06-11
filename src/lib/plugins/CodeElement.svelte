@@ -114,6 +114,8 @@
 	import CodeEditorElement from './CodeEditorElement.svelte';
 	import CodeEditorLeaf from './CodeEditorLeaf.svelte';
 	import { ELEMENT_CONTEXT_KEY, LEAF_CONTEXT_KEY } from '$lib/components/Editable.svelte';
+	import { addEventListener } from '$lib/components/Slate.svelte';
+	import { PARAGRAPH_TYPE } from './ParagraphElement.svelte';
 
 	export let element: ICodeElement;
 	export let isInline: boolean;
@@ -142,6 +144,24 @@
 		languageContext.set(language);
 		Transforms.setNodes(editor, { language } as any, { at: findPath(element) });
 	}
+
+	function onKeyDown(e: KeyboardEvent & { currentTarget: EventTarget & HTMLElement }) {
+		if (editor.selection && e.key === 'Enter' && e.shiftKey) {
+			const [match] = Editor.nodes(editor, {
+				match: isCodeElement as any
+			});
+			if (match) {
+				const [_, [index]] = match;
+				const at = [index + 1];
+				Editor.deleteBackward(editor);
+				Transforms.insertNodes(editor, { type: PARAGRAPH_TYPE, children: [{ text: '' }] } as any, {
+					at
+				});
+				Transforms.select(editor, at);
+			}
+		}
+	}
+	addEventListener('onKeyDown', onKeyDown);
 
 	$: decorate = ([node, path]: NodeEntry): Range[] => {
 		const ranges: Range[] = [];

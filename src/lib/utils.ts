@@ -529,7 +529,7 @@ export function createContextKey<T>(): IContextKey<T> {
 export function getFromContext<T>(key: IContextKey<T>) {
 	const context = getContext<Writable<T>>(key);
 	if (!context) {
-		throw new Error(`Must be used inside the Slate component's context.`);
+		throw new Error(`Must be used inside the component's context.`);
 	}
 	return context;
 }

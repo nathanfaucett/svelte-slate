@@ -4,15 +4,17 @@
 	export function repositionElement(
 		ref: HTMLElement,
 		container: HTMLElement,
-		retired = 2,
-		offsetY = 4
+		innerWidth: number,
+		innerHeight: number,
+		offsetY: number,
+		retires: number
 	) {
 		const domSelection = window.getSelection();
 
 		if (!domSelection || domSelection.type.toLowerCase() === 'none') {
-			if (retired > 0) {
+			if (retires > 0) {
 				setTimeout(() => {
-					repositionElement(ref, container, retired - 1);
+					repositionElement(ref, container, innerWidth, innerHeight, offsetY, retires - 1);
 				}, 100);
 			}
 			return;
@@ -44,18 +46,24 @@
 	export let ref: HTMLElement | undefined = undefined;
 	export let open = false;
 	export let offsetY = 4;
+	export let retires = 2;
+
+	let innerWidth: number = 640;
+	let innerHeight: number = 480;
 
 	$: if (container === undefined && typeof document !== 'undefined') {
 		container = document.body;
 	}
 	$: if (ref) {
 		if (open) {
-			repositionElement(ref, container as HTMLElement, offsetY);
+			repositionElement(ref, container as HTMLElement, innerWidth, innerHeight, offsetY, retires);
 		} else {
 			ref.removeAttribute('style');
 		}
 	}
 </script>
+
+<svelte:window bind:innerWidth bind:innerHeight />
 
 <Portal>
 	<div bind:this={ref} class="hovering-menu">

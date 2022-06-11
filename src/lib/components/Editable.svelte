@@ -67,7 +67,7 @@
 	import DefaultElement from './DefaultElement.svelte';
 	import DefaultLeaf from './DefaultLeaf.svelte';
 	import DefaultPlaceholder from './DefaultPlaceholder.svelte';
-	import { getEditor } from './Slate.svelte';
+	import { addEventListener, getEditor, getEventsContext, handleEvent } from './Slate.svelte';
 	import {
 		defaultDecorate,
 		getDecorateContext,
@@ -117,6 +117,7 @@
 	} from '../weakMaps';
 	import type { IElementProps } from './InternalElement.svelte';
 	import type { ILeafProps, IPlaceholderProps } from './InternalLeaf.svelte';
+	import { getContainerContext } from 'svelte-slate/components/Slate.svelte';
 
 	export let Element: ISvelteComponent<IElementProps> = DefaultElement;
 	export let Leaf: ISvelteComponent<ILeafProps> = DefaultLeaf;
@@ -131,8 +132,9 @@
 	export let autocorrect: string = 'true';
 	export let autocapitalize: string = 'true';
 	export let onKeyDown: svelteHTML.KeyboardEventHandler<HTMLElement> = () => undefined;
-	export let onBeforeInput: svelteHTML.EventHandler<InputEvent, HTMLElement> = () => undefined;
-	export let onClick: svelteHTML.EventHandler<MouseEvent, HTMLElement> = () => undefined;
+
+	const containerContext = getContainerContext();
+	$: containerContext.set(ref);
 
 	const ElementContext = createContext(ELEMENT_CONTEXT_KEY, Element);
 	const LeafContext = createContext(LEAF_CONTEXT_KEY, Leaf);
@@ -147,6 +149,7 @@
 	const readOnlyContext = getReadOnlyContext();
 	const focusedContext = getFocusedContext();
 	const decorateContext = getDecorateContext();
+	const eventsContext = getEventsContext();
 	const selectionContext = getSelectionContext();
 	const deferredOperations: DeferredOperation[] = [];
 	const state: {
@@ -353,12 +356,12 @@
 	}
 	afterUpdate(() => tick().then(onUpdate));
 
-	function onBeforeInputInternal(event: InputEvent & { currentTarget: EventTarget & HTMLElement }) {
+	function onBeforeInput(event: InputEvent & { currentTarget: EventTarget & HTMLElement }) {
 		if (!state.readOnly && hasEditableTarget(editor, event.target)) {
 			const type = event.inputType;
 			const data = (event as any).dataTransfer || event.data || undefined;
 
-			if (onBeforeInput(event) === false || event.defaultPrevented) {
+			if (handleEvent(eventsContext, 'onBeforeInput', event) === false || event.cancelBubble) {
 				return;
 			}
 
@@ -651,7 +654,11 @@
 						Editor.deleteForward(editor, { unit: 'word' });
 					}
 				}
-				return onKeyDown(event);
+				const returnValue = onKeyDown(event);
+				if (returnValue === false || event.cancelBubble) {
+					return returnValue;
+				}
+				return handleEvent(eventsContext, 'onKeyDown', event);
 			} else {
 				if (IS_CHROME || IS_SAFARI) {
 					if (
@@ -672,7 +679,11 @@
 						}
 					}
 				}
-				return onKeyDown(event);
+				const returnValue = onKeyDown(event);
+				if (returnValue === false || event.cancelBubble) {
+					return returnValue;
+				}
+				return handleEvent(eventsContext, 'onKeyDown', event);
 			}
 		}
 	}
@@ -695,6 +706,8 @@
 
 			IS_FOCUSED.set(editor, true);
 			focusedContext.set(true);
+
+			return handleEvent(eventsContext, 'onFocus', event);
 		}
 	}
 
@@ -738,9 +751,11 @@
 
 		IS_FOCUSED.delete(editor);
 		focusedContext.set(false);
+
+		return handleEvent(eventsContext, 'onBlur', event);
 	}
 
-	function onClickInternal(event: MouseEvent & { currentTarget: EventTarget & HTMLElement }) {
+	function onClick(event: MouseEvent & { currentTarget: EventTarget & HTMLElement }) {
 		if (!state.readOnly && hasTarget(editor, event.target) && isDOMNode(event.target)) {
 			const node = toSlateNode(event.target);
 			const path = findPath(node);
@@ -761,7 +776,7 @@
 					}
 				}
 			}
-			return onClick(event);
+			return handleEvent(eventsContext, 'onClick', event);
 		}
 	}
 
@@ -789,12 +804,16 @@
 					});
 				}
 			}
+
+			return handleEvent(eventsContext, 'onCompositionEnd', event);
 		}
 	}
 
 	function onCompositionUpdate(event: Event) {
 		if (hasEditableTarget(editor, event.target)) {
 			state.isComposing = true;
+
+			return handleEvent(eventsContext, 'onCompositionUpdate', event);
 		}
 	}
 
@@ -833,6 +852,8 @@
 					);
 				}
 			}
+
+			return handleEvent(eventsContext, 'onCompositionStart', event);
 		}
 	}
 
@@ -844,6 +865,8 @@
 					editor.insertData(event.clipboardData);
 				}
 			}
+
+			return handleEvent(eventsContext, 'onPaste', event);
 		}
 	}
 
@@ -851,6 +874,8 @@
 		if (hasEditableTarget(editor, event.target)) {
 			event.preventDefault();
 			editor.setFragmentData((event as any).clipboardData);
+
+			return handleEvent(eventsContext, 'onCopy', event);
 		}
 	}
 
@@ -869,6 +894,8 @@
 					}
 				}
 			}
+
+			return handleEvent(eventsContext, 'onCut', event);
 		}
 	}
 
@@ -879,6 +906,8 @@
 			if (Editor.isVoid(editor, node)) {
 				event.preventDefault();
 			}
+
+			return handleEvent(eventsContext, 'onDragOver', event);
 		}
 	}
 
@@ -897,6 +926,8 @@
 			state.isDraggingInternally = true;
 
 			editor.setFragmentData((event as any).dataTransfer);
+
+			return handleEvent(eventsContext, 'onDragStart', event);
 		}
 	}
 
@@ -929,12 +960,16 @@
 			if (!isFocused(editor)) {
 				focus(editor);
 			}
+
+			return handleEvent(eventsContext, 'onDrop', event);
 		}
 	}
 
 	function onDragEnd(event: Event) {
 		if (!state.readOnly && state.isDraggingInternally && hasTarget(editor, event.target)) {
 			state.isDraggingInternally = false;
+
+			return handleEvent(eventsContext, 'onDragEnd', event);
 		}
 	}
 </script>
@@ -950,12 +985,12 @@
 	data-slate-node="value"
 	contenteditable={!state.readOnly}
 	z-index={-1}
-	on:beforeinput={onBeforeInputInternal}
+	on:beforeinput={onBeforeInput}
 	on:keydown={onKeyDownInternal}
 	on:input={onInput}
 	on:focus={onFocus}
 	on:blur={onBlur}
-	on:click={onClickInternal}
+	on:click={onClick}
 	on:compositionend={onCompositionEnd}
 	on:compositionupdate={onCompositionUpdate}
 	on:compositionstart={onCompositionStart}

@@ -8,8 +8,6 @@
 	import { insertMath, MATH_TYPE } from 'svelte-slate/plugins/MathElement.svelte';
 	import { isBlockActive } from 'svelte-slate/plugins/utils';
 
-	export let container: HTMLElement | undefined = undefined;
-
 	const editorContext = getEditorContext();
 	const focusedContext = getFocusedContext();
 
@@ -17,7 +15,7 @@
 	$: focused = $focusedContext;
 	$: active = isBlockActive(editor, MATH_TYPE);
 
-	let at: Location;
+	let at: Location | undefined;
 	let open = false;
 	let math = '';
 	let inline = true;
@@ -33,8 +31,6 @@
 
 	function onKeyDown(event: KeyboardEvent) {
 		if (isHotkey('ctrl+m', event)) {
-			event.preventDefault();
-
 			if (focused) {
 				at = editor.selection ? editor.selection.anchor || editor.selection.focus : undefined;
 				math = '';
@@ -55,7 +51,7 @@
 	});
 </script>
 
-<MathEditor bind:open bind:math bind:inline {container} {onDone} />
+<MathEditor bind:open bind:math bind:inline {onDone} />
 
 <Button {active} {onMouseDown}>
 	<MdFunctions />

@@ -20,18 +20,19 @@
 	import katex from 'katex';
 	import { tick } from 'svelte';
 	import { clickoutside } from './clickoutside';
-	import MdDelete from 'svelte-icons/md/MdDelete.svelte';
 	import MdCheck from 'svelte-icons/md/MdCheck.svelte';
 	import MdFormatIndentIncrease from 'svelte-icons/md/MdFormatIndentIncrease.svelte';
 	import MdFormatAlignJustify from 'svelte-icons/md/MdFormatAlignJustify.svelte';
 	import Hovering from './Hovering.svelte';
+	import { getContainerContext } from '$lib/components/Slate.svelte';
 
-	export let container: HTMLElement | undefined = undefined;
 	export let open = false;
 	export let math: string = '';
 	export let inline: boolean = true;
 	export let onDone: (math: string, inline: boolean) => void;
-	export let onDelete: (() => void) | undefined = undefined;
+
+	const containerContext = getContainerContext();
+	$: container = $containerContext;
 
 	let openedAt = Date.now();
 	let prevOpen = open;
@@ -99,11 +100,6 @@
 						>{#if inline}<MdFormatAlignJustify />{:else}<MdFormatIndentIncrease />{/if}</button
 					>
 				</div>
-				{#if onDelete}
-					<div>
-						<button on:click={onDelete}><MdDelete /></button>
-					</div>
-				{/if}
 			</div>
 		</div>
 	</div></Hovering
