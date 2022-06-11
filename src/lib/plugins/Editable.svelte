@@ -19,7 +19,7 @@
 	import type { IPlaceholderProps } from '../components/InternalLeaf.svelte';
 	import Element from './Element.svelte';
 	import Leaf from './Leaf.svelte';
-	import { defaultDecorate, getEditor } from '$lib/components/Slate.svelte';
+	import type { defaultDecorate } from '$lib/components/Slate.svelte';
 
 	export let Placeholder: ISvelteComponent<IPlaceholderProps> = DefaultPlaceholder;
 	export let placeholder: string | undefined = undefined;
@@ -32,8 +32,6 @@
 	export let autocorrect: string = 'true';
 	export let autocapitalize: string = 'true';
 	export let onKeyDown: svelteHTML.KeyboardEventHandler<HTMLElement> = () => undefined;
-
-	const editor = getEditor();
 </script>
 
 <Editable

@@ -1,5 +1,7 @@
 import { Editor, Transforms, Element as SlateElement } from 'slate';
+import { BULLETED_LIST_TYPE } from './BulletedListElement.svelte';
 import type { IElement } from './Element.svelte';
+import { NUMBERED_LIST_TYPE } from './NumberedListElement.svelte';
 
 export function isMarkActive(editor: Editor, format: string): boolean {
 	if (!editor.selection) {
@@ -36,7 +38,7 @@ export function isBlockActive(editor: Editor, format: string): boolean {
 	}
 }
 
-const LIST_TYPES = ['numbered-list', 'bulleted-list'];
+const LIST_TYPES = [NUMBERED_LIST_TYPE, BULLETED_LIST_TYPE];
 
 export function toggleBlock(editor: Editor, format: string) {
 	const isActive = isBlockActive(editor, format);
