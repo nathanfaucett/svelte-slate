@@ -18,12 +18,6 @@ jobs:
       - run: npm install -g npm@8.14.0
       - run: npm ci
       - run: npm run build
-      - uses: jacobtomlinson/gha-find-replace@v2
-        with:
-          find: '/service-worker.js'
-          replace: '/svelte-slate/service-worker.js'
-          include: '**/*.html'
-          regex: false
 
       - uses: peaceiris/actions-gh-pages@v3
         with:
