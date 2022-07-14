@@ -1,6 +1,5 @@
 const { truncateSync, createWriteStream, readdirSync } = require('fs');
 const { basename } = require('path');
-const { writable } = require('svelte/store');
 const { LANG_FILE_TO_NAME, LANG_NAME_TO_DEPS } = require('./prismjs-deps.cjs');
 
 const BASE_PATH = __dirname + '/../node_modules/prismjs/components/';

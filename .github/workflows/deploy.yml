@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: 16.x
 
-      - run: npm install -g npm@8.5.3
+      - run: npm install -g npm@8.14.0
       - run: npm ci
       - run: npx playwright install
       - env:
@@ -30,7 +30,7 @@ jobs:
         with:
           node-version: 16.x
 
-      - run: npm install -g npm@8.5.3
+      - run: npm install -g npm@8.14.0
       - run: npm ci
       - run: npm run build
       - uses: jacobtomlinson/gha-find-replace@v2
