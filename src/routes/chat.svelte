@@ -29,9 +29,9 @@
 	const editor = withHistory(withSvelte(createEditor()));
 	let plugins = {
 		...DEFAULT_PLUGINS,
-		[IMAGE_TYPE]: [ImageElement, withImages],
-		[CODE_TYPE]: [CodeElement, withCode],
-		[MATH_TYPE]: [MathElement, withMath]
+		[IMAGE_TYPE]: { component: ImageElement, withFn: withImages },
+		[CODE_TYPE]: { component: CodeElement, withFn: withCode },
+		[MATH_TYPE]: { component: MathElement, withFn: withMath }
 	};
 	let value = [
 		{
