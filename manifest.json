@@ -236,12 +236,12 @@
     "src": "node_modules/katex/dist/fonts/KaTeX_Typewriter-Regular.ttf"
   },
   ".svelte-kit/runtime/client/start.js": {
-    "file": "internal/immutable/start-94a4a82d.js",
+    "file": "internal/immutable/start-f0939353.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
-      "_index-d2c046dc.js",
-      "_index-e8370516.js",
+      "_index-43a75594.js",
+      "_index-3a1cd20b.js",
       "_paths-86ffdd15.js",
       "_preload-helper-971b591d.js"
     ],
@@ -258,42 +258,42 @@
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "internal/immutable/pages/__layout.svelte-cfa782b3.js",
+    "file": "internal/immutable/pages/__layout.svelte-bbf2f25f.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-d2c046dc.js",
+      "_index-43a75594.js",
       "_paths-86ffdd15.js",
-      "_IconBase-8eb940dd.js"
+      "_IconBase-eaf548e9.js"
     ],
     "css": [
       "internal/immutable/assets/__layout-63026c3b.css"
     ]
   },
   ".svelte-kit/runtime/components/error.svelte": {
-    "file": "internal/immutable/error.svelte-930a3590.js",
+    "file": "internal/immutable/error.svelte-ddd06ca0.js",
     "src": ".svelte-kit/runtime/components/error.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-d2c046dc.js"
+      "_index-43a75594.js"
     ]
   },
   "src/routes/chat.svelte": {
-    "file": "internal/immutable/pages/chat.svelte-1228635a.js",
+    "file": "internal/immutable/pages/chat.svelte-19e886be.js",
     "src": "src/routes/chat.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-d2c046dc.js",
-      "_index.es-f46ddfe3.js",
-      "_MathButton-13cd39ae.js",
-      "_CodeElement-34450d5a.js",
-      "_MdFormatQuote-ffca6bc5.js",
-      "_CheckListItemButton-5a4ca177.js",
-      "_index-e8370516.js",
-      "_IconBase-8eb940dd.js",
+      "_index-43a75594.js",
+      "_index.es-5ba9cdf2.js",
+      "_MathButton-f81cd450.js",
+      "_CodeElement-07afd09d.js",
+      "_MdFormatQuote-11c16423.js",
+      "_CheckListItemButton-13f7aae9.js",
+      "_index-3a1cd20b.js",
+      "_IconBase-eaf548e9.js",
       "_preload-helper-971b591d.js"
     ],
     "css": [
@@ -301,27 +301,27 @@
     ]
   },
   "src/routes/default.svelte": {
-    "file": "internal/immutable/pages/default.svelte-9612d233.js",
+    "file": "internal/immutable/pages/default.svelte-3a261f60.js",
     "src": "src/routes/default.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-d2c046dc.js",
-      "_index.es-f46ddfe3.js",
-      "_index-e8370516.js"
+      "_index-43a75594.js",
+      "_index.es-5ba9cdf2.js",
+      "_index-3a1cd20b.js"
     ]
   },
   "src/routes/editor.svelte": {
-    "file": "internal/immutable/pages/editor.svelte-870a2c78.js",
+    "file": "internal/immutable/pages/editor.svelte-01f1ce35.js",
     "src": "src/routes/editor.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-d2c046dc.js",
-      "_index.es-f46ddfe3.js",
-      "_Element-719f7109.js",
-      "_CodeElement-34450d5a.js",
-      "_index-e8370516.js",
+      "_index-43a75594.js",
+      "_index.es-5ba9cdf2.js",
+      "_Element-c7a39098.js",
+      "_CodeElement-07afd09d.js",
+      "_index-3a1cd20b.js",
       "_preload-helper-971b591d.js"
     ],
     "css": [
@@ -329,48 +329,48 @@
     ]
   },
   "src/routes/huge-document.svelte": {
-    "file": "internal/immutable/pages/huge-document.svelte-a7b9e7eb.js",
+    "file": "internal/immutable/pages/huge-document.svelte-509954f2.js",
     "src": "src/routes/huge-document.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-d2c046dc.js",
-      "_index.es-f46ddfe3.js",
-      "_Element-719f7109.js",
-      "_CodeElement-34450d5a.js",
-      "_MdFormatQuote-ffca6bc5.js",
-      "_index-e8370516.js",
+      "_index-43a75594.js",
+      "_index.es-5ba9cdf2.js",
+      "_Element-c7a39098.js",
+      "_CodeElement-07afd09d.js",
+      "_MdFormatQuote-11c16423.js",
+      "_index-3a1cd20b.js",
       "_preload-helper-971b591d.js",
-      "_IconBase-8eb940dd.js"
+      "_IconBase-eaf548e9.js"
     ],
     "css": [
       "internal/immutable/assets/huge-document-0fa59b19.css"
     ]
   },
   "src/routes/index.svelte": {
-    "file": "internal/immutable/pages/index.svelte-9653caaf.js",
+    "file": "internal/immutable/pages/index.svelte-6fcce023.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-d2c046dc.js",
+      "_index-43a75594.js",
       "_paths-86ffdd15.js"
     ]
   },
   "src/routes/plugins.svelte": {
-    "file": "internal/immutable/pages/plugins.svelte-6bd7440b.js",
+    "file": "internal/immutable/pages/plugins.svelte-6e8078d5.js",
     "src": "src/routes/plugins.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-d2c046dc.js",
-      "_index.es-f46ddfe3.js",
-      "_MathButton-13cd39ae.js",
-      "_CodeElement-34450d5a.js",
-      "_MdFormatQuote-ffca6bc5.js",
-      "_CheckListItemButton-5a4ca177.js",
-      "_index-e8370516.js",
-      "_IconBase-8eb940dd.js",
+      "_index-43a75594.js",
+      "_index.es-5ba9cdf2.js",
+      "_MathButton-f81cd450.js",
+      "_CodeElement-07afd09d.js",
+      "_MdFormatQuote-11c16423.js",
+      "_CheckListItemButton-13f7aae9.js",
+      "_index-3a1cd20b.js",
+      "_IconBase-eaf548e9.js",
       "_preload-helper-971b591d.js"
     ],
     "css": [
@@ -378,32 +378,32 @@
     ]
   },
   "src/routes/richtext.svelte": {
-    "file": "internal/immutable/pages/richtext.svelte-4320f2f5.js",
+    "file": "internal/immutable/pages/richtext.svelte-a92bac8d.js",
     "src": "src/routes/richtext.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-d2c046dc.js",
-      "_index.es-f46ddfe3.js",
-      "_Element-719f7109.js",
-      "_CodeElement-34450d5a.js",
-      "_CheckListItemButton-5a4ca177.js",
-      "_MdFormatQuote-ffca6bc5.js",
-      "_IconBase-8eb940dd.js",
-      "_index-e8370516.js",
+      "_index-43a75594.js",
+      "_index.es-5ba9cdf2.js",
+      "_Element-c7a39098.js",
+      "_CodeElement-07afd09d.js",
+      "_CheckListItemButton-13f7aae9.js",
+      "_MdFormatQuote-11c16423.js",
+      "_IconBase-eaf548e9.js",
+      "_index-3a1cd20b.js",
       "_preload-helper-971b591d.js"
     ],
     "css": [
       "internal/immutable/assets/richtext-0fa59b19.css"
     ]
   },
-  "_index-d2c046dc.js": {
-    "file": "internal/immutable/chunks/index-d2c046dc.js"
+  "_index-43a75594.js": {
+    "file": "internal/immutable/chunks/index-43a75594.js"
   },
-  "_index-e8370516.js": {
-    "file": "internal/immutable/chunks/index-e8370516.js",
+  "_index-3a1cd20b.js": {
+    "file": "internal/immutable/chunks/index-3a1cd20b.js",
     "imports": [
-      "_index-d2c046dc.js"
+      "_index-43a75594.js"
     ]
   },
   "_paths-86ffdd15.js": {
@@ -412,33 +412,33 @@
   "_preload-helper-971b591d.js": {
     "file": "internal/immutable/chunks/preload-helper-971b591d.js"
   },
-  "_IconBase-8eb940dd.js": {
-    "file": "internal/immutable/chunks/IconBase-8eb940dd.js",
+  "_IconBase-eaf548e9.js": {
+    "file": "internal/immutable/chunks/IconBase-eaf548e9.js",
     "imports": [
-      "_index-d2c046dc.js"
+      "_index-43a75594.js"
     ],
     "css": [
       "internal/immutable/assets/IconBase-6bf551a2.css"
     ]
   },
-  "_index.es-f46ddfe3.js": {
-    "file": "internal/immutable/chunks/index.es-f46ddfe3.js",
+  "_index.es-5ba9cdf2.js": {
+    "file": "internal/immutable/chunks/index.es-5ba9cdf2.js",
     "imports": [
-      "_index-d2c046dc.js",
-      "_index-e8370516.js"
+      "_index-43a75594.js",
+      "_index-3a1cd20b.js"
     ],
     "css": [
       "internal/immutable/assets/index-87f34857.css"
     ]
   },
-  "_MathButton-13cd39ae.js": {
-    "file": "internal/immutable/chunks/MathButton-13cd39ae.js",
+  "_MathButton-f81cd450.js": {
+    "file": "internal/immutable/chunks/MathButton-f81cd450.js",
     "imports": [
-      "_index-d2c046dc.js",
-      "_index.es-f46ddfe3.js",
-      "_CodeElement-34450d5a.js",
-      "_MdFormatQuote-ffca6bc5.js",
-      "_IconBase-8eb940dd.js"
+      "_index-43a75594.js",
+      "_index.es-5ba9cdf2.js",
+      "_CodeElement-07afd09d.js",
+      "_MdFormatQuote-11c16423.js",
+      "_IconBase-eaf548e9.js"
     ],
     "css": [
       "internal/immutable/assets/MathButton-42dfda44.css"
@@ -505,11 +505,11 @@
       "internal/immutable/assets/KaTeX_Typewriter-Regular-f01f3e87.ttf"
     ]
   },
-  "_CodeElement-34450d5a.js": {
-    "file": "internal/immutable/chunks/CodeElement-34450d5a.js",
+  "_CodeElement-07afd09d.js": {
+    "file": "internal/immutable/chunks/CodeElement-07afd09d.js",
     "imports": [
-      "_index-d2c046dc.js",
-      "_index.es-f46ddfe3.js",
+      "_index-43a75594.js",
+      "_index.es-5ba9cdf2.js",
       "_preload-helper-971b591d.js"
     ],
     "dynamicImports": [
@@ -808,34 +808,34 @@
       "internal/immutable/assets/CodeElement-fb186c65.css"
     ]
   },
-  "_MdFormatQuote-ffca6bc5.js": {
-    "file": "internal/immutable/chunks/MdFormatQuote-ffca6bc5.js",
+  "_MdFormatQuote-11c16423.js": {
+    "file": "internal/immutable/chunks/MdFormatQuote-11c16423.js",
     "imports": [
-      "_index-d2c046dc.js",
-      "_index.es-f46ddfe3.js",
-      "_IconBase-8eb940dd.js",
-      "_CodeElement-34450d5a.js"
+      "_index-43a75594.js",
+      "_index.es-5ba9cdf2.js",
+      "_IconBase-eaf548e9.js",
+      "_CodeElement-07afd09d.js"
     ],
     "css": [
       "internal/immutable/assets/MdFormatQuote-e0a5c013.css"
     ]
   },
-  "_CheckListItemButton-5a4ca177.js": {
-    "file": "internal/immutable/chunks/CheckListItemButton-5a4ca177.js",
+  "_CheckListItemButton-13f7aae9.js": {
+    "file": "internal/immutable/chunks/CheckListItemButton-13f7aae9.js",
     "imports": [
-      "_index-d2c046dc.js",
-      "_index.es-f46ddfe3.js",
-      "_MdFormatQuote-ffca6bc5.js",
-      "_CodeElement-34450d5a.js",
-      "_IconBase-8eb940dd.js"
+      "_index-43a75594.js",
+      "_index.es-5ba9cdf2.js",
+      "_MdFormatQuote-11c16423.js",
+      "_CodeElement-07afd09d.js",
+      "_IconBase-eaf548e9.js"
     ]
   },
-  "_Element-719f7109.js": {
-    "file": "internal/immutable/chunks/Element-719f7109.js",
+  "_Element-c7a39098.js": {
+    "file": "internal/immutable/chunks/Element-c7a39098.js",
     "imports": [
-      "_index-d2c046dc.js",
-      "_CodeElement-34450d5a.js",
-      "_index.es-f46ddfe3.js"
+      "_index-43a75594.js",
+      "_CodeElement-07afd09d.js",
+      "_index.es-5ba9cdf2.js"
     ],
     "css": [
       "internal/immutable/assets/Element-0dd22858.css"
@@ -2295,6 +2295,10 @@
     "file": "internal/immutable/assets/__layout-63026c3b.css",
     "src": "src/routes/__layout.css"
   },
+  "index.css": {
+    "file": "internal/immutable/assets/index-87f34857.css",
+    "src": "index.css"
+  },
   "IconBase.css": {
     "file": "internal/immutable/assets/IconBase-6bf551a2.css",
     "src": "IconBase.css"
@@ -2303,40 +2307,36 @@
     "file": "internal/immutable/assets/chat-0680bf8f.css",
     "src": "src/routes/chat.css"
   },
-  "index.css": {
-    "file": "internal/immutable/assets/index-87f34857.css",
-    "src": "index.css"
-  },
-  "src/routes/huge-document.css": {
-    "file": "internal/immutable/assets/huge-document-0fa59b19.css",
-    "src": "src/routes/huge-document.css"
+  "CodeElement.css": {
+    "file": "internal/immutable/assets/CodeElement-fb186c65.css",
+    "src": "CodeElement.css"
   },
   "src/routes/editor.css": {
     "file": "internal/immutable/assets/editor-c55b3aa1.css",
     "src": "src/routes/editor.css"
   },
+  "MathButton.css": {
+    "file": "internal/immutable/assets/MathButton-42dfda44.css",
+    "src": "MathButton.css"
+  },
   "Element.css": {
     "file": "internal/immutable/assets/Element-0dd22858.css",
     "src": "Element.css"
   },
-  "CodeElement.css": {
-    "file": "internal/immutable/assets/CodeElement-fb186c65.css",
-    "src": "CodeElement.css"
-  },
-  "src/routes/richtext.css": {
-    "file": "internal/immutable/assets/richtext-0fa59b19.css",
-    "src": "src/routes/richtext.css"
+  "src/routes/huge-document.css": {
+    "file": "internal/immutable/assets/huge-document-0fa59b19.css",
+    "src": "src/routes/huge-document.css"
   },
   "MdFormatQuote.css": {
     "file": "internal/immutable/assets/MdFormatQuote-e0a5c013.css",
     "src": "MdFormatQuote.css"
   },
+  "src/routes/richtext.css": {
+    "file": "internal/immutable/assets/richtext-0fa59b19.css",
+    "src": "src/routes/richtext.css"
+  },
   "src/routes/plugins.css": {
     "file": "internal/immutable/assets/plugins-0680bf8f.css",
     "src": "src/routes/plugins.css"
-  },
-  "MathButton.css": {
-    "file": "internal/immutable/assets/MathButton-42dfda44.css",
-    "src": "MathButton.css"
   }
 }
