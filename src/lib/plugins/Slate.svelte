@@ -69,13 +69,23 @@
 		type ISvelteComponent
 	} from '$lib/utils';
 	import type { ISvelteEditor } from '$lib/withSvelte';
-	import type { Descendant } from 'slate';
+	import type { BaseSelection, Descendant } from 'slate';
+	import { createEventDispatcher } from 'svelte';
 	import { DEFAULT_PLUGINS } from './DEFAULT_PLUGINS';
 
 	export let plugins: IPlugins = DEFAULT_PLUGINS;
 	export let editor: ISvelteEditor;
 	export let value: Descendant[] = editor.children;
 	export let selection = editor.selection;
+
+	const dispatch = createEventDispatcher<{ value: Descendant[]; selection: BaseSelection }>();
+
+	function onValue(e: CustomEvent<Descendant[]>) {
+		dispatch('value', e.detail);
+	}
+	function onSelection(e: CustomEvent<BaseSelection>) {
+		dispatch('selection', e.detail);
+	}
 
 	let originalEditor = editor;
 	$: editor = getCurrentEditor(originalEditor, plugins);
@@ -86,4 +96,6 @@
 	$: pluginsContext.set(currentPlugins);
 </script>
 
-<Slate bind:editor bind:value bind:selection><slot /></Slate>
+<Slate bind:editor bind:value bind:selection on:value={onValue} on:selection={onSelection}
+	><slot /></Slate
+>
