@@ -42,7 +42,7 @@
 
 <script lang="ts">
 	import { Slate, Editable, withSvelte, isHotkey } from 'svelte-slate';
-	import { createEditor } from 'slate';
+	import { createEditor, type BaseSelection, type Descendant } from 'slate';
 	import { withHistory } from 'slate-history';
 	import type { IText } from '$lib/plugins/Leaf.svelte';
 	import type { IElement } from '$lib/plugins/Element.svelte';
@@ -75,6 +75,12 @@
 			}
 		}
 	}
+	function onValue(e: CustomEvent<Descendant[]>) {
+		console.log(e.detail);
+	}
+	function onSelection(e: CustomEvent<BaseSelection>) {
+		console.log(e.detail);
+	}
 </script>
 
 <p>
@@ -85,7 +91,7 @@
 	>
 </p>
 
-<Slate {editor} bind:value>
+<Slate {editor} bind:value on:value={onValue} on:selection={onSelection}>
 	<div class="toolbar">
 		<MarkButton format="bold"><MdFormatBold /></MarkButton>
 		<MarkButton format="italic"><MdFormatItalic /></MarkButton>

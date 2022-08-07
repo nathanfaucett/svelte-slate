@@ -103,14 +103,16 @@
 <script lang="ts">
 	import { EDITOR_TO_ON_CHANGE } from '../weakMaps';
 	import type { ISvelteEditor } from '../withSvelte';
-	import type { Descendant, Range, NodeEntry, Selection } from 'slate';
+	import type { Descendant, Range, NodeEntry, Selection, BaseSelection } from 'slate';
 	import { get, type Writable } from 'svelte/store';
 	import { getFromContext, createContextKey, isSelectionEqual, createContext } from '$lib/utils';
-	import { onMount } from 'svelte';
+	import { createEventDispatcher, onMount } from 'svelte';
 
 	export let editor: ISvelteEditor;
 	export let value: Descendant[] = editor.children;
 	export let selection = editor.selection;
+
+	const dispatch = createEventDispatcher<{ value: Descendant[]; selection: BaseSelection }>();
 
 	const editorContext = createContext(EDITOR_CONTEXT_KEY, editor);
 	const selectionContext = createContext(SELECTION_CONTEXT_KEY, editor.selection);
@@ -123,6 +125,8 @@
 	function onChange() {
 		selection = editor.selection;
 		value = editor.children;
+		dispatch('value', value);
+		dispatch('selection', selection);
 	}
 	EDITOR_TO_ON_CHANGE.set(editor, onChange);
 
@@ -140,6 +144,7 @@
 			return editor;
 		});
 		currentValue = value;
+		dispatch('value', value);
 	}
 
 	let currentSelection: Selection;
@@ -147,6 +152,7 @@
 		selectionContext.set(selection);
 		editorContext.set(editor);
 		currentSelection = selection;
+		dispatch('selection', selection);
 	}
 </script>
 

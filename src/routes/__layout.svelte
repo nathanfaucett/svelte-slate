@@ -21,7 +21,7 @@
 			Not a real &copy; {new Date().getFullYear()}
 		</div>
 		<div class="right">
-			<a class="github" target="_blank" href="https://github.com/nathanfaucett/svelte-slate"
+			<a class="github" href="https://github.com/nathanfaucett/svelte-slate"
 				><div><FaGithubSquare /></div></a
 			>
 		</div>
