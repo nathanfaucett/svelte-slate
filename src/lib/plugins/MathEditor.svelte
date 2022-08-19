@@ -27,6 +27,7 @@
 	import { getContainerContext } from '$lib/components/Slate.svelte';
 
 	export let open = false;
+	export let title: string = 'LaTeX Editor';
 	export let math: string = '';
 	export let inline: boolean = true;
 	export let onDone: (math: string, inline: boolean) => void;
@@ -82,49 +83,48 @@
 		use:clickoutside
 		on:clickoutside={onClickOutside}
 	>
+	<div class="math-editor-title">{title}</div>
 		<div class="math-editor-content">
 			<div class="math-editor-math">
-				<div>
+				<div class="math-editor-latexinput">
 					<textarea bind:this={textareaElement} bind:value={math} />
 				</div>
-				<div>
+				<div class="math-editor-buttons">
+						<button class:active={!math} on:click={onDoneInternal}>Insert</button>
+						<button class:active={!inline} on:click={onInlineChange}
+							>{#if inline}Block{:else}Inline{/if}</button
+						>
+				</div>
+				<div class="math-editor-rendering">
 					<span bind:this={mathDisplayElement} />
 				</div>
 			</div>
-			<div class="math-editor-buttons">
-				<div>
-					<button class:active={!math} on:click={onDoneInternal}><MdCheck /></button>
-				</div>
-				<div>
-					<button class:active={!inline} on:click={onInlineChange}
-						>{#if inline}<MdFormatAlignJustify />{:else}<MdFormatIndentIncrease />{/if}</button
-					>
-				</div>
-			</div>
+			
 		</div>
 	</div></Hovering
 >
 
 <style>
+	.math-editor-title {
+		margin: 4px 0px;
+	}
 	.math-editor-body {
 		border: 1px solid black;
 		padding: 0.25rem;
 		display: block;
 		background-color: white;
 	}
-	.math-editor-content {
-		display: flex;
+	.math-editor-latexinput textarea {
+		border: 1px solid #333;
+		padding: 0.25rem;
+		min-height: 110px;
 	}
-	.math-editor-math {
-		flex-direction: column;
-		flex-grow: 1;
+	.math-editor-rendering {
+		border: 1px solid #333;
+		padding: 0.5rem;
 	}
 	.math-editor-math span {
 		padding: 0.25rem;
-	}
-	.math-editor-buttons {
-		flex-direction: row;
-		flex-grow: 0;
 	}
 	textarea {
 		border: none;
@@ -137,9 +137,8 @@
 	button {
 		cursor: pointer;
 		border: 1px solid black;
-		padding: 0;
+		padding: 0 6px;
 		margin: 0.25rem;
-		width: 1.5rem;
 		height: 1.5rem;
 		background-color: white;
 	}
