@@ -71,6 +71,7 @@
 	import MathEditor from './MathEditor.svelte';
 	import { PARAGRAPH_TYPE } from './ParagraphElement.svelte';
 	import MdEdit from 'svelte-icons/md/MdEdit.svelte';
+	import MdContentCopy from 'svelte-icons/md/MdContentCopy.svelte';
 	import { setSelection } from './utils';
 	import MdDelete from 'svelte-icons/md/MdDelete.svelte';
 
@@ -126,6 +127,10 @@
 		Transforms.delete(editor, { at: path });
 	}
 
+	function onCopy() {
+		navigator.clipboard.writeText(currentMath);
+	}
+
 	let mathEditElement: HTMLElement;
 	let math = currentMath;
 	let inline = currentInline;
@@ -172,6 +177,7 @@
 		<span bind:this={mathElement} />
 		<div class="math-edit" bind:this={mathEditElement} class:math-selected={selected}>
 			<button on:mousedown={onEdit} on:touchstart={onEdit}><MdEdit /></button>
+			<button on:mousedown={onCopy} on:touchstart={onCopy}><MdContentCopy /></button>
 			<button on:mousedown={onDelete} on:touchstart={onDelete}><MdDelete /></button>
 		</div>
 	</div>
@@ -214,11 +220,11 @@
 	}
 
 	.math-edit {
-		width: 3.25rem;
+		width: 5.25rem;
 		display: none;
 		position: absolute;
 		top: -1.75rem;
-		left: calc(50% - 1.6rem);
+		left: calc(50% - 2.6rem);
 		background-color: white;
 	}
 	.math-edit.math-selected {
