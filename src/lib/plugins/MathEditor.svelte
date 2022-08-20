@@ -20,9 +20,6 @@
 	import katex from 'katex';
 	import { tick } from 'svelte';
 	import { clickoutside } from './clickoutside';
-	import MdCheck from 'svelte-icons/md/MdCheck.svelte';
-	import MdFormatIndentIncrease from 'svelte-icons/md/MdFormatIndentIncrease.svelte';
-	import MdFormatAlignJustify from 'svelte-icons/md/MdFormatAlignJustify.svelte';
 	import Hovering from './Hovering.svelte';
 	import { getContainerContext } from '$lib/components/Slate.svelte';
 
@@ -30,6 +27,7 @@
 	export let title: string = 'LaTeX Editor';
 	export let math: string = '';
 	export let inline: boolean = true;
+	export let isNew: boolean = true;
 	export let onDone: (math: string, inline: boolean) => void;
 
 	const containerContext = getContainerContext();
@@ -83,23 +81,24 @@
 		use:clickoutside
 		on:clickoutside={onClickOutside}
 	>
-	<div class="math-editor-title">{title}</div>
+		<div class="math-editor-title">{title}</div>
 		<div class="math-editor-content">
 			<div class="math-editor-math">
 				<div class="math-editor-latexinput">
 					<textarea bind:this={textareaElement} bind:value={math} />
 				</div>
 				<div class="math-editor-buttons">
-						<button class:active={!math} on:click={onDoneInternal}>Insert</button>
-						<button class:active={!inline} on:click={onInlineChange}
-							>{#if inline}Block{:else}Inline{/if}</button
-						>
+					<button class:active={!math} on:click={onDoneInternal}
+						>{#if isNew}Insert{:else}Update{/if}</button
+					>
+					<button class:active={!inline} on:click={onInlineChange}
+						>{#if inline}Block{:else}Inline{/if}</button
+					>
 				</div>
 				<div class="math-editor-rendering">
 					<span bind:this={mathDisplayElement} />
 				</div>
 			</div>
-			
 		</div>
 	</div></Hovering
 >

@@ -119,6 +119,7 @@
 			Transforms.setNodes(editor, { math, inline } as any, { at: path });
 			open = false;
 		}
+		isNew = true;
 	}
 	function onDelete() {
 		open = false;
@@ -128,12 +129,14 @@
 	let mathEditElement: HTMLElement;
 	let math = currentMath;
 	let inline = currentInline;
+	let isNew: boolean;
 	function onEdit() {
 		if (!isReadOnly(editor)) {
 			math = currentMath;
 			inline = currentInline;
 			setSelection(mathEditElement);
 			open = true;
+			isNew = false;
 		}
 	}
 
@@ -147,7 +150,7 @@
 	}
 </script>
 
-<MathEditor bind:open bind:math bind:inline {onDone} />
+<MathEditor bind:open bind:math bind:inline bind:isNew {onDone} />
 
 <div
 	class="math-element"
