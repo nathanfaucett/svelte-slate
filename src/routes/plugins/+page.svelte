@@ -7,11 +7,11 @@
 	import { DEFAULT_PLUGINS } from 'svelte-slate/plugins/DEFAULT_PLUGINS';
 	import ImageElement, { IMAGE_TYPE, withImages } from '$lib/plugins/ImageElement.svelte';
 	import { longpress } from '$lib/plugins/longpress';
-	import ImageButton from '../example/ImageButton.svelte';
-	import CodeButton from '../example/CodeButton.svelte';
-	import CheckListItemButton from '../example/CheckListItemButton.svelte';
-	import MarkButton from '../example/MarkButton.svelte';
-	import BlockButton from '../example/BlockButton.svelte';
+	import ImageButton from '../../example/ImageButton.svelte';
+	import CodeButton from '../../example/CodeButton.svelte';
+	import CheckListItemButton from '../../example/CheckListItemButton.svelte';
+	import MarkButton from '../../example/MarkButton.svelte';
+	import BlockButton from '../../example/BlockButton.svelte';
 	import CodeElement, { CODE_TYPE, isCodeElement, withCode } from '$lib/plugins/CodeElement.svelte';
 	import HoveringToolbar from '$lib/plugins/HoveringToolbar.svelte';
 	import MdFormatBold from 'svelte-icons/md/MdFormatBold.svelte';
@@ -23,7 +23,7 @@
 	import MdFormatListNumbered from 'svelte-icons/md/MdFormatListNumbered.svelte';
 	import MdFormatListBulleted from 'svelte-icons/md/MdFormatListBulleted.svelte';
 	import MdFormatQuote from 'svelte-icons/md/MdFormatQuote.svelte';
-	import MathButton from '../example/MathButton.svelte';
+	import MathButton from '../../example/MathButton.svelte';
 	import MathElement, { MATH_TYPE, withMath } from '$lib/plugins/MathElement.svelte';
 
 	const editor = withHistory(withSvelte(createEditor()));
@@ -36,19 +36,105 @@
 	let value = [
 		{
 			type: 'paragraph',
+			children: [
+				{ text: 'This is editable ' },
+				{ text: 'rich', bold: true },
+				{ text: ' text, ' },
+				{ text: 'much', italic: true },
+				{ text: ' better than a ' },
+				{ text: '<textarea>', code: true },
+				{ text: '!' }
+			]
+		},
+		{
+			type: 'paragraph',
+			children: [
+				{
+					text: "Since it's rich text, you can do things like turn a selection of text "
+				},
+				{ text: 'bold', bold: true },
+				{
+					text: ', or add a semantically rendered block quote in the middle of the page, like this:'
+				}
+			]
+		},
+		{
+			type: 'block-quote',
+			children: [{ text: 'A wise quote.' }]
+		},
+		{
+			type: 'image',
+			url: 'https://source.unsplash.com/kFrdX5IeQzI',
 			children: [{ text: '' }]
+		},
+		{
+			type: 'paragraph',
+			children: [{ text: 'Try it out for yourself!' }]
+		},
+		{
+			type: 'check-list-item',
+			checked: true,
+			children: [{ text: 'Checked list item' }]
+		},
+		{
+			type: 'check-list-item',
+			checked: false,
+			children: [{ text: 'Todo' }]
+		},
+		{
+			type: 'math',
+			inline: false,
+			math: '\\frac{\\pi}{2}',
+			children: [{ text: '' }]
+		},
+		{
+			type: 'code',
+			language: 'javascript',
+			children: [
+				{
+					type: 'code-line',
+					children: [{ text: 'console.log("Hello world!");' }]
+				}
+			]
+		},
+		{
+			type: 'heading3',
+			children: [{ text: 'Numbered Lists' }]
+		},
+		{
+			type: 'numbered-list',
+			children: [
+				{
+					type: 'list-item',
+					children: [{ text: 'One' }]
+				},
+				{
+					type: 'list-item',
+					children: [{ text: 'Two' }]
+				}
+			]
+		},
+		{
+			type: 'heading3',
+			children: [{ text: 'Bulleted Lists' }]
+		},
+		{
+			type: 'bulleted-list',
+			children: [
+				{
+					type: 'list-item',
+					children: [{ text: 'One' }]
+				},
+				{
+					type: 'list-item',
+					children: [{ text: 'Two' }]
+				}
+			]
 		}
 	];
 
 	let open = false;
 	let ref: HTMLDivElement;
-
-	function onKeyDown(e: KeyboardEvent) {
-		if (e.key === 'Enter' && !e.shiftKey) {
-			Editor.deleteBackward(editor);
-			return false;
-		}
-	}
 
 	function onLongPress() {
 		if (!isReadOnly(editor)) {
@@ -68,7 +154,8 @@
 <p>
 	<a
 		target="_blank"
-		href="https://github.com/nathanfaucett/svelte-slate/blob/main/src/routes/chat.svelte">Source</a
+		href="https://github.com/nathanfaucett/svelte-slate/blob/main/src/routes/plugins.svelte"
+		>Source</a
 	>
 </p>
 
@@ -91,7 +178,7 @@
 		</div>
 	</HoveringToolbar>
 	<div class="editor" use:longpress on:longpress={onLongPress}>
-		<Editable bind:ref placeholder="Enter some plain text..." {onKeyDown} />
+		<Editable bind:ref placeholder="Enter some plain text..." />
 	</div>
 </Slate>
 

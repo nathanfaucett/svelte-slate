@@ -2,7 +2,7 @@
 	import { Slate, Editable, withSvelte } from 'svelte-slate';
 	import { createEditor } from 'slate';
 	import { withHistory } from 'slate-history';
-	import Element from '../example/Element.svelte';
+	import Element from '../../example/Element.svelte';
 	import Leaf from '$lib/plugins/Leaf.svelte';
 	import { withCode } from '$lib/plugins/CodeElement.svelte';
 
