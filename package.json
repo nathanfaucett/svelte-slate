@@ -25,7 +25,7 @@
 		"preview": "vite preview",
 		"clean": "rm -rf node_modules/.vite .svelte-kit package",
 		"package": "svelte-kit package",
-		"publish": "npm run package && cd package && npm publish --access public",
+		"publish": "npm run clean && npm run package && cd package && npm publish --access public",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check --plugin-search-dir=. . && eslint .",
@@ -34,6 +34,7 @@
 	"devDependencies": {
 		"@sveltejs/adapter-static": "next",
 		"@sveltejs/kit": "next",
+		"@sveltejs/package": "next",
 		"@types/is-url": "1",
 		"@types/katex": "0",
 		"@types/prismjs": "1",
@@ -61,11 +62,11 @@
 		"typescript": "4"
 	},
 	"peerDependencies": {
-		"svelte-icons": "2",
 		"katex": "0",
 		"prismjs": "1",
 		"slate": "0",
 		"svelte": "3",
+		"svelte-icons": "2",
 		"tslib": "2"
 	},
 	"dependencies": {
