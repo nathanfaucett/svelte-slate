@@ -236,12 +236,12 @@
     "src": "node_modules/katex/dist/fonts/KaTeX_Typewriter-Regular.ttf"
   },
   "node_modules/@sveltejs/kit/src/runtime/client/start.js": {
-    "file": "internal/immutable/start-052be3ce.js",
+    "file": "internal/immutable/start-842a7a01.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/client/start.js",
     "isEntry": true,
     "imports": [
       "_index-039b19e7.js",
-      "_singletons-1aca3019.js",
+      "_singletons-71398e56.js",
       "_preload-helper-0ffe6af8.js",
       "_paths-846459bd.js",
       "_index-d1865c97.js"
@@ -259,7 +259,7 @@
     ]
   },
   "src/routes/+layout.svelte": {
-    "file": "internal/immutable/components/pages/_layout.svelte-1979f8a4.js",
+    "file": "internal/immutable/components/pages/_layout.svelte-8ecc5d16.js",
     "src": "src/routes/+layout.svelte",
     "isEntry": true,
     "imports": [
@@ -272,12 +272,12 @@
     ]
   },
   "node_modules/@sveltejs/kit/src/runtime/components/error.svelte": {
-    "file": "internal/immutable/components/error.svelte-080dcd81.js",
+    "file": "internal/immutable/components/error.svelte-116d4d09.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/components/error.svelte",
     "isEntry": true,
     "imports": [
       "_index-039b19e7.js",
-      "_singletons-1aca3019.js",
+      "_singletons-71398e56.js",
       "_index-d1865c97.js",
       "_paths-846459bd.js"
     ]
@@ -392,8 +392,8 @@
       "internal/immutable/assets/+page-0fa59b19.css"
     ]
   },
-  "_singletons-1aca3019.js": {
-    "file": "internal/immutable/chunks/singletons-1aca3019.js",
+  "_singletons-71398e56.js": {
+    "file": "internal/immutable/chunks/singletons-71398e56.js",
     "imports": [
       "_index-d1865c97.js",
       "_paths-846459bd.js"
@@ -844,7 +844,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/0.js": {
-    "file": "internal/immutable/chunks/0-594dc5c4.js",
+    "file": "internal/immutable/chunks/0-ad04c5e9.js",
     "src": ".svelte-kit/generated/nodes/0.js",
     "isDynamicEntry": true,
     "imports": [
@@ -855,13 +855,13 @@
     ]
   },
   ".svelte-kit/generated/nodes/1.js": {
-    "file": "internal/immutable/chunks/1-b5fd1222.js",
+    "file": "internal/immutable/chunks/1-09da35cd.js",
     "src": ".svelte-kit/generated/nodes/1.js",
     "isDynamicEntry": true,
     "imports": [
       "node_modules/@sveltejs/kit/src/runtime/components/error.svelte",
       "_index-039b19e7.js",
-      "_singletons-1aca3019.js",
+      "_singletons-71398e56.js",
       "_index-d1865c97.js",
       "_paths-846459bd.js"
     ]
@@ -2434,17 +2434,13 @@
     "file": "internal/immutable/assets/index-87f34857.css",
     "src": "index.css"
   },
-  "MdFormatQuote.css": {
-    "file": "internal/immutable/assets/MdFormatQuote-e0a5c013.css",
-    "src": "MdFormatQuote.css"
-  },
   "CodeElement.css": {
     "file": "internal/immutable/assets/CodeElement-fb186c65.css",
     "src": "CodeElement.css"
   },
-  "src/routes/huge-document/+page.css": {
-    "file": "internal/immutable/assets/+page-0fa59b19.css",
-    "src": "src/routes/huge-document/+page.css"
+  "MdFormatQuote.css": {
+    "file": "internal/immutable/assets/MdFormatQuote-e0a5c013.css",
+    "src": "MdFormatQuote.css"
   },
   "src/routes/editor/+page.css": {
     "file": "internal/immutable/assets/+page-c55b3aa1.css",
@@ -2453,6 +2449,10 @@
   "Element.css": {
     "file": "internal/immutable/assets/Element-0dd22858.css",
     "src": "Element.css"
+  },
+  "src/routes/huge-document/+page.css": {
+    "file": "internal/immutable/assets/+page-0fa59b19.css",
+    "src": "src/routes/huge-document/+page.css"
   },
   "MathButton.css": {
     "file": "internal/immutable/assets/MathButton-d392f428.css",
