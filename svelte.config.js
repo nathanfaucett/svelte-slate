@@ -14,9 +14,6 @@ const config = {
 		appDir: 'internal',
 		paths: {
 			base: process.env.USE_BASE_PATH ? '/svelte-slate' : ''
-		},
-		prerender: {
-			default: true
 		}
 	}
 };

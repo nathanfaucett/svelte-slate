@@ -1,3 +1,9 @@
+<svelte:options immutable />
+
+<script lang="ts" context="module">
+	export let prerender = true;
+</script>
+
 <script lang="ts">
 	import '../app.css';
 	import { base } from '$app/paths';
