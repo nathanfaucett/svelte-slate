@@ -1,8 +1,8 @@
 <svelte:options immutable />
 
 <script lang="ts">
+	import { getEditorContext, getFocusedContext, getSelectionContext } from '../components/Slate.svelte';
 	import { Editor, Range, type BaseRange } from 'slate';
-	import { getEditorContext, getFocusedContext, getSelectionContext } from 'svelte-slate';
 	import { isCodeElement } from './CodeElement.svelte';
 	import Hovering from './Hovering.svelte';
 

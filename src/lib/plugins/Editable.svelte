@@ -1,7 +1,7 @@
 <svelte:options immutable />
 
 <script lang="ts" context="module">
-	import { isHotkey } from '$lib/isHotkey';
+	import { isHotkey } from '../isHotkey';
 
 	const HOTKEYS = {
 		'mod+b': 'bold',
@@ -12,14 +12,13 @@
 </script>
 
 <script lang="ts">
-	import type { ISvelteComponent } from '$lib/utils';
-	import { toggleMark } from './utils';
+	import type { ISvelteComponent } from '../utils';
 	import DefaultPlaceholder from '../components/DefaultPlaceholder.svelte';
 	import Editable, { defaultScrollSelectionIntoView } from '../components/Editable.svelte';
 	import type { IPlaceholderProps } from '../components/InternalLeaf.svelte';
 	import Element from './Element.svelte';
 	import Leaf from './Leaf.svelte';
-	import type { defaultDecorate } from '$lib/components/Slate.svelte';
+	import type { defaultDecorate } from '../components/Slate.svelte';
 
 	export let Placeholder: ISvelteComponent<IPlaceholderProps> = DefaultPlaceholder;
 	export let placeholder: string | undefined = undefined;

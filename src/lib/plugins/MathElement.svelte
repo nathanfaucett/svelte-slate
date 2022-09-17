@@ -2,7 +2,9 @@
 
 <script lang="ts" context="module">
 	import 'katex/dist/katex.min.css';
+	import { Editor } from 'slate';
 	import type { IElement } from './Element.svelte';
+	import type { ISvelteEditor } from '../withSvelte';
 
 	export const MATH_TYPE: string = 'math';
 
@@ -57,16 +59,7 @@
 </script>
 
 <script lang="ts">
-	import {
-		isReadOnly,
-		findPath,
-		getEditor,
-		getSelectedContext,
-		getFocusedContext,
-		getReadOnlyContext,
-		type ISvelteEditor
-	} from 'svelte-slate';
-	import { Editor, Location, Range, Node, Path, Transforms } from 'slate';
+	import { type Location, Range, Node, Path, Transforms } from 'slate';
 	import katex from 'katex';
 	import MathEditor from './MathEditor.svelte';
 	import { PARAGRAPH_TYPE } from './ParagraphElement.svelte';
@@ -74,6 +67,9 @@
 	import MdContentCopy from 'svelte-icons/md/MdContentCopy.svelte';
 	import { setSelection } from './utils';
 	import MdDelete from 'svelte-icons/md/MdDelete.svelte';
+	import { getEditor, getFocusedContext, getReadOnlyContext } from '../components/Slate.svelte';
+	import { getSelectedContext } from '../components/ChildElement.svelte';
+	import { findPath, isReadOnly } from '../utils';
 
 	export let element: IMathElement;
 	export let isInline: boolean;

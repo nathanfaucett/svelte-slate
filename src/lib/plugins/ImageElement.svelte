@@ -65,15 +65,11 @@
 </script>
 
 <script lang="ts">
-	import {
-		findPath,
-		getEditor,
-		getFocusedContext,
-		getReadOnlyContext,
-		getSelectedContext
-	} from 'svelte-slate';
-	import type { ISvelteEditor } from 'svelte-slate';
+	import type { ISvelteEditor } from '../withSvelte';
 	import { Editor, Transforms } from 'slate';
+	import { getEditor, getFocusedContext, getReadOnlyContext } from '../components/Slate.svelte';
+	import { getSelectedContext } from '../components/ChildElement.svelte';
+	import { findPath } from '../utils';
 
 	export let element: IImageElement;
 	export let isInline: boolean;

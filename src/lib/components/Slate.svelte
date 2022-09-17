@@ -105,7 +105,7 @@
 	import type { ISvelteEditor } from '../withSvelte';
 	import type { Descendant, Range, NodeEntry, Selection, BaseSelection } from 'slate';
 	import { get, type Writable } from 'svelte/store';
-	import { getFromContext, createContextKey, isSelectionEqual, createContext } from '$lib/utils';
+	import { getFromContext, createContextKey, isSelectionEqual, createContext } from '../utils';
 	import { createEventDispatcher, onMount } from 'svelte';
 
 	export let editor: ISvelteEditor;

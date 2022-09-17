@@ -21,7 +21,7 @@
 	import { tick } from 'svelte';
 	import { clickoutside } from './clickoutside';
 	import Hovering from './Hovering.svelte';
-	import { getContainerContext } from '$lib/components/Slate.svelte';
+	import { getContainerContext } from '../components/Slate.svelte';
 
 	export let open = false;
 	export let title: string = 'LaTeX Editor';

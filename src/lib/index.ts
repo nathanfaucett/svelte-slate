@@ -1,28 +1,8 @@
-export { getSelectedContext } from './components/ChildElement.svelte';
 export {
-	default as Slate,
-	getEditor,
-	getEditorContext,
-	getReadOnlyContext,
-	getFocusedContext,
-	getDecorateContext,
-	getSelectionContext,
-	getContainerContext,
-	defaultDecorate,
-	DECORATE_CONTEXT_KEY,
-	addEventListener
+	default as Slate
 } from './components/Slate.svelte';
 export {
-	default as Editable,
-	ELEMENT_CONTEXT_KEY,
-	LEAF_CONTEXT_KEY,
-	PLACEHOLDER_CONTEXT_KEY,
-	getElementContext,
-	getLeafContext,
-	getPlaceholderContext,
-	hasTarget,
-	hasEditableTarget,
-	isTargetInsideNonReadonlyVoid
+	default as Editable
 } from './components/Editable.svelte';
 export {
 	findPath,

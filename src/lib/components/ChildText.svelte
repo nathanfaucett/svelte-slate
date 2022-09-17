@@ -4,7 +4,7 @@
 	import Text from './Text.svelte';
 	import { NODE_TO_INDEX, NODE_TO_PARENT } from '../weakMaps';
 	import { getChildDecorations } from './Children.svelte';
-	import { isDecoratorRangeListEqual } from '$lib/utils';
+	import { isDecoratorRangeListEqual } from '../utils';
 	import { getDecorateContext, getEditor } from './Slate.svelte';
 
 	export let parent: Ancestor;

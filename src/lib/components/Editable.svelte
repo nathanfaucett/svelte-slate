@@ -67,7 +67,7 @@
 	import DefaultElement from './DefaultElement.svelte';
 	import DefaultLeaf from './DefaultLeaf.svelte';
 	import DefaultPlaceholder from './DefaultPlaceholder.svelte';
-	import { addEventListener, getEditor, getEventsContext, handleEvent } from './Slate.svelte';
+	import { getEditor, getEventsContext, handleEvent } from './Slate.svelte';
 	import {
 		defaultDecorate,
 		getDecorateContext,
@@ -117,7 +117,7 @@
 	} from '../weakMaps';
 	import type { IElementProps } from './InternalElement.svelte';
 	import type { ILeafProps, IPlaceholderProps } from './InternalLeaf.svelte';
-	import { getContainerContext } from 'svelte-slate/components/Slate.svelte';
+	import { getContainerContext } from '../components/Slate.svelte';
 
 	export let Element: ISvelteComponent<IElementProps> = DefaultElement;
 	export let Leaf: ISvelteComponent<ILeafProps> = DefaultLeaf;
@@ -1001,9 +1001,7 @@
 	on:dragstart={onDragStart}
 	on:drop={onDrop}
 	on:dragend={onDragEnd}
->
-	<Children node={$editorContext} selection={$selectionContext} {decorations} />
-</div>
+><Children node={$editorContext} selection={$selectionContext} {decorations} /></div>
 
 <style>
 	div {

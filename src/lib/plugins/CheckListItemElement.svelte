@@ -70,9 +70,9 @@
 </script>
 
 <script lang="ts">
-	import { getEditor } from '$lib/components/Slate.svelte';
-	import { findPath } from '$lib/utils';
-	import type { ISvelteEditor } from 'svelte-slate';
+	import { getEditor } from '../components/Slate.svelte';
+	import { findPath } from '../utils';
+	import type { ISvelteEditor } from '../';
 	import { Editor, Transforms, Range, Element as SlateElement, Point } from 'slate';
 	import { isBlockActive } from './utils';
 

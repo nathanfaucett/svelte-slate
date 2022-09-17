@@ -60,15 +60,15 @@
 </script>
 
 <script lang="ts">
-	import type { IElementProps } from '$lib/components/InternalElement.svelte';
-	import Slate from '$lib/components/Slate.svelte';
+	import type { IElementProps } from '../components/InternalElement.svelte';
+	import Slate from '../components/Slate.svelte';
 	import {
 		createContext,
 		createContextKey,
 		getFromContext,
 		type ISvelteComponent
-	} from '$lib/utils';
-	import type { ISvelteEditor } from '$lib/withSvelte';
+	} from '../utils';
+	import type { ISvelteEditor } from '../withSvelte';
 	import type { BaseSelection, Descendant } from 'slate';
 	import { createEventDispatcher } from 'svelte';
 	import { DEFAULT_PLUGINS } from './DEFAULT_PLUGINS';

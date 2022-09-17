@@ -18,7 +18,7 @@
 		getFromContext,
 		isDecoratorRangeListEqual,
 		isSelectionEqual
-	} from '$lib/utils';
+	} from '../utils';
 	import { getDecorateContext, getEditor } from './Slate.svelte';
 
 	export let parent: Ancestor;

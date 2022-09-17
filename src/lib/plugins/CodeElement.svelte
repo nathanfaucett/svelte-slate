@@ -2,6 +2,8 @@
 
 <script lang="ts" context="module">
 	import type { IBaseElement, IElement } from './Element.svelte';
+	import { createContext, createContextKey, findPath, getFromContext } from '../utils';
+	import type { ISvelteEditor } from '$lib/withSvelte';
 
 	export const LANGUAGE_CONTEXT_KEY = createContextKey<keyof typeof languages>();
 	export const CODE_TYPE: string = 'code';
@@ -102,19 +104,10 @@
 	import { languages } from './prismjs';
 	import { Editor, Range, Transforms, Point, type NodeEntry, Text } from 'slate';
 	import { CODE_LINE_TYPE, type ICodeEditorElement } from './CodeEditorElement.svelte';
-	import {
-		DECORATE_CONTEXT_KEY,
-		findPath,
-		createContext,
-		createContextKey,
-		getFromContext,
-		getEditor,
-		type ISvelteEditor
-	} from 'svelte-slate';
 	import CodeEditorElement from './CodeEditorElement.svelte';
 	import CodeEditorLeaf from './CodeEditorLeaf.svelte';
-	import { ELEMENT_CONTEXT_KEY, LEAF_CONTEXT_KEY } from '$lib/components/Editable.svelte';
-	import { addEventListener } from '$lib/components/Slate.svelte';
+	import { ELEMENT_CONTEXT_KEY, LEAF_CONTEXT_KEY } from '../components/Editable.svelte';
+	import { addEventListener, DECORATE_CONTEXT_KEY, getEditor } from '../components/Slate.svelte';
 	import { PARAGRAPH_TYPE } from './ParagraphElement.svelte';
 
 	export let element: ICodeElement;

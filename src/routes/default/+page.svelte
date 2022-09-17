@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Slate, Editable, withSvelte } from 'svelte-slate';
+	import { Slate, Editable, withSvelte } from '../';
 	import { createEditor } from 'slate';
 	import { withHistory } from 'slate-history';
 
