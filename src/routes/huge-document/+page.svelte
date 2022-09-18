@@ -41,16 +41,15 @@
 </script>
 
 <script lang="ts">
-	import { Slate, Editable, withSvelte, isHotkey } from '../';
 	import { createEditor, type BaseSelection, type Descendant } from 'slate';
 	import { withHistory } from 'slate-history';
-	import type { IText } from '../plugins/Leaf.svelte';
-	import type { IElement } from '../plugins/Element.svelte';
+	import type { IText } from '../../lib/plugins/Leaf.svelte';
+	import type { IElement } from '../../lib/plugins/Element.svelte';
 	import Element from '../../example/Element.svelte';
-	import Leaf from '../plugins/Leaf.svelte';
-	import { withImages } from '../plugins/ImageElement.svelte';
+	import Leaf from '../../lib/plugins/Leaf.svelte';
+	import { withImages } from '../../lib/plugins/ImageElement.svelte';
 	import ImageButton from '../../example/ImageButton.svelte';
-	import { toggleMark } from '../plugins/utils';
+	import { toggleMark } from '../../lib/plugins/utils';
 	import MarkButton from '../../example/MarkButton.svelte';
 	import BlockButton from '../../example/BlockButton.svelte';
 	import MdFormatBold from 'svelte-icons/md/MdFormatBold.svelte';
@@ -62,6 +61,10 @@
 	import MdFormatListNumbered from 'svelte-icons/md/MdFormatListNumbered.svelte';
 	import MdFormatListBulleted from 'svelte-icons/md/MdFormatListBulleted.svelte';
 	import MdFormatQuote from 'svelte-icons/md/MdFormatQuote.svelte';
+	import { isHotkey } from '../../lib/isHotkey';
+	import { withSvelte } from '../../lib/withSvelte';
+	import Editable from '../../lib/components/Editable.svelte';
+	import Slate from '../../lib/components/Slate.svelte';
 
 	const editor = withHistory(withImages(withSvelte(createEditor())));
 	let value = createValue(100, 7);

@@ -1,19 +1,20 @@
 <script lang="ts">
-	import { isReadOnly, withSvelte } from '../';
+	import { withSvelte } from '../../lib/withSvelte';
+	import { isReadOnly } from '../../lib/utils';
 	import Slate from 'svelte-slate/plugins/Slate.svelte';
 	import Editable from 'svelte-slate/plugins/Editable.svelte';
 	import { createEditor, Editor, type BaseRange } from 'slate';
 	import { withHistory } from 'slate-history';
 	import { DEFAULT_PLUGINS } from 'svelte-slate/plugins/DEFAULT_PLUGINS';
-	import ImageElement, { IMAGE_TYPE, withImages } from '../plugins/ImageElement.svelte';
-	import { longpress } from '../plugins/longpress';
+	import ImageElement, { IMAGE_TYPE, withImages } from '../../lib/plugins/ImageElement.svelte';
+	import { longpress } from '../../lib/plugins/longpress';
 	import ImageButton from '../../example/ImageButton.svelte';
 	import CodeButton from '../../example/CodeButton.svelte';
 	import CheckListItemButton from '../../example/CheckListItemButton.svelte';
 	import MarkButton from '../../example/MarkButton.svelte';
 	import BlockButton from '../../example/BlockButton.svelte';
-	import CodeElement, { CODE_TYPE, isCodeElement, withCode } from '../plugins/CodeElement.svelte';
-	import HoveringToolbar from '../plugins/HoveringToolbar.svelte';
+	import CodeElement, { CODE_TYPE, isCodeElement, withCode } from '../../lib/plugins/CodeElement.svelte';
+	import HoveringToolbar from '../../lib/plugins/HoveringToolbar.svelte';
 	import MdFormatBold from 'svelte-icons/md/MdFormatBold.svelte';
 	import MdCode from 'svelte-icons/md/MdCode.svelte';
 	import MdLooksOne from 'svelte-icons/md/MdLooksOne.svelte';
@@ -24,7 +25,7 @@
 	import MdFormatListBulleted from 'svelte-icons/md/MdFormatListBulleted.svelte';
 	import MdFormatQuote from 'svelte-icons/md/MdFormatQuote.svelte';
 	import MathButton from '../../example/MathButton.svelte';
-	import MathElement, { MATH_TYPE, withMath } from '../plugins/MathElement.svelte';
+	import MathElement, { MATH_TYPE, withMath } from '../../lib/plugins/MathElement.svelte';
 
 	const editor = withHistory(withSvelte(createEditor()));
 	let plugins = {

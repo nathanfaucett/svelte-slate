@@ -33,7 +33,8 @@
 <script lang="ts">
 	import type { ISvelteEditor } from 'svelte-slate/withSvelte';
 	import { Editor, Transforms } from 'slate';
-	import { findPath, getEditor } from 'svelte-slate';
+	import { getEditor } from 'svelte-slate/components/Slate.svelte';
+	import { findPath } from 'svelte-slate/utils';
 
 	export let element: IVoidElement;
 	export let isInline: boolean;
