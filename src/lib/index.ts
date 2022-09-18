@@ -1,9 +1,5 @@
-export {
-	default as Slate
-} from './components/Slate.svelte';
-export {
-	default as Editable
-} from './components/Editable.svelte';
+export { default as Slate } from './components/Slate.svelte';
+export { default as Editable } from './components/Editable.svelte';
 export {
 	findPath,
 	findKey,

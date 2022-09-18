@@ -45,8 +45,10 @@
 		leaf.selector}
 	class:punctuation={leaf.punctuation}
 	class:string={leaf.string || leaf.char}
-	class:function={leaf.function || leaf['class-name']}><slot /></span
+	class:function={leaf.function || leaf['class-name']}
 >
+	<slot />
+</span>
 
 <style>
 	.comment {

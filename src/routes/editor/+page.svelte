@@ -27,8 +27,9 @@
 	<a
 		target="_blank"
 		href="https://github.com/nathanfaucett/svelte-slate/blob/main/src/routes/editor.svelte"
-		>Source</a
 	>
+		Source
+	</a>
 </p>
 
 <Slate {editor} bind:value>

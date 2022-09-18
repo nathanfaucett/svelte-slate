@@ -1001,7 +1001,9 @@
 	on:dragstart={onDragStart}
 	on:drop={onDrop}
 	on:dragend={onDragEnd}
-><Children node={$editorContext} selection={$selectionContext} {decorations} /></div>
+>
+	<Children node={$editorContext} selection={$selectionContext} {decorations} />
+</div>
 
 <style>
 	div {

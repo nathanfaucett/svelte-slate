@@ -12,9 +12,6 @@ module.exports = {
 		sourceType: 'module',
 		ecmaVersion: 2020
 	},
-	rules: {
-		'no-constant-condition': ['error', { checkLoops: false }]
-	},
 	env: {
 		browser: true,
 		es2017: true,

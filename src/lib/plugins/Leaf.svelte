@@ -20,8 +20,10 @@
 	class:bold={leaf.bold}
 	class:italic={leaf.italic}
 	class:code={leaf.code}
-	class:underline={leaf.underline}><slot /></span
+	class:underline={leaf.underline}
 >
+	<slot />
+</span>
 
 <style>
 	.bold {

@@ -25,7 +25,9 @@
 		data-slate-void={isVoid}
 		{dir}
 		{contenteditable}
-	><slot /></div>{/if}
+	>
+		<slot />
+	</div>{/if}
 
 <style>
 	span,

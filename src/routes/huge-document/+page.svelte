@@ -73,7 +73,7 @@
 		for (const hotkey in HOTKEYS) {
 			if (isHotkey(hotkey, event)) {
 				event.preventDefault();
-				const mark = (HOTKEYS as any)[hotkey];
+				const mark = HOTKEYS[hotkey as keyof typeof HOTKEYS];
 				toggleMark(editor, mark);
 			}
 		}
@@ -90,8 +90,9 @@
 	<a
 		target="_blank"
 		href="https://github.com/nathanfaucett/svelte-slate/blob/main/src/routes/huge-document.svelte"
-		>Source</a
 	>
+		Source
+	</a>
 </p>
 
 <Slate {editor} bind:value on:value={onValue} on:selection={onSelection}>

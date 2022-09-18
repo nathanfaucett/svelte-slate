@@ -78,29 +78,37 @@
 		{isInline}
 		{isVoid}
 		{dir}
-		{contenteditable}><slot /></ImageElement
-	>{:else if isCheckListItemElement(element)}<CheckListItemElement
+		{contenteditable}
+	>
+		<slot />
+	</ImageElement>{:else if isCheckListItemElement(element)}<CheckListItemElement
 		bind:ref
 		{element}
 		{isInline}
 		{isVoid}
 		{dir}
-		{contenteditable}><slot /></CheckListItemElement
-	>{:else if isVoidElement(element)}<VoidElement
+		{contenteditable}
+	>
+		<slot />
+	</CheckListItemElement>{:else if isVoidElement(element)}<VoidElement
 		bind:ref
 		{element}
 		{isInline}
 		{isVoid}
 		{dir}
-		{contenteditable}><slot /></VoidElement
-	>{:else if isCodeElement(element)}<CodeElement
+		{contenteditable}
+	>
+		<slot />
+	</VoidElement>{:else if isCodeElement(element)}<CodeElement
 		bind:ref
 		{element}
 		{isInline}
 		{isVoid}
 		{dir}
-		{contenteditable}><slot /></CodeElement
-	>{:else}<p
+		{contenteditable}
+	>
+		<slot />
+	</CodeElement>{:else}<p
 		bind:this={ref}
 		data-slate-node="element"
 		data-slate-inline={isInline}

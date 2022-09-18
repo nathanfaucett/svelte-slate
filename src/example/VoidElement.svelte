@@ -26,13 +26,13 @@
 		Transforms.insertNodes(editor, {
 			type: 'void',
 			children: [{ text: '' }]
-		} as any);
+		} as Node);
 	}
 </script>
 
 <script lang="ts">
 	import type { ISvelteEditor } from 'svelte-slate/withSvelte';
-	import { Editor, Transforms } from 'slate';
+	import { Editor, Transforms, type Node } from 'slate';
 	import { getEditor } from 'svelte-slate/components/Slate.svelte';
 	import { findPath } from 'svelte-slate/utils';
 

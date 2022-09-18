@@ -11,12 +11,12 @@ const tagsReplace = '$1$2';
 const config = {
 	preprocess: preprocess({
 		replace: [
-		  [tagsRegex1, tagsReplace],
-		  [tagsRegex2, tagsReplace],
-		  [tagsRegex3, tagsReplace],
-		  [tagsRegex4, tagsReplace]
+			[tagsRegex1, tagsReplace],
+			[tagsRegex2, tagsReplace],
+			[tagsRegex3, tagsReplace],
+			[tagsRegex4, tagsReplace]
 		]
-	  }),
+	}),
 	kit: {
 		adapter: adapter({
 			pages: 'build',

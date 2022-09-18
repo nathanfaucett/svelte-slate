@@ -29,6 +29,6 @@
 	$: Element = plugins[element.type] || DefaultElement;
 </script>
 
-<svelte:component this={Element} bind:ref bind:dir {element} {isInline} {isVoid} {contenteditable}
-	><slot /></svelte:component
->
+<svelte:component this={Element} bind:ref bind:dir {element} {isInline} {isVoid} {contenteditable}>
+	<slot />
+</svelte:component>

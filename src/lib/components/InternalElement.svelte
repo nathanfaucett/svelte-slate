@@ -89,13 +89,15 @@
 					parent={element}
 					text={voidText}
 				/></span
-			>{:else}<div data-slate-spacer><svelte:component
+			>{:else}<div data-slate-spacer>
+				<svelte:component
 					this={Text}
 					decorations={[]}
 					isLast={false}
 					parent={element}
 					text={voidText}
-				/></div>{/if}{:else}<Children node={element} {decorations} {selection} />{/if}</svelte:component
+				/>
+			</div>{/if}{:else}<Children node={element} {decorations} {selection} />{/if}</svelte:component
 >
 
 <style>

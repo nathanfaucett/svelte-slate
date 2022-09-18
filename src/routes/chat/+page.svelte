@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Slate from 'svelte-slate/plugins/Slate.svelte';
 	import Editable from 'svelte-slate/plugins/Editable.svelte';
-	import { createEditor, Editor, type BaseRange } from 'slate';
+	import { createEditor, Editor, type BaseRange, type NodeMatch } from 'slate';
 	import { withHistory } from 'slate-history';
 	import { DEFAULT_PLUGINS } from 'svelte-slate/plugins/DEFAULT_PLUGINS';
 	import ImageElement, { IMAGE_TYPE, withImages } from '../../lib/plugins/ImageElement.svelte';
@@ -11,7 +11,11 @@
 	import CheckListItemButton from '../../example/CheckListItemButton.svelte';
 	import MarkButton from '../../example/MarkButton.svelte';
 	import BlockButton from '../../example/BlockButton.svelte';
-	import CodeElement, { CODE_TYPE, isCodeElement, withCode } from '../../lib/plugins/CodeElement.svelte';
+	import CodeElement, {
+		CODE_TYPE,
+		isCodeElement,
+		withCode
+	} from '../../lib/plugins/CodeElement.svelte';
 	import HoveringToolbar from '../../lib/plugins/HoveringToolbar.svelte';
 	import MdFormatBold from 'svelte-icons/md/MdFormatBold.svelte';
 	import MdCode from 'svelte-icons/md/MdCode.svelte';
@@ -26,6 +30,7 @@
 	import MathElement, { MATH_TYPE, withMath } from '../../lib/plugins/MathElement.svelte';
 	import { withSvelte } from '../../lib/withSvelte';
 	import { isReadOnly } from '../../lib/utils';
+	import type { IBaseElement } from '$lib/plugins/Element.svelte';
 
 	const editor = withHistory(withSvelte(createEditor()));
 	let plugins = {
@@ -56,7 +61,7 @@
 			const [match] = Array.from(
 				Editor.nodes(editor, {
 					at: Editor.unhangRange(editor, editor.selection as BaseRange),
-					match: isCodeElement as any
+					match: isCodeElement as unknown as NodeMatch<IBaseElement>
 				})
 			);
 			if (!match) {
@@ -69,8 +74,10 @@
 <p>
 	<a
 		target="_blank"
-		href="https://github.com/nathanfaucett/svelte-slate/blob/main/src/routes/chat.svelte">Source</a
+		href="https://github.com/nathanfaucett/svelte-slate/blob/main/src/routes/chat.svelte"
 	>
+		Source
+	</a>
 </p>
 
 <Slate {editor} {plugins} bind:value>

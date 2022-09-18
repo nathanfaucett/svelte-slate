@@ -45,5 +45,6 @@
 		position: relative;
 		margin: 0;
 		padding-inline-start: 1.5rem;
+		list-style-type: decimal;
 	}
 </style>

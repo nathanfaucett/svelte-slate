@@ -88,20 +88,20 @@
 					<textarea bind:this={textareaElement} bind:value={math} />
 				</div>
 				<div class="math-editor-buttons">
-					<button class:active={!math} on:click={onDoneInternal}
-						>{#if isNew}Insert{:else}Update{/if}</button
-					>
-					<button class:active={!inline} on:click={onInlineChange}
-						>{#if inline}Block{:else}Inline{/if}</button
-					>
+					<button class:active={!math} on:click={onDoneInternal}>
+						{#if isNew}Insert{:else}Update{/if}
+					</button>
+					<button class:active={!inline} on:click={onInlineChange}>
+						{#if inline}Block{:else}Inline{/if}
+					</button>
 				</div>
 				<div class="math-editor-rendering">
 					<span bind:this={mathDisplayElement} />
 				</div>
 			</div>
 		</div>
-	</div></Hovering
->
+	</div>
+</Hovering>
 
 <style>
 	.math-editor-title {

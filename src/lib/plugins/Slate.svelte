@@ -62,12 +62,7 @@
 <script lang="ts">
 	import type { IElementProps } from '../components/InternalElement.svelte';
 	import Slate from '../components/Slate.svelte';
-	import {
-		createContext,
-		createContextKey,
-		getFromContext,
-		type ISvelteComponent
-	} from '../utils';
+	import { createContext, createContextKey, getFromContext, type ISvelteComponent } from '../utils';
 	import type { ISvelteEditor } from '../withSvelte';
 	import type { BaseSelection, Descendant } from 'slate';
 	import { createEventDispatcher } from 'svelte';
@@ -96,6 +91,6 @@
 	$: pluginsContext.set(currentPlugins);
 </script>
 
-<Slate bind:editor bind:value bind:selection on:value={onValue} on:selection={onSelection}
-	><slot /></Slate
->
+<Slate bind:editor bind:value bind:selection on:value={onValue} on:selection={onSelection}>
+	<slot />
+</Slate>
