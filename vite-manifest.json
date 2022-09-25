@@ -236,13 +236,13 @@
     "src": "node_modules/katex/dist/fonts/KaTeX_Typewriter-Regular.ttf"
   },
   "node_modules/@sveltejs/kit/src/runtime/client/start.js": {
-    "file": "internal/immutable/start-3f31d7c1.js",
+    "file": "internal/immutable/start-99ddd050.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/client/start.js",
     "isEntry": true,
     "imports": [
       "_preload-helper-0ffe6af8.js",
       "_index-a65ad292.js",
-      "_singletons-583e53a6.js",
+      "_singletons-8dde0114.js",
       "_paths-846459bd.js"
     ],
     "dynamicImports": [
@@ -258,7 +258,7 @@
     ]
   },
   "src/routes/+layout.svelte": {
-    "file": "internal/immutable/components/pages/_layout.svelte-4189c8a0.js",
+    "file": "internal/immutable/components/pages/_layout.svelte-b35c63af.js",
     "src": "src/routes/+layout.svelte",
     "isEntry": true,
     "imports": [
@@ -271,12 +271,12 @@
     ]
   },
   "node_modules/@sveltejs/kit/src/runtime/components/error.svelte": {
-    "file": "internal/immutable/components/error.svelte-862ebd82.js",
+    "file": "internal/immutable/components/error.svelte-fa83e406.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/components/error.svelte",
     "isEntry": true,
     "imports": [
       "_index-a65ad292.js",
-      "_singletons-583e53a6.js"
+      "_singletons-8dde0114.js"
     ]
   },
   "src/routes/+page.svelte": {
@@ -383,8 +383,8 @@
       "__layout-c2405b24.js"
     ]
   },
-  "_singletons-583e53a6.js": {
-    "file": "internal/immutable/chunks/singletons-583e53a6.js",
+  "_singletons-8dde0114.js": {
+    "file": "internal/immutable/chunks/singletons-8dde0114.js",
     "imports": [
       "_index-74dd7bae.js",
       "_paths-846459bd.js"
@@ -838,7 +838,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/0.js": {
-    "file": "internal/immutable/chunks/0-303a5717.js",
+    "file": "internal/immutable/chunks/0-1560e6af.js",
     "src": ".svelte-kit/generated/nodes/0.js",
     "isDynamicEntry": true,
     "imports": [
@@ -847,7 +847,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/1.js": {
-    "file": "internal/immutable/chunks/1-f77fe1a8.js",
+    "file": "internal/immutable/chunks/1-bdcbf9b0.js",
     "src": ".svelte-kit/generated/nodes/1.js",
     "isDynamicEntry": true,
     "imports": [
@@ -2368,36 +2368,36 @@
     "file": "internal/immutable/assets/IconBase-d93538e2.css",
     "src": "IconBase.css"
   },
+  "MdFormatQuote.css": {
+    "file": "internal/immutable/assets/MdFormatQuote-0a14f6b6.css",
+    "src": "MdFormatQuote.css"
+  },
   "src/routes/plugins/+page.css": {
     "file": "internal/immutable/assets/_page-80f81047.css",
     "src": "src/routes/plugins/+page.css"
   },
-  "MathButton.css": {
-    "file": "internal/immutable/assets/MathButton-14f8d7ab.css",
-    "src": "MathButton.css"
+  "src/routes/richtext/+page.css": {
+    "file": "internal/immutable/assets/_page-984eb7cd.css",
+    "src": "src/routes/richtext/+page.css"
   },
   "withSvelte.css": {
     "file": "internal/immutable/assets/withSvelte-d94c0ed0.css",
     "src": "withSvelte.css"
   },
-  "src/routes/huge-document/+page.css": {
-    "file": "internal/immutable/assets/_page-984eb7cd.css",
-    "src": "src/routes/huge-document/+page.css"
-  },
-  "Element.css": {
-    "file": "internal/immutable/assets/Element-2bbf41d2.css",
-    "src": "Element.css"
+  "CodeElement.css": {
+    "file": "internal/immutable/assets/CodeElement-92fa530d.css",
+    "src": "CodeElement.css"
   },
   "src/routes/editor/+page.css": {
     "file": "internal/immutable/assets/_page-c0e053e4.css",
     "src": "src/routes/editor/+page.css"
   },
-  "MdFormatQuote.css": {
-    "file": "internal/immutable/assets/MdFormatQuote-0a14f6b6.css",
-    "src": "MdFormatQuote.css"
+  "Element.css": {
+    "file": "internal/immutable/assets/Element-2bbf41d2.css",
+    "src": "Element.css"
   },
-  "CodeElement.css": {
-    "file": "internal/immutable/assets/CodeElement-92fa530d.css",
-    "src": "CodeElement.css"
+  "MathButton.css": {
+    "file": "internal/immutable/assets/MathButton-14f8d7ab.css",
+    "src": "MathButton.css"
   }
 }
