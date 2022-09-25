@@ -89,7 +89,7 @@
 <p>
 	<a
 		target="_blank"
-		href="https://github.com/nathanfaucett/svelte-slate/blob/main/src/routes/huge-document.svelte"
+		href="https://github.com/nathanfaucett/svelte-slate/blob/main/src/routes/huge-document/+page.svelte"
 	>
 		Source
 	</a>

@@ -125,7 +125,7 @@
 <p>
 	<a
 		target="_blank"
-		href="https://github.com/nathanfaucett/svelte-slate/blob/main/src/routes/richtext.svelte"
+		href="https://github.com/nathanfaucett/svelte-slate/blob/main/src/routes/richtext/+page.svelte"
 	>
 		Source
 	</a>

@@ -74,7 +74,7 @@
 <p>
 	<a
 		target="_blank"
-		href="https://github.com/nathanfaucett/svelte-slate/blob/main/src/routes/chat.svelte"
+		href="https://github.com/nathanfaucett/svelte-slate/blob/main/src/routes/chat/+page.svelte"
 	>
 		Source
 	</a>

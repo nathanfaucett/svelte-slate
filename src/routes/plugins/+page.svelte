@@ -160,7 +160,7 @@
 <p>
 	<a
 		target="_blank"
-		href="https://github.com/nathanfaucett/svelte-slate/blob/main/src/routes/plugins.svelte"
+		href="https://github.com/nathanfaucett/svelte-slate/blob/main/src/routes/plugins/+page.svelte"
 	>
 		Source
 	</a>

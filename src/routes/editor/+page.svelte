@@ -26,7 +26,7 @@
 <p>
 	<a
 		target="_blank"
-		href="https://github.com/nathanfaucett/svelte-slate/blob/main/src/routes/editor.svelte"
+		href="https://github.com/nathanfaucett/svelte-slate/blob/main/src/routes/editor/+page.svelte"
 	>
 		Source
 	</a>
