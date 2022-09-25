@@ -70,6 +70,7 @@
 		"tslib": "2"
 	},
 	"dependencies": {
+		"@svelte-put/clickoutside": "^1.0.3",
 		"fast-equals": "4",
 		"scroll-into-view-if-needed": "2",
 		"throttle-debounce": "5"

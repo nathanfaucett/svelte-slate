@@ -67,7 +67,7 @@
 	import DefaultElement from './DefaultElement.svelte';
 	import DefaultLeaf from './DefaultLeaf.svelte';
 	import DefaultPlaceholder from './DefaultPlaceholder.svelte';
-	import { getEditor, getEventsContext, handleEvent } from './Slate.svelte';
+	import { getEditor, getEventsContext, getValueContext, handleEvent } from './Slate.svelte';
 	import {
 		defaultDecorate,
 		getDecorateContext,
@@ -146,6 +146,7 @@
 
 	const editor = getEditor();
 	const editorContext = getEditorContext();
+	const valueContext = getValueContext();
 	const readOnlyContext = getReadOnlyContext();
 	const focusedContext = getFocusedContext();
 	const decorateContext = getDecorateContext();
@@ -984,7 +985,6 @@
 	data-svelte-editor
 	data-slate-node="value"
 	contenteditable={!state.readOnly}
-	z-index={-1}
 	on:beforeinput={onBeforeInput}
 	on:keydown={onKeyDownInternal}
 	on:input={onInput}

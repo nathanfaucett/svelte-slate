@@ -6,6 +6,7 @@
 	export const FOCUSED_CONTEXT_KEY = createContextKey<boolean>();
 	export const DECORATE_CONTEXT_KEY = createContextKey<(entry: NodeEntry) => Range[]>();
 	export const SELECTION_CONTEXT_KEY = createContextKey<Selection | null>();
+	export const VALUE_CONTEXT_KEY = createContextKey<Descendant[]>();
 	export const EVENTS_CONTEXT_KEY = createContextKey<Partial<IEvents>>();
 	export const CONTAINER_CONTEXT_KEY = createContextKey<HTMLDivElement | undefined>();
 
@@ -89,6 +90,9 @@
 	export function getSelectionContext() {
 		return getFromContext(SELECTION_CONTEXT_KEY);
 	}
+	export function getValueContext() {
+		return getFromContext(VALUE_CONTEXT_KEY);
+	}
 	export function getEventsContext() {
 		return getFromContext(EVENTS_CONTEXT_KEY);
 	}
@@ -116,6 +120,7 @@
 
 	const editorContext = createContext(EDITOR_CONTEXT_KEY, editor);
 	const selectionContext = createContext(SELECTION_CONTEXT_KEY, editor.selection);
+	const valueContext = createContext(VALUE_CONTEXT_KEY, editor.children);
 	createContext(READ_ONLY_CONTEXT_KEY, true);
 	createContext(FOCUSED_CONTEXT_KEY, false);
 	createContext(DECORATE_CONTEXT_KEY, defaultDecorate);
@@ -144,6 +149,7 @@
 			return editor;
 		});
 		currentValue = value;
+		valueContext.set(value);
 		dispatch('value', value);
 	}
 

@@ -5,7 +5,7 @@
 	import { withHistory } from 'slate-history';
 	import { DEFAULT_PLUGINS } from 'svelte-slate/plugins/DEFAULT_PLUGINS';
 	import ImageElement, { IMAGE_TYPE, withImages } from '../../lib/plugins/ImageElement.svelte';
-	import { longpress } from '../../lib/plugins/longpress';
+	import { longpress } from '../../example/longpress';
 	import ImageButton from '../../example/ImageButton.svelte';
 	import CodeButton from '../../example/CodeButton.svelte';
 	import CheckListItemButton from '../../example/CheckListItemButton.svelte';

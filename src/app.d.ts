@@ -13,4 +13,13 @@ declare global {
 	const PACKAGE_JSON: typeof import('../package.json');
 }
 
+declare namespace svelte.JSX {
+	interface HTMLAttributes<T extends EventTarget> {
+		onlongpress?:
+			| ((event: (MouseEvent | TouchEvent) & { currentTarget: EventTarget & T }) => any)
+			| undefined
+			| null;
+	}
+}
+
 export {};

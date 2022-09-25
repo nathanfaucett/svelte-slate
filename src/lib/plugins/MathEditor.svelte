@@ -19,7 +19,7 @@
 <script lang="ts">
 	import katex from 'katex';
 	import { tick } from 'svelte';
-	import { clickoutside } from './clickoutside';
+	import { clickoutside } from '@svelte-put/clickoutside';
 	import Hovering from './Hovering.svelte';
 	import { getContainerContext } from '../components/Slate.svelte';
 

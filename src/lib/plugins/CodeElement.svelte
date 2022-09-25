@@ -196,7 +196,12 @@
 	{dir}
 	{contenteditable}
 >
-	<div class="language-select" contenteditable={false}>
+	<div
+		class="language-select"
+		contenteditable={false}
+		on:mousedown|stopPropagation
+		on:touchstart|stopPropagation
+	>
 		<select value={element.language} on:change={onSelect} contenteditable={false}>
 			{#each languageNames as language}
 				<option value={language}>{language}</option>
