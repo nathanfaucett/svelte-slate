@@ -75,25 +75,17 @@
     "file": "internal/immutable/assets/KaTeX_Typewriter-Regular-71d517d6.woff2",
     "src": "node_modules/katex/dist/fonts/KaTeX_Typewriter-Regular.woff2"
   },
-  "node_modules/katex/dist/fonts/KaTeX_AMS-Regular.woff": {
-    "file": "internal/immutable/assets/KaTeX_AMS-Regular-30da91e8.woff",
-    "src": "node_modules/katex/dist/fonts/KaTeX_AMS-Regular.woff"
-  },
   "node_modules/katex/dist/fonts/KaTeX_Caligraphic-Bold.woff": {
     "file": "internal/immutable/assets/KaTeX_Caligraphic-Bold-1ae6bd74.woff",
     "src": "node_modules/katex/dist/fonts/KaTeX_Caligraphic-Bold.woff"
-  },
-  "node_modules/katex/dist/fonts/KaTeX_Caligraphic-Regular.woff": {
-    "file": "internal/immutable/assets/KaTeX_Caligraphic-Regular-3398dd02.woff",
-    "src": "node_modules/katex/dist/fonts/KaTeX_Caligraphic-Regular.woff"
   },
   "node_modules/katex/dist/fonts/KaTeX_Fraktur-Bold.woff": {
     "file": "internal/immutable/assets/KaTeX_Fraktur-Bold-9be7ceb8.woff",
     "src": "node_modules/katex/dist/fonts/KaTeX_Fraktur-Bold.woff"
   },
-  "node_modules/katex/dist/fonts/KaTeX_Fraktur-Regular.woff": {
-    "file": "internal/immutable/assets/KaTeX_Fraktur-Regular-5e28753b.woff",
-    "src": "node_modules/katex/dist/fonts/KaTeX_Fraktur-Regular.woff"
+  "node_modules/katex/dist/fonts/KaTeX_AMS-Regular.woff": {
+    "file": "internal/immutable/assets/KaTeX_AMS-Regular-30da91e8.woff",
+    "src": "node_modules/katex/dist/fonts/KaTeX_AMS-Regular.woff"
   },
   "node_modules/katex/dist/fonts/KaTeX_Main-Bold.woff": {
     "file": "internal/immutable/assets/KaTeX_Main-Bold-c76c5d69.woff",
@@ -155,25 +147,25 @@
     "file": "internal/immutable/assets/KaTeX_Typewriter-Regular-e14fed02.woff",
     "src": "node_modules/katex/dist/fonts/KaTeX_Typewriter-Regular.woff"
   },
-  "node_modules/katex/dist/fonts/KaTeX_AMS-Regular.ttf": {
-    "file": "internal/immutable/assets/KaTeX_AMS-Regular-68534840.ttf",
-    "src": "node_modules/katex/dist/fonts/KaTeX_AMS-Regular.ttf"
+  "node_modules/katex/dist/fonts/KaTeX_Fraktur-Regular.woff": {
+    "file": "internal/immutable/assets/KaTeX_Fraktur-Regular-5e28753b.woff",
+    "src": "node_modules/katex/dist/fonts/KaTeX_Fraktur-Regular.woff"
+  },
+  "node_modules/katex/dist/fonts/KaTeX_Caligraphic-Regular.woff": {
+    "file": "internal/immutable/assets/KaTeX_Caligraphic-Regular-3398dd02.woff",
+    "src": "node_modules/katex/dist/fonts/KaTeX_Caligraphic-Regular.woff"
   },
   "node_modules/katex/dist/fonts/KaTeX_Caligraphic-Bold.ttf": {
     "file": "internal/immutable/assets/KaTeX_Caligraphic-Bold-07d8e303.ttf",
     "src": "node_modules/katex/dist/fonts/KaTeX_Caligraphic-Bold.ttf"
   },
-  "node_modules/katex/dist/fonts/KaTeX_Caligraphic-Regular.ttf": {
-    "file": "internal/immutable/assets/KaTeX_Caligraphic-Regular-ed0b7437.ttf",
-    "src": "node_modules/katex/dist/fonts/KaTeX_Caligraphic-Regular.ttf"
-  },
   "node_modules/katex/dist/fonts/KaTeX_Fraktur-Bold.ttf": {
     "file": "internal/immutable/assets/KaTeX_Fraktur-Bold-9163df9c.ttf",
     "src": "node_modules/katex/dist/fonts/KaTeX_Fraktur-Bold.ttf"
   },
-  "node_modules/katex/dist/fonts/KaTeX_Fraktur-Regular.ttf": {
-    "file": "internal/immutable/assets/KaTeX_Fraktur-Regular-1e6f9579.ttf",
-    "src": "node_modules/katex/dist/fonts/KaTeX_Fraktur-Regular.ttf"
+  "node_modules/katex/dist/fonts/KaTeX_AMS-Regular.ttf": {
+    "file": "internal/immutable/assets/KaTeX_AMS-Regular-68534840.ttf",
+    "src": "node_modules/katex/dist/fonts/KaTeX_AMS-Regular.ttf"
   },
   "node_modules/katex/dist/fonts/KaTeX_Main-Bold.ttf": {
     "file": "internal/immutable/assets/KaTeX_Main-Bold-138ac28d.ttf",
@@ -235,14 +227,22 @@
     "file": "internal/immutable/assets/KaTeX_Typewriter-Regular-f01f3e87.ttf",
     "src": "node_modules/katex/dist/fonts/KaTeX_Typewriter-Regular.ttf"
   },
+  "node_modules/katex/dist/fonts/KaTeX_Fraktur-Regular.ttf": {
+    "file": "internal/immutable/assets/KaTeX_Fraktur-Regular-1e6f9579.ttf",
+    "src": "node_modules/katex/dist/fonts/KaTeX_Fraktur-Regular.ttf"
+  },
+  "node_modules/katex/dist/fonts/KaTeX_Caligraphic-Regular.ttf": {
+    "file": "internal/immutable/assets/KaTeX_Caligraphic-Regular-ed0b7437.ttf",
+    "src": "node_modules/katex/dist/fonts/KaTeX_Caligraphic-Regular.ttf"
+  },
   "node_modules/@sveltejs/kit/src/runtime/client/start.js": {
-    "file": "internal/immutable/start-11bd63c0.js",
+    "file": "internal/immutable/start-d4845556.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/client/start.js",
     "isEntry": true,
     "imports": [
       "_preload-helper-0ffe6af8.js",
-      "_index-c487c846.js",
-      "_singletons-d23d1ff9.js",
+      "_index-a65ad292.js",
+      "_singletons-5c9442a9.js",
       "_paths-846459bd.js"
     ],
     "dynamicImports": [
@@ -258,118 +258,118 @@
     ]
   },
   "src/routes/+layout.svelte": {
-    "file": "internal/immutable/components/pages/_layout.svelte-332ebd5c.js",
+    "file": "internal/immutable/components/pages/_layout.svelte-d861fb19.js",
     "src": "src/routes/+layout.svelte",
     "isEntry": true,
     "imports": [
-      "_index-c487c846.js",
+      "_index-a65ad292.js",
       "_paths-846459bd.js",
-      "_IconBase-75c6e0f8.js"
+      "_IconBase-4ccfc90a.js"
     ],
     "css": [
       "internal/immutable/assets/_layout-1ca33f26.css"
     ]
   },
   "node_modules/@sveltejs/kit/src/runtime/components/error.svelte": {
-    "file": "internal/immutable/components/error.svelte-f58b83f6.js",
+    "file": "internal/immutable/components/error.svelte-0dc18895.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/components/error.svelte",
     "isEntry": true,
     "imports": [
-      "_index-c487c846.js",
-      "_singletons-d23d1ff9.js"
+      "_index-a65ad292.js",
+      "_singletons-5c9442a9.js"
     ]
   },
   "src/routes/+page.svelte": {
-    "file": "internal/immutable/components/pages/_page.svelte-2dad6629.js",
+    "file": "internal/immutable/components/pages/_page.svelte-48ce5b29.js",
     "src": "src/routes/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index-c487c846.js",
+      "_index-a65ad292.js",
       "_paths-846459bd.js"
     ]
   },
   "src/routes/chat/+page.svelte": {
-    "file": "internal/immutable/components/pages/chat/_page.svelte-f2a9a327.js",
+    "file": "internal/immutable/components/pages/chat/_page.svelte-440cb160.js",
     "src": "src/routes/chat/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index-c487c846.js",
-      "_MathButton-e3982a31.js",
-      "_withSvelte-609181e7.js",
-      "_CodeElement-94003fe1.js",
-      "_MdFormatQuote-35e232c4.js",
-      "_CheckListItemButton-b73c79c3.js"
+      "_index-a65ad292.js",
+      "_MathButton-f1b3e08f.js",
+      "_withSvelte-9794308c.js",
+      "_CodeElement-f742a457.js",
+      "_MdFormatQuote-9a41fc80.js",
+      "_CheckListItemButton-0c4f39b4.js"
     ],
     "css": [
       "internal/immutable/assets/_page-80f81047.css"
     ]
   },
   "src/routes/default/+page.svelte": {
-    "file": "internal/immutable/components/pages/default/_page.svelte-e530cf34.js",
+    "file": "internal/immutable/components/pages/default/_page.svelte-b07a7b29.js",
     "src": "src/routes/default/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index-c487c846.js",
-      "_withSvelte-609181e7.js"
+      "_index-a65ad292.js",
+      "_withSvelte-9794308c.js"
     ]
   },
   "src/routes/editor/+page.svelte": {
-    "file": "internal/immutable/components/pages/editor/_page.svelte-00811d5f.js",
+    "file": "internal/immutable/components/pages/editor/_page.svelte-5f6a5fbf.js",
     "src": "src/routes/editor/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index-c487c846.js",
-      "_withSvelte-609181e7.js",
-      "_Element-275b3877.js",
-      "_CodeElement-94003fe1.js"
+      "_index-a65ad292.js",
+      "_withSvelte-9794308c.js",
+      "_Element-d68b46c3.js",
+      "_CodeElement-f742a457.js"
     ],
     "css": [
       "internal/immutable/assets/_page-c0e053e4.css"
     ]
   },
   "src/routes/huge-document/+page.svelte": {
-    "file": "internal/immutable/components/pages/huge-document/_page.svelte-4436ef91.js",
+    "file": "internal/immutable/components/pages/huge-document/_page.svelte-1a581a3b.js",
     "src": "src/routes/huge-document/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index-c487c846.js",
-      "_withSvelte-609181e7.js",
-      "_Element-275b3877.js",
-      "_CodeElement-94003fe1.js",
-      "_MdFormatQuote-35e232c4.js"
+      "_index-a65ad292.js",
+      "_withSvelte-9794308c.js",
+      "_Element-d68b46c3.js",
+      "_CodeElement-f742a457.js",
+      "_MdFormatQuote-9a41fc80.js"
     ],
     "css": [
       "internal/immutable/assets/_page-984eb7cd.css"
     ]
   },
   "src/routes/plugins/+page.svelte": {
-    "file": "internal/immutable/components/pages/plugins/_page.svelte-4e7c6e50.js",
+    "file": "internal/immutable/components/pages/plugins/_page.svelte-bbe1d89e.js",
     "src": "src/routes/plugins/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index-c487c846.js",
-      "_withSvelte-609181e7.js",
-      "_MathButton-e3982a31.js",
-      "_CodeElement-94003fe1.js",
-      "_MdFormatQuote-35e232c4.js",
-      "_CheckListItemButton-b73c79c3.js"
+      "_index-a65ad292.js",
+      "_withSvelte-9794308c.js",
+      "_MathButton-f1b3e08f.js",
+      "_CodeElement-f742a457.js",
+      "_MdFormatQuote-9a41fc80.js",
+      "_CheckListItemButton-0c4f39b4.js"
     ],
     "css": [
       "internal/immutable/assets/_page-80f81047.css"
     ]
   },
   "src/routes/richtext/+page.svelte": {
-    "file": "internal/immutable/components/pages/richtext/_page.svelte-5c7e719d.js",
+    "file": "internal/immutable/components/pages/richtext/_page.svelte-4efa26c2.js",
     "src": "src/routes/richtext/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index-c487c846.js",
-      "_withSvelte-609181e7.js",
-      "_Element-275b3877.js",
-      "_CodeElement-94003fe1.js",
-      "_CheckListItemButton-b73c79c3.js",
-      "_MdFormatQuote-35e232c4.js",
-      "_IconBase-75c6e0f8.js"
+      "_index-a65ad292.js",
+      "_withSvelte-9794308c.js",
+      "_Element-d68b46c3.js",
+      "_CodeElement-f742a457.js",
+      "_CheckListItemButton-0c4f39b4.js",
+      "_MdFormatQuote-9a41fc80.js",
+      "_IconBase-4ccfc90a.js"
     ],
     "css": [
       "internal/immutable/assets/_page-984eb7cd.css"
@@ -383,10 +383,10 @@
       "__layout-c2405b24.js"
     ]
   },
-  "_singletons-d23d1ff9.js": {
-    "file": "internal/immutable/chunks/singletons-d23d1ff9.js",
+  "_singletons-5c9442a9.js": {
+    "file": "internal/immutable/chunks/singletons-5c9442a9.js",
     "imports": [
-      "_index-2c4fdc2b.js",
+      "_index-74dd7bae.js",
       "_paths-846459bd.js"
     ]
   },
@@ -396,19 +396,19 @@
   "_preload-helper-0ffe6af8.js": {
     "file": "internal/immutable/chunks/preload-helper-0ffe6af8.js"
   },
-  "_index-c487c846.js": {
-    "file": "internal/immutable/chunks/index-c487c846.js"
+  "_index-a65ad292.js": {
+    "file": "internal/immutable/chunks/index-a65ad292.js"
   },
-  "_index-2c4fdc2b.js": {
-    "file": "internal/immutable/chunks/index-2c4fdc2b.js",
+  "_index-74dd7bae.js": {
+    "file": "internal/immutable/chunks/index-74dd7bae.js",
     "imports": [
-      "_index-c487c846.js"
+      "_index-a65ad292.js"
     ]
   },
-  "_IconBase-75c6e0f8.js": {
-    "file": "internal/immutable/chunks/IconBase-75c6e0f8.js",
+  "_IconBase-4ccfc90a.js": {
+    "file": "internal/immutable/chunks/IconBase-4ccfc90a.js",
     "imports": [
-      "_index-c487c846.js"
+      "_index-a65ad292.js"
     ],
     "css": [
       "internal/immutable/assets/IconBase-d93538e2.css"
@@ -417,14 +417,14 @@
   "__layout-c2405b24.js": {
     "file": "internal/immutable/chunks/_layout-c2405b24.js"
   },
-  "_MathButton-e3982a31.js": {
-    "file": "internal/immutable/chunks/MathButton-e3982a31.js",
+  "_MathButton-f1b3e08f.js": {
+    "file": "internal/immutable/chunks/MathButton-f1b3e08f.js",
     "imports": [
-      "_index-c487c846.js",
-      "_withSvelte-609181e7.js",
-      "_CodeElement-94003fe1.js",
-      "_MdFormatQuote-35e232c4.js",
-      "_IconBase-75c6e0f8.js"
+      "_index-a65ad292.js",
+      "_withSvelte-9794308c.js",
+      "_CodeElement-f742a457.js",
+      "_MdFormatQuote-9a41fc80.js",
+      "_IconBase-4ccfc90a.js"
     ],
     "css": [
       "internal/immutable/assets/MathButton-14f8d7ab.css"
@@ -491,21 +491,21 @@
       "internal/immutable/assets/KaTeX_Typewriter-Regular-f01f3e87.ttf"
     ]
   },
-  "_withSvelte-609181e7.js": {
-    "file": "internal/immutable/chunks/withSvelte-609181e7.js",
+  "_withSvelte-9794308c.js": {
+    "file": "internal/immutable/chunks/withSvelte-9794308c.js",
     "imports": [
-      "_index-c487c846.js",
-      "_index-2c4fdc2b.js"
+      "_index-a65ad292.js",
+      "_index-74dd7bae.js"
     ],
     "css": [
       "internal/immutable/assets/withSvelte-d94c0ed0.css"
     ]
   },
-  "_CodeElement-94003fe1.js": {
-    "file": "internal/immutable/chunks/CodeElement-94003fe1.js",
+  "_CodeElement-f742a457.js": {
+    "file": "internal/immutable/chunks/CodeElement-f742a457.js",
     "imports": [
-      "_index-c487c846.js",
-      "_withSvelte-609181e7.js",
+      "_index-a65ad292.js",
+      "_withSvelte-9794308c.js",
       "_preload-helper-0ffe6af8.js"
     ],
     "dynamicImports": [
@@ -804,41 +804,41 @@
       "internal/immutable/assets/CodeElement-92fa530d.css"
     ]
   },
-  "_MdFormatQuote-35e232c4.js": {
-    "file": "internal/immutable/chunks/MdFormatQuote-35e232c4.js",
+  "_MdFormatQuote-9a41fc80.js": {
+    "file": "internal/immutable/chunks/MdFormatQuote-9a41fc80.js",
     "imports": [
-      "_index-c487c846.js",
-      "_withSvelte-609181e7.js",
-      "_IconBase-75c6e0f8.js",
-      "_CodeElement-94003fe1.js"
+      "_index-a65ad292.js",
+      "_withSvelte-9794308c.js",
+      "_IconBase-4ccfc90a.js",
+      "_CodeElement-f742a457.js"
     ],
     "css": [
       "internal/immutable/assets/MdFormatQuote-0a14f6b6.css"
     ]
   },
-  "_CheckListItemButton-b73c79c3.js": {
-    "file": "internal/immutable/chunks/CheckListItemButton-b73c79c3.js",
+  "_CheckListItemButton-0c4f39b4.js": {
+    "file": "internal/immutable/chunks/CheckListItemButton-0c4f39b4.js",
     "imports": [
-      "_index-c487c846.js",
-      "_withSvelte-609181e7.js",
-      "_MdFormatQuote-35e232c4.js",
-      "_CodeElement-94003fe1.js",
-      "_IconBase-75c6e0f8.js"
+      "_index-a65ad292.js",
+      "_withSvelte-9794308c.js",
+      "_MdFormatQuote-9a41fc80.js",
+      "_CodeElement-f742a457.js",
+      "_IconBase-4ccfc90a.js"
     ]
   },
-  "_Element-275b3877.js": {
-    "file": "internal/immutable/chunks/Element-275b3877.js",
+  "_Element-d68b46c3.js": {
+    "file": "internal/immutable/chunks/Element-d68b46c3.js",
     "imports": [
-      "_index-c487c846.js",
-      "_CodeElement-94003fe1.js",
-      "_withSvelte-609181e7.js"
+      "_index-a65ad292.js",
+      "_CodeElement-f742a457.js",
+      "_withSvelte-9794308c.js"
     ],
     "css": [
       "internal/immutable/assets/Element-2bbf41d2.css"
     ]
   },
   ".svelte-kit/generated/nodes/0.js": {
-    "file": "internal/immutable/chunks/0-3379c7c5.js",
+    "file": "internal/immutable/chunks/0-d1f528c8.js",
     "src": ".svelte-kit/generated/nodes/0.js",
     "isDynamicEntry": true,
     "imports": [
@@ -847,7 +847,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/1.js": {
-    "file": "internal/immutable/chunks/1-ca1077e8.js",
+    "file": "internal/immutable/chunks/1-5e3a5b1d.js",
     "src": ".svelte-kit/generated/nodes/1.js",
     "isDynamicEntry": true,
     "imports": [
@@ -855,7 +855,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/2.js": {
-    "file": "internal/immutable/chunks/2-3198bd49.js",
+    "file": "internal/immutable/chunks/2-c55c2403.js",
     "src": ".svelte-kit/generated/nodes/2.js",
     "isDynamicEntry": true,
     "imports": [
@@ -863,7 +863,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/3.js": {
-    "file": "internal/immutable/chunks/3-8e1fea52.js",
+    "file": "internal/immutable/chunks/3-24620d5e.js",
     "src": ".svelte-kit/generated/nodes/3.js",
     "isDynamicEntry": true,
     "imports": [
@@ -871,7 +871,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/4.js": {
-    "file": "internal/immutable/chunks/4-34b46658.js",
+    "file": "internal/immutable/chunks/4-56f599fb.js",
     "src": ".svelte-kit/generated/nodes/4.js",
     "isDynamicEntry": true,
     "imports": [
@@ -879,7 +879,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/5.js": {
-    "file": "internal/immutable/chunks/5-9038816b.js",
+    "file": "internal/immutable/chunks/5-6c28b06b.js",
     "src": ".svelte-kit/generated/nodes/5.js",
     "isDynamicEntry": true,
     "imports": [
@@ -887,7 +887,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/6.js": {
-    "file": "internal/immutable/chunks/6-1a4073ed.js",
+    "file": "internal/immutable/chunks/6-dd07f630.js",
     "src": ".svelte-kit/generated/nodes/6.js",
     "isDynamicEntry": true,
     "imports": [
@@ -895,7 +895,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/7.js": {
-    "file": "internal/immutable/chunks/7-7a5f2252.js",
+    "file": "internal/immutable/chunks/7-3bc0435b.js",
     "src": ".svelte-kit/generated/nodes/7.js",
     "isDynamicEntry": true,
     "imports": [
@@ -903,7 +903,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/8.js": {
-    "file": "internal/immutable/chunks/8-aaaf2bb9.js",
+    "file": "internal/immutable/chunks/8-1cb56326.js",
     "src": ".svelte-kit/generated/nodes/8.js",
     "isDynamicEntry": true,
     "imports": [
@@ -2360,44 +2360,44 @@
     "src": "node_modules/prismjs/components/prism-zig.min.js",
     "isDynamicEntry": true
   },
-  "src/routes/plugins/+page.css": {
-    "file": "internal/immutable/assets/_page-80f81047.css",
-    "src": "src/routes/plugins/+page.css"
+  "src/routes/+layout.css": {
+    "file": "internal/immutable/assets/_layout-1ca33f26.css",
+    "src": "src/routes/+layout.css"
   },
   "IconBase.css": {
     "file": "internal/immutable/assets/IconBase-d93538e2.css",
     "src": "IconBase.css"
   },
-  "src/routes/+layout.css": {
-    "file": "internal/immutable/assets/_layout-1ca33f26.css",
-    "src": "src/routes/+layout.css"
+  "src/routes/plugins/+page.css": {
+    "file": "internal/immutable/assets/_page-80f81047.css",
+    "src": "src/routes/plugins/+page.css"
   },
   "withSvelte.css": {
     "file": "internal/immutable/assets/withSvelte-d94c0ed0.css",
     "src": "withSvelte.css"
   },
-  "src/routes/editor/+page.css": {
-    "file": "internal/immutable/assets/_page-c0e053e4.css",
-    "src": "src/routes/editor/+page.css"
-  },
-  "MdFormatQuote.css": {
-    "file": "internal/immutable/assets/MdFormatQuote-0a14f6b6.css",
-    "src": "MdFormatQuote.css"
+  "Element.css": {
+    "file": "internal/immutable/assets/Element-2bbf41d2.css",
+    "src": "Element.css"
   },
   "CodeElement.css": {
     "file": "internal/immutable/assets/CodeElement-92fa530d.css",
     "src": "CodeElement.css"
   },
-  "Element.css": {
-    "file": "internal/immutable/assets/Element-2bbf41d2.css",
-    "src": "Element.css"
+  "MdFormatQuote.css": {
+    "file": "internal/immutable/assets/MdFormatQuote-0a14f6b6.css",
+    "src": "MdFormatQuote.css"
   },
-  "src/routes/huge-document/+page.css": {
-    "file": "internal/immutable/assets/_page-984eb7cd.css",
-    "src": "src/routes/huge-document/+page.css"
+  "src/routes/editor/+page.css": {
+    "file": "internal/immutable/assets/_page-c0e053e4.css",
+    "src": "src/routes/editor/+page.css"
   },
   "MathButton.css": {
     "file": "internal/immutable/assets/MathButton-14f8d7ab.css",
     "src": "MathButton.css"
+  },
+  "src/routes/huge-document/+page.css": {
+    "file": "internal/immutable/assets/_page-984eb7cd.css",
+    "src": "src/routes/huge-document/+page.css"
   }
 }
