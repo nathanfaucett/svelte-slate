@@ -75,17 +75,25 @@
     "file": "internal/immutable/assets/KaTeX_Typewriter-Regular-71d517d6.woff2",
     "src": "node_modules/katex/dist/fonts/KaTeX_Typewriter-Regular.woff2"
   },
+  "node_modules/katex/dist/fonts/KaTeX_AMS-Regular.woff": {
+    "file": "internal/immutable/assets/KaTeX_AMS-Regular-30da91e8.woff",
+    "src": "node_modules/katex/dist/fonts/KaTeX_AMS-Regular.woff"
+  },
   "node_modules/katex/dist/fonts/KaTeX_Caligraphic-Bold.woff": {
     "file": "internal/immutable/assets/KaTeX_Caligraphic-Bold-1ae6bd74.woff",
     "src": "node_modules/katex/dist/fonts/KaTeX_Caligraphic-Bold.woff"
+  },
+  "node_modules/katex/dist/fonts/KaTeX_Caligraphic-Regular.woff": {
+    "file": "internal/immutable/assets/KaTeX_Caligraphic-Regular-3398dd02.woff",
+    "src": "node_modules/katex/dist/fonts/KaTeX_Caligraphic-Regular.woff"
   },
   "node_modules/katex/dist/fonts/KaTeX_Fraktur-Bold.woff": {
     "file": "internal/immutable/assets/KaTeX_Fraktur-Bold-9be7ceb8.woff",
     "src": "node_modules/katex/dist/fonts/KaTeX_Fraktur-Bold.woff"
   },
-  "node_modules/katex/dist/fonts/KaTeX_AMS-Regular.woff": {
-    "file": "internal/immutable/assets/KaTeX_AMS-Regular-30da91e8.woff",
-    "src": "node_modules/katex/dist/fonts/KaTeX_AMS-Regular.woff"
+  "node_modules/katex/dist/fonts/KaTeX_Fraktur-Regular.woff": {
+    "file": "internal/immutable/assets/KaTeX_Fraktur-Regular-5e28753b.woff",
+    "src": "node_modules/katex/dist/fonts/KaTeX_Fraktur-Regular.woff"
   },
   "node_modules/katex/dist/fonts/KaTeX_Main-Bold.woff": {
     "file": "internal/immutable/assets/KaTeX_Main-Bold-c76c5d69.woff",
@@ -147,25 +155,25 @@
     "file": "internal/immutable/assets/KaTeX_Typewriter-Regular-e14fed02.woff",
     "src": "node_modules/katex/dist/fonts/KaTeX_Typewriter-Regular.woff"
   },
-  "node_modules/katex/dist/fonts/KaTeX_Fraktur-Regular.woff": {
-    "file": "internal/immutable/assets/KaTeX_Fraktur-Regular-5e28753b.woff",
-    "src": "node_modules/katex/dist/fonts/KaTeX_Fraktur-Regular.woff"
-  },
-  "node_modules/katex/dist/fonts/KaTeX_Caligraphic-Regular.woff": {
-    "file": "internal/immutable/assets/KaTeX_Caligraphic-Regular-3398dd02.woff",
-    "src": "node_modules/katex/dist/fonts/KaTeX_Caligraphic-Regular.woff"
+  "node_modules/katex/dist/fonts/KaTeX_AMS-Regular.ttf": {
+    "file": "internal/immutable/assets/KaTeX_AMS-Regular-68534840.ttf",
+    "src": "node_modules/katex/dist/fonts/KaTeX_AMS-Regular.ttf"
   },
   "node_modules/katex/dist/fonts/KaTeX_Caligraphic-Bold.ttf": {
     "file": "internal/immutable/assets/KaTeX_Caligraphic-Bold-07d8e303.ttf",
     "src": "node_modules/katex/dist/fonts/KaTeX_Caligraphic-Bold.ttf"
   },
+  "node_modules/katex/dist/fonts/KaTeX_Caligraphic-Regular.ttf": {
+    "file": "internal/immutable/assets/KaTeX_Caligraphic-Regular-ed0b7437.ttf",
+    "src": "node_modules/katex/dist/fonts/KaTeX_Caligraphic-Regular.ttf"
+  },
   "node_modules/katex/dist/fonts/KaTeX_Fraktur-Bold.ttf": {
     "file": "internal/immutable/assets/KaTeX_Fraktur-Bold-9163df9c.ttf",
     "src": "node_modules/katex/dist/fonts/KaTeX_Fraktur-Bold.ttf"
   },
-  "node_modules/katex/dist/fonts/KaTeX_AMS-Regular.ttf": {
-    "file": "internal/immutable/assets/KaTeX_AMS-Regular-68534840.ttf",
-    "src": "node_modules/katex/dist/fonts/KaTeX_AMS-Regular.ttf"
+  "node_modules/katex/dist/fonts/KaTeX_Fraktur-Regular.ttf": {
+    "file": "internal/immutable/assets/KaTeX_Fraktur-Regular-1e6f9579.ttf",
+    "src": "node_modules/katex/dist/fonts/KaTeX_Fraktur-Regular.ttf"
   },
   "node_modules/katex/dist/fonts/KaTeX_Main-Bold.ttf": {
     "file": "internal/immutable/assets/KaTeX_Main-Bold-138ac28d.ttf",
@@ -227,22 +235,14 @@
     "file": "internal/immutable/assets/KaTeX_Typewriter-Regular-f01f3e87.ttf",
     "src": "node_modules/katex/dist/fonts/KaTeX_Typewriter-Regular.ttf"
   },
-  "node_modules/katex/dist/fonts/KaTeX_Fraktur-Regular.ttf": {
-    "file": "internal/immutable/assets/KaTeX_Fraktur-Regular-1e6f9579.ttf",
-    "src": "node_modules/katex/dist/fonts/KaTeX_Fraktur-Regular.ttf"
-  },
-  "node_modules/katex/dist/fonts/KaTeX_Caligraphic-Regular.ttf": {
-    "file": "internal/immutable/assets/KaTeX_Caligraphic-Regular-ed0b7437.ttf",
-    "src": "node_modules/katex/dist/fonts/KaTeX_Caligraphic-Regular.ttf"
-  },
   "node_modules/@sveltejs/kit/src/runtime/client/start.js": {
-    "file": "internal/immutable/start-d4845556.js",
+    "file": "internal/immutable/start-96432055.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/client/start.js",
     "isEntry": true,
     "imports": [
       "_preload-helper-0ffe6af8.js",
       "_index-a65ad292.js",
-      "_singletons-5c9442a9.js",
+      "_singletons-552345a8.js",
       "_paths-846459bd.js"
     ],
     "dynamicImports": [
@@ -271,12 +271,12 @@
     ]
   },
   "node_modules/@sveltejs/kit/src/runtime/components/error.svelte": {
-    "file": "internal/immutable/components/error.svelte-0dc18895.js",
+    "file": "internal/immutable/components/error.svelte-d33bb2ea.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/components/error.svelte",
     "isEntry": true,
     "imports": [
       "_index-a65ad292.js",
-      "_singletons-5c9442a9.js"
+      "_singletons-552345a8.js"
     ]
   },
   "src/routes/+page.svelte": {
@@ -289,7 +289,7 @@
     ]
   },
   "src/routes/chat/+page.svelte": {
-    "file": "internal/immutable/components/pages/chat/_page.svelte-440cb160.js",
+    "file": "internal/immutable/components/pages/chat/_page.svelte-3e67e9a5.js",
     "src": "src/routes/chat/+page.svelte",
     "isEntry": true,
     "imports": [
@@ -305,7 +305,7 @@
     ]
   },
   "src/routes/default/+page.svelte": {
-    "file": "internal/immutable/components/pages/default/_page.svelte-b07a7b29.js",
+    "file": "internal/immutable/components/pages/default/_page.svelte-380ef4c7.js",
     "src": "src/routes/default/+page.svelte",
     "isEntry": true,
     "imports": [
@@ -314,7 +314,7 @@
     ]
   },
   "src/routes/editor/+page.svelte": {
-    "file": "internal/immutable/components/pages/editor/_page.svelte-5f6a5fbf.js",
+    "file": "internal/immutable/components/pages/editor/_page.svelte-33e957ee.js",
     "src": "src/routes/editor/+page.svelte",
     "isEntry": true,
     "imports": [
@@ -328,7 +328,7 @@
     ]
   },
   "src/routes/huge-document/+page.svelte": {
-    "file": "internal/immutable/components/pages/huge-document/_page.svelte-1a581a3b.js",
+    "file": "internal/immutable/components/pages/huge-document/_page.svelte-018d9655.js",
     "src": "src/routes/huge-document/+page.svelte",
     "isEntry": true,
     "imports": [
@@ -343,7 +343,7 @@
     ]
   },
   "src/routes/plugins/+page.svelte": {
-    "file": "internal/immutable/components/pages/plugins/_page.svelte-bbe1d89e.js",
+    "file": "internal/immutable/components/pages/plugins/_page.svelte-72776a88.js",
     "src": "src/routes/plugins/+page.svelte",
     "isEntry": true,
     "imports": [
@@ -359,7 +359,7 @@
     ]
   },
   "src/routes/richtext/+page.svelte": {
-    "file": "internal/immutable/components/pages/richtext/_page.svelte-4efa26c2.js",
+    "file": "internal/immutable/components/pages/richtext/_page.svelte-d8c30526.js",
     "src": "src/routes/richtext/+page.svelte",
     "isEntry": true,
     "imports": [
@@ -383,8 +383,8 @@
       "__layout-c2405b24.js"
     ]
   },
-  "_singletons-5c9442a9.js": {
-    "file": "internal/immutable/chunks/singletons-5c9442a9.js",
+  "_singletons-552345a8.js": {
+    "file": "internal/immutable/chunks/singletons-552345a8.js",
     "imports": [
       "_index-74dd7bae.js",
       "_paths-846459bd.js"
@@ -847,7 +847,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/1.js": {
-    "file": "internal/immutable/chunks/1-5e3a5b1d.js",
+    "file": "internal/immutable/chunks/1-5b912d4c.js",
     "src": ".svelte-kit/generated/nodes/1.js",
     "isDynamicEntry": true,
     "imports": [
@@ -863,7 +863,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/3.js": {
-    "file": "internal/immutable/chunks/3-24620d5e.js",
+    "file": "internal/immutable/chunks/3-fa1c7484.js",
     "src": ".svelte-kit/generated/nodes/3.js",
     "isDynamicEntry": true,
     "imports": [
@@ -871,7 +871,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/4.js": {
-    "file": "internal/immutable/chunks/4-56f599fb.js",
+    "file": "internal/immutable/chunks/4-b15e4a4f.js",
     "src": ".svelte-kit/generated/nodes/4.js",
     "isDynamicEntry": true,
     "imports": [
@@ -879,7 +879,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/5.js": {
-    "file": "internal/immutable/chunks/5-6c28b06b.js",
+    "file": "internal/immutable/chunks/5-c50fabcb.js",
     "src": ".svelte-kit/generated/nodes/5.js",
     "isDynamicEntry": true,
     "imports": [
@@ -887,7 +887,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/6.js": {
-    "file": "internal/immutable/chunks/6-dd07f630.js",
+    "file": "internal/immutable/chunks/6-75535b79.js",
     "src": ".svelte-kit/generated/nodes/6.js",
     "isDynamicEntry": true,
     "imports": [
@@ -895,7 +895,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/7.js": {
-    "file": "internal/immutable/chunks/7-3bc0435b.js",
+    "file": "internal/immutable/chunks/7-243c76d7.js",
     "src": ".svelte-kit/generated/nodes/7.js",
     "isDynamicEntry": true,
     "imports": [
@@ -903,7 +903,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/8.js": {
-    "file": "internal/immutable/chunks/8-1cb56326.js",
+    "file": "internal/immutable/chunks/8-4296707c.js",
     "src": ".svelte-kit/generated/nodes/8.js",
     "isDynamicEntry": true,
     "imports": [
@@ -2376,10 +2376,6 @@
     "file": "internal/immutable/assets/withSvelte-d94c0ed0.css",
     "src": "withSvelte.css"
   },
-  "Element.css": {
-    "file": "internal/immutable/assets/Element-2bbf41d2.css",
-    "src": "Element.css"
-  },
   "CodeElement.css": {
     "file": "internal/immutable/assets/CodeElement-92fa530d.css",
     "src": "CodeElement.css"
@@ -2388,16 +2384,20 @@
     "file": "internal/immutable/assets/MdFormatQuote-0a14f6b6.css",
     "src": "MdFormatQuote.css"
   },
-  "src/routes/editor/+page.css": {
-    "file": "internal/immutable/assets/_page-c0e053e4.css",
-    "src": "src/routes/editor/+page.css"
+  "src/routes/richtext/+page.css": {
+    "file": "internal/immutable/assets/_page-984eb7cd.css",
+    "src": "src/routes/richtext/+page.css"
   },
   "MathButton.css": {
     "file": "internal/immutable/assets/MathButton-14f8d7ab.css",
     "src": "MathButton.css"
   },
-  "src/routes/huge-document/+page.css": {
-    "file": "internal/immutable/assets/_page-984eb7cd.css",
-    "src": "src/routes/huge-document/+page.css"
+  "src/routes/editor/+page.css": {
+    "file": "internal/immutable/assets/_page-c0e053e4.css",
+    "src": "src/routes/editor/+page.css"
+  },
+  "Element.css": {
+    "file": "internal/immutable/assets/Element-2bbf41d2.css",
+    "src": "Element.css"
   }
 }
