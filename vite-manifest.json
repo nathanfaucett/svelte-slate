@@ -236,13 +236,13 @@
     "src": "node_modules/katex/dist/fonts/KaTeX_Typewriter-Regular.ttf"
   },
   "node_modules/@sveltejs/kit/src/runtime/client/start.js": {
-    "file": "internal/immutable/start-84c3c2e4.js",
+    "file": "internal/immutable/start-b9cf2a98.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/client/start.js",
     "isEntry": true,
     "imports": [
       "_preload-helper-0ffe6af8.js",
       "_index-a65ad292.js",
-      "_singletons-b672284d.js",
+      "_singletons-a82647a2.js",
       "_paths-846459bd.js"
     ],
     "dynamicImports": [
@@ -258,7 +258,7 @@
     ]
   },
   "src/routes/+layout.svelte": {
-    "file": "internal/immutable/components/pages/_layout.svelte-d2c413f4.js",
+    "file": "internal/immutable/components/pages/_layout.svelte-82bb0cdf.js",
     "src": "src/routes/+layout.svelte",
     "isEntry": true,
     "imports": [
@@ -271,12 +271,12 @@
     ]
   },
   "node_modules/@sveltejs/kit/src/runtime/components/error.svelte": {
-    "file": "internal/immutable/components/error.svelte-1038638a.js",
+    "file": "internal/immutable/components/error.svelte-8513146a.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/components/error.svelte",
     "isEntry": true,
     "imports": [
       "_index-a65ad292.js",
-      "_singletons-b672284d.js"
+      "_singletons-a82647a2.js"
     ]
   },
   "src/routes/+page.svelte": {
@@ -289,16 +289,16 @@
     ]
   },
   "src/routes/chat/+page.svelte": {
-    "file": "internal/immutable/components/pages/chat/_page.svelte-3e67e9a5.js",
+    "file": "internal/immutable/components/pages/chat/_page.svelte-31108f14.js",
     "src": "src/routes/chat/+page.svelte",
     "isEntry": true,
     "imports": [
       "_index-a65ad292.js",
-      "_MathButton-f1b3e08f.js",
+      "_MathButton-d3477b78.js",
       "_withSvelte-9794308c.js",
-      "_CodeElement-f742a457.js",
-      "_MdFormatQuote-9a41fc80.js",
-      "_CheckListItemButton-0c4f39b4.js"
+      "_CodeElement-5a7f76e5.js",
+      "_MdFormatQuote-cfb61810.js",
+      "_CheckListItemButton-a92836d8.js"
     ],
     "css": [
       "internal/immutable/assets/_page-80f81047.css"
@@ -314,61 +314,61 @@
     ]
   },
   "src/routes/editor/+page.svelte": {
-    "file": "internal/immutable/components/pages/editor/_page.svelte-33e957ee.js",
+    "file": "internal/immutable/components/pages/editor/_page.svelte-b305bd0c.js",
     "src": "src/routes/editor/+page.svelte",
     "isEntry": true,
     "imports": [
       "_index-a65ad292.js",
       "_withSvelte-9794308c.js",
-      "_Element-d68b46c3.js",
-      "_CodeElement-f742a457.js"
+      "_Element-4ac9988c.js",
+      "_CodeElement-5a7f76e5.js"
     ],
     "css": [
       "internal/immutable/assets/_page-c0e053e4.css"
     ]
   },
   "src/routes/huge-document/+page.svelte": {
-    "file": "internal/immutable/components/pages/huge-document/_page.svelte-018d9655.js",
+    "file": "internal/immutable/components/pages/huge-document/_page.svelte-2d916640.js",
     "src": "src/routes/huge-document/+page.svelte",
     "isEntry": true,
     "imports": [
       "_index-a65ad292.js",
       "_withSvelte-9794308c.js",
-      "_Element-d68b46c3.js",
-      "_CodeElement-f742a457.js",
-      "_MdFormatQuote-9a41fc80.js"
+      "_Element-4ac9988c.js",
+      "_CodeElement-5a7f76e5.js",
+      "_MdFormatQuote-cfb61810.js"
     ],
     "css": [
       "internal/immutable/assets/_page-984eb7cd.css"
     ]
   },
   "src/routes/plugins/+page.svelte": {
-    "file": "internal/immutable/components/pages/plugins/_page.svelte-72776a88.js",
+    "file": "internal/immutable/components/pages/plugins/_page.svelte-1e9efe87.js",
     "src": "src/routes/plugins/+page.svelte",
     "isEntry": true,
     "imports": [
       "_index-a65ad292.js",
       "_withSvelte-9794308c.js",
-      "_MathButton-f1b3e08f.js",
-      "_CodeElement-f742a457.js",
-      "_MdFormatQuote-9a41fc80.js",
-      "_CheckListItemButton-0c4f39b4.js"
+      "_MathButton-d3477b78.js",
+      "_CodeElement-5a7f76e5.js",
+      "_MdFormatQuote-cfb61810.js",
+      "_CheckListItemButton-a92836d8.js"
     ],
     "css": [
       "internal/immutable/assets/_page-80f81047.css"
     ]
   },
   "src/routes/richtext/+page.svelte": {
-    "file": "internal/immutable/components/pages/richtext/_page.svelte-d8c30526.js",
+    "file": "internal/immutable/components/pages/richtext/_page.svelte-bcbaabfa.js",
     "src": "src/routes/richtext/+page.svelte",
     "isEntry": true,
     "imports": [
       "_index-a65ad292.js",
       "_withSvelte-9794308c.js",
-      "_Element-d68b46c3.js",
-      "_CodeElement-f742a457.js",
-      "_CheckListItemButton-0c4f39b4.js",
-      "_MdFormatQuote-9a41fc80.js",
+      "_Element-4ac9988c.js",
+      "_CodeElement-5a7f76e5.js",
+      "_CheckListItemButton-a92836d8.js",
+      "_MdFormatQuote-cfb61810.js",
       "_IconBase-4ccfc90a.js"
     ],
     "css": [
@@ -383,8 +383,8 @@
       "__layout-c2405b24.js"
     ]
   },
-  "_singletons-b672284d.js": {
-    "file": "internal/immutable/chunks/singletons-b672284d.js",
+  "_singletons-a82647a2.js": {
+    "file": "internal/immutable/chunks/singletons-a82647a2.js",
     "imports": [
       "_index-74dd7bae.js",
       "_paths-846459bd.js"
@@ -417,13 +417,13 @@
   "__layout-c2405b24.js": {
     "file": "internal/immutable/chunks/_layout-c2405b24.js"
   },
-  "_MathButton-f1b3e08f.js": {
-    "file": "internal/immutable/chunks/MathButton-f1b3e08f.js",
+  "_MathButton-d3477b78.js": {
+    "file": "internal/immutable/chunks/MathButton-d3477b78.js",
     "imports": [
       "_index-a65ad292.js",
       "_withSvelte-9794308c.js",
-      "_CodeElement-f742a457.js",
-      "_MdFormatQuote-9a41fc80.js",
+      "_CodeElement-5a7f76e5.js",
+      "_MdFormatQuote-cfb61810.js",
       "_IconBase-4ccfc90a.js"
     ],
     "css": [
@@ -501,8 +501,8 @@
       "internal/immutable/assets/withSvelte-d94c0ed0.css"
     ]
   },
-  "_CodeElement-f742a457.js": {
-    "file": "internal/immutable/chunks/CodeElement-f742a457.js",
+  "_CodeElement-5a7f76e5.js": {
+    "file": "internal/immutable/chunks/CodeElement-5a7f76e5.js",
     "imports": [
       "_index-a65ad292.js",
       "_withSvelte-9794308c.js",
@@ -545,10 +545,12 @@
       "node_modules/prismjs/components/prism-basic.min.js",
       "node_modules/prismjs/components/prism-batch.min.js",
       "node_modules/prismjs/components/prism-bbcode.min.js",
+      "node_modules/prismjs/components/prism-bbj.min.js",
       "node_modules/prismjs/components/prism-bicep.min.js",
       "node_modules/prismjs/components/prism-birb.min.js",
       "node_modules/prismjs/components/prism-bison.min.js",
       "node_modules/prismjs/components/prism-bnf.min.js",
+      "node_modules/prismjs/components/prism-bqn.min.js",
       "node_modules/prismjs/components/prism-brainfuck.min.js",
       "node_modules/prismjs/components/prism-brightscript.min.js",
       "node_modules/prismjs/components/prism-bro.min.js",
@@ -556,6 +558,8 @@
       "node_modules/prismjs/components/prism-cfscript.min.js",
       "node_modules/prismjs/components/prism-chaiscript.min.js",
       "node_modules/prismjs/components/prism-cil.min.js",
+      "node_modules/prismjs/components/prism-cilkc.min.js",
+      "node_modules/prismjs/components/prism-cilkcpp.min.js",
       "node_modules/prismjs/components/prism-clojure.min.js",
       "node_modules/prismjs/components/prism-cmake.min.js",
       "node_modules/prismjs/components/prism-cobol.min.js",
@@ -613,6 +617,7 @@
       "node_modules/prismjs/components/prism-gn.min.js",
       "node_modules/prismjs/components/prism-go-module.min.js",
       "node_modules/prismjs/components/prism-go.min.js",
+      "node_modules/prismjs/components/prism-gradle.min.js",
       "node_modules/prismjs/components/prism-graphql.min.js",
       "node_modules/prismjs/components/prism-groovy.min.js",
       "node_modules/prismjs/components/prism-haml.min.js",
@@ -678,6 +683,7 @@
       "node_modules/prismjs/components/prism-maxscript.min.js",
       "node_modules/prismjs/components/prism-mel.min.js",
       "node_modules/prismjs/components/prism-mermaid.min.js",
+      "node_modules/prismjs/components/prism-metafont.min.js",
       "node_modules/prismjs/components/prism-mizar.min.js",
       "node_modules/prismjs/components/prism-mongodb.min.js",
       "node_modules/prismjs/components/prism-monkey.min.js",
@@ -790,6 +796,7 @@
       "node_modules/prismjs/components/prism-warpscript.min.js",
       "node_modules/prismjs/components/prism-wasm.min.js",
       "node_modules/prismjs/components/prism-web-idl.min.js",
+      "node_modules/prismjs/components/prism-wgsl.min.js",
       "node_modules/prismjs/components/prism-wiki.min.js",
       "node_modules/prismjs/components/prism-wolfram.min.js",
       "node_modules/prismjs/components/prism-wren.min.js",
@@ -804,33 +811,33 @@
       "internal/immutable/assets/CodeElement-92fa530d.css"
     ]
   },
-  "_MdFormatQuote-9a41fc80.js": {
-    "file": "internal/immutable/chunks/MdFormatQuote-9a41fc80.js",
+  "_MdFormatQuote-cfb61810.js": {
+    "file": "internal/immutable/chunks/MdFormatQuote-cfb61810.js",
     "imports": [
       "_index-a65ad292.js",
       "_withSvelte-9794308c.js",
       "_IconBase-4ccfc90a.js",
-      "_CodeElement-f742a457.js"
+      "_CodeElement-5a7f76e5.js"
     ],
     "css": [
       "internal/immutable/assets/MdFormatQuote-0a14f6b6.css"
     ]
   },
-  "_CheckListItemButton-0c4f39b4.js": {
-    "file": "internal/immutable/chunks/CheckListItemButton-0c4f39b4.js",
+  "_CheckListItemButton-a92836d8.js": {
+    "file": "internal/immutable/chunks/CheckListItemButton-a92836d8.js",
     "imports": [
       "_index-a65ad292.js",
       "_withSvelte-9794308c.js",
-      "_MdFormatQuote-9a41fc80.js",
-      "_CodeElement-f742a457.js",
+      "_MdFormatQuote-cfb61810.js",
+      "_CodeElement-5a7f76e5.js",
       "_IconBase-4ccfc90a.js"
     ]
   },
-  "_Element-d68b46c3.js": {
-    "file": "internal/immutable/chunks/Element-d68b46c3.js",
+  "_Element-4ac9988c.js": {
+    "file": "internal/immutable/chunks/Element-4ac9988c.js",
     "imports": [
       "_index-a65ad292.js",
-      "_CodeElement-f742a457.js",
+      "_CodeElement-5a7f76e5.js",
       "_withSvelte-9794308c.js"
     ],
     "css": [
@@ -838,7 +845,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/0.js": {
-    "file": "internal/immutable/chunks/0-906f9edd.js",
+    "file": "internal/immutable/chunks/0-05dcc979.js",
     "src": ".svelte-kit/generated/nodes/0.js",
     "isDynamicEntry": true,
     "imports": [
@@ -847,7 +854,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/1.js": {
-    "file": "internal/immutable/chunks/1-79f645ef.js",
+    "file": "internal/immutable/chunks/1-0855871f.js",
     "src": ".svelte-kit/generated/nodes/1.js",
     "isDynamicEntry": true,
     "imports": [
@@ -863,7 +870,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/3.js": {
-    "file": "internal/immutable/chunks/3-fa1c7484.js",
+    "file": "internal/immutable/chunks/3-102a6671.js",
     "src": ".svelte-kit/generated/nodes/3.js",
     "isDynamicEntry": true,
     "imports": [
@@ -879,7 +886,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/5.js": {
-    "file": "internal/immutable/chunks/5-c50fabcb.js",
+    "file": "internal/immutable/chunks/5-b7b720e5.js",
     "src": ".svelte-kit/generated/nodes/5.js",
     "isDynamicEntry": true,
     "imports": [
@@ -887,7 +894,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/6.js": {
-    "file": "internal/immutable/chunks/6-75535b79.js",
+    "file": "internal/immutable/chunks/6-71bfb01a.js",
     "src": ".svelte-kit/generated/nodes/6.js",
     "isDynamicEntry": true,
     "imports": [
@@ -895,7 +902,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/7.js": {
-    "file": "internal/immutable/chunks/7-243c76d7.js",
+    "file": "internal/immutable/chunks/7-1bb032c3.js",
     "src": ".svelte-kit/generated/nodes/7.js",
     "isDynamicEntry": true,
     "imports": [
@@ -903,7 +910,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/8.js": {
-    "file": "internal/immutable/chunks/8-4296707c.js",
+    "file": "internal/immutable/chunks/8-9a5c802b.js",
     "src": ".svelte-kit/generated/nodes/8.js",
     "isDynamicEntry": true,
     "imports": [
@@ -1090,6 +1097,11 @@
     "src": "node_modules/prismjs/components/prism-bbcode.min.js",
     "isDynamicEntry": true
   },
+  "node_modules/prismjs/components/prism-bbj.min.js": {
+    "file": "internal/immutable/chunks/prism-bbj.min-987eff17.js",
+    "src": "node_modules/prismjs/components/prism-bbj.min.js",
+    "isDynamicEntry": true
+  },
   "node_modules/prismjs/components/prism-bicep.min.js": {
     "file": "internal/immutable/chunks/prism-bicep.min-0a0041ac.js",
     "src": "node_modules/prismjs/components/prism-bicep.min.js",
@@ -1108,6 +1120,11 @@
   "node_modules/prismjs/components/prism-bnf.min.js": {
     "file": "internal/immutable/chunks/prism-bnf.min-fa15a4c8.js",
     "src": "node_modules/prismjs/components/prism-bnf.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-bqn.min.js": {
+    "file": "internal/immutable/chunks/prism-bqn.min-a4d3abb9.js",
+    "src": "node_modules/prismjs/components/prism-bqn.min.js",
     "isDynamicEntry": true
   },
   "node_modules/prismjs/components/prism-brainfuck.min.js": {
@@ -1143,6 +1160,16 @@
   "node_modules/prismjs/components/prism-cil.min.js": {
     "file": "internal/immutable/chunks/prism-cil.min-9cd2c767.js",
     "src": "node_modules/prismjs/components/prism-cil.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-cilkc.min.js": {
+    "file": "internal/immutable/chunks/prism-cilkc.min-c867de0a.js",
+    "src": "node_modules/prismjs/components/prism-cilkc.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-cilkcpp.min.js": {
+    "file": "internal/immutable/chunks/prism-cilkcpp.min-2be4cb75.js",
+    "src": "node_modules/prismjs/components/prism-cilkcpp.min.js",
     "isDynamicEntry": true
   },
   "node_modules/prismjs/components/prism-clojure.min.js": {
@@ -1428,6 +1455,11 @@
   "node_modules/prismjs/components/prism-go.min.js": {
     "file": "internal/immutable/chunks/prism-go.min-547f9e54.js",
     "src": "node_modules/prismjs/components/prism-go.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-gradle.min.js": {
+    "file": "internal/immutable/chunks/prism-gradle.min-e1b7f25d.js",
+    "src": "node_modules/prismjs/components/prism-gradle.min.js",
     "isDynamicEntry": true
   },
   "node_modules/prismjs/components/prism-graphql.min.js": {
@@ -1753,6 +1785,11 @@
   "node_modules/prismjs/components/prism-mermaid.min.js": {
     "file": "internal/immutable/chunks/prism-mermaid.min-f69815f9.js",
     "src": "node_modules/prismjs/components/prism-mermaid.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-metafont.min.js": {
+    "file": "internal/immutable/chunks/prism-metafont.min-ac443f4f.js",
+    "src": "node_modules/prismjs/components/prism-metafont.min.js",
     "isDynamicEntry": true
   },
   "node_modules/prismjs/components/prism-mizar.min.js": {
@@ -2315,6 +2352,11 @@
     "src": "node_modules/prismjs/components/prism-web-idl.min.js",
     "isDynamicEntry": true
   },
+  "node_modules/prismjs/components/prism-wgsl.min.js": {
+    "file": "internal/immutable/chunks/prism-wgsl.min-a978c8ea.js",
+    "src": "node_modules/prismjs/components/prism-wgsl.min.js",
+    "isDynamicEntry": true
+  },
   "node_modules/prismjs/components/prism-wiki.min.js": {
     "file": "internal/immutable/chunks/prism-wiki.min-f33518f4.js",
     "src": "node_modules/prismjs/components/prism-wiki.min.js",
@@ -2364,14 +2406,6 @@
     "file": "internal/immutable/assets/_layout-1ca33f26.css",
     "src": "src/routes/+layout.css"
   },
-  "CodeElement.css": {
-    "file": "internal/immutable/assets/CodeElement-92fa530d.css",
-    "src": "CodeElement.css"
-  },
-  "withSvelte.css": {
-    "file": "internal/immutable/assets/withSvelte-d94c0ed0.css",
-    "src": "withSvelte.css"
-  },
   "IconBase.css": {
     "file": "internal/immutable/assets/IconBase-d93538e2.css",
     "src": "IconBase.css"
@@ -2380,17 +2414,17 @@
     "file": "internal/immutable/assets/_page-80f81047.css",
     "src": "src/routes/plugins/+page.css"
   },
-  "MathButton.css": {
-    "file": "internal/immutable/assets/MathButton-14f8d7ab.css",
-    "src": "MathButton.css"
+  "withSvelte.css": {
+    "file": "internal/immutable/assets/withSvelte-d94c0ed0.css",
+    "src": "withSvelte.css"
   },
-  "src/routes/huge-document/+page.css": {
+  "src/routes/richtext/+page.css": {
     "file": "internal/immutable/assets/_page-984eb7cd.css",
-    "src": "src/routes/huge-document/+page.css"
+    "src": "src/routes/richtext/+page.css"
   },
-  "Element.css": {
-    "file": "internal/immutable/assets/Element-2bbf41d2.css",
-    "src": "Element.css"
+  "CodeElement.css": {
+    "file": "internal/immutable/assets/CodeElement-92fa530d.css",
+    "src": "CodeElement.css"
   },
   "MdFormatQuote.css": {
     "file": "internal/immutable/assets/MdFormatQuote-0a14f6b6.css",
@@ -2399,5 +2433,13 @@
   "src/routes/editor/+page.css": {
     "file": "internal/immutable/assets/_page-c0e053e4.css",
     "src": "src/routes/editor/+page.css"
+  },
+  "Element.css": {
+    "file": "internal/immutable/assets/Element-2bbf41d2.css",
+    "src": "Element.css"
+  },
+  "MathButton.css": {
+    "file": "internal/immutable/assets/MathButton-14f8d7ab.css",
+    "src": "MathButton.css"
   }
 }
