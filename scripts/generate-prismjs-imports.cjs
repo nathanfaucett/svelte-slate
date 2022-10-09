@@ -87,12 +87,7 @@ truncateSync(OUTPUT_PATH, 0);
 
 const writeStream = createWriteStream(OUTPUT_PATH);
 
-writeStream.write(`import Prism from "prismjs";\n`);
-writeStream.write(`if (typeof window !== "undefined") {\n`);
-writeStream.write(`\t// @ts-ignore\n`);
-writeStream.write(`\twindow.Prism = Prism || {};\n`);
-writeStream.write(`\twindow.Prism.manual = true;\n`);
-writeStream.write(`}\n`);
+writeStream.write(`import "prismjs";\n`);
 writeStream.write(`import "${IMPORT_PATH}${CORE_NAME}";\n`);
 writeStream.write('export const languages = {\n');
 imports.forEach(([name, importFn]) => writeStream.write(`\t"${name}": () => ${importFn},\n`));

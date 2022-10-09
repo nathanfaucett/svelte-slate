@@ -1,9 +1,4 @@
-import Prism from 'prismjs';
-if (typeof window !== 'undefined') {
-	// @ts-ignore
-	window.Prism = Prism || {};
-	window.Prism.manual = true;
-}
+import 'prismjs';
 import 'prismjs/components/prism-core.min.js';
 export const languages = {
 	abap: () => import('prismjs/components/prism-abap.min.js'),
