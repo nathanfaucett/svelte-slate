@@ -1,6 +1,8 @@
 <svelte:options immutable />
 
 <script lang="ts" context="module">
+	import type { Token, Grammar } from 'prismjs';
+	import { languages } from './prismjs';
 	import type { IBaseElement, IElement } from './Element.svelte';
 	import { createContext, createContextKey, findPath, getFromContext } from '../utils';
 	import type { ISvelteEditor } from '$lib/withSvelte';
@@ -23,7 +25,7 @@
 				return loader()
 					.then(() => {
 						LANG_LOADED[name] = true;
-						return Prism.languages[name];
+						return window.Prism.languages[name];
 					})
 					.finally(() => {
 						LANG_LOADING[name] = false;
@@ -32,7 +34,7 @@
 		}
 		LANG_LOADING[name] = false;
 		LANG_LOADED[name] = true;
-		return Prism.languages[name];
+		return window.Prism.languages[name];
 	}
 
 	function getLength(token: string | Token): number {
@@ -97,11 +99,6 @@
 </script>
 
 <script lang="ts">
-	import type { Token, Grammar } from 'prismjs';
-	// @ts-ignore
-	import Prism from 'prismjs';
-	import 'prismjs';
-	import { languages } from './prismjs';
 	import { Editor, Range, Transforms, Point, type NodeEntry, Text } from 'slate';
 	import { CODE_LINE_TYPE, type ICodeEditorElement } from './CodeEditorElement.svelte';
 	import CodeEditorElement from './CodeEditorElement.svelte';
@@ -109,6 +106,7 @@
 	import { ELEMENT_CONTEXT_KEY, LEAF_CONTEXT_KEY } from '../components/Editable.svelte';
 	import { addEventListener, DECORATE_CONTEXT_KEY, getEditor } from '../components/Slate.svelte';
 	import { PARAGRAPH_TYPE } from './ParagraphElement.svelte';
+	import { browser } from '$app/environment';
 
 	export let element: ICodeElement;
 	export let isInline: boolean;
@@ -128,9 +126,11 @@
 		element.language as keyof typeof languages
 	);
 	let prismLanguage: Grammar | undefined;
-	$: loadLanguage($languageContext).then((lang) => {
-		prismLanguage = lang;
-	});
+	$: if (browser) {
+		loadLanguage($languageContext).then((lang) => {
+			prismLanguage = lang;
+		});
+	}
 
 	function onSelect(e: Event) {
 		const language = (e.target as HTMLSelectElement).value as keyof typeof languages;
