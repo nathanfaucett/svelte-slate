@@ -68,6 +68,7 @@ export const languages = {
 	basic: () => import('prismjs/components/prism-basic.min.js'),
 	batch: () => import('prismjs/components/prism-batch.min.js'),
 	bbcode: () => import('prismjs/components/prism-bbcode.min.js'),
+	bbj: () => import('prismjs/components/prism-bbj.min.js'),
 	bicep: () => import('prismjs/components/prism-bicep.min.js'),
 	birb: () =>
 		import('prismjs/components/prism-clike.min.js').then(
@@ -78,6 +79,7 @@ export const languages = {
 			() => import('prismjs/components/prism-bison.min.js')
 		),
 	bnf: () => import('prismjs/components/prism-bnf.min.js'),
+	bqn: () => import('prismjs/components/prism-bqn.min.js'),
 	brainfuck: () => import('prismjs/components/prism-brainfuck.min.js'),
 	brightscript: () => import('prismjs/components/prism-brightscript.min.js'),
 	bro: () => import('prismjs/components/prism-bro.min.js'),
@@ -92,6 +94,8 @@ export const languages = {
 			import('prismjs/components/prism-cpp.min.js')
 		]).then(() => import('prismjs/components/prism-chaiscript.min.js')),
 	cil: () => import('prismjs/components/prism-cil.min.js'),
+	cilkc: () => import('prismjs/components/prism-cilkc.min.js'),
+	cilkcpp: () => import('prismjs/components/prism-cilkcpp.min.js'),
 	clojure: () => import('prismjs/components/prism-clojure.min.js'),
 	cmake: () => import('prismjs/components/prism-cmake.min.js'),
 	cobol: () => import('prismjs/components/prism-cobol.min.js'),
@@ -210,6 +214,7 @@ export const languages = {
 		import('prismjs/components/prism-clike.min.js').then(
 			() => import('prismjs/components/prism-go.min.js')
 		),
+	gradle: () => import('prismjs/components/prism-gradle.min.js'),
 	graphql: () => import('prismjs/components/prism-graphql.min.js'),
 	groovy: () =>
 		import('prismjs/components/prism-clike.min.js').then(
@@ -351,6 +356,7 @@ export const languages = {
 	maxscript: () => import('prismjs/components/prism-maxscript.min.js'),
 	mel: () => import('prismjs/components/prism-mel.min.js'),
 	mermaid: () => import('prismjs/components/prism-mermaid.min.js'),
+	metafont: () => import('prismjs/components/prism-metafont.min.js'),
 	mizar: () => import('prismjs/components/prism-mizar.min.js'),
 	mongodb: () =>
 		import('prismjs/components/prism-javascript.min.js').then(
@@ -591,6 +597,7 @@ export const languages = {
 	warpscript: () => import('prismjs/components/prism-warpscript.min.js'),
 	wasm: () => import('prismjs/components/prism-wasm.min.js'),
 	'web-idl': () => import('prismjs/components/prism-web-idl.min.js'),
+	wgsl: () => import('prismjs/components/prism-wgsl.min.js'),
 	wiki: () =>
 		import('prismjs/components/prism-markup.min.js').then(
 			() => import('prismjs/components/prism-wiki.min.js')

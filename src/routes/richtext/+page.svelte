@@ -112,13 +112,12 @@
 	];
 
 	function onKeyDown(event: KeyboardEvent) {
-		for (const hotkey in HOTKEYS) {
+		Object.entries(HOTKEYS).forEach(([hotkey, mark]) => {
 			if (isHotkey(hotkey, event)) {
 				event.preventDefault();
-				const mark = HOTKEYS[hotkey];
 				toggleMark(editor, mark);
 			}
-		}
+		});
 	}
 </script>
 
