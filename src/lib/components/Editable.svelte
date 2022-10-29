@@ -60,7 +60,7 @@
 	} from 'slate';
 	import { afterUpdate } from 'svelte';
 	import { onMount, tick } from 'svelte';
-	import { debounce } from 'throttle-debounce';
+	import { debounce } from '@aicacia/debounce';
 	import scrollIntoView from 'scroll-into-view-if-needed';
 	import { direction } from '../direction';
 	import Children from './Children.svelte';
@@ -248,7 +248,7 @@
 		}
 	}
 	const afterFlushOnDOMSelectionChange = () => tick().then(onDOMSelectionChange);
-	const debouncedOnDOMSelectionChange = debounce(0, afterFlushOnDOMSelectionChange);
+	const debouncedOnDOMSelectionChange = debounce(afterFlushOnDOMSelectionChange, 0);
 
 	onMount(() => {
 		const window = getDefaultView(ref);
