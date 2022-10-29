@@ -106,7 +106,6 @@
 	import { ELEMENT_CONTEXT_KEY, LEAF_CONTEXT_KEY } from '../components/Editable.svelte';
 	import { addEventListener, DECORATE_CONTEXT_KEY, getEditor } from '../components/Slate.svelte';
 	import { PARAGRAPH_TYPE } from './ParagraphElement.svelte';
-	import { browser } from '$app/environment';
 
 	export let element: ICodeElement;
 	export let isInline: boolean;
@@ -126,7 +125,7 @@
 		element.language as keyof typeof languages
 	);
 	let prismLanguage: Grammar | undefined;
-	$: if (browser) {
+	$: if (typeof window !== 'undefined') {
 		loadLanguage($languageContext).then((lang) => {
 			prismLanguage = lang;
 		});

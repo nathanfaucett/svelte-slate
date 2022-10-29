@@ -1,16 +1,5 @@
 <svelte:options immutable />
 
-<script lang="ts" context="module">
-	import { isHotkey } from '../isHotkey';
-
-	const HOTKEYS = {
-		'mod+b': 'bold',
-		'mod+i': 'italic',
-		'mod+u': 'underline',
-		'mod+`': 'code'
-	};
-</script>
-
 <script lang="ts">
 	import type { ISvelteComponent } from '../utils';
 	import DefaultPlaceholder from '../components/DefaultPlaceholder.svelte';

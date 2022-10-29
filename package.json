@@ -1,7 +1,7 @@
 {
 	"name": "svelte-slate",
 	"description": "slate svelte view layer",
-	"version": "0.1.54",
+	"version": "0.1.55",
 	"license": "(MIT OR Apache-2.0)",
 	"type": "module",
 	"author": "Nathan Faucett",
@@ -70,7 +70,7 @@
 		"tslib": "2"
 	},
 	"dependencies": {
-		"@svelte-put/clickoutside": "^1.0.3",
+		"@svelte-put/clickoutside": "1",
 		"fast-equals": "4",
 		"scroll-into-view-if-needed": "2",
 		"throttle-debounce": "5"
