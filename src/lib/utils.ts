@@ -58,6 +58,7 @@ export function findPath(node: Node): Path {
 	const path: Path = [];
 	let child = node;
 
+	// eslint-disable-next-line no-constant-condition
 	while (true) {
 		const parent = NODE_TO_PARENT.get(child);
 
@@ -416,10 +417,10 @@ export function toSlateRange<T extends boolean>(
 	const { exactMatch, suppressThrow } = options;
 	const el = isDOMSelection(domRange) ? domRange.anchorNode : domRange.startContainer;
 	let anchorNode: DOMNode | null = null;
-	let anchorOffset: number = 0;
+	let anchorOffset = 0;
 	let focusNode: DOMNode | null = null;
-	let focusOffset: number = 0;
-	let isCollapsed: boolean = false;
+	let focusOffset = 0;
+	let isCollapsed = false;
 
 	if (el) {
 		if (isDOMSelection(domRange)) {

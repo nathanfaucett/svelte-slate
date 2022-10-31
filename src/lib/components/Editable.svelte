@@ -247,8 +247,7 @@
 			Transforms.deselect(editor);
 		}
 	}
-	const afterFlushOnDOMSelectionChange = () => tick().then(onDOMSelectionChange);
-	const debouncedOnDOMSelectionChange = debounce(afterFlushOnDOMSelectionChange, 0);
+	const debouncedOnDOMSelectionChange = debounce(() => tick().then(onDOMSelectionChange), 0);
 
 	onMount(() => {
 		const window = getDefaultView(ref);
@@ -273,6 +272,9 @@
 	});
 
 	function onUpdate() {
+		if (!ref) {
+			return;
+		}
 		const root = findDocumentOrShadowRoot(editor) as Document;
 		const domSelection = root?.getSelection();
 
@@ -355,7 +357,9 @@
 			updateSelectionTimeoutId: timeoutId
 		});
 	}
-	afterUpdate(() => tick().then(onUpdate));
+
+	const debouncedOnUpdate = debounce(() => tick().then(onUpdate), 0);
+	afterUpdate(debouncedOnUpdate);
 
 	function onBeforeInput(event: InputEvent & { currentTarget: EventTarget & HTMLElement }) {
 		if (!state.readOnly && hasEditableTarget(editor, event.target)) {
