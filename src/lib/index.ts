@@ -1,5 +1,28 @@
-export { default as Slate } from './components/Slate.svelte';
-export { default as Editable } from './components/Editable.svelte';
+export {
+	default as Slate,
+	getEditorContext,
+	getContainerContext,
+	getDecorateContext,
+	getEditor,
+	getEventsContext,
+	getFocusedContext,
+	getReadOnlyContext,
+	getSelectionContext,
+	getValueContext,
+	defaultDecorate,
+	handleEvent,
+	addEventListener
+} from './components/Slate.svelte';
+export {
+	default as Editable,
+	getElementContext,
+	getLeafContext,
+	getPlaceholderContext,
+	hasEditableTarget,
+	hasTarget,
+	isTargetInsideNonReadonlyVoid,
+	defaultScrollSelectionIntoView
+} from './components/Editable.svelte';
 export {
 	findPath,
 	findKey,
@@ -28,5 +51,4 @@ export { default as ZeroWidthString } from './components/ZeroWidthString.svelte'
 export { default as hotkeys } from './hotkeys';
 export { isHotkey, isKeyHotkey, createIsHotkey, createIsKeyHotkey } from './isHotkey';
 export { findCurrentLineRange } from './lines';
-export type { ISvelteEditor } from './withSvelte';
-export { withSvelte } from './withSvelte';
+export { withSvelte, type ISvelteEditor } from './withSvelte';
