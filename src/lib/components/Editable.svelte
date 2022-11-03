@@ -1,55 +1,4 @@
 <script lang="ts" context="module">
-	export const ELEMENT_CONTEXT_KEY = createContextKey<ISvelteComponent<IElementProps>>();
-	export const LEAF_CONTEXT_KEY = createContextKey<ISvelteComponent<ILeafProps>>();
-	export const PLACEHOLDER_CONTEXT_KEY = createContextKey<ISvelteComponent<IPlaceholderProps>>();
-
-	export function getElementContext() {
-		return getFromContext(ELEMENT_CONTEXT_KEY);
-	}
-	export function getLeafContext() {
-		return getFromContext(LEAF_CONTEXT_KEY);
-	}
-	export function getPlaceholderContext() {
-		return getFromContext(PLACEHOLDER_CONTEXT_KEY);
-	}
-
-	type DeferredOperation = () => void;
-
-	export function hasTarget(editor: ISvelteEditor, target: EventTarget | null): target is Node {
-		return isDOMNode(target) && hasDOMNode(editor, target);
-	}
-
-	export function hasEditableTarget(
-		editor: ISvelteEditor,
-		target: EventTarget | null
-	): target is DOMNode {
-		return isDOMNode(target) && hasDOMNode(editor, target, { editable: true });
-	}
-
-	export function isTargetInsideNonReadonlyVoid(
-		editor: ISvelteEditor,
-		target: EventTarget | null
-	): boolean {
-		if (IS_READ_ONLY.get(editor)) {
-			return false;
-		} else {
-			const slateNode = hasTarget(editor, target) && toSlateNode(target);
-			return Editor.isVoid(editor, slateNode);
-		}
-	}
-
-	export function defaultScrollSelectionIntoView(_editor: Editor, domRange: DOMRange) {
-		const leafEl = domRange.startContainer.parentElement!;
-		const prevGetBoundingClientRect = leafEl.getBoundingClientRect;
-		leafEl.getBoundingClientRect = domRange.getBoundingClientRect.bind(domRange);
-		scrollIntoView(leafEl, {
-			scrollMode: 'if-needed'
-		});
-		leafEl.getBoundingClientRect = prevGetBoundingClientRect;
-	}
-</script>
-
-<script lang="ts">
 	import {
 		Editor,
 		Node as SlateNode,
@@ -117,8 +66,59 @@
 	} from '../weakMaps';
 	import type { IElementProps } from './InternalElement.svelte';
 	import type { ILeafProps, IPlaceholderProps } from './InternalLeaf.svelte';
-	import { getContainerContext } from '../components/Slate.svelte';
+	import { getContainerContext } from './Slate.svelte';
 
+	export const ELEMENT_CONTEXT_KEY = createContextKey<ISvelteComponent<IElementProps>>();
+	export const LEAF_CONTEXT_KEY = createContextKey<ISvelteComponent<ILeafProps>>();
+	export const PLACEHOLDER_CONTEXT_KEY = createContextKey<ISvelteComponent<IPlaceholderProps>>();
+
+	export function getElementContext() {
+		return getFromContext(ELEMENT_CONTEXT_KEY);
+	}
+	export function getLeafContext() {
+		return getFromContext(LEAF_CONTEXT_KEY);
+	}
+	export function getPlaceholderContext() {
+		return getFromContext(PLACEHOLDER_CONTEXT_KEY);
+	}
+
+	type DeferredOperation = () => void;
+
+	export function hasTarget(editor: ISvelteEditor, target: EventTarget | null): target is Node {
+		return isDOMNode(target) && hasDOMNode(editor, target);
+	}
+
+	export function hasEditableTarget(
+		editor: ISvelteEditor,
+		target: EventTarget | null
+	): target is DOMNode {
+		return isDOMNode(target) && hasDOMNode(editor, target, { editable: true });
+	}
+
+	export function isTargetInsideNonReadonlyVoid(
+		editor: ISvelteEditor,
+		target: EventTarget | null
+	): boolean {
+		if (IS_READ_ONLY.get(editor)) {
+			return false;
+		} else {
+			const slateNode = hasTarget(editor, target) && toSlateNode(target);
+			return Editor.isVoid(editor, slateNode);
+		}
+	}
+
+	export function defaultScrollSelectionIntoView(_editor: Editor, domRange: DOMRange) {
+		const leafEl = domRange.startContainer.parentElement!;
+		const prevGetBoundingClientRect = leafEl.getBoundingClientRect;
+		leafEl.getBoundingClientRect = domRange.getBoundingClientRect.bind(domRange);
+		scrollIntoView(leafEl, {
+			scrollMode: 'if-needed'
+		});
+		leafEl.getBoundingClientRect = prevGetBoundingClientRect;
+	}
+</script>
+
+<script lang="ts">
 	export let Element: ISvelteComponent<IElementProps> = DefaultElement;
 	export let Leaf: ISvelteComponent<ILeafProps> = DefaultLeaf;
 	export let Placeholder: ISvelteComponent<IPlaceholderProps> = DefaultPlaceholder;

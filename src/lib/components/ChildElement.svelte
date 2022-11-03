@@ -1,4 +1,6 @@
 <script lang="ts" context="module">
+	import { createContextKey, getFromContext } from '../utils';
+
 	const SELECTED_CONTEXT_KEY = createContextKey<boolean>();
 
 	export function getSelectedContext() {
@@ -12,13 +14,7 @@
 	import InternalElement from './InternalElement.svelte';
 	import { NODE_TO_INDEX, NODE_TO_PARENT } from '../weakMaps';
 	import { getChildDecorations } from './Children.svelte';
-	import {
-		createContext,
-		createContextKey,
-		getFromContext,
-		isDecoratorRangeListEqual,
-		isSelectionEqual
-	} from '../utils';
+	import { createContext, isDecoratorRangeListEqual, isSelectionEqual } from '../utils';
 	import { getDecorateContext, getEditor } from './Slate.svelte';
 
 	export let parent: Ancestor;

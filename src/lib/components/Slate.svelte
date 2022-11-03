@@ -1,6 +1,13 @@
 <svelte:options immutable />
 
 <script lang="ts" context="module">
+	import type { ISvelteEditor } from '../withSvelte';
+	import type { Descendant, Range, NodeEntry, Selection, BaseSelection } from 'slate';
+	import { get, type Writable } from 'svelte/store';
+	import { getFromContext, createContextKey, isSelectionEqual, createContext } from '../utils';
+	import { onMount, createEventDispatcher } from 'svelte';
+	import { EDITOR_TO_ON_CHANGE } from '../weakMaps';
+
 	export const EDITOR_CONTEXT_KEY = createContextKey<ISvelteEditor>();
 	export const READ_ONLY_CONTEXT_KEY = createContextKey<boolean>();
 	export const FOCUSED_CONTEXT_KEY = createContextKey<boolean>();
@@ -105,13 +112,6 @@
 </script>
 
 <script lang="ts">
-	import { EDITOR_TO_ON_CHANGE } from '../weakMaps';
-	import type { ISvelteEditor } from '../withSvelte';
-	import type { Descendant, Range, NodeEntry, Selection, BaseSelection } from 'slate';
-	import { get, type Writable } from 'svelte/store';
-	import { getFromContext, createContextKey, isSelectionEqual, createContext } from '../utils';
-	import { createEventDispatcher, onMount } from 'svelte';
-
 	export let editor: ISvelteEditor;
 	export let value: Descendant[] = editor.children;
 	export let selection = editor.selection;

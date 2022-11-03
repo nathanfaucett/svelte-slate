@@ -1,4 +1,6 @@
 <script lang="ts" context="module">
+	import { Range } from 'slate';
+
 	export function getChildDecorations(
 		childDecorations: Range[],
 		range: Range,
@@ -17,7 +19,7 @@
 
 <script lang="ts">
 	import type { Ancestor, Selection } from 'slate';
-	import { Element as SlateElement, Editor, Range } from 'slate';
+	import { Element as SlateElement, Editor } from 'slate';
 	import { findKey, findPath } from '../utils';
 	import { getEditor } from './Slate.svelte';
 	import ChildElement from './ChildElement.svelte';
