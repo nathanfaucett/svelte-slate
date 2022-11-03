@@ -10,10 +10,18 @@
 		"sourceMap": true,
 		"strict": true,
 		"paths": {
-			"$lib": ["src/lib"],
-			"$lib/*": ["src/lib/*"],
-			"svelte-slate": ["src/lib"],
-			"svelte-slate/*": ["src/lib/*"]
+			"$lib": [
+				"src/lib"
+			],
+			"$lib/*": [
+				"src/lib/*"
+			],
+			"svelte-slate": [
+				"src/lib"
+			],
+			"svelte-slate/*": [
+				"src/lib/*"
+			]
 		}
 	}
 }

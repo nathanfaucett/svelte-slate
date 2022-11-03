@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { withSvelte } from '../../lib/withSvelte';
-	import Editable from '../../lib/components/Editable.svelte';
-	import Slate from '../../lib/components/Slate.svelte';
+	import { withSvelte } from 'svelte-slate/withSvelte';
+	import Editable from 'svelte-slate/components/Editable.svelte';
+	import Slate from 'svelte-slate/components/Slate.svelte';
 	import { createEditor } from 'slate';
 	import { withHistory } from 'slate-history';
 

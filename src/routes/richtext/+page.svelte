@@ -11,18 +11,18 @@
 	import { createEditor } from 'slate';
 	import { withHistory } from 'slate-history';
 	import Element from '../../example/Element.svelte';
-	import Leaf from '../../lib/plugins/Leaf.svelte';
-	import { withCheckListItems } from '../../lib/plugins/CheckListItemElement.svelte';
+	import Leaf from 'svelte-slate/plugins/Leaf.svelte';
+	import { withCheckListItems } from 'svelte-slate/plugins/CheckListItemElement.svelte';
 	import CheckListItemButton from '../../example/CheckListItemButton.svelte';
-	import { withImages } from '../../lib/plugins/ImageElement.svelte';
+	import { withImages } from 'svelte-slate/plugins/ImageElement.svelte';
 	import ImageButton from '../../example/ImageButton.svelte';
 	import MarkButton from '../../example/MarkButton.svelte';
 	import BlockButton from '../../example/BlockButton.svelte';
-	import { toggleMark } from '../../lib/plugins/utils';
+	import { toggleMark } from 'svelte-slate/plugins/utils';
 	import VoidButton from '../../example/VoidButton.svelte';
 	import { withVoids } from '../../example/VoidElement.svelte';
 	import CodeButton from '../../example/CodeButton.svelte';
-	import { withCode } from '../../lib/plugins/CodeElement.svelte';
+	import { withCode } from 'svelte-slate/plugins/CodeElement.svelte';
 	import MdFormatBold from 'svelte-icons/md/MdFormatBold.svelte';
 	import MdCode from 'svelte-icons/md/MdCode.svelte';
 	import MdLooksOne from 'svelte-icons/md/MdLooksOne.svelte';
@@ -32,10 +32,10 @@
 	import MdFormatListNumbered from 'svelte-icons/md/MdFormatListNumbered.svelte';
 	import MdFormatListBulleted from 'svelte-icons/md/MdFormatListBulleted.svelte';
 	import MdFormatQuote from 'svelte-icons/md/MdFormatQuote.svelte';
-	import { withSvelte } from '../../lib/withSvelte';
-	import { isHotkey } from '../../lib/isHotkey';
-	import Editable from '../../lib/components/Editable.svelte';
-	import Slate from '../../lib/components/Slate.svelte';
+	import { withSvelte } from 'svelte-slate/withSvelte';
+	import { isHotkey } from 'svelte-slate/isHotkey';
+	import Editable from 'svelte-slate/components/Editable.svelte';
+	import Slate from 'svelte-slate/components/Slate.svelte';
 
 	const editor = withHistory(
 		withCode(withVoids(withImages(withCheckListItems(withSvelte(createEditor())))))
