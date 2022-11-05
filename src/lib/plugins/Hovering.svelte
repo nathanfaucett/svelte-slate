@@ -1,7 +1,7 @@
 <svelte:options immutable />
 
 <script lang="ts" context="module">
-	export function repositionElement(
+	function repositionElement(
 		ref: HTMLElement,
 		container: HTMLElement,
 		innerWidth: number,
