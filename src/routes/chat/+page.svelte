@@ -1,22 +1,28 @@
 <script lang="ts">
-	import Slate from 'svelte-slate/plugins/Slate.svelte';
-	import Editable from 'svelte-slate/plugins/Editable.svelte';
+	import {
+		PluginSlate,
+		PluginEditable,
+		DEFAULT_PLUGINS,
+		ImageElement,
+		IMAGE_TYPE,
+		withImages,
+		MathElement,
+		MATH_TYPE,
+		withMath,
+		CodeElement,
+		CODE_TYPE,
+		isCodeElement,
+		withCode,
+		HoveringToolbar
+	} from 'svelte-slate';
 	import { createEditor, Editor, type BaseRange, type NodeMatch } from 'slate';
 	import { withHistory } from 'slate-history';
-	import { DEFAULT_PLUGINS } from 'svelte-slate/plugins/DEFAULT_PLUGINS';
-	import ImageElement, { IMAGE_TYPE, withImages } from 'svelte-slate/plugins/ImageElement.svelte';
 	import { longpress } from '../../example/longpress';
 	import ImageButton from '../../example/ImageButton.svelte';
 	import CodeButton from '../../example/CodeButton.svelte';
 	import CheckListItemButton from '../../example/CheckListItemButton.svelte';
 	import MarkButton from '../../example/MarkButton.svelte';
 	import BlockButton from '../../example/BlockButton.svelte';
-	import CodeElement, {
-		CODE_TYPE,
-		isCodeElement,
-		withCode
-	} from 'svelte-slate/plugins/CodeElement.svelte';
-	import HoveringToolbar from 'svelte-slate/plugins/HoveringToolbar.svelte';
 	import MdFormatBold from 'svelte-icons/md/MdFormatBold.svelte';
 	import MdCode from 'svelte-icons/md/MdCode.svelte';
 	import MdLooksOne from 'svelte-icons/md/MdLooksOne.svelte';
@@ -27,9 +33,8 @@
 	import MdFormatListBulleted from 'svelte-icons/md/MdFormatListBulleted.svelte';
 	import MdFormatQuote from 'svelte-icons/md/MdFormatQuote.svelte';
 	import MathButton from '../../example/MathButton.svelte';
-	import MathElement, { MATH_TYPE, withMath } from 'svelte-slate/plugins/MathElement.svelte';
-	import { withSvelte } from 'svelte-slate/withSvelte';
-	import { isReadOnly } from 'svelte-slate/utils';
+	import { withSvelte } from 'svelte-slate';
+	import { isReadOnly } from 'svelte-slate';
 	import type { IBaseElement } from '$lib/plugins/Element.svelte';
 
 	const editor = withHistory(withSvelte(createEditor()));
@@ -80,7 +85,7 @@
 	</a>
 </p>
 
-<Slate {editor} {plugins} bind:value>
+<PluginSlate {editor} {plugins} bind:value>
 	<HoveringToolbar container={ref} bind:open>
 		<div class="toolbar">
 			<MarkButton format="bold"><MdFormatBold /></MarkButton>
@@ -99,9 +104,9 @@
 		</div>
 	</HoveringToolbar>
 	<div class="editor" use:longpress on:longpress={onLongPress}>
-		<Editable bind:ref placeholder="Enter some plain text..." {onKeyDown} />
+		<PluginEditable bind:ref placeholder="Enter some plain text..." {onKeyDown} />
 	</div>
-</Slate>
+</PluginSlate>
 
 <style>
 	.editor {

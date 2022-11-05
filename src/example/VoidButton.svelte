@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { getEditorContext } from 'svelte-slate/components/Slate.svelte';
+	import { getEditorContext } from 'svelte-slate';
 	import MdTexture from 'svelte-icons/md/MdTexture.svelte';
 	import Button from './Button.svelte';
 	import { insertVoid } from './VoidElement.svelte';
-	import { isBlockActive } from 'svelte-slate/plugins/utils';
+	import { isBlockActive } from 'svelte-slate';
 
 	const editorContext = getEditorContext();
 

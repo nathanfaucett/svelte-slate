@@ -1,7 +1,5 @@
 <script lang="ts">
-	import { withSvelte } from 'svelte-slate/withSvelte';
-	import Editable from 'svelte-slate/components/Editable.svelte';
-	import Slate from 'svelte-slate/components/Slate.svelte';
+	import { PluginSlate, PluginEditable, withSvelte } from 'svelte-slate';
 	import { createEditor } from 'slate';
 	import { withHistory } from 'slate-history';
 
@@ -22,6 +20,6 @@
 	</a>
 </p>
 
-<Slate {editor} bind:value>
-	<Editable placeholder="Enter some plain text..." />
-</Slate>
+<PluginSlate {editor} bind:value>
+	<PluginEditable placeholder="Enter some plain text..." />
+</PluginSlate>

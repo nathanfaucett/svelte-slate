@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { getEditorContext } from 'svelte-slate/components/Slate.svelte';
+	import { getEditorContext } from 'svelte-slate';
 	import MdPlaylistAddCheck from 'svelte-icons/md/MdPlaylistAddCheck.svelte';
 	import Button from './Button.svelte';
-	import { insertCheckListItem } from 'svelte-slate/plugins/CheckListItemElement.svelte';
-	import { isBlockActive } from 'svelte-slate/plugins/utils';
+	import { insertCheckListItem } from 'svelte-slate';
+	import { isBlockActive } from 'svelte-slate';
 
 	const editorContext = getEditorContext();
 

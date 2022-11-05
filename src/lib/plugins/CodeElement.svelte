@@ -161,7 +161,7 @@
 		if (!Text.isText(node) || !prismLanguage) {
 			return ranges;
 		} else {
-			const tokens = Prism.tokenize(node.text, prismLanguage);
+			const tokens = window.Prism.tokenize(node.text, prismLanguage);
 			let start = 0;
 
 			for (const token of tokens) {

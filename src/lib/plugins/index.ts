@@ -13,6 +13,8 @@ export {
 export {
 	default as CheckListItemElement,
 	isCheckListItemElement,
+	insertCheckListItem,
+	withCheckListItems,
 	CHECK_LIST_ITEM_TYPE,
 	type ICheckListItemElement
 } from './CheckListItemElement.svelte';
@@ -122,4 +124,4 @@ export {
 	type IPluginsContext,
 	type IWithFn
 } from './Slate.svelte';
-export { isMarkActive, isBlockActive, toggleMark, setSelection } from './utils';
+export { isMarkActive, isBlockActive, toggleMark, toggleBlock, setSelection } from './utils';

@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { getEditor } from 'svelte-slate/components/Slate.svelte';
+	import { getEditor } from 'svelte-slate';
 	import MdImage from 'svelte-icons/md/MdImage.svelte';
 	import MdCheck from 'svelte-icons/md/MdCheck.svelte';
 	import Button from './Button.svelte';
 	import isUrl from 'is-url';
-	import { insertImage } from 'svelte-slate/plugins/ImageElement.svelte';
+	import { insertImage } from 'svelte-slate';
 	import Modal from './Modal.svelte';
 
 	const editor = getEditor();

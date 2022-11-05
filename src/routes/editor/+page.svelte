@@ -1,12 +1,8 @@
 <script lang="ts">
-	import { withSvelte } from 'svelte-slate/withSvelte';
+	import { withSvelte, Leaf, Slate, Editable, withCode } from 'svelte-slate';
 	import { createEditor } from 'slate';
 	import { withHistory } from 'slate-history';
 	import Element from '../../example/Element.svelte';
-	import Leaf from 'svelte-slate/plugins/Leaf.svelte';
-	import { withCode } from 'svelte-slate/plugins/CodeElement.svelte';
-	import Slate from 'svelte-slate/components/Slate.svelte';
-	import Editable from 'svelte-slate/components/Editable.svelte';
 
 	const editor = withHistory(withCode(withSvelte(createEditor())));
 	let value = [
