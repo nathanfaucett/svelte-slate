@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { getEditorContext } from 'svelte-slate';
 	import Button from './Button.svelte';
-	import { isBlockActive, toggleBlock } from 'svelte-slate';
+	import { isBlockActive, toggleBlock } from 'svelte-slate/plugins';
 
 	export let format: string;
 

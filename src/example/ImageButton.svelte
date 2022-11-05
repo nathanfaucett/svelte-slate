@@ -4,7 +4,7 @@
 	import MdCheck from 'svelte-icons/md/MdCheck.svelte';
 	import Button from './Button.svelte';
 	import isUrl from 'is-url';
-	import { insertImage } from 'svelte-slate';
+	import { insertImage } from 'svelte-slate/plugins';
 	import Modal from './Modal.svelte';
 
 	const editor = getEditor();

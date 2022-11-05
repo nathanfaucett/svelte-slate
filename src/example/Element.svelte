@@ -1,15 +1,26 @@
 <svelte:options immutable />
 
 <script lang="ts">
-	import type { IElement } from 'svelte-slate';
+	import BlockQuoteElement, { isBlockQuoteElement } from '$lib/plugins/BlockQuoteElement.svelte';
+	import Heading1Element from '$lib/plugins/Heading1Element.svelte';
+	import Heading2Element from '$lib/plugins/Heading2Element.svelte';
+	import ListItemElement from '$lib/plugins/ListItemElement.svelte';
+	import NumberedListElement from '$lib/plugins/NumberedListElement.svelte';
 	import {
+		type IElement,
 		isImageElement,
 		ImageElement,
 		CheckListItemElement,
 		isCheckListItemElement,
 		CodeElement,
-		isCodeElement
-	} from 'svelte-slate';
+		isCodeElement,
+		isBulletedListItemElement,
+		BulletedListElement,
+		isHeading1Element,
+		isHeading2Element,
+		isListItemElement,
+		isNumberedListItemElement
+	} from 'svelte-slate/plugins';
 	import VoidElement, { isVoidElement } from './VoidElement.svelte';
 
 	export let element: IElement;
@@ -20,61 +31,49 @@
 	export let dir: 'rtl' | 'ltr' | undefined = undefined;
 </script>
 
-{#if element.type === 'block-quote'}<blockquote
-		bind:this={ref}
-		data-slate-node="element"
-		data-slate-inline={isInline}
-		data-slate-void={isVoid}
+{#if isBlockQuoteElement(element)}<BlockQuoteElement
+		bind:ref
+		{element}
+		{isInline}
+		{isVoid}
 		{dir}
-		{contenteditable}
-	>
-		<slot />
-	</blockquote>{:else if element.type === 'bulleted-list'}<ul
-		bind:this={ref}
-		data-slate-node="element"
-		data-slate-inline={isInline}
-		data-slate-void={isVoid}
+		{contenteditable}><slot /></BlockQuoteElement
+	>{:else if isBulletedListItemElement(element)}<BulletedListElement
+		bind:ref
+		{element}
+		{isInline}
+		{isVoid}
 		{dir}
-		{contenteditable}
-	>
-		<slot />
-	</ul>{:else if element.type === 'heading-one'}<h1
-		bind:this={ref}
-		data-slate-node="element"
-		data-slate-inline={isInline}
-		data-slate-void={isVoid}
+		{contenteditable}><slot /></BulletedListElement
+	>{:else if isHeading1Element(element)}<Heading1Element
+		bind:ref
+		{element}
+		{isInline}
+		{isVoid}
 		{dir}
-		{contenteditable}
-	>
-		<slot />
-	</h1>{:else if element.type === 'heading-two'}<h2
-		bind:this={ref}
-		data-slate-node="element"
-		data-slate-inline={isInline}
-		data-slate-void={isVoid}
+		{contenteditable}><slot /></Heading1Element
+	>{:else if isHeading2Element(element)}<Heading2Element
+		bind:ref
+		{element}
+		{isInline}
+		{isVoid}
 		{dir}
-		{contenteditable}
-	>
-		<slot />
-	</h2>{:else if element.type === 'list-item'}<li
-		bind:this={ref}
-		data-slate-node="element"
-		data-slate-inline={isInline}
-		data-slate-void={isVoid}
+		{contenteditable}><slot /></Heading2Element
+	>{:else if isListItemElement(element)}<ListItemElement
+		bind:ref
+		{element}
+		{isInline}
+		{isVoid}
 		{dir}
-		{contenteditable}
-	>
-		<slot />
-	</li>{:else if element.type === 'numbered-list'}<ol
-		bind:this={ref}
-		data-slate-node="element"
-		data-slate-inline={isInline}
-		data-slate-void={isVoid}
+		{contenteditable}><slot /></ListItemElement
+	>{:else if isNumberedListItemElement(element)}<NumberedListElement
+		bind:ref
+		{element}
+		{isInline}
+		{isVoid}
 		{dir}
-		{contenteditable}
-	>
-		<slot />
-	</ol>{:else if isImageElement(element)}<ImageElement
+		{contenteditable}><slot /></NumberedListElement
+	>{:else if isImageElement(element)}<ImageElement
 		bind:ref
 		{element}
 		{isInline}

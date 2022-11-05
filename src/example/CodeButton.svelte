@@ -2,8 +2,7 @@
 	import { getEditorContext } from 'svelte-slate';
 	import MdCode from 'svelte-icons/md/MdCode.svelte';
 	import Button from './Button.svelte';
-	import { insertCode } from 'svelte-slate';
-	import { isBlockActive } from 'svelte-slate';
+	import { insertCode, isBlockActive } from 'svelte-slate/plugins';
 
 	const editorContext = getEditorContext();
 	$: editor = $editorContext;

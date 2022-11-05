@@ -17,13 +17,13 @@
 
 		for (let h = 0; h < headings; h++) {
 			value.push({
-				type: 'heading-one',
+				type: HEADING1_TYPE,
 				children: [{ text: lorem.generateSentences(1) }]
 			});
 
 			for (let p = 0; p < paragraph; p++) {
 				value.push({
-					type: 'paragraph',
+					type: PARAGRAPH_TYPE,
 					children: [{ text: lorem.generateParagraphs(1) }]
 				});
 			}
@@ -43,17 +43,24 @@
 <script lang="ts">
 	import { createEditor, type BaseSelection, type Descendant } from 'slate';
 	import { withHistory } from 'slate-history';
+	import { isHotkey, withSvelte } from 'svelte-slate';
 	import {
-		isHotkey,
-		withSvelte,
 		Editable,
 		Slate,
 		Leaf,
+		DEFAULT_PLUGINS,
 		withImages,
 		toggleMark,
+		withCode,
 		type IElement,
-		type IText
-	} from 'svelte-slate';
+		type IText,
+		ImageElement,
+		IMAGE_TYPE,
+		CODE_TYPE,
+		CodeElement,
+		HEADING1_TYPE,
+		PARAGRAPH_TYPE
+	} from 'svelte-slate/plugins';
 	import Element from '../../example/Element.svelte';
 	import ImageButton from '../../example/ImageButton.svelte';
 	import MarkButton from '../../example/MarkButton.svelte';
@@ -68,7 +75,12 @@
 	import MdFormatListBulleted from 'svelte-icons/md/MdFormatListBulleted.svelte';
 	import MdFormatQuote from 'svelte-icons/md/MdFormatQuote.svelte';
 
-	const editor = withHistory(withImages(withSvelte(createEditor())));
+	const editor = withHistory(withSvelte(createEditor()));
+	let plugins = {
+		...DEFAULT_PLUGINS,
+		[IMAGE_TYPE]: { component: ImageElement, withFn: withImages },
+		[CODE_TYPE]: { component: CodeElement, withFn: withCode }
+	};
 	let value = createValue(100, 7);
 
 	function onKeyDown(event: KeyboardEvent) {
@@ -97,7 +109,7 @@
 	</a>
 </p>
 
-<Slate {editor} bind:value on:value={onValue} on:selection={onSelection}>
+<Slate {editor} {plugins} bind:value on:value={onValue} on:selection={onSelection}>
 	<div class="toolbar">
 		<MarkButton format="bold"><MdFormatBold /></MarkButton>
 		<MarkButton format="italic"><MdFormatItalic /></MarkButton>

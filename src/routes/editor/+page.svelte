@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { withSvelte, Leaf, Slate, Editable, withCode } from 'svelte-slate';
+	import { withSvelte, Slate, Editable } from 'svelte-slate';
+	import { Leaf, withCode } from 'svelte-slate/plugins';
 	import { createEditor } from 'slate';
 	import { withHistory } from 'slate-history';
 	import Element from '../../example/Element.svelte';

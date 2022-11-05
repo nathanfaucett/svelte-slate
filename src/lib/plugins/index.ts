@@ -36,7 +36,7 @@ export {
 	type ICodeElement
 } from './CodeElement.svelte';
 export { DEFAULT_PLUGINS } from './DEFAULT_PLUGINS';
-export { default as PluginEditable } from './Editable.svelte';
+export { default as Editable } from './Editable.svelte';
 export { default as Element, type IElement, type IBaseElement } from './Element.svelte';
 export {
 	default as Heading1Element,
@@ -114,7 +114,7 @@ export {
 	type IParagraphElement
 } from './ParagraphElement.svelte';
 export {
-	default as PluginSlate,
+	default as Slate,
 	PLUGINS_CONTEXT_KEY,
 	getPluginsContext,
 	isBasePlugin,

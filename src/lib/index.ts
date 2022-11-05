@@ -52,4 +52,3 @@ export { default as hotkeys } from './hotkeys';
 export { isHotkey, isKeyHotkey, createIsHotkey, createIsKeyHotkey } from './isHotkey';
 export { findCurrentLineRange } from './lines';
 export { withSvelte, type ISvelteEditor } from './withSvelte';
-export * from './plugins';

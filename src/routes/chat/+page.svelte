@@ -1,7 +1,7 @@
 <script lang="ts">
 	import {
-		PluginSlate,
-		PluginEditable,
+		Slate,
+		Editable,
 		DEFAULT_PLUGINS,
 		ImageElement,
 		IMAGE_TYPE,
@@ -14,7 +14,7 @@
 		isCodeElement,
 		withCode,
 		HoveringToolbar
-	} from 'svelte-slate';
+	} from 'svelte-slate/plugins';
 	import { createEditor, Editor, type BaseRange, type NodeMatch } from 'slate';
 	import { withHistory } from 'slate-history';
 	import { longpress } from '../../example/longpress';
@@ -85,7 +85,7 @@
 	</a>
 </p>
 
-<PluginSlate {editor} {plugins} bind:value>
+<Slate {editor} {plugins} bind:value>
 	<HoveringToolbar container={ref} bind:open>
 		<div class="toolbar">
 			<MarkButton format="bold"><MdFormatBold /></MarkButton>
@@ -104,9 +104,9 @@
 		</div>
 	</HoveringToolbar>
 	<div class="editor" use:longpress on:longpress={onLongPress}>
-		<PluginEditable bind:ref placeholder="Enter some plain text..." {onKeyDown} />
+		<Editable bind:ref placeholder="Enter some plain text..." {onKeyDown} />
 	</div>
-</PluginSlate>
+</Slate>
 
 <style>
 	.editor {

@@ -11,17 +11,20 @@
 	import { createEditor } from 'slate';
 	import { withHistory } from 'slate-history';
 	import Element from '../../example/Element.svelte';
+	import { Editable, Slate, isHotkey, withSvelte } from 'svelte-slate';
 	import {
 		Leaf,
-		Editable,
-		Slate,
-		isHotkey,
-		withSvelte,
 		withCode,
 		toggleMark,
 		withImages,
-		withCheckListItems
-	} from 'svelte-slate';
+		withCheckListItems,
+		PARAGRAPH_TYPE,
+		BLOCK_QUOTE_TYPE,
+		IMAGE_TYPE,
+		CHECK_LIST_ITEM_TYPE,
+		CODE_TYPE,
+		CODE_LINE_TYPE
+	} from 'svelte-slate/plugins';
 	import CheckListItemButton from '../../example/CheckListItemButton.svelte';
 	import ImageButton from '../../example/ImageButton.svelte';
 	import MarkButton from '../../example/MarkButton.svelte';
@@ -44,7 +47,7 @@
 	);
 	let value = [
 		{
-			type: 'paragraph',
+			type: PARAGRAPH_TYPE,
 			children: [
 				{ text: 'This is editable ' },
 				{ text: 'rich', bold: true },
@@ -56,7 +59,7 @@
 			]
 		},
 		{
-			type: 'paragraph',
+			type: PARAGRAPH_TYPE,
 			children: [
 				{
 					text: "Since it's rich text, you can do things like turn a selection of text "
@@ -68,30 +71,30 @@
 			]
 		},
 		{
-			type: 'block-quote',
+			type: BLOCK_QUOTE_TYPE,
 			children: [{ text: 'A wise quote.' }]
 		},
 		{
-			type: 'image',
+			type: IMAGE_TYPE,
 			url: 'https://source.unsplash.com/kFrdX5IeQzI',
 			children: [{ text: '' }]
 		},
 		{
-			type: 'paragraph',
+			type: PARAGRAPH_TYPE,
 			children: [{ text: 'Try it out for yourself!' }]
 		},
 		{
-			type: 'check-list-item',
+			type: CHECK_LIST_ITEM_TYPE,
 			checked: true,
 			children: [{ text: 'Checked list item' }]
 		},
 		{
-			type: 'check-list-item',
+			type: CHECK_LIST_ITEM_TYPE,
 			checked: false,
 			children: [{ text: 'Todo' }]
 		},
 		{
-			type: 'paragraph',
+			type: PARAGRAPH_TYPE,
 			children: [
 				{ text: 'Test' },
 				{
@@ -102,11 +105,11 @@
 			]
 		},
 		{
-			type: 'code',
+			type: CODE_TYPE,
 			language: 'javascript',
 			children: [
 				{
-					type: 'code-line',
+					type: CODE_LINE_TYPE,
 					children: [{ text: 'console.log("Hello world!");' }]
 				}
 			]

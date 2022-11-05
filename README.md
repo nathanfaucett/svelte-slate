@@ -32,6 +32,18 @@ tries to mimic the react api from [slate-react](https://github.com/ianstormtaylo
 </Slate>
 ```
 
+## Vite Problems
+
+using the plugin imports can result in mutiple instances of svelte witch can cause context errors, exclude svelte-slate from deps [here](https://vitejs.dev/config/dep-optimization-options.html#optimizedeps-exclude)
+
+```typescript
+export default defineConfig({
+	optimizeDeps: {
+		include: ['svelte-slate']
+	}
+});
+```
+
 ## Custom Rendering
 
 Default components for elements, leafs, and placeholders are provider but can easily be overridden see [Element.svelte](src/lib/plugins/Element.svelte) and [Leaf.svelte](src/lib/plugins/Leaf.svelte) and then can be used in the editable component like `<Editable {Element} {Leaf} />`

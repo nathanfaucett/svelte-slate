@@ -358,8 +358,7 @@
 		});
 	}
 
-	const debouncedOnUpdate = debounce(() => tick().then(onUpdate), 0);
-	afterUpdate(debouncedOnUpdate);
+	afterUpdate(() => tick().then(onUpdate));
 
 	function onBeforeInput(event: InputEvent & { currentTarget: EventTarget & HTMLElement }) {
 		if (!state.readOnly && hasEditableTarget(editor, event.target)) {
