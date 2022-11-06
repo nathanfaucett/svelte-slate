@@ -540,3 +540,8 @@ export function createContext<T>(key: IContextKey<T>, intialValue: T): Writable<
 	setContext(key, store);
 	return store;
 }
+
+export function setInContext<T>(key: IContextKey<T>, store: Writable<T>): Writable<T> {
+	setContext(key, store);
+	return store;
+}

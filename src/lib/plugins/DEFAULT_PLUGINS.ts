@@ -13,6 +13,7 @@ import CheckListItemElement, {
 	withCheckListItems
 } from './CheckListItemElement.svelte';
 import BulletedListElement, { BULLETED_LIST_TYPE } from './BulletedListElement.svelte';
+import TableElement, { TABLE_TYPE, withTable } from './TableElement.svelte';
 
 export const DEFAULT_PLUGINS = {
 	[BLOCK_QUOTE_TYPE]: BlockQuoteElement,
@@ -26,5 +27,6 @@ export const DEFAULT_PLUGINS = {
 	[LIST_ITEM_TYPE]: ListItemElement,
 	[NUMBERED_LIST_TYPE]: NumberedListElement,
 	[BULLETED_LIST_TYPE]: BulletedListElement,
-	[CHECK_LIST_ITEM_TYPE]: { component: CheckListItemElement, withFn: withCheckListItems }
+	[CHECK_LIST_ITEM_TYPE]: { component: CheckListItemElement, withFn: withCheckListItems },
+	[TABLE_TYPE]: { component: TableElement, withFn: withTable }
 };

@@ -4,7 +4,7 @@
 	import type { Token, Grammar } from 'prismjs';
 	import { languages } from './prismjs';
 	import type { IBaseElement, IElement } from './Element.svelte';
-	import { createContext, createContextKey, findPath, getFromContext } from '../utils';
+	import { createContext, createContextKey, findPath, getFromContext, isReadOnly } from '../utils';
 	import type { ISvelteEditor } from '$lib/withSvelte';
 
 	export const LANGUAGE_CONTEXT_KEY = createContextKey<keyof typeof languages>();
@@ -50,6 +50,7 @@
 	export interface ICodeElement extends IBaseElement {
 		type: 'code';
 		language: string;
+		maxHeight?: number;
 		children: Array<ICodeEditorElement>;
 	}
 
@@ -104,7 +105,12 @@
 	import CodeEditorElement from './CodeEditorElement.svelte';
 	import CodeEditorLeaf from './CodeEditorLeaf.svelte';
 	import { ELEMENT_CONTEXT_KEY, LEAF_CONTEXT_KEY } from '../components/Editable.svelte';
-	import { addEventListener, DECORATE_CONTEXT_KEY, getEditor } from '../components/Slate.svelte';
+	import {
+		addEventListener,
+		DECORATE_CONTEXT_KEY,
+		getEditor,
+		getReadOnlyContext
+	} from '../components/Slate.svelte';
 	import { PARAGRAPH_TYPE } from './ParagraphElement.svelte';
 
 	export let element: ICodeElement;
@@ -115,6 +121,7 @@
 	export let dir: 'rtl' | 'ltr' | undefined = undefined;
 
 	const editor = getEditor();
+	const readOnly = getReadOnlyContext();
 
 	createContext(ELEMENT_CONTEXT_KEY, CodeEditorElement);
 	createContext(LEAF_CONTEXT_KEY, CodeEditorLeaf);
@@ -131,8 +138,8 @@
 		});
 	}
 
-	function onSelect(e: Event) {
-		const language = (e.target as HTMLSelectElement).value as keyof typeof languages;
+	function onSelect(e: Event & { currentTarget: HTMLSelectElement }) {
+		const language = e.currentTarget.value as keyof typeof languages;
 		languageContext.set(language);
 		Transforms.setNodes(editor, { language } as any, { at: findPath(element) });
 	}
@@ -184,6 +191,22 @@
 	};
 	const decorateContext = createContext(DECORATE_CONTEXT_KEY, decorate);
 	$: decorateContext.set(decorate);
+
+	let codeElement: HTMLOListElement;
+	$: if (codeElement) {
+		if (element.maxHeight) {
+			codeElement.style.maxHeight = `${element.maxHeight}px`;
+		} else {
+			codeElement.style.maxHeight = '';
+		}
+	}
+
+	function onMaxHeightChange(e: Event & { currentTarget: HTMLInputElement }) {
+		const maxHeight = parseInt(e.currentTarget.value);
+		Transforms.setNodes(editor, { maxHeight: isNaN(maxHeight) ? undefined : maxHeight } as any, {
+			at: findPath(element)
+		});
+	}
 </script>
 
 <div
@@ -197,6 +220,7 @@
 >
 	<div
 		class="language-select"
+		class:hidden={$readOnly}
 		contenteditable={false}
 		on:mousedown|stopPropagation
 		on:touchstart|stopPropagation
@@ -206,10 +230,9 @@
 				<option value={language}>{language}</option>
 			{/each}
 		</select>
+		<input type="number" value={element.maxHeight} on:input={onMaxHeightChange} />
 	</div>
-	<ol {contenteditable}>
-		<slot />
-	</ol>
+	<ol {contenteditable} bind:this={codeElement}><slot /></ol>
 </div>
 
 <style>
@@ -221,11 +244,18 @@
 		border: 1px solid #ccc;
 	}
 	.language-select {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
 		padding-bottom: 0.25rem;
 		border-bottom: 1px solid #ccc;
 	}
+	.language-select.hidden {
+		display: none;
+	}
 	ol {
-		padding-left: 2rem;
+		padding-left: 2.5rem;
 		margin: 0;
+		overflow: auto;
 	}
 </style>

@@ -124,4 +124,31 @@ export {
 	type IPluginsContext,
 	type IWithFn
 } from './Slate.svelte';
+export {
+	default as TableDataElement,
+	isTableDataElement,
+	TABLE_DATA_TYPE,
+	type ITableDataElement
+} from './TableDataElement.svelte';
+export {
+	default as TableElement,
+	isTableElement,
+	TABLE_TYPE,
+	withTable,
+	insertTable,
+	type ITableElement
+} from './TableElement.svelte';
+export {
+	default as TableHeaderElement,
+	isTableHeaderElement,
+	TABLE_HEADER_TYPE,
+	type ITableHeaderElement
+} from './TableHeaderElement.svelte';
+export { default as TableRowChildElement } from './TableRowChildElement.svelte';
+export {
+	default as TableRowElement,
+	isTableRowElement,
+	TABLE_ROW_TYPE,
+	type ITableRowElement
+} from './TableRowElement.svelte';
 export { isMarkActive, isBlockActive, toggleMark, toggleBlock, setSelection } from './utils';

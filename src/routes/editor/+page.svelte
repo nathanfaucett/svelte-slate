@@ -10,6 +10,7 @@
 		{
 			type: 'code',
 			language: 'javascript',
+			maxHeight: 256,
 			children: [
 				{
 					type: 'code-line',
@@ -18,6 +19,8 @@
 			]
 		}
 	];
+
+	let readOnly = false;
 </script>
 
 <p>
@@ -29,9 +32,14 @@
 	</a>
 </p>
 
+<div>
+	<label for="readOnly">Read Only?</label>
+	<input type="checkbox" name="readOnly" bind:checked={readOnly} />
+</div>
+
 <Slate {editor} bind:value>
 	<div class="editor">
-		<Editable {Element} {Leaf} placeholder="Enter some plain text..." />
+		<Editable {Element} {Leaf} placeholder="Enter some plain text..." {readOnly} />
 	</div>
 </Slate>
 

@@ -140,6 +140,37 @@
 					children: [{ text: 'Two' }]
 				}
 			]
+		},
+		{
+			type: 'table',
+			children: [
+				{
+					type: 'table-row',
+					children: [
+						{
+							type: 'table-row-header',
+							children: [{ text: 'Id' }]
+						},
+						{
+							type: 'table-row-header',
+							children: [{ text: 'Name' }]
+						}
+					]
+				},
+				{
+					type: 'table-row',
+					children: [
+						{
+							type: 'table-row-data',
+							children: [{ text: '1' }]
+						},
+						{
+							type: 'table-row-data',
+							children: [{ text: 'Nathan' }]
+						}
+					]
+				}
+			]
 		}
 	];
 
