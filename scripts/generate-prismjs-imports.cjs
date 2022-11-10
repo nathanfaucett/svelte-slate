@@ -1,76 +1,56 @@
-const { truncateSync, createWriteStream, readdirSync } = require('fs');
-const { basename } = require('path');
-const { LANG_FILE_TO_NAME, LANG_NAME_TO_DEPS } = require('./prismjs-deps.cjs');
+const { truncateSync, createWriteStream } = require('fs');
+const { languages } = require('prismjs/components.json');
 
-const BASE_PATH = __dirname + '/../node_modules/prismjs/components/';
 const IMPORT_PATH = 'prismjs/components/';
 const OUTPUT_PATH = __dirname + '/../src/lib/plugins/prismjs.ts';
 const CORE_NAME = 'prism-core.min.js';
 
-/** @type {function(import('fs').Dirent): string} */
-function getFileName(item) {
-	return basename(item.name, '.min.js').substring('prism-'.length);
-}
+/** @type {{name: string; file: string; deps: string[]}[]} */
+const fileObjects = Object.entries(languages)
+	.filter(([id]) => id !== 'meta')
+	.map(([id, lang]) => {
+		return {
+			id,
+			name: lang.title || id,
+			file: `prism-${id}.min.js`,
+			deps: Array.isArray(lang.require) ? lang.require : lang.require ? [lang.require] : []
+		};
+	});
 
-/**
- * @interface FileObject
- * @member {string} name
- * @member {string} file
- * @member {Array.<FileObject>} deps
- */
-
-const files = readdirSync(BASE_PATH, { withFileTypes: true }).filter(
-	(item) =>
-		!item.isDirectory() &&
-		item.name.startsWith('prism-') &&
-		item.name.endsWith('.min.js') &&
-		item.name !== CORE_NAME
-);
-
-/** @type {Array.<FileObject>} */
-const fileObjects = files.map(getFileName).map((file) => {
-	const name = LANG_FILE_TO_NAME[file] || file;
-	const deps = LANG_NAME_TO_DEPS[name] || [];
-	return {
-		name,
-		file,
-		deps: Array.isArray(deps) ? deps : [deps]
-	};
-});
-
-/** @type {Object.<string, FileObject>} */
+/** @type {{[key: string]: {name: string; file: string; deps: string[]}}} */
 const fileObjectsByFile = fileObjects.reduce((acc, fileObject) => {
-	acc[fileObject.file] = fileObject;
+	acc[fileObject.id] = fileObject;
 	return acc;
 }, {});
 
 fileObjects.forEach((fileObject) => {
-	fileObject.deps = fileObject.deps.map((file) => fileObjectsByFile[file]);
+	fileObject.deps = fileObject.deps.map((id) => fileObjectsByFile[id]);
 });
 
-/** @type {function(string): string} */
-function getPrismFileName(file) {
-	return `prism-${file}.min.js`;
-}
-
-/** @type {function(string): string} */
+/**
+ * @param {string} file
+ * @returns {string}
+ */
 function importFn(file) {
-	return `import("${IMPORT_PATH}${getPrismFileName(file)}")`;
+	return `import("${IMPORT_PATH}${file}")`;
 }
 
-/** @type {Array.<[string, string]>} */
+/** @type {[file: {name: string; file: string; deps: string[]}, import: string][]} */
 const imports = [];
+/** @type {Set<[string]>} */
 const alreadyImported = new Set();
 
-/** @type {function(FileObject)} */
+/**
+ * @param {{name: string; file: string; deps: string[]}} file
+ */
 function addImport(fileObject) {
-	if (alreadyImported.has(fileObject.file)) {
+	if (alreadyImported.has(fileObject.id)) {
 		return;
 	}
-	alreadyImported.add(fileObject.file);
+	alreadyImported.add(fileObject.id);
 	fileObject.deps.forEach(addImport);
 	imports.push([
-		fileObject.file,
+		fileObject,
 		fileObject.deps.length === 0
 			? importFn(fileObject.file)
 			: fileObject.deps.length === 1
@@ -90,7 +70,9 @@ const writeStream = createWriteStream(OUTPUT_PATH);
 writeStream.write(`import "prismjs";\n`);
 writeStream.write(`import "${IMPORT_PATH}${CORE_NAME}";\n`);
 writeStream.write('export const languages = {\n');
-imports.forEach(([name, importFn]) => writeStream.write(`\t"${name}": () => ${importFn},\n`));
+imports.forEach(([file, importFn]) =>
+	writeStream.write(`\t"${file.id}": {name: "${file.name}", loader: () => ${importFn}},\n`)
+);
 writeStream.write('};\n');
 
 writeStream.on('error', (err) => {

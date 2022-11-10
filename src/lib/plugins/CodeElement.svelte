@@ -17,24 +17,24 @@
 	const LANG_LOADING: Record<string, boolean> = {};
 	const LANG_LOADED: Record<string, boolean> = {};
 
-	async function loadLanguage(name: keyof typeof languages): Promise<Grammar> {
-		if (!LANG_LOADING[name] && !LANG_LOADED[name]) {
-			LANG_LOADING[name] = true;
-			const loader = languages[name];
+	async function loadLanguage(id: keyof typeof languages): Promise<Grammar> {
+		if (!LANG_LOADING[id] && !LANG_LOADED[id]) {
+			LANG_LOADING[id] = true;
+			const loader = languages[id].loader;
 			if (loader) {
 				return loader()
 					.then(() => {
-						LANG_LOADED[name] = true;
-						return window.Prism.languages[name];
+						LANG_LOADED[id] = true;
+						return window.Prism.languages[id];
 					})
 					.finally(() => {
-						LANG_LOADING[name] = false;
+						LANG_LOADING[id] = false;
 					});
 			}
 		}
-		LANG_LOADING[name] = false;
-		LANG_LOADED[name] = true;
-		return window.Prism.languages[name];
+		LANG_LOADING[id] = false;
+		LANG_LOADED[id] = true;
+		return window.Prism.languages[id];
 	}
 
 	function getLength(token: string | Token): number {
@@ -126,7 +126,9 @@
 	createContext(ELEMENT_CONTEXT_KEY, CodeEditorElement);
 	createContext(LEAF_CONTEXT_KEY, CodeEditorLeaf);
 
-	const languageNames = Object.keys(languages).sort() as Array<keyof typeof languages>;
+	const languageNames = Object.entries(languages)
+		.map(([id, lang]) => [id, lang.name])
+		.sort(([a], [b]) => (a < b ? -1 : a === b ? 0 : 1));
 	const languageContext = createContext<keyof typeof languages>(
 		LANGUAGE_CONTEXT_KEY,
 		element.language as keyof typeof languages
@@ -226,8 +228,8 @@
 		on:touchstart|stopPropagation
 	>
 		<select value={element.language} on:change={onSelect} contenteditable={false}>
-			{#each languageNames as language}
-				<option value={language}>{language}</option>
+			{#each languageNames as [id, language]}
+				<option value={id}>{language}</option>
 			{/each}
 		</select>
 		<input type="number" value={element.maxHeight} on:input={onMaxHeightChange} />
