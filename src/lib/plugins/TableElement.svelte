@@ -125,7 +125,7 @@
 							Transforms.insertNodes(
 								editor,
 								{
-									type: TABLE_HEADER_TYPE,
+									type: rowIndex !== 0 ? TABLE_DATA_TYPE : TABLE_HEADER_TYPE,
 									children: [{ text: '' }]
 								} as any,
 								{
