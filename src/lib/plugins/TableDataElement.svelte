@@ -34,3 +34,9 @@
 >
 	<slot />
 </td>
+
+<style>
+	td {
+		border: 1px solid;
+	}
+</style>

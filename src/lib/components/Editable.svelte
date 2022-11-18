@@ -692,6 +692,14 @@
 		}
 	}
 
+	function onKeyUp(event: KeyboardEvent) {
+		return handleEvent(eventsContext, 'onKeyUp', event);
+	}
+
+	function onKeyPress(event: KeyboardEvent) {
+		return handleEvent(eventsContext, 'onKeyPress', event);
+	}
+
 	function onFocus(event: FocusEvent) {
 		if (
 			!state.readOnly &&
@@ -990,6 +998,8 @@
 	contenteditable={!state.readOnly}
 	on:beforeinput={onBeforeInput}
 	on:keydown={onKeyDownInternal}
+	on:keyup={onKeyUp}
+	on:keypress={onKeyPress}
 	on:input={onInput}
 	on:focus={onFocus}
 	on:blur={onBlur}

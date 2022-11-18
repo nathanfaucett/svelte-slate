@@ -20,6 +20,8 @@
 	export type IEvents = {
 		onBeforeInput: svelteHTML.EventHandler<InputEvent, HTMLElement>[];
 		onKeyDown: svelteHTML.KeyboardEventHandler<HTMLElement>[];
+		onKeyUp: svelteHTML.KeyboardEventHandler<HTMLElement>[];
+		onKeyPress: svelteHTML.KeyboardEventHandler<HTMLElement>[];
 		onInput: svelteHTML.EventHandler<InputEvent, HTMLElement>[];
 		onFocus: svelteHTML.EventHandler<FocusEvent, HTMLElement>[];
 		onBlur: svelteHTML.EventHandler<FocusEvent, HTMLElement>[];

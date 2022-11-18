@@ -1,7 +1,7 @@
 <svelte:options immutable />
 
 <script lang="ts" context="module">
-	import { Transforms, Range, Editor, Point } from 'slate';
+	import { Transforms, Range, Editor, Point, type NodeMatch, type BaseRange } from 'slate';
 	import type { IElement } from './Element.svelte';
 	import type { IElementProps } from '$lib/components/InternalElement.svelte';
 
@@ -66,6 +66,13 @@
 	}
 
 	export const TABLE_ELEMENT_CONTEXT_KEY = createContextKey<ISvelteComponent<IElementProps>>();
+
+	function createNRows(length: number) {
+		return [...new Array(length)].map(() => ({
+			type: TABLE_DATA_TYPE,
+			children: [{ text: '' }]
+		}));
+	}
 </script>
 
 <script lang="ts">
@@ -80,6 +87,11 @@
 	import TableRowElement, { TABLE_ROW_TYPE, type ITableRowElement } from './TableRowElement.svelte';
 	import { TABLE_HEADER_TYPE } from './TableHeaderElement.svelte';
 	import type { ISvelteEditor } from '$lib/withSvelte';
+	import { addEventListener, getEditor } from '$lib/components/Slate.svelte';
+	import { TABLE_DATA_TYPE } from './TableDataElement.svelte';
+	import { PARAGRAPH_TYPE } from './ParagraphElement.svelte';
+
+	const editor = getEditor();
 
 	// svelte-ignore unused-export-let
 	export let element: ITableElement;
@@ -91,6 +103,45 @@
 
 	setInContext(TABLE_ELEMENT_CONTEXT_KEY, getFromContext(ELEMENT_CONTEXT_KEY));
 	createContext(ELEMENT_CONTEXT_KEY, TableRowElement);
+
+	function onKeyDown(e: KeyboardEvent) {
+		if (editor.selection && e.key === 'Enter') {
+			const [match] = Editor.nodes(editor, {
+				match: isTableElement as any
+			});
+			if (match) {
+				Editor.deleteBackward(editor);
+				if (e.shiftKey) {
+					const [_, [index]] = match;
+					const at = [index + 1];
+					Transforms.insertNodes(
+						editor,
+						{ type: PARAGRAPH_TYPE, children: [{ text: '' }] } as any,
+						{
+							at
+						}
+					);
+					Transforms.select(editor, at);
+				} else {
+					const [node, [index]] = match;
+					const table = node as ITableElement;
+					const at = [index, editor.selection.focus.path[1] + 1];
+					Transforms.insertNodes(
+						editor,
+						{
+							type: TABLE_ROW_TYPE,
+							children: createNRows(table.children[0].children.length)
+						} as any,
+						{
+							at
+						}
+					);
+					Transforms.select(editor, at);
+				}
+			}
+		}
+	}
+	addEventListener('onKeyDown', onKeyDown);
 </script>
 
 <table
@@ -103,3 +154,11 @@
 >
 	<slot />
 </table>
+
+<style>
+	table {
+		border: 1px solid;
+		width: 100%;
+		border-collapse: collapse;
+	}
+</style>

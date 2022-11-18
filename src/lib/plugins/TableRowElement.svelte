@@ -43,3 +43,9 @@
 >
 	<slot />
 </tr>
+
+<style>
+	tr {
+		border: 1px solid;
+	}
+</style>

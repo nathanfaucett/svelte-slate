@@ -34,3 +34,10 @@
 >
 	<slot />
 </th>
+
+<style>
+	th {
+		border: 1px solid;
+		text-align: left;
+	}
+</style>

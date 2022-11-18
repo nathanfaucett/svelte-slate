@@ -100,7 +100,16 @@
 </script>
 
 <script lang="ts">
-	import { Editor, Range, Transforms, Point, type NodeEntry, Text } from 'slate';
+	import {
+		Editor,
+		Range,
+		Transforms,
+		Point,
+		type NodeEntry,
+		Text,
+		type NodeMatch,
+		type BaseRange
+	} from 'slate';
 	import { CODE_LINE_TYPE, type ICodeEditorElement } from './CodeEditorElement.svelte';
 	import CodeEditorElement from './CodeEditorElement.svelte';
 	import CodeEditorLeaf from './CodeEditorLeaf.svelte';
