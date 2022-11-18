@@ -85,7 +85,7 @@
 		type ISvelteComponent
 	} from '$lib/utils';
 	import TableRowElement, { TABLE_ROW_TYPE, type ITableRowElement } from './TableRowElement.svelte';
-	import { TABLE_HEADER_TYPE } from './TableHeaderElement.svelte';
+	import { isTableHeaderElement, TABLE_HEADER_TYPE } from './TableHeaderElement.svelte';
 	import type { ISvelteEditor } from '$lib/withSvelte';
 	import { addEventListener, getEditor } from '$lib/components/Slate.svelte';
 	import { TABLE_DATA_TYPE } from './TableDataElement.svelte';
@@ -111,20 +111,41 @@
 			});
 			if (match) {
 				Editor.deleteBackward(editor);
+				const [match] = Editor.nodes(editor, {
+					match: isTableElement as any
+				});
+				const [node, [index]] = match;
+				const table = node as ITableElement;
 				if (e.shiftKey) {
-					const [_, [index]] = match;
-					const at = [index + 1];
-					Transforms.insertNodes(
-						editor,
-						{ type: PARAGRAPH_TYPE, children: [{ text: '' }] } as any,
-						{
-							at
-						}
-					);
-					Transforms.select(editor, at);
+					const [headerMatch] = Editor.nodes(editor, {
+						match: isTableHeaderElement as any
+					});
+					if (headerMatch) {
+						table.children.forEach((row, rowIndex) => {
+							Transforms.insertNodes(
+								editor,
+								{
+									type: TABLE_HEADER_TYPE,
+									children: [{ text: '' }]
+								} as any,
+								{
+									at: [index, rowIndex, row.children.length]
+								}
+							);
+						});
+						Transforms.select(editor, [index, 0, table.children[0].children.length]);
+					} else {
+						const at = [index + 1];
+						Transforms.insertNodes(
+							editor,
+							{ type: PARAGRAPH_TYPE, children: [{ text: '' }] } as any,
+							{
+								at
+							}
+						);
+						Transforms.select(editor, at);
+					}
 				} else {
-					const [node, [index]] = match;
-					const table = node as ITableElement;
 					const at = [index, editor.selection.focus.path[1] + 1];
 					Transforms.insertNodes(
 						editor,
