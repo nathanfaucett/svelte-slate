@@ -35,23 +35,6 @@
 
 		ref.style.left = `${x}px`;
 		ref.style.top = `${y}px`;
-
-		// if (rect.left + window.pageXOffset - ref.offsetWidth / 2 < viewRect.left) {
-		// 	ref.style.left = `${rect.left - viewRect.left + window.pageXOffset}px`;
-		// } else if (rect.right + window.pageXOffset + ref.offsetWidth / 2 > viewRect.right) {
-		// 	ref.style.left = `${viewRect.right - rect.right + window.pageXOffset - ref.offsetWidth}px`;
-		// } else {
-		// 	ref.style.left = `${
-		// 		rect.left - viewRect.left + window.pageXOffset - ref.offsetWidth / 2 + rect.width / 2
-		// 	}px`;
-		// }
-		// if (rect.top + window.pageYOffset - ref.offsetHeight < viewRect.top) {
-		// 	ref.style.top = `${viewRect.bottom - rect.bottom + window.pageYOffset + offsetY}px`;
-		// } else {
-		// 	ref.style.top = `${
-		// 		rect.top - viewRect.top + window.pageYOffset - ref.offsetHeight - offsetY
-		// 	}px`;
-		// }
 		ref.style.opacity = '1';
 	}
 </script>
@@ -77,7 +60,7 @@
 </script>
 
 <Portal target={container}>
-	<div bind:this={ref} class="hovering-menu">
+	<div bind:this={ref} class="hovering-menu" contenteditable={false}>
 		<slot />
 	</div>
 </Portal>

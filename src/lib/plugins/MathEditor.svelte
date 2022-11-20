@@ -1,21 +1,5 @@
 <svelte:options immutable />
 
-<script lang="ts" context="module">
-	function isDescendant(parent: Node, child?: Node): boolean {
-		if (child) {
-			let parentNode = child.parentNode;
-
-			while (parentNode) {
-				if (parent === parentNode) {
-					return true;
-				}
-				parentNode = parentNode.parentNode;
-			}
-		}
-		return false;
-	}
-</script>
-
 <script lang="ts">
 	import katex from 'katex';
 	import { tick } from 'svelte';
@@ -48,12 +32,8 @@
 		inline = !inline;
 	}
 
-	let rootElement: HTMLDivElement;
 	function onClickOutside() {
-		if (
-			openedAt + 500 < Date.now() &&
-			!isDescendant(rootElement, window.getSelection()?.focusNode as Node)
-		) {
+		if (openedAt + 100 < Date.now()) {
 			open = false;
 		}
 	}
@@ -75,12 +55,7 @@
 </script>
 
 <Hovering {container} bind:open>
-	<div
-		bind:this={rootElement}
-		class="math-editor-body"
-		use:clickoutside
-		on:clickoutside={onClickOutside}
-	>
+	<div class="math-editor-body" use:clickoutside on:clickoutside={onClickOutside}>
 		<div class="math-editor-title">{title}</div>
 		<div class="math-editor-content">
 			<div class="math-editor-math">
