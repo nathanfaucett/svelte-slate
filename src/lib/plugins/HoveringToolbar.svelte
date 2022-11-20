@@ -12,7 +12,6 @@
 
 	export let container: HTMLElement | undefined = undefined;
 	export let open = false;
-	export let offsetY = 4;
 
 	const editorContext = getEditorContext();
 	const selectionContext = getSelectionContext();
@@ -44,6 +43,6 @@
 	}
 </script>
 
-<Hovering bind:open bind:ref {container} {offsetY}>
+<Hovering bind:open bind:ref {container}>
 	<slot />
 </Hovering>

@@ -27,19 +27,6 @@
 		insertMath(editor, math, inline, at);
 	}
 
-	function onKeyDown(event: KeyboardEvent) {
-		if (isHotkey('ctrl+m', event)) {
-			if (focused) {
-				at = editor.selection ? editor.selection.anchor || editor.selection.focus : undefined;
-				math = '';
-				inline = true;
-				open = true;
-			} else {
-				open = false;
-			}
-		}
-	}
-
 	addEventListener('onKeyDown', (e) => {
 		if (isHotkey('ctrl+m', e)) {
 			if (focused) {
