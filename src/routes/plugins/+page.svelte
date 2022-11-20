@@ -35,6 +35,7 @@
 	import MdFormatQuote from 'svelte-icons/md/MdFormatQuote.svelte';
 	import MathButton from '../../example/MathButton.svelte';
 	import type { IBaseElement } from '$lib/plugins/Element.svelte';
+	import TableButton from '../../example/TableButton.svelte';
 
 	const editor = withHistory(withSvelte(createEditor()));
 	let plugins = {
@@ -217,6 +218,7 @@
 			<CheckListItemButton />
 			<CodeButton />
 			<MathButton />
+			<TableButton />
 		</div>
 	</HoveringToolbar>
 	<div class="editor" use:longpress on:longpress={onLongPress}>

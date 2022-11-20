@@ -8,10 +8,7 @@ import Heading5Element, { HEADING5_TYPE } from './Heading5Element.svelte';
 import Heading6Element, { HEADING6_TYPE } from './Heading6Element.svelte';
 import ListItemElement, { LIST_ITEM_TYPE } from './ListItemElement.svelte';
 import NumberedListElement, { NUMBERED_LIST_TYPE } from './NumberedListElement.svelte';
-import CheckListItemElement, {
-	CHECK_LIST_ITEM_TYPE,
-	withCheckListItems
-} from './CheckListItemElement.svelte';
+import CheckListItemElement, { CHECK_LIST_ITEM_TYPE } from './CheckListItemElement.svelte';
 import BulletedListElement, { BULLETED_LIST_TYPE } from './BulletedListElement.svelte';
 import TableElement, { TABLE_TYPE, withTable } from './TableElement.svelte';
 
@@ -27,6 +24,6 @@ export const DEFAULT_PLUGINS = {
 	[LIST_ITEM_TYPE]: ListItemElement,
 	[NUMBERED_LIST_TYPE]: NumberedListElement,
 	[BULLETED_LIST_TYPE]: BulletedListElement,
-	[CHECK_LIST_ITEM_TYPE]: { component: CheckListItemElement, withFn: withCheckListItems },
+	[CHECK_LIST_ITEM_TYPE]: CheckListItemElement,
 	[TABLE_TYPE]: { component: TableElement, withFn: withTable }
 };

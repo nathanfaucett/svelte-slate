@@ -533,6 +533,11 @@
 
 	function onKeyDownInternal(event: KeyboardEvent & { currentTarget: EventTarget & HTMLElement }) {
 		if (!state.readOnly && !state.isComposing && hasEditableTarget(editor, event.target)) {
+			const returnValue = handleEvent(eventsContext, 'onKeyDown', event);
+			if (returnValue === false || event.cancelBubble) {
+				return returnValue;
+			}
+
 			const element =
 				editor.children[editor.selection !== null ? editor.selection.focus.path[0] : 0];
 			const isRTL = direction(SlateNode.string(element)) === 'rtl';
@@ -687,7 +692,6 @@
 				if (returnValue === false || event.cancelBubble) {
 					return returnValue;
 				}
-				return handleEvent(eventsContext, 'onKeyDown', event);
 			}
 		}
 	}

@@ -15,6 +15,10 @@
 </script>
 
 <script lang="ts">
+	import { addEventListener, getEditor } from '$lib/components/Slate.svelte';
+	import { Editor, Transforms } from 'slate';
+	import { PARAGRAPH_TYPE } from './ParagraphElement.svelte';
+
 	// svelte-ignore unused-export-let
 	export let element: IBlockQuoteElement;
 	export let isInline: boolean;
@@ -22,6 +26,27 @@
 	export let contenteditable: boolean;
 	export let ref: HTMLElement | undefined = undefined;
 	export let dir: 'rtl' | 'ltr' | undefined = undefined;
+
+	const editor = getEditor();
+
+	addEventListener('onKeyDown', (e) => {
+		if (e.key === 'Enter' && e.shiftKey) {
+			const [match] = Editor.nodes(editor, {
+				match: isBlockQuoteElement as any
+			});
+
+			if (match) {
+				e.preventDefault();
+				e.stopPropagation();
+				const [_, [index]] = match;
+				const at = [index + 1];
+				Transforms.insertNodes(editor, { type: PARAGRAPH_TYPE, children: [{ text: '' }] } as any, {
+					at
+				});
+				Transforms.select(editor, at);
+			}
+		}
+	});
 </script>
 
 <blockquote
@@ -39,8 +64,7 @@
 	blockquote {
 		border-left: 2px solid #ddd;
 		position: relative;
-		margin-left: 0;
-		margin-right: 0;
+		margin: 0;
 		padding-left: 10px;
 		color: #aaa;
 		font-style: italic;

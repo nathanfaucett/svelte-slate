@@ -14,7 +14,6 @@ export {
 	default as CheckListItemElement,
 	isCheckListItemElement,
 	insertCheckListItem,
-	withCheckListItems,
 	CHECK_LIST_ITEM_TYPE,
 	type ICheckListItemElement
 } from './CheckListItemElement.svelte';

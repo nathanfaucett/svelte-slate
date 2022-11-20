@@ -21,26 +21,30 @@
 
 		editor.deleteBackward = (...args) => {
 			if (editor.selection && Range.isCollapsed(editor.selection)) {
-				const [match] = Editor.nodes(editor, {
-					match: isTableElement as any
+				const [dataMatch] = Editor.nodes(editor, {
+					match: isTableDataElement as any
 				});
-
-				if (match) {
-					const [, path] = match;
-					const start = Editor.start(editor, path);
-
-					if (Point.equals(editor.selection.anchor, start)) {
-						const newProperties: Partial<IElement> = {
-							type: 'paragraph'
-						};
-						Transforms.setNodes(editor, newProperties, {
-							match: isTableElement as any
+				if (dataMatch) {
+					const [_, path] = dataMatch;
+					if (
+						path[0] === editor.selection.focus.path[0] &&
+						path[1] === editor.selection.focus.path[1] &&
+						editor.selection.focus.path[2] === 0 &&
+						editor.selection.focus.offset === 0
+					) {
+						Transforms.delete(editor, {
+							at: [path[0], path[1]]
 						});
 						return;
 					}
 				}
+				const [headerMatch] = Editor.nodes(editor, {
+					match: isTableHeaderElement as any
+				});
+				if (!!headerMatch && Editor.isEmpty(editor, headerMatch[0] as IElement)) {
+					return;
+				}
 			}
-
 			deleteBackward(...args);
 		};
 
@@ -88,7 +92,7 @@
 	import { isTableHeaderElement, TABLE_HEADER_TYPE } from './TableHeaderElement.svelte';
 	import type { ISvelteEditor } from '$lib/withSvelte';
 	import { addEventListener, getEditor } from '$lib/components/Slate.svelte';
-	import { TABLE_DATA_TYPE } from './TableDataElement.svelte';
+	import { isTableDataElement, TABLE_DATA_TYPE } from './TableDataElement.svelte';
 	import { PARAGRAPH_TYPE } from './ParagraphElement.svelte';
 
 	const editor = getEditor();
@@ -104,16 +108,14 @@
 	setInContext(TABLE_ELEMENT_CONTEXT_KEY, getFromContext(ELEMENT_CONTEXT_KEY));
 	createContext(ELEMENT_CONTEXT_KEY, TableRowElement);
 
-	function onKeyDown(e: KeyboardEvent) {
+	addEventListener('onKeyDown', (e) => {
 		if (editor.selection && e.key === 'Enter') {
 			const [match] = Editor.nodes(editor, {
 				match: isTableElement as any
 			});
 			if (match) {
-				Editor.deleteBackward(editor);
-				const [match] = Editor.nodes(editor, {
-					match: isTableElement as any
-				});
+				e.preventDefault();
+				e.stopPropagation();
 				const [node, [index]] = match;
 				const table = node as ITableElement;
 				if (e.shiftKey) {
@@ -161,8 +163,7 @@
 				}
 			}
 		}
-	}
-	addEventListener('onKeyDown', onKeyDown);
+	});
 </script>
 
 <table

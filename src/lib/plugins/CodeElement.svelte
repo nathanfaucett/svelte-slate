@@ -100,16 +100,7 @@
 </script>
 
 <script lang="ts">
-	import {
-		Editor,
-		Range,
-		Transforms,
-		Point,
-		type NodeEntry,
-		Text,
-		type NodeMatch,
-		type BaseRange
-	} from 'slate';
+	import { Editor, Range, Transforms, Point, type NodeEntry, Text } from 'slate';
 	import { CODE_LINE_TYPE, type ICodeEditorElement } from './CodeEditorElement.svelte';
 	import CodeEditorElement from './CodeEditorElement.svelte';
 	import CodeEditorLeaf from './CodeEditorLeaf.svelte';
@@ -155,23 +146,23 @@
 		Transforms.setNodes(editor, { language } as any, { at: findPath(element) });
 	}
 
-	function onKeyDown(e: KeyboardEvent & { currentTarget: EventTarget & HTMLElement }) {
+	addEventListener('onKeyDown', (e) => {
 		if (editor.selection && e.key === 'Enter' && e.shiftKey) {
 			const [match] = Editor.nodes(editor, {
 				match: isCodeElement as any
 			});
 			if (match) {
+				e.preventDefault();
+				e.stopPropagation();
 				const [_, [index]] = match;
 				const at = [index + 1];
-				Editor.deleteBackward(editor);
 				Transforms.insertNodes(editor, { type: PARAGRAPH_TYPE, children: [{ text: '' }] } as any, {
 					at
 				});
 				Transforms.select(editor, at);
 			}
 		}
-	}
-	addEventListener('onKeyDown', onKeyDown);
+	});
 
 	$: decorate = ([node, path]: NodeEntry): Range[] => {
 		const ranges: Range[] = [];
@@ -241,7 +232,12 @@
 				<option value={id}>{language}</option>
 			{/each}
 		</select>
-		<input type="number" value={element.maxHeight} on:input={onMaxHeightChange} />
+		<input
+			type="number"
+			placeholder="Max Height (Pixels)"
+			value={element.maxHeight}
+			on:input={onMaxHeightChange}
+		/>
 	</div>
 	<ol {contenteditable} bind:this={codeElement}><slot /></ol>
 </div>

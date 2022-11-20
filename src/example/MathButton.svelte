@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { Location } from 'slate';
-	import { onMount } from 'svelte';
-	import { getEditorContext, getFocusedContext } from 'svelte-slate';
+	import { addEventListener, getEditorContext, getFocusedContext } from 'svelte-slate';
 	import { isHotkey } from 'svelte-slate';
 	import Button from './Button.svelte';
 	import MdFunctions from 'svelte-icons/md/MdFunctions.svelte';
@@ -41,12 +40,17 @@
 		}
 	}
 
-	onMount(() => {
-		document.body.addEventListener('keydown', onKeyDown);
-
-		return () => {
-			document.body.removeEventListener('keydown', onKeyDown);
-		};
+	addEventListener('onKeyDown', (e) => {
+		if (isHotkey('ctrl+m', e)) {
+			if (focused) {
+				at = editor.selection ? editor.selection.anchor || editor.selection.focus : undefined;
+				math = '';
+				inline = true;
+				open = true;
+			} else {
+				open = false;
+			}
+		}
 	});
 </script>
 

@@ -37,10 +37,16 @@
 		onDrop: svelteHTML.EventHandler<DragEvent, HTMLElement>[];
 		onDragEnd: svelteHTML.EventHandler<DragEvent, HTMLElement>[];
 	};
+	export type IEventType<K extends keyof IEvents> = IEvents[K] extends svelteHTML.EventHandler<
+		infer E
+	>[]
+		? E
+		: Event;
 
-	export function addEventListener<K extends keyof IEvents, E extends Event>(
+	export function addEventListener<K extends keyof IEvents>(
 		name: K,
-		handler: svelteHTML.EventHandler<E, HTMLElement>
+		handler: svelteHTML.EventHandler<IEventType<K>, HTMLElement>,
+		onRemove?: () => void
 	) {
 		const eventsContext = getEventsContext();
 		onMount(() => {
@@ -61,6 +67,9 @@
 						return { ...state, [name]: newHandlers };
 					}
 				});
+				if (onRemove) {
+					onRemove();
+				}
 			};
 		});
 	}
