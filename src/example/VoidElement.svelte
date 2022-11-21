@@ -1,7 +1,7 @@
 <svelte:options immutable />
 
 <script lang="ts" context="module">
-	import type { IElement } from 'svelte-slate/plugins';
+	import type { IElement } from '$lib/plugins/Element.svelte';
 
 	export interface IVoidElement extends IElement {
 		type: 'void';

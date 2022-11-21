@@ -71,6 +71,7 @@
 	"dependencies": {
 		"@aicacia/debounce": "0",
 		"@svelte-put/clickoutside": "1",
+		"@use-gesture/vanilla": "^10.2.22",
 		"fast-equals": "4",
 		"scroll-into-view-if-needed": "2"
 	}

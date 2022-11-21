@@ -7,53 +7,65 @@
 		return getFromContext(PLUGINS_CONTEXT_KEY);
 	}
 
-	export type IWithFn<E extends ISvelteEditor = ISvelteEditor> = (editor: E) => E;
+	export type IWithFn<E extends ISvelteEditor = ISvelteEditor, O extends object = object> = (
+		editor: E,
+		config?: O
+	) => E;
 
-	export type IBasePlugin<
-		T extends ISvelteComponent<IElementProps> = ISvelteComponent<IElementProps>,
-		E extends ISvelteEditor = ISvelteEditor
+	export type IPluginWithFn<
+		C extends ISvelteComponent<IElementProps> = ISvelteComponent<IElementProps>,
+		E extends ISvelteEditor = ISvelteEditor,
+		O extends object = object
 	> = {
-		component: T;
-		withFn?: IWithFn<E>;
+		component: C;
+		withFn?: IWithFn<E, O>;
+		options?: O;
 	};
 
 	export type IPlugin<
-		T extends ISvelteComponent<IElementProps> = ISvelteComponent<IElementProps>,
-		E extends ISvelteEditor = ISvelteEditor
-	> = T | IBasePlugin<T, E>;
+		C extends ISvelteComponent<IElementProps> = ISvelteComponent<IElementProps>,
+		E extends ISvelteEditor = ISvelteEditor,
+		O extends object = object
+	> = C | IPluginWithFn<C, E, O>;
 
-	export function isBasePlugin<
-		T extends ISvelteComponent<IElementProps> = ISvelteComponent<IElementProps>,
-		E extends ISvelteEditor = ISvelteEditor
-	>(plugin: IPlugin<T, E>): plugin is IBasePlugin<T, E> {
+	export function isPluginWithFn<
+		C extends ISvelteComponent<IElementProps> = ISvelteComponent<IElementProps>,
+		E extends ISvelteEditor = ISvelteEditor,
+		O extends object = object
+	>(plugin: IPlugin<C, E, O>): plugin is IPluginWithFn<C, E, O> {
 		return 'component' in plugin;
 	}
 
 	export interface IPlugins<
-		T extends ISvelteComponent<IElementProps> = ISvelteComponent<IElementProps>,
-		E extends ISvelteEditor = ISvelteEditor
+		C extends ISvelteComponent<IElementProps> = ISvelteComponent<IElementProps>,
+		E extends ISvelteEditor = ISvelteEditor,
+		O extends object = object
 	> {
-		[type: string]: IPlugin<T, E>;
+		[type: string]: IPlugin<C, E, O>;
 	}
 
 	export interface IPluginsContext {
 		[type: string]: ISvelteComponent<IElementProps>;
 	}
 
-	function getCurrentEditor<T extends ISvelteComponent<IElementProps>, E extends ISvelteEditor>(
-		originalEditor: E,
-		plugins: IPlugins<T, E>
-	) {
+	function getCurrentEditor<
+		C extends ISvelteComponent<IElementProps>,
+		E extends ISvelteEditor,
+		O extends object = object
+	>(originalEditor: E, plugins: IPlugins<C, E, O>) {
 		return Object.values(plugins).reduce(
-			(editor, plugin) => (isBasePlugin(plugin) && plugin.withFn ? plugin.withFn(editor) : editor),
+			(editor, plugin) =>
+				isPluginWithFn(plugin) && plugin.withFn ? plugin.withFn(editor, plugin.options) : editor,
 			originalEditor
 		);
 	}
-	function getCurrentPlugins<T extends ISvelteComponent<IElementProps>, E extends ISvelteEditor>(
-		plugins: IPlugins<T, E>
-	) {
+	function getCurrentPlugins<
+		C extends ISvelteComponent<IElementProps>,
+		E extends ISvelteEditor,
+		O extends object = object
+	>(plugins: IPlugins<C, E, O>) {
 		return Object.entries(plugins).reduce((plugins, [type, plugin]) => {
-			plugins[type] = isBasePlugin(plugin) ? plugin.component : plugin;
+			plugins[type] = isPluginWithFn(plugin) ? plugin.component : plugin;
 			return plugins;
 		}, {} as IPluginsContext);
 	}

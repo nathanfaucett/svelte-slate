@@ -15,8 +15,12 @@ declare global {
 
 declare namespace svelte.JSX {
 	interface HTMLAttributes<T extends EventTarget> {
+		onclickoutside?:
+			| ((event: (MouseEvent | TouchEvent) & { currentTarget: EventTarget & T }) => boolean | void)
+			| undefined
+			| null;
 		onlongpress?:
-			| ((event: (MouseEvent | TouchEvent) & { currentTarget: EventTarget & T }) => any)
+			| ((event: (MouseEvent | TouchEvent) & { currentTarget: EventTarget & T }) => boolean | void)
 			| undefined
 			| null;
 	}

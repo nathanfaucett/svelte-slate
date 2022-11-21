@@ -60,32 +60,6 @@
 
 	export function withCode<T extends ISvelteEditor = ISvelteEditor>(editor: T): T {
 		const { deleteBackward } = editor;
-
-		editor.deleteBackward = (...args) => {
-			if (editor.selection && Range.isCollapsed(editor.selection)) {
-				const [match] = Editor.nodes(editor, {
-					match: isCodeElement as any
-				});
-
-				if (match) {
-					const [, path] = match;
-					const start = Editor.start(editor, path);
-
-					if (Point.equals(editor.selection.anchor, start)) {
-						const newProperties: Partial<IElement> = {
-							type: 'paragraph'
-						};
-						Transforms.setNodes(editor, newProperties, {
-							match: isCodeElement as any
-						});
-						return;
-					}
-				}
-			}
-
-			deleteBackward(...args);
-		};
-
 		return editor;
 	}
 

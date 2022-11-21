@@ -1,24 +1,7 @@
 <script lang="ts">
-	import { isReadOnly, withSvelte } from 'svelte-slate';
-	import {
-		Slate,
-		Editable,
-		DEFAULT_PLUGINS,
-		ImageElement,
-		IMAGE_TYPE,
-		withImages,
-		CodeElement,
-		CODE_TYPE,
-		isCodeElement,
-		withCode,
-		HoveringToolbar,
-		MathElement,
-		MATH_TYPE,
-		withMath
-	} from 'svelte-slate/plugins';
-	import { createEditor, Editor, type BaseRange, type NodeMatch } from 'slate';
+	import { withSvelte } from 'svelte-slate';
+	import { createEditor } from 'slate';
 	import { withHistory } from 'slate-history';
-	import { longpress } from '../../example/longpress';
 	import ImageButton from '../../example/ImageButton.svelte';
 	import CodeButton from '../../example/CodeButton.svelte';
 	import CheckListItemButton from '../../example/CheckListItemButton.svelte';
@@ -34,8 +17,14 @@
 	import MdFormatListBulleted from 'svelte-icons/md/MdFormatListBulleted.svelte';
 	import MdFormatQuote from 'svelte-icons/md/MdFormatQuote.svelte';
 	import MathButton from '../../example/MathButton.svelte';
-	import type { IBaseElement } from '$lib/plugins/Element.svelte';
 	import TableButton from '../../example/TableButton.svelte';
+	import { DEFAULT_PLUGINS } from '$lib/plugins/DEFAULT_PLUGINS';
+	import ImageElement, { IMAGE_TYPE, withImages } from '$lib/plugins/ImageElement.svelte';
+	import CodeElement, { CODE_TYPE, isCodeElement, withCode } from '$lib/plugins/CodeElement.svelte';
+	import MathElement, { MATH_TYPE, withMath } from '$lib/plugins/MathElement.svelte';
+	import Slate from '$lib/plugins/Slate.svelte';
+	import HoveringToolbar from '$lib/plugins/HoveringToolbar.svelte';
+	import Editable from '$lib/plugins/Editable.svelte';
 
 	const editor = withHistory(withSvelte(createEditor()));
 	let plugins = {
@@ -175,22 +164,7 @@
 		}
 	];
 
-	let open = false;
 	let ref: HTMLDivElement;
-
-	function onLongPress() {
-		if (!isReadOnly(editor)) {
-			const [match] = Array.from(
-				Editor.nodes(editor, {
-					at: Editor.unhangRange(editor, editor.selection as BaseRange),
-					match: isCodeElement as unknown as NodeMatch<IBaseElement>
-				})
-			);
-			if (!match) {
-				open = true;
-			}
-		}
-	}
 </script>
 
 <p>
@@ -203,7 +177,7 @@
 </p>
 
 <Slate {editor} {plugins} bind:value>
-	<HoveringToolbar container={ref} bind:open>
+	<HoveringToolbar container={ref}>
 		<div class="toolbar">
 			<MarkButton format="bold"><MdFormatBold /></MarkButton>
 			<MarkButton format="italic"><MdFormatItalic /></MarkButton>
@@ -221,9 +195,7 @@
 			<TableButton />
 		</div>
 	</HoveringToolbar>
-	<div class="editor" use:longpress on:longpress={onLongPress}>
-		<Editable bind:ref placeholder="Enter some plain text..." />
-	</div>
+	<Editable bind:ref placeholder="Enter some plain text..." />
 </Slate>
 
 <style>

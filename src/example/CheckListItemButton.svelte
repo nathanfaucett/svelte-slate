@@ -2,7 +2,8 @@
 	import { getEditorContext } from 'svelte-slate';
 	import MdPlaylistAddCheck from 'svelte-icons/md/MdPlaylistAddCheck.svelte';
 	import Button from './Button.svelte';
-	import { isBlockActive, insertCheckListItem } from 'svelte-slate/plugins';
+	import { isBlockActive } from 'svelte-slate/plugins/utils';
+	import { insertCheckListItem } from '$lib/plugins/CheckListItemElement.svelte';
 
 	const editorContext = getEditorContext();
 

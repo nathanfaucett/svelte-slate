@@ -44,24 +44,6 @@
 	import { createEditor, type BaseSelection, type Descendant } from 'slate';
 	import { withHistory } from 'slate-history';
 	import { isHotkey, withSvelte } from 'svelte-slate';
-	import {
-		Editable,
-		Slate,
-		Leaf,
-		DEFAULT_PLUGINS,
-		withImages,
-		toggleMark,
-		withCode,
-		type IElement,
-		type IText,
-		ImageElement,
-		IMAGE_TYPE,
-		CODE_TYPE,
-		CodeElement,
-		HEADING1_TYPE,
-		PARAGRAPH_TYPE
-	} from 'svelte-slate/plugins';
-	import Element from '../../example/Element.svelte';
 	import ImageButton from '../../example/ImageButton.svelte';
 	import MarkButton from '../../example/MarkButton.svelte';
 	import BlockButton from '../../example/BlockButton.svelte';
@@ -74,6 +56,16 @@
 	import MdFormatListNumbered from 'svelte-icons/md/MdFormatListNumbered.svelte';
 	import MdFormatListBulleted from 'svelte-icons/md/MdFormatListBulleted.svelte';
 	import MdFormatQuote from 'svelte-icons/md/MdFormatQuote.svelte';
+	import Slate from '$lib/plugins/Slate.svelte';
+	import Editable from '$lib/plugins/Editable.svelte';
+	import { DEFAULT_PLUGINS } from '$lib/plugins/DEFAULT_PLUGINS';
+	import ImageElement, { IMAGE_TYPE, withImages } from '$lib/plugins/ImageElement.svelte';
+	import CodeElement, { CODE_TYPE, withCode } from '$lib/plugins/CodeElement.svelte';
+	import { toggleMark } from '$lib/plugins/utils';
+	import { PARAGRAPH_TYPE } from '$lib/plugins/ParagraphElement.svelte';
+	import { HEADING1_TYPE } from '$lib/plugins/Heading1Element.svelte';
+	import Leaf, { type IText } from '$lib/plugins/Leaf.svelte';
+	import Element, { type IElement } from '$lib/plugins/Element.svelte';
 
 	const editor = withHistory(withSvelte(createEditor()));
 	let plugins = {
