@@ -135,13 +135,13 @@
     "file": "internal/immutable/assets/KaTeX_Script-Regular-d96cdf2b.woff",
     "src": "node_modules/katex/dist/fonts/KaTeX_Script-Regular.woff"
   },
-  "node_modules/katex/dist/fonts/KaTeX_Size2-Regular.woff": {
-    "file": "internal/immutable/assets/KaTeX_Size2-Regular-2014c523.woff",
-    "src": "node_modules/katex/dist/fonts/KaTeX_Size2-Regular.woff"
-  },
   "node_modules/katex/dist/fonts/KaTeX_Size1-Regular.woff": {
     "file": "internal/immutable/assets/KaTeX_Size1-Regular-c943cc98.woff",
     "src": "node_modules/katex/dist/fonts/KaTeX_Size1-Regular.woff"
+  },
+  "node_modules/katex/dist/fonts/KaTeX_Size2-Regular.woff": {
+    "file": "internal/immutable/assets/KaTeX_Size2-Regular-2014c523.woff",
+    "src": "node_modules/katex/dist/fonts/KaTeX_Size2-Regular.woff"
   },
   "node_modules/katex/dist/fonts/KaTeX_Size3-Regular.woff": {
     "file": "internal/immutable/assets/KaTeX_Size3-Regular-6ab6b62e.woff",
@@ -195,33 +195,25 @@
     "file": "internal/immutable/assets/KaTeX_Math-BoldItalic-f9377ab0.ttf",
     "src": "node_modules/katex/dist/fonts/KaTeX_Math-BoldItalic.ttf"
   },
-  "node_modules/katex/dist/fonts/KaTeX_Math-Italic.ttf": {
-    "file": "internal/immutable/assets/KaTeX_Math-Italic-08ce98e5.ttf",
-    "src": "node_modules/katex/dist/fonts/KaTeX_Math-Italic.ttf"
+  "node_modules/katex/dist/fonts/KaTeX_SansSerif-Italic.ttf": {
+    "file": "internal/immutable/assets/KaTeX_SansSerif-Italic-3931dd81.ttf",
+    "src": "node_modules/katex/dist/fonts/KaTeX_SansSerif-Italic.ttf"
   },
   "node_modules/katex/dist/fonts/KaTeX_SansSerif-Bold.ttf": {
     "file": "internal/immutable/assets/KaTeX_SansSerif-Bold-1ece03f7.ttf",
     "src": "node_modules/katex/dist/fonts/KaTeX_SansSerif-Bold.ttf"
   },
-  "node_modules/katex/dist/fonts/KaTeX_SansSerif-Italic.ttf": {
-    "file": "internal/immutable/assets/KaTeX_SansSerif-Italic-3931dd81.ttf",
-    "src": "node_modules/katex/dist/fonts/KaTeX_SansSerif-Italic.ttf"
-  },
-  "node_modules/katex/dist/fonts/KaTeX_SansSerif-Regular.ttf": {
-    "file": "internal/immutable/assets/KaTeX_SansSerif-Regular-f36ea897.ttf",
-    "src": "node_modules/katex/dist/fonts/KaTeX_SansSerif-Regular.ttf"
-  },
   "node_modules/katex/dist/fonts/KaTeX_Script-Regular.ttf": {
     "file": "internal/immutable/assets/KaTeX_Script-Regular-1c67f068.ttf",
     "src": "node_modules/katex/dist/fonts/KaTeX_Script-Regular.ttf"
   },
-  "node_modules/katex/dist/fonts/KaTeX_Size2-Regular.ttf": {
-    "file": "internal/immutable/assets/KaTeX_Size2-Regular-a6b2099f.ttf",
-    "src": "node_modules/katex/dist/fonts/KaTeX_Size2-Regular.ttf"
-  },
   "node_modules/katex/dist/fonts/KaTeX_Size1-Regular.ttf": {
     "file": "internal/immutable/assets/KaTeX_Size1-Regular-95b6d2f1.ttf",
     "src": "node_modules/katex/dist/fonts/KaTeX_Size1-Regular.ttf"
+  },
+  "node_modules/katex/dist/fonts/KaTeX_Size2-Regular.ttf": {
+    "file": "internal/immutable/assets/KaTeX_Size2-Regular-a6b2099f.ttf",
+    "src": "node_modules/katex/dist/fonts/KaTeX_Size2-Regular.ttf"
   },
   "node_modules/katex/dist/fonts/KaTeX_Size3-Regular.ttf": {
     "file": "internal/immutable/assets/KaTeX_Size3-Regular-500e04d5.ttf",
@@ -235,13 +227,21 @@
     "file": "internal/immutable/assets/KaTeX_Typewriter-Regular-f01f3e87.ttf",
     "src": "node_modules/katex/dist/fonts/KaTeX_Typewriter-Regular.ttf"
   },
+  "node_modules/katex/dist/fonts/KaTeX_SansSerif-Regular.ttf": {
+    "file": "internal/immutable/assets/KaTeX_SansSerif-Regular-f36ea897.ttf",
+    "src": "node_modules/katex/dist/fonts/KaTeX_SansSerif-Regular.ttf"
+  },
+  "node_modules/katex/dist/fonts/KaTeX_Math-Italic.ttf": {
+    "file": "internal/immutable/assets/KaTeX_Math-Italic-08ce98e5.ttf",
+    "src": "node_modules/katex/dist/fonts/KaTeX_Math-Italic.ttf"
+  },
   "node_modules/@sveltejs/kit/src/runtime/client/start.js": {
-    "file": "internal/immutable/start-927f5fbb.js",
+    "file": "internal/immutable/start-467ba485.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/client/start.js",
     "isEntry": true,
     "imports": [
-      "_index-dd4d0fe6.js",
-      "_singletons-72dcf9bb.js",
+      "_index-eb8adeeb.js",
+      "_singletons-e26c07b4.js",
       "_preload-helper-176e53da.js",
       "_paths-846459bd.js"
     ],
@@ -255,129 +255,70 @@
     ]
   },
   "src/routes/+layout.svelte": {
-    "file": "internal/immutable/components/pages/_layout.svelte-ff0e8cdf.js",
+    "file": "internal/immutable/components/pages/_layout.svelte-dba84407.js",
     "src": "src/routes/+layout.svelte",
     "isEntry": true,
     "imports": [
-      "_index-dd4d0fe6.js",
+      "_index-eb8adeeb.js",
       "_paths-846459bd.js",
-      "_IconBase-83977586.js"
+      "_IconBase-24462ee2.js"
     ],
     "css": [
       "internal/immutable/assets/_layout-1ca33f26.css"
     ]
   },
   "node_modules/@sveltejs/kit/src/runtime/components/error.svelte": {
-    "file": "internal/immutable/components/error.svelte-31655f6f.js",
+    "file": "internal/immutable/components/error.svelte-74551a71.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/components/error.svelte",
     "isEntry": true,
     "imports": [
-      "_index-dd4d0fe6.js",
-      "_singletons-72dcf9bb.js"
+      "_index-eb8adeeb.js",
+      "_singletons-e26c07b4.js"
     ]
   },
   "src/routes/+page.svelte": {
-    "file": "internal/immutable/components/pages/_page.svelte-df8171d9.js",
+    "file": "internal/immutable/components/pages/_page.svelte-30842811.js",
     "src": "src/routes/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index-dd4d0fe6.js",
+      "_index-eb8adeeb.js",
       "_paths-846459bd.js"
     ]
   },
   "src/routes/default/+page.svelte": {
-    "file": "internal/immutable/components/pages/default/_page.svelte-e87518d7.js",
+    "file": "internal/immutable/components/pages/default/_page.svelte-059a6d20.js",
     "src": "src/routes/default/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index-dd4d0fe6.js",
-      "_index.es-78050fc1.js",
-      "_preload-helper-176e53da.js"
-    ],
-    "css": [
-      "internal/immutable/assets/IconBase-d93538e2.css"
+      "_index-eb8adeeb.js",
+      "_Editable-d6ddfc02.js"
     ]
   },
   "src/routes/huge-document/+page.svelte": {
-    "file": "internal/immutable/components/pages/huge-document/_page.svelte-335124dd.js",
+    "file": "internal/immutable/components/pages/huge-document/_page.svelte-2cba8849.js",
     "src": "src/routes/huge-document/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index-dd4d0fe6.js",
-      "_index.es-78050fc1.js",
-      "_MdFormatQuote-9c9615f1.js"
+      "_index-eb8adeeb.js",
+      "_Editable-d6ddfc02.js",
+      "_CodeElement-59bfb9ce.js"
     ],
     "css": [
-      "internal/immutable/assets/_page-c98bac8a.css",
-      "internal/immutable/assets/IconBase-d93538e2.css"
+      "internal/immutable/assets/_page-984eb7cd.css"
     ]
   },
   "src/routes/plugins/+page.svelte": {
-    "file": "internal/immutable/components/pages/plugins/_page.svelte-53dafc80.js",
+    "file": "internal/immutable/components/pages/plugins/_page.svelte-5cc6b731.js",
     "src": "src/routes/plugins/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index-dd4d0fe6.js",
-      "_index.es-78050fc1.js",
-      "_MdFormatQuote-9c9615f1.js",
-      "_IconBase-83977586.js",
-      "_preload-helper-176e53da.js"
+      "_index-eb8adeeb.js",
+      "_Editable-d6ddfc02.js",
+      "_CodeElement-59bfb9ce.js",
+      "_IconBase-24462ee2.js"
     ],
     "css": [
-      "internal/immutable/assets/_page-80f81047.css",
-      "internal/immutable/assets/IconBase-d93538e2.css"
-    ]
-  },
-  "src/routes/+layout.ts": {
-    "file": "internal/immutable/modules/pages/_layout.ts-ccf77788.js",
-    "src": "src/routes/+layout.ts",
-    "isEntry": true,
-    "imports": [
-      "__layout-c2405b24.js"
-    ]
-  },
-  "_singletons-72dcf9bb.js": {
-    "file": "internal/immutable/chunks/singletons-72dcf9bb.js",
-    "imports": [
-      "_index-41a521d0.js",
-      "_paths-846459bd.js"
-    ]
-  },
-  "_paths-846459bd.js": {
-    "file": "internal/immutable/chunks/paths-846459bd.js"
-  },
-  "_index-dd4d0fe6.js": {
-    "file": "internal/immutable/chunks/index-dd4d0fe6.js"
-  },
-  "_index-41a521d0.js": {
-    "file": "internal/immutable/chunks/index-41a521d0.js",
-    "imports": [
-      "_index-dd4d0fe6.js"
-    ]
-  },
-  "_preload-helper-176e53da.js": {
-    "file": "internal/immutable/chunks/preload-helper-176e53da.js"
-  },
-  "_IconBase-83977586.js": {
-    "file": "internal/immutable/chunks/IconBase-83977586.js",
-    "imports": [
-      "_index-dd4d0fe6.js"
-    ],
-    "css": [
-      "internal/immutable/assets/IconBase-d93538e2.css"
-    ]
-  },
-  "__layout-c2405b24.js": {
-    "file": "internal/immutable/chunks/_layout-c2405b24.js"
-  },
-  "_index.es-78050fc1.js": {
-    "file": "internal/immutable/chunks/index.es-78050fc1.js",
-    "imports": [
-      "_index-dd4d0fe6.js",
-      "_index-41a521d0.js"
-    ],
-    "css": [
-      "internal/immutable/assets/index-de0ab355.css"
+      "internal/immutable/assets/_page-d6fa8cbd.css"
     ],
     "assets": [
       "internal/immutable/assets/KaTeX_AMS-Regular-0cdd387c.woff2",
@@ -441,13 +382,65 @@
       "internal/immutable/assets/KaTeX_Typewriter-Regular-f01f3e87.ttf"
     ]
   },
-  "_MdFormatQuote-9c9615f1.js": {
-    "file": "internal/immutable/chunks/MdFormatQuote-9c9615f1.js",
+  "src/routes/+layout.ts": {
+    "file": "internal/immutable/modules/pages/_layout.ts-ccf77788.js",
+    "src": "src/routes/+layout.ts",
+    "isEntry": true,
     "imports": [
-      "_index-dd4d0fe6.js",
-      "_index.es-78050fc1.js",
-      "_preload-helper-176e53da.js",
-      "_IconBase-83977586.js"
+      "__layout-c2405b24.js"
+    ]
+  },
+  "_singletons-e26c07b4.js": {
+    "file": "internal/immutable/chunks/singletons-e26c07b4.js",
+    "imports": [
+      "_index-cda69208.js",
+      "_paths-846459bd.js"
+    ]
+  },
+  "_paths-846459bd.js": {
+    "file": "internal/immutable/chunks/paths-846459bd.js"
+  },
+  "_index-eb8adeeb.js": {
+    "file": "internal/immutable/chunks/index-eb8adeeb.js"
+  },
+  "_index-cda69208.js": {
+    "file": "internal/immutable/chunks/index-cda69208.js",
+    "imports": [
+      "_index-eb8adeeb.js"
+    ]
+  },
+  "_preload-helper-176e53da.js": {
+    "file": "internal/immutable/chunks/preload-helper-176e53da.js"
+  },
+  "_IconBase-24462ee2.js": {
+    "file": "internal/immutable/chunks/IconBase-24462ee2.js",
+    "imports": [
+      "_index-eb8adeeb.js"
+    ],
+    "css": [
+      "internal/immutable/assets/IconBase-d93538e2.css"
+    ]
+  },
+  "__layout-c2405b24.js": {
+    "file": "internal/immutable/chunks/_layout-c2405b24.js"
+  },
+  "_Editable-d6ddfc02.js": {
+    "file": "internal/immutable/chunks/Editable-d6ddfc02.js",
+    "imports": [
+      "_index-eb8adeeb.js",
+      "_index-cda69208.js"
+    ],
+    "css": [
+      "internal/immutable/assets/Editable-4e0c96a4.css"
+    ]
+  },
+  "_CodeElement-59bfb9ce.js": {
+    "file": "internal/immutable/chunks/CodeElement-59bfb9ce.js",
+    "imports": [
+      "_index-eb8adeeb.js",
+      "_Editable-d6ddfc02.js",
+      "_IconBase-24462ee2.js",
+      "_preload-helper-176e53da.js"
     ],
     "dynamicImports": [
       "node_modules/prismjs/components/prism-markup.min.js",
@@ -749,12 +742,11 @@
       "node_modules/prismjs/components/prism-zig.min.js"
     ],
     "css": [
-      "internal/immutable/assets/MdFormatQuote-0a14f6b6.css",
-      "internal/immutable/assets/IconBase-d93538e2.css"
+      "internal/immutable/assets/CodeElement-8959fcea.css"
     ]
   },
   ".svelte-kit/generated/nodes/0.js": {
-    "file": "internal/immutable/chunks/0-cd1b10f4.js",
+    "file": "internal/immutable/chunks/0-c82c8cbe.js",
     "src": ".svelte-kit/generated/nodes/0.js",
     "isDynamicEntry": true,
     "imports": [
@@ -763,7 +755,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/1.js": {
-    "file": "internal/immutable/chunks/1-750da016.js",
+    "file": "internal/immutable/chunks/1-eaf17760.js",
     "src": ".svelte-kit/generated/nodes/1.js",
     "isDynamicEntry": true,
     "imports": [
@@ -771,7 +763,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/2.js": {
-    "file": "internal/immutable/chunks/2-f639d170.js",
+    "file": "internal/immutable/chunks/2-19be5c48.js",
     "src": ".svelte-kit/generated/nodes/2.js",
     "isDynamicEntry": true,
     "imports": [
@@ -779,7 +771,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/3.js": {
-    "file": "internal/immutable/chunks/3-cdbbfdc8.js",
+    "file": "internal/immutable/chunks/3-4184056e.js",
     "src": ".svelte-kit/generated/nodes/3.js",
     "isDynamicEntry": true,
     "imports": [
@@ -787,7 +779,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/4.js": {
-    "file": "internal/immutable/chunks/4-462186b3.js",
+    "file": "internal/immutable/chunks/4-176a79dc.js",
     "src": ".svelte-kit/generated/nodes/4.js",
     "isDynamicEntry": true,
     "imports": [
@@ -795,7 +787,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/5.js": {
-    "file": "internal/immutable/chunks/5-af5946cf.js",
+    "file": "internal/immutable/chunks/5-2b87c63d.js",
     "src": ".svelte-kit/generated/nodes/5.js",
     "isDynamicEntry": true,
     "imports": [
@@ -2295,20 +2287,20 @@
     "file": "internal/immutable/assets/IconBase-d93538e2.css",
     "src": "IconBase.css"
   },
-  "index.css": {
-    "file": "internal/immutable/assets/index-de0ab355.css",
-    "src": "index.css"
+  "Editable.css": {
+    "file": "internal/immutable/assets/Editable-4e0c96a4.css",
+    "src": "Editable.css"
   },
   "src/routes/huge-document/+page.css": {
-    "file": "internal/immutable/assets/_page-c98bac8a.css",
+    "file": "internal/immutable/assets/_page-984eb7cd.css",
     "src": "src/routes/huge-document/+page.css"
   },
-  "MdFormatQuote.css": {
-    "file": "internal/immutable/assets/MdFormatQuote-0a14f6b6.css",
-    "src": "MdFormatQuote.css"
+  "CodeElement.css": {
+    "file": "internal/immutable/assets/CodeElement-8959fcea.css",
+    "src": "CodeElement.css"
   },
   "src/routes/plugins/+page.css": {
-    "file": "internal/immutable/assets/_page-80f81047.css",
+    "file": "internal/immutable/assets/_page-d6fa8cbd.css",
     "src": "src/routes/plugins/+page.css"
   }
 }
