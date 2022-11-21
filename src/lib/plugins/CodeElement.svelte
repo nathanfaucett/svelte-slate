@@ -235,6 +235,7 @@
 		display: none;
 	}
 	ol {
+		list-style-type: decimal;
 		padding-left: 2.5rem;
 		margin: 0;
 		overflow: auto;
