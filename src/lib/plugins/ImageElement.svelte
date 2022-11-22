@@ -1,6 +1,7 @@
 <svelte:options immutable={false} />
 
 <script lang="ts" context="module">
+	import type { ISvelteEditor } from '../withSvelte';
 	import type { IBaseElement } from './Element.svelte';
 
 	export const IMAGE_TYPE: string = 'image';
@@ -71,7 +72,6 @@
 </script>
 
 <script lang="ts">
-	import type { ISvelteEditor } from '../withSvelte';
 	import { Editor, Transforms } from 'slate';
 	import { getEditor, getFocusedContext, getReadOnlyContext } from '../components/Slate.svelte';
 	import { getSelectedContext } from '../components/ChildElement.svelte';

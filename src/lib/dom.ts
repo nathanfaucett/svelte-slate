@@ -18,29 +18,31 @@ declare global {
 
 export type DOMPoint = [Node, number];
 
-export function getDefaultView(value: any): Window | null {
-	return (value && value.ownerDocument && value.ownerDocument.defaultView) || null;
+export function getDefaultView(value: unknown): Window | null {
+	const node = value as Node;
+	return (node && node.ownerDocument && node.ownerDocument.defaultView) || null;
 }
 
-export function isDOMComment(value: any): value is DOMComment {
+export function isDOMComment(value: unknown): value is DOMComment {
 	return isDOMNode(value) && value.nodeType === 8;
 }
 
-export function isDOMElement(value: any): value is DOMElement {
+export function isDOMElement(value: unknown): value is DOMElement {
 	return isDOMNode(value) && value.nodeType === 1;
 }
 
-export function isDOMNode(value: any): value is DOMNode {
+export function isDOMNode(value: unknown): value is DOMNode {
 	const window = getDefaultView(value);
 	return !!window && value instanceof window.Node;
 }
 
-export function isDOMSelection(value: any): value is DOMSelection {
-	const window = value && value.anchorNode && getDefaultView(value.anchorNode);
+export function isDOMSelection(value: unknown): value is DOMSelection {
+	const selection = value as DOMSelection;
+	const window = selection && selection.anchorNode && getDefaultView(selection.anchorNode);
 	return !!window && value instanceof window.Selection;
 }
 
-export function isDOMText(value: any): value is DOMText {
+export function isDOMText(value: unknown): value is DOMText {
 	return isDOMNode(value) && value.nodeType === 3;
 }
 
