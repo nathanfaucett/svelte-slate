@@ -1,4 +1,8 @@
 <script lang="ts" context="module">
+	import type { IText } from '$lib/plugins/Leaf.svelte';
+	import type { IElement } from '$lib/plugins/Element.svelte';
+	import { HEADING1_TYPE } from '$lib/plugins/Heading1Element.svelte';
+	import { PARAGRAPH_TYPE } from '$lib/plugins/ParagraphElement.svelte';
 	import { LoremIpsum } from 'lorem-ipsum';
 
 	const lorem = new LoremIpsum({
@@ -41,10 +45,12 @@
 </script>
 
 <script lang="ts">
-	import { createEditor, type BaseSelection, type Descendant } from 'slate';
-	import { withHistory } from 'slate-history';
 	import { isHotkey, withSvelte } from 'svelte-slate';
+	import { createEditor } from 'slate';
+	import { withHistory } from 'slate-history';
 	import ImageButton from '../../example/ImageButton.svelte';
+	import CodeButton from '../../example/CodeButton.svelte';
+	import CheckListItemButton from '../../example/CheckListItemButton.svelte';
 	import MarkButton from '../../example/MarkButton.svelte';
 	import BlockButton from '../../example/BlockButton.svelte';
 	import MdFormatBold from 'svelte-icons/md/MdFormatBold.svelte';
@@ -56,39 +62,35 @@
 	import MdFormatListNumbered from 'svelte-icons/md/MdFormatListNumbered.svelte';
 	import MdFormatListBulleted from 'svelte-icons/md/MdFormatListBulleted.svelte';
 	import MdFormatQuote from 'svelte-icons/md/MdFormatQuote.svelte';
-	import Slate from '$lib/plugins/Slate.svelte';
-	import Editable from '$lib/plugins/Editable.svelte';
+	import MathButton from '../../example/MathButton.svelte';
+	import TableButton from '../../example/TableButton.svelte';
 	import { DEFAULT_PLUGINS } from '$lib/plugins/DEFAULT_PLUGINS';
 	import ImageElement, { IMAGE_TYPE, withImages } from '$lib/plugins/ImageElement.svelte';
 	import CodeElement, { CODE_TYPE, withCode } from '$lib/plugins/CodeElement.svelte';
+	import MathElement, { MATH_TYPE, withMath } from '$lib/plugins/MathElement.svelte';
+	import Slate from '$lib/plugins/Slate.svelte';
+	import HoveringToolbar from '$lib/plugins/HoveringToolbar.svelte';
+	import Editable from '$lib/plugins/Editable.svelte';
 	import { toggleMark } from '$lib/plugins/utils';
-	import { PARAGRAPH_TYPE } from '$lib/plugins/ParagraphElement.svelte';
-	import { HEADING1_TYPE } from '$lib/plugins/Heading1Element.svelte';
-	import Leaf, { type IText } from '$lib/plugins/Leaf.svelte';
-	import Element, { type IElement } from '$lib/plugins/Element.svelte';
 
 	const editor = withHistory(withSvelte(createEditor()));
 	let plugins = {
 		...DEFAULT_PLUGINS,
 		[IMAGE_TYPE]: { component: ImageElement, withFn: withImages },
-		[CODE_TYPE]: { component: CodeElement, withFn: withCode }
+		[CODE_TYPE]: { component: CodeElement, withFn: withCode },
+		[MATH_TYPE]: { component: MathElement, withFn: withMath }
 	};
 	let value = createValue(100, 7);
+	let ref: HTMLDivElement;
 
-	function onKeyDown(event: KeyboardEvent) {
-		for (const hotkey in HOTKEYS) {
-			if (isHotkey(hotkey, event)) {
-				event.preventDefault();
-				const mark = HOTKEYS[hotkey as keyof typeof HOTKEYS];
+	function onKeyDown(e: KeyboardEvent) {
+		Object.entries(HOTKEYS).forEach(([hotkey, mark]) => {
+			if (isHotkey(hotkey, e)) {
+				e.preventDefault();
+				e.stopPropagation();
 				toggleMark(editor, mark);
 			}
-		}
-	}
-	function onValue(e: CustomEvent<Descendant[]>) {
-		console.log(e.detail);
-	}
-	function onSelection(e: CustomEvent<BaseSelection>) {
-		console.log(e.detail);
+		});
 	}
 </script>
 
@@ -101,30 +103,35 @@
 	</a>
 </p>
 
-<Slate {editor} {plugins} bind:value on:value={onValue} on:selection={onSelection}>
-	<div class="toolbar">
-		<MarkButton format="bold"><MdFormatBold /></MarkButton>
-		<MarkButton format="italic"><MdFormatItalic /></MarkButton>
-		<MarkButton format="underline"><MdFormatUnderlined /></MarkButton>
-		<MarkButton format="code"><MdCode /></MarkButton>
-		<BlockButton format="heading-one"><MdLooksOne /></BlockButton>
-		<BlockButton format="heading-two"><MdLooksTwo /></BlockButton>
-		<BlockButton format="block-quote"><MdFormatQuote /></BlockButton>
-		<BlockButton format="numbered-list"><MdFormatListNumbered /></BlockButton>
-		<BlockButton format="bulleted-list"><MdFormatListBulleted /></BlockButton>
-		<ImageButton />
-	</div>
-	<div class="editor">
-		<Editable {Element} {Leaf} {onKeyDown} placeholder="Enter some plain text..." />
-	</div>
+<Slate {editor} {plugins} bind:value>
+	<HoveringToolbar container={ref}>
+		<div class="toolbar">
+			<MarkButton format="bold"><MdFormatBold /></MarkButton>
+			<MarkButton format="italic"><MdFormatItalic /></MarkButton>
+			<MarkButton format="underline"><MdFormatUnderlined /></MarkButton>
+			<MarkButton format="code"><MdCode /></MarkButton>
+			<BlockButton format="heading1"><MdLooksOne /></BlockButton>
+			<BlockButton format="heading2"><MdLooksTwo /></BlockButton>
+			<BlockButton format="block-quote"><MdFormatQuote /></BlockButton>
+			<BlockButton format="numbered-list"><MdFormatListNumbered /></BlockButton>
+			<BlockButton format="bulleted-list"><MdFormatListBulleted /></BlockButton>
+			<ImageButton />
+			<CheckListItemButton />
+			<CodeButton />
+			<MathButton />
+			<TableButton />
+		</div>
+	</HoveringToolbar>
+	<Editable bind:ref placeholder="Enter some plain text..." {onKeyDown} />
 </Slate>
 
 <style>
-	.toolbar {
-		border-bottom: 1px solid black;
-		padding: 0.25rem 0;
-	}
 	.editor {
 		padding: 0.25rem 0;
+	}
+	.toolbar {
+		background-color: white;
+		border: 1px solid black;
+		padding: 0.25rem;
 	}
 </style>

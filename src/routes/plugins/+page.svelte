@@ -1,5 +1,14 @@
+<script lang="ts" context="module">
+	const HOTKEYS = {
+		'mod+b': 'bold',
+		'mod+i': 'italic',
+		'mod+u': 'underline',
+		'mod+`': 'code'
+	};
+</script>
+
 <script lang="ts">
-	import { withSvelte } from 'svelte-slate';
+	import { isHotkey, withSvelte } from 'svelte-slate';
 	import { createEditor } from 'slate';
 	import { withHistory } from 'slate-history';
 	import ImageButton from '../../example/ImageButton.svelte';
@@ -20,11 +29,12 @@
 	import TableButton from '../../example/TableButton.svelte';
 	import { DEFAULT_PLUGINS } from '$lib/plugins/DEFAULT_PLUGINS';
 	import ImageElement, { IMAGE_TYPE, withImages } from '$lib/plugins/ImageElement.svelte';
-	import CodeElement, { CODE_TYPE, isCodeElement, withCode } from '$lib/plugins/CodeElement.svelte';
+	import CodeElement, { CODE_TYPE, withCode } from '$lib/plugins/CodeElement.svelte';
 	import MathElement, { MATH_TYPE, withMath } from '$lib/plugins/MathElement.svelte';
 	import Slate from '$lib/plugins/Slate.svelte';
 	import HoveringToolbar from '$lib/plugins/HoveringToolbar.svelte';
 	import Editable from '$lib/plugins/Editable.svelte';
+	import { toggleMark } from '$lib/plugins/utils';
 
 	const editor = withHistory(withSvelte(createEditor()));
 	let plugins = {
@@ -163,8 +173,17 @@
 			]
 		}
 	];
-
 	let ref: HTMLDivElement;
+
+	function onKeyDown(e: KeyboardEvent) {
+		Object.entries(HOTKEYS).forEach(([hotkey, mark]) => {
+			if (isHotkey(hotkey, e)) {
+				e.preventDefault();
+				e.stopPropagation();
+				toggleMark(editor, mark);
+			}
+		});
+	}
 </script>
 
 <p>
@@ -195,7 +214,7 @@
 			<TableButton />
 		</div>
 	</HoveringToolbar>
-	<Editable bind:ref placeholder="Enter some plain text..." />
+	<Editable bind:ref placeholder="Enter some plain text..." {onKeyDown} />
 </Slate>
 
 <style>
