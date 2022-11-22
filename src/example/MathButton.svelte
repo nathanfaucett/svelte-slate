@@ -30,7 +30,7 @@
 	}
 
 	addEventListener('onKeyDown', (e) => {
-		if (isHotkey('ctrl+m', e)) {
+		if (isHotkey('mod+m', e)) {
 			if (focused) {
 				at = editor.selection ? editor.selection.anchor || editor.selection.focus : undefined;
 				math = '';

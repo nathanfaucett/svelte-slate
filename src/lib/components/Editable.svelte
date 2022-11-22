@@ -67,6 +67,7 @@
 	import type { IElementProps } from './InternalElement.svelte';
 	import type { ILeafProps, IPlaceholderProps } from './InternalLeaf.svelte';
 	import { getContainerContext } from './Slate.svelte';
+	import { isHotkey } from '$lib/isHotkey';
 
 	export const ELEMENT_CONTEXT_KEY = createContextKey<ISvelteComponent<IElementProps>>();
 	export const LEAF_CONTEXT_KEY = createContextKey<ISvelteComponent<ILeafProps>>();
@@ -604,6 +605,9 @@
 				}
 
 				Transforms.move(editor, { unit: 'word', reverse: isRTL });
+			} else if (isHotkey('mod+a', event)) {
+				event.preventDefault();
+				Transforms.select(editor, Editor.range(editor, []));
 			} else if (!HAS_BEFORE_INPUT_SUPPORT) {
 				if (
 					hotkeys.isBold(event) ||
