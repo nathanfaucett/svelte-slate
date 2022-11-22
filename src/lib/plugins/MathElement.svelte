@@ -71,7 +71,7 @@
 	import MdDelete from 'svelte-icons/md/MdDelete.svelte';
 	import { getEditor, getFocusedContext, getReadOnlyContext } from '../components/Slate.svelte';
 	import { getSelectedContext } from '../components/ChildElement.svelte';
-	import { findPath, isReadOnly } from '../utils';
+	import { findPath } from '../utils';
 
 	export let element: IMathElement;
 	export let isInline: boolean;
@@ -134,7 +134,7 @@
 	let inline = currentInline;
 	let isNew: boolean;
 	function onEdit() {
-		if (!isReadOnly(editor)) {
+		if (!readOnly) {
 			math = currentMath;
 			inline = currentInline;
 			setSelection(mathEditElement);
