@@ -236,7 +236,7 @@
     "src": "node_modules/katex/dist/fonts/KaTeX_Typewriter-Regular.ttf"
   },
   "node_modules/@sveltejs/kit/src/runtime/client/start.js": {
-    "file": "internal/immutable/start-19b43ae7.js",
+    "file": "internal/immutable/start-132d0a1d.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -286,35 +286,35 @@
     ]
   },
   "src/routes/default/+page.svelte": {
-    "file": "internal/immutable/components/pages/default/_page.svelte-731a6506.js",
+    "file": "internal/immutable/components/pages/default/_page.svelte-5714836f.js",
     "src": "src/routes/default/+page.svelte",
     "isEntry": true,
     "imports": [
       "_index-eb8adeeb.js",
-      "_Editable-d6723353.js"
+      "_Editable-c5811b18.js"
     ]
   },
   "src/routes/huge-document/+page.svelte": {
-    "file": "internal/immutable/components/pages/huge-document/_page.svelte-67b03efa.js",
+    "file": "internal/immutable/components/pages/huge-document/_page.svelte-9e90a08d.js",
     "src": "src/routes/huge-document/+page.svelte",
     "isEntry": true,
     "imports": [
       "_index-eb8adeeb.js",
-      "_Editable-d6723353.js",
-      "_HoveringToolbar-2ede2e6d.js"
+      "_Editable-c5811b18.js",
+      "_HoveringToolbar-0cccc58d.js"
     ],
     "css": [
       "internal/immutable/assets/_page-0356b952.css"
     ]
   },
   "src/routes/plugins/+page.svelte": {
-    "file": "internal/immutable/components/pages/plugins/_page.svelte-da9e03be.js",
+    "file": "internal/immutable/components/pages/plugins/_page.svelte-0984a7d7.js",
     "src": "src/routes/plugins/+page.svelte",
     "isEntry": true,
     "imports": [
       "_index-eb8adeeb.js",
-      "_Editable-d6723353.js",
-      "_HoveringToolbar-2ede2e6d.js"
+      "_Editable-c5811b18.js",
+      "_HoveringToolbar-0cccc58d.js"
     ],
     "css": [
       "internal/immutable/assets/_page-0356b952.css"
@@ -362,8 +362,8 @@
   "__layout-c2405b24.js": {
     "file": "internal/immutable/chunks/_layout-c2405b24.js"
   },
-  "_Editable-d6723353.js": {
-    "file": "internal/immutable/chunks/Editable-d6723353.js",
+  "_Editable-c5811b18.js": {
+    "file": "internal/immutable/chunks/Editable-c5811b18.js",
     "imports": [
       "_index-eb8adeeb.js",
       "_index-cda69208.js"
@@ -372,11 +372,11 @@
       "internal/immutable/assets/Editable-4e0c96a4.css"
     ]
   },
-  "_HoveringToolbar-2ede2e6d.js": {
-    "file": "internal/immutable/chunks/HoveringToolbar-2ede2e6d.js",
+  "_HoveringToolbar-0cccc58d.js": {
+    "file": "internal/immutable/chunks/HoveringToolbar-0cccc58d.js",
     "imports": [
       "_index-eb8adeeb.js",
-      "_Editable-d6723353.js",
+      "_Editable-c5811b18.js",
       "_IconBase-24462ee2.js",
       "_preload-helper-176e53da.js"
     ],
@@ -770,7 +770,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/3.js": {
-    "file": "internal/immutable/chunks/3-faeb770a.js",
+    "file": "internal/immutable/chunks/3-e2c0b049.js",
     "src": ".svelte-kit/generated/nodes/3.js",
     "isDynamicEntry": true,
     "imports": [
@@ -778,7 +778,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/4.js": {
-    "file": "internal/immutable/chunks/4-d7f219c6.js",
+    "file": "internal/immutable/chunks/4-05d9df1e.js",
     "src": ".svelte-kit/generated/nodes/4.js",
     "isDynamicEntry": true,
     "imports": [
@@ -786,7 +786,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/5.js": {
-    "file": "internal/immutable/chunks/5-aaf4d307.js",
+    "file": "internal/immutable/chunks/5-f02011ff.js",
     "src": ".svelte-kit/generated/nodes/5.js",
     "isDynamicEntry": true,
     "imports": [
@@ -2282,17 +2282,17 @@
     "file": "internal/immutable/assets/_layout-a2111cc4.css",
     "src": "src/routes/+layout.css"
   },
-  "src/routes/huge-document/+page.css": {
+  "src/routes/plugins/+page.css": {
     "file": "internal/immutable/assets/_page-0356b952.css",
-    "src": "src/routes/huge-document/+page.css"
-  },
-  "IconBase.css": {
-    "file": "internal/immutable/assets/IconBase-d93538e2.css",
-    "src": "IconBase.css"
+    "src": "src/routes/plugins/+page.css"
   },
   "Editable.css": {
     "file": "internal/immutable/assets/Editable-4e0c96a4.css",
     "src": "Editable.css"
+  },
+  "IconBase.css": {
+    "file": "internal/immutable/assets/IconBase-d93538e2.css",
+    "src": "IconBase.css"
   },
   "HoveringToolbar.css": {
     "file": "internal/immutable/assets/HoveringToolbar-ef98ab50.css",
