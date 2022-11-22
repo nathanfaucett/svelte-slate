@@ -52,7 +52,7 @@
 		C extends ISvelteComponent<IElementProps>,
 		E extends ISvelteEditor,
 		O extends object = object
-	>(originalEditor: E, plugins: IPlugins<C, E, O>) {
+	>(originalEditor: E, plugins: IPlugins<C, E, O>): E {
 		return Object.values(plugins).reduce(
 			(editor, plugin) =>
 				isPluginWithFn(plugin) && plugin.withFn ? plugin.withFn(editor, plugin.options) : editor,
@@ -63,7 +63,7 @@
 		C extends ISvelteComponent<IElementProps>,
 		E extends ISvelteEditor,
 		O extends object = object
-	>(plugins: IPlugins<C, E, O>) {
+	>(plugins: IPlugins<C, E, O>): IPluginsContext {
 		return Object.entries(plugins).reduce((plugins, [type, plugin]) => {
 			plugins[type] = isPluginWithFn(plugin) ? plugin.component : plugin;
 			return plugins;

@@ -80,7 +80,7 @@
 </script>
 
 <script lang="ts">
-	import { Editor, Range, Transforms, Point, type NodeEntry, Text } from 'slate';
+	import { Editor, Range, Transforms, type NodeEntry, Text } from 'slate';
 	import {
 		CODE_LINE_TYPE,
 		isCodeEditorElement,

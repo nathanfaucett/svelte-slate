@@ -9,6 +9,8 @@
 	export interface IImageElement extends IBaseElement {
 		type: 'image';
 		url: string;
+		label?: string;
+		hideLabel?: boolean;
 		width?: number;
 	}
 
@@ -77,8 +79,7 @@
 	import { Editor, Transforms } from 'slate';
 	import { getEditor, getFocusedContext, getReadOnlyContext } from '../components/Slate.svelte';
 	import { getSelectedContext } from '../components/ChildElement.svelte';
-	import { findPath } from '../utils';
-	import { onMount } from 'svelte';
+	import { findKey, findPath } from '../utils';
 	import { DragGesture } from '@use-gesture/vanilla';
 	import type { EventTypes, Handler } from '@use-gesture/core/types';
 	import { clamp } from './utils';
@@ -96,12 +97,20 @@
 	const focusedContext = getFocusedContext();
 	const readOnlyContext = getReadOnlyContext();
 
-	$: selected = $readOnlyContext ? false : $selectedContext && $focusedContext;
+	$: readOnly = $readOnlyContext;
+	$: selected = readOnly ? false : $selectedContext && $focusedContext;
 	$: path = findPath(element);
+	$: key = findKey(element);
 	$: percent = element.width || 1;
 
 	function onRemove() {
 		Transforms.removeNodes(editor, { at: path });
+	}
+	function onLabelChange(e: Event & { currentTarget: HTMLInputElement }) {
+		Transforms.setNodes(editor, { label: e.currentTarget.value } as any, { at: path });
+	}
+	function onShowLabelChange(e: Event & { currentTarget: HTMLInputElement }) {
+		Transforms.setNodes(editor, { hideLabel: e.currentTarget.checked } as any, { at: path });
 	}
 
 	let topElement: HTMLElement;
@@ -109,7 +118,6 @@
 	let bottomElement: HTMLElement;
 	let leftElement: HTMLElement;
 	let imageElement: HTMLImageElement;
-	let imageEditorElement: HTMLElement;
 
 	let aspect: number;
 	let startWidth: number;
@@ -164,33 +172,43 @@
 	};
 
 	let prevPercent: number;
-	$: if (imageEditorElement && prevPercent !== percent) {
+	$: if (prevPercent !== percent) {
 		prevPercent = percent;
-		imageEditorElement.style.width = `${percent * 100}%`;
 		Transforms.setNodes(editor, { width: percent } as any, { at: findPath(element) });
 	}
 
-	onMount(() => {
-		const top = new DragGesture(topElement, onTopDrag, {
-			axis: 'y'
-		});
-		const right = new DragGesture(rightElement, onRightDrag, {
-			axis: 'x'
-		});
-		const bottom = new DragGesture(bottomElement, onBottomDrag, {
-			axis: 'y'
-		});
-		const left = new DragGesture(leftElement, onLeftDrag, {
-			axis: 'x'
-		});
-
-		return () => {
+	let prevImageElement: HTMLImageElement;
+	let top: DragGesture;
+	let right: DragGesture;
+	let bottom: DragGesture;
+	let left: DragGesture;
+	$: if (imageElement !== prevImageElement) {
+		prevImageElement = imageElement;
+		if (top) {
 			top.destroy();
+		}
+		if (right) {
 			right.destroy();
+		}
+		if (bottom) {
 			bottom.destroy();
+		}
+		if (left) {
 			left.destroy();
-		};
-	});
+		}
+		top = new DragGesture(topElement, onTopDrag, {
+			axis: 'y'
+		});
+		right = new DragGesture(rightElement, onRightDrag, {
+			axis: 'x'
+		});
+		bottom = new DragGesture(bottomElement, onBottomDrag, {
+			axis: 'y'
+		});
+		left = new DragGesture(leftElement, onLeftDrag, {
+			axis: 'x'
+		});
+	}
 </script>
 
 <div
@@ -202,22 +220,60 @@
 	{dir}
 	contenteditable={false}
 >
-	<div contenteditable={false} class="image" class:selected>
-		<div class="image-editor" bind:this={imageEditorElement}>
-			<img bind:this={imageElement} src={element.url} alt="" />
-			<div class="image-top" bind:this={topElement} />
-			<div class="image-right" bind:this={rightElement} />
-			<div class="image-bottom" bind:this={bottomElement} />
-			<div class="image-left" bind:this={leftElement} />
-		</div>
-		<div class="delete">
-			<button on:mousedown={onRemove}>&times;</button>
-		</div>
+	<div class="image" class:selected>
+		{#if readOnly}
+			<img
+				src={element.url}
+				style="width:{percent * 100}%"
+				alt={element.label}
+				title={element.label}
+			/>
+			{#if !element.hideLabel && element.label}
+				<p class:hidden={!readOnly}>{element.label}</p>
+			{/if}
+		{:else}
+			<div>
+				<div class="image-editor">
+					<img
+						bind:this={imageElement}
+						src={element.url}
+						style="width:{percent * 100}%"
+						alt={element.label}
+						title={element.label}
+					/>
+					<div class="image-top" bind:this={topElement} />
+					<div class="image-right" bind:this={rightElement} />
+					<div class="image-bottom" bind:this={bottomElement} />
+					<div class="image-left" bind:this={leftElement} />
+				</div>
+				<div class="delete">
+					<button on:mousedown={onRemove}>&times;</button>
+				</div>
+			</div>
+			<div>
+				<label for="hide-label-{key}">Hide Label?</label>
+				<input
+					type="checkbox"
+					name="hide-label-{key}"
+					checked={element.hideLabel || false}
+					on:change={onShowLabelChange}
+				/>
+				<input
+					type="text"
+					placeholder="Label"
+					value={element.label || ''}
+					on:input={onLabelChange}
+				/>
+			</div>
+		{/if}
 	</div>
 	<slot />
 </div>
 
 <style>
+	.hidden {
+		display: none;
+	}
 	.container {
 		position: relative;
 		margin: 0;
@@ -276,7 +332,7 @@
 	}
 
 	img {
-		display: block;
+		display: inline-block;
 		max-width: 100%;
 	}
 	.image.selected img {

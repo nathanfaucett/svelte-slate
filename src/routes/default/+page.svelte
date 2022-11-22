@@ -16,6 +16,7 @@
 <p>
 	<a
 		target="_blank"
+		rel="noreferrer"
 		href="https://github.com/nathanfaucett/svelte-slate/blob/main/src/routes/default/+page.svelte"
 	>
 		Source

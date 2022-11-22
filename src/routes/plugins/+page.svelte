@@ -190,6 +190,7 @@
 <p>
 	<a
 		target="_blank"
+		rel="noreferrer"
 		href="https://github.com/nathanfaucett/svelte-slate/blob/main/src/routes/plugins/+page.svelte"
 	>
 		Source
@@ -223,9 +224,6 @@
 </Slate>
 
 <style>
-	.editor {
-		padding: 0.25rem 0;
-	}
 	.toolbar {
 		background-color: white;
 		border: 1px solid black;
