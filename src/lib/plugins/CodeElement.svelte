@@ -59,7 +59,13 @@
 	}
 
 	export function withCode<T extends ISvelteEditor = ISvelteEditor>(editor: T): T {
-		const { deleteBackward } = editor;
+		const { hasOwnContext } = editor;
+
+		editor.hasOwnContext = (e) =>
+			isCodeElement(e as IBaseElement) || isCodeEditorElement(e as IBaseElement)
+				? false
+				: hasOwnContext(e);
+
 		return editor;
 	}
 
@@ -75,7 +81,11 @@
 
 <script lang="ts">
 	import { Editor, Range, Transforms, Point, type NodeEntry, Text } from 'slate';
-	import { CODE_LINE_TYPE, type ICodeEditorElement } from './CodeEditorElement.svelte';
+	import {
+		CODE_LINE_TYPE,
+		isCodeEditorElement,
+		type ICodeEditorElement
+	} from './CodeEditorElement.svelte';
 	import CodeEditorElement from './CodeEditorElement.svelte';
 	import CodeEditorLeaf from './CodeEditorLeaf.svelte';
 	import { ELEMENT_CONTEXT_KEY, LEAF_CONTEXT_KEY } from '../components/Editable.svelte';

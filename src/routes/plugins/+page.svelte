@@ -174,6 +174,7 @@
 		}
 	];
 	let ref: HTMLDivElement;
+	let readOnly = false;
 
 	function onKeyDown(e: KeyboardEvent) {
 		Object.entries(HOTKEYS).forEach(([hotkey, mark]) => {
@@ -194,6 +195,10 @@
 		Source
 	</a>
 </p>
+<div>
+	<label for="readOnly">Read Only?</label>
+	<input name="readOnly" type="checkbox" bind:checked={readOnly} />
+</div>
 
 <Slate {editor} {plugins} bind:value>
 	<HoveringToolbar container={ref}>
@@ -214,7 +219,7 @@
 			<TableButton />
 		</div>
 	</HoveringToolbar>
-	<Editable bind:ref placeholder="Enter some plain text..." {onKeyDown} />
+	<Editable bind:ref placeholder="Enter some plain text..." {readOnly} {onKeyDown} />
 </Slate>
 
 <style>

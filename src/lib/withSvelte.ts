@@ -1,4 +1,4 @@
-import type { BaseEditor } from 'slate';
+import type { BaseEditor, Element } from 'slate';
 import { Editor, Node, Path, type Operation, Transforms, Range } from 'slate';
 import type { Key } from './Key';
 import { EDITOR_TO_KEY_TO_ELEMENT, EDITOR_TO_ON_CHANGE, NODE_TO_KEY } from './weakMaps';
@@ -12,6 +12,7 @@ export interface ISvelteEditor extends BaseEditor {
 	insertTextData: (data: DataTransfer) => boolean;
 	setFragmentData: (data: DataTransfer) => void;
 	hasRange: (editor: ISvelteEditor, range: Range) => boolean;
+	hasOwnContext: (element: Element) => boolean;
 }
 
 export function withSvelte<T extends Editor>(editor: T): T & ISvelteEditor {
@@ -209,6 +210,8 @@ export function withSvelte<T extends Editor>(editor: T): T & ISvelteEditor {
 
 		onChange();
 	};
+
+	e.hasOwnContext = () => true;
 
 	return e;
 }

@@ -40,13 +40,12 @@
 	import {
 		getEditorContext,
 		getFocusedContext,
+		getReadOnlyContext,
 		getSelectionContext
 	} from '../components/Slate.svelte';
 	import { Editor, Range, type BaseRange } from 'slate';
 	import Hovering from './Hovering.svelte';
-	import { isCodeElement } from './CodeElement.svelte';
-	import type { IElement } from './Element.svelte';
-	import { isImageElement } from './ImageElement.svelte';
+	import type { IBaseElement } from './Element.svelte';
 
 	export let container: HTMLElement | undefined = undefined;
 	export let threshold = 500;
@@ -55,9 +54,11 @@
 	const editorContext = getEditorContext();
 	const selectionContext = getSelectionContext();
 	const focusContext = getFocusedContext();
+	const readOnlyContext = getReadOnlyContext();
 	$: editor = $editorContext;
 	$: selection = $selectionContext;
 	$: focus = $focusContext;
+	$: readOnly = $readOnlyContext;
 
 	let ref: HTMLElement;
 	$: if (ref) {
@@ -69,27 +70,28 @@
 		) {
 			open = false;
 		} else {
+			checkCanOpen();
+		}
+	}
+
+	function checkCanOpen() {
+		if (!readOnly) {
 			const [match] = Editor.nodes(editor, {
 				at: Editor.unhangRange(editor, editor.selection as BaseRange),
-				match: (e) => isCodeElement(e as IElement) || isImageElement(e as IElement)
+				match: (e) => !editor.hasOwnContext(e as IBaseElement)
 			});
 			if (!match) {
 				open = true;
 			}
 		}
 	}
-
-	function onLongPress() {
-		open = true;
-	}
-
 	let prevContainer: HTMLElement;
 	let removeLongpress: (() => void) | undefined;
 	$: if (container && container !== prevContainer) {
 		if (removeLongpress) {
 			removeLongpress();
 		}
-		removeLongpress = addLongPress(container, threshold, onLongPress);
+		removeLongpress = addLongPress(container, threshold, checkCanOpen);
 		prevContainer = container;
 	}
 </script>

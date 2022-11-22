@@ -147,7 +147,6 @@
 
 	const editor = getEditor();
 	const editorContext = getEditorContext();
-	const valueContext = getValueContext();
 	const readOnlyContext = getReadOnlyContext();
 	const focusedContext = getFocusedContext();
 	const decorateContext = getDecorateContext();

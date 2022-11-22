@@ -34,9 +34,11 @@
 		editor: T,
 		options: ImagesOptions = {}
 	): T {
-		const { insertData, isVoid } = editor;
+		const { insertData, isVoid, hasOwnContext } = editor;
 
 		editor.isVoid = (element) => (isImageElement(element as IBaseElement) ? true : isVoid(element));
+		editor.hasOwnContext = (element) =>
+			isImageElement(element as IBaseElement) ? false : hasOwnContext(element);
 
 		editor.insertData = (data) => {
 			const text = data.getData('text/plain');

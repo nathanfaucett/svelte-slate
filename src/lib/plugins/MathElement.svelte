@@ -19,7 +19,7 @@
 	}
 
 	export function withMath<T extends ISvelteEditor = ISvelteEditor>(editor: T): T {
-		const { isVoid, isInline, insertBreak } = editor;
+		const { isVoid, isInline, insertBreak, hasOwnContext } = editor;
 
 		editor.isInline = (element) =>
 			isMathElement(element as IElement)
@@ -27,6 +27,8 @@
 				: isInline(element);
 
 		editor.isVoid = (element) => (isMathElement(element as IElement) ? true : isVoid(element));
+		editor.hasOwnContext = (element) =>
+			isMathElement(element as IElement) ? false : hasOwnContext(element);
 
 		editor.insertBreak = () => {
 			if (!editor.selection || !Range.isCollapsed(editor.selection)) {
