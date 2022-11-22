@@ -155,10 +155,6 @@
     "file": "internal/immutable/assets/KaTeX_Typewriter-Regular-e14fed02.woff",
     "src": "node_modules/katex/dist/fonts/KaTeX_Typewriter-Regular.woff"
   },
-  "node_modules/katex/dist/fonts/KaTeX_AMS-Regular.ttf": {
-    "file": "internal/immutable/assets/KaTeX_AMS-Regular-68534840.ttf",
-    "src": "node_modules/katex/dist/fonts/KaTeX_AMS-Regular.ttf"
-  },
   "node_modules/katex/dist/fonts/KaTeX_Caligraphic-Bold.ttf": {
     "file": "internal/immutable/assets/KaTeX_Caligraphic-Bold-07d8e303.ttf",
     "src": "node_modules/katex/dist/fonts/KaTeX_Caligraphic-Bold.ttf"
@@ -187,21 +183,21 @@
     "file": "internal/immutable/assets/KaTeX_Main-Italic-0d85ae7c.ttf",
     "src": "node_modules/katex/dist/fonts/KaTeX_Main-Italic.ttf"
   },
-  "node_modules/katex/dist/fonts/KaTeX_Main-Regular.ttf": {
-    "file": "internal/immutable/assets/KaTeX_Main-Regular-d0332f52.ttf",
-    "src": "node_modules/katex/dist/fonts/KaTeX_Main-Regular.ttf"
-  },
   "node_modules/katex/dist/fonts/KaTeX_Math-BoldItalic.ttf": {
     "file": "internal/immutable/assets/KaTeX_Math-BoldItalic-f9377ab0.ttf",
     "src": "node_modules/katex/dist/fonts/KaTeX_Math-BoldItalic.ttf"
   },
-  "node_modules/katex/dist/fonts/KaTeX_Math-Italic.ttf": {
-    "file": "internal/immutable/assets/KaTeX_Math-Italic-08ce98e5.ttf",
-    "src": "node_modules/katex/dist/fonts/KaTeX_Math-Italic.ttf"
+  "node_modules/katex/dist/fonts/KaTeX_Main-Regular.ttf": {
+    "file": "internal/immutable/assets/KaTeX_Main-Regular-d0332f52.ttf",
+    "src": "node_modules/katex/dist/fonts/KaTeX_Main-Regular.ttf"
   },
   "node_modules/katex/dist/fonts/KaTeX_SansSerif-Bold.ttf": {
     "file": "internal/immutable/assets/KaTeX_SansSerif-Bold-1ece03f7.ttf",
     "src": "node_modules/katex/dist/fonts/KaTeX_SansSerif-Bold.ttf"
+  },
+  "node_modules/katex/dist/fonts/KaTeX_Math-Italic.ttf": {
+    "file": "internal/immutable/assets/KaTeX_Math-Italic-08ce98e5.ttf",
+    "src": "node_modules/katex/dist/fonts/KaTeX_Math-Italic.ttf"
   },
   "node_modules/katex/dist/fonts/KaTeX_SansSerif-Italic.ttf": {
     "file": "internal/immutable/assets/KaTeX_SansSerif-Italic-3931dd81.ttf",
@@ -211,13 +207,13 @@
     "file": "internal/immutable/assets/KaTeX_SansSerif-Regular-f36ea897.ttf",
     "src": "node_modules/katex/dist/fonts/KaTeX_SansSerif-Regular.ttf"
   },
-  "node_modules/katex/dist/fonts/KaTeX_Script-Regular.ttf": {
-    "file": "internal/immutable/assets/KaTeX_Script-Regular-1c67f068.ttf",
-    "src": "node_modules/katex/dist/fonts/KaTeX_Script-Regular.ttf"
-  },
   "node_modules/katex/dist/fonts/KaTeX_Size1-Regular.ttf": {
     "file": "internal/immutable/assets/KaTeX_Size1-Regular-95b6d2f1.ttf",
     "src": "node_modules/katex/dist/fonts/KaTeX_Size1-Regular.ttf"
+  },
+  "node_modules/katex/dist/fonts/KaTeX_Script-Regular.ttf": {
+    "file": "internal/immutable/assets/KaTeX_Script-Regular-1c67f068.ttf",
+    "src": "node_modules/katex/dist/fonts/KaTeX_Script-Regular.ttf"
   },
   "node_modules/katex/dist/fonts/KaTeX_Size2-Regular.ttf": {
     "file": "internal/immutable/assets/KaTeX_Size2-Regular-a6b2099f.ttf",
@@ -235,8 +231,12 @@
     "file": "internal/immutable/assets/KaTeX_Typewriter-Regular-f01f3e87.ttf",
     "src": "node_modules/katex/dist/fonts/KaTeX_Typewriter-Regular.ttf"
   },
+  "node_modules/katex/dist/fonts/KaTeX_AMS-Regular.ttf": {
+    "file": "internal/immutable/assets/KaTeX_AMS-Regular-68534840.ttf",
+    "src": "node_modules/katex/dist/fonts/KaTeX_AMS-Regular.ttf"
+  },
   "node_modules/@sveltejs/kit/src/runtime/client/start.js": {
-    "file": "internal/immutable/start-8297ad6a.js",
+    "file": "internal/immutable/start-7805dda1.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -286,35 +286,35 @@
     ]
   },
   "src/routes/default/+page.svelte": {
-    "file": "internal/immutable/components/pages/default/_page.svelte-eb7c5a22.js",
+    "file": "internal/immutable/components/pages/default/_page.svelte-d948a21d.js",
     "src": "src/routes/default/+page.svelte",
     "isEntry": true,
     "imports": [
       "_index-eb8adeeb.js",
-      "_Editable-41a2f06d.js"
+      "_Editable-a1c7ddda.js"
     ]
   },
   "src/routes/huge-document/+page.svelte": {
-    "file": "internal/immutable/components/pages/huge-document/_page.svelte-e66be7d2.js",
+    "file": "internal/immutable/components/pages/huge-document/_page.svelte-5635fb1c.js",
     "src": "src/routes/huge-document/+page.svelte",
     "isEntry": true,
     "imports": [
       "_index-eb8adeeb.js",
-      "_Editable-41a2f06d.js",
-      "_HoveringToolbar-34c57ee8.js"
+      "_Editable-a1c7ddda.js",
+      "_HoveringToolbar-b5b5a5cd.js"
     ],
     "css": [
       "internal/immutable/assets/_page-0356b952.css"
     ]
   },
   "src/routes/plugins/+page.svelte": {
-    "file": "internal/immutable/components/pages/plugins/_page.svelte-55dbedd0.js",
+    "file": "internal/immutable/components/pages/plugins/_page.svelte-dc8f58c9.js",
     "src": "src/routes/plugins/+page.svelte",
     "isEntry": true,
     "imports": [
       "_index-eb8adeeb.js",
-      "_Editable-41a2f06d.js",
-      "_HoveringToolbar-34c57ee8.js"
+      "_Editable-a1c7ddda.js",
+      "_HoveringToolbar-b5b5a5cd.js"
     ],
     "css": [
       "internal/immutable/assets/_page-0356b952.css"
@@ -362,8 +362,8 @@
   "__layout-c2405b24.js": {
     "file": "internal/immutable/chunks/_layout-c2405b24.js"
   },
-  "_Editable-41a2f06d.js": {
-    "file": "internal/immutable/chunks/Editable-41a2f06d.js",
+  "_Editable-a1c7ddda.js": {
+    "file": "internal/immutable/chunks/Editable-a1c7ddda.js",
     "imports": [
       "_index-eb8adeeb.js",
       "_index-cda69208.js"
@@ -372,11 +372,11 @@
       "internal/immutable/assets/Editable-4e0c96a4.css"
     ]
   },
-  "_HoveringToolbar-34c57ee8.js": {
-    "file": "internal/immutable/chunks/HoveringToolbar-34c57ee8.js",
+  "_HoveringToolbar-b5b5a5cd.js": {
+    "file": "internal/immutable/chunks/HoveringToolbar-b5b5a5cd.js",
     "imports": [
       "_index-eb8adeeb.js",
-      "_Editable-41a2f06d.js",
+      "_Editable-a1c7ddda.js",
       "_IconBase-24462ee2.js",
       "_preload-helper-176e53da.js"
     ],
@@ -770,7 +770,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/3.js": {
-    "file": "internal/immutable/chunks/3-e782b2a8.js",
+    "file": "internal/immutable/chunks/3-e9ff3f95.js",
     "src": ".svelte-kit/generated/nodes/3.js",
     "isDynamicEntry": true,
     "imports": [
@@ -778,7 +778,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/4.js": {
-    "file": "internal/immutable/chunks/4-810d826b.js",
+    "file": "internal/immutable/chunks/4-6bf861d7.js",
     "src": ".svelte-kit/generated/nodes/4.js",
     "isDynamicEntry": true,
     "imports": [
@@ -786,7 +786,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/5.js": {
-    "file": "internal/immutable/chunks/5-b573b5c2.js",
+    "file": "internal/immutable/chunks/5-6373022d.js",
     "src": ".svelte-kit/generated/nodes/5.js",
     "isDynamicEntry": true,
     "imports": [
@@ -2286,13 +2286,13 @@
     "file": "internal/immutable/assets/IconBase-d93538e2.css",
     "src": "IconBase.css"
   },
-  "src/routes/plugins/+page.css": {
-    "file": "internal/immutable/assets/_page-0356b952.css",
-    "src": "src/routes/plugins/+page.css"
-  },
   "Editable.css": {
     "file": "internal/immutable/assets/Editable-4e0c96a4.css",
     "src": "Editable.css"
+  },
+  "src/routes/plugins/+page.css": {
+    "file": "internal/immutable/assets/_page-0356b952.css",
+    "src": "src/routes/plugins/+page.css"
   },
   "HoveringToolbar.css": {
     "file": "internal/immutable/assets/HoveringToolbar-ef98ab50.css",
