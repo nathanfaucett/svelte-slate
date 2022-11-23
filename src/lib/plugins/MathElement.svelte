@@ -85,8 +85,7 @@
 	const focusedContext = getFocusedContext();
 	const readOnlyContext = getReadOnlyContext();
 
-	$: readOnly = $readOnlyContext;
-	$: selected = readOnly ? false : $selectedContext && $focusedContext;
+	$: selected = $readOnlyContext ? false : $selectedContext && $focusedContext;
 	$: path = findPath(element);
 	let currentMath = element.math;
 	$: if (currentMath !== element.math) {
@@ -134,7 +133,7 @@
 	let inline = currentInline;
 	let isNew: boolean;
 	function onEdit() {
-		if (!readOnly) {
+		if (contenteditable) {
 			math = currentMath;
 			inline = currentInline;
 			setSelection(mathEditElement);
@@ -167,10 +166,10 @@
 >
 	<div
 		class="math-value"
-		class:math-selectable={!readOnly}
-		contenteditable={false}
+		class:math-selectable={contenteditable}
 		class:math-inline={currentInline}
 		class:math-selected={selected}
+		contenteditable={false}
 	>
 		<span bind:this={mathElement} />
 		<div class="math-edit" bind:this={mathEditElement} class:math-selected={selected}>

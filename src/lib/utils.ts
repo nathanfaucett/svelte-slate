@@ -1,4 +1,13 @@
-import { Editor, Node, Path, Point, Range, Transforms } from 'slate';
+import {
+	Editor,
+	Node,
+	Path,
+	Point,
+	Range,
+	Transforms,
+	type BaseElement,
+	type NodeMatch
+} from 'slate';
 import { writable, type Writable } from 'svelte/store';
 import { getContext, setContext } from 'svelte';
 import { shallowEqual } from 'fast-equals';
@@ -81,6 +90,19 @@ export function findPath(node: Node): Path {
 	}
 
 	throw new Error(`Unable to find the path for Slate node: ${JSON.stringify(node)}`);
+}
+
+export function getElementNumber(
+	editor: ISvelteEditor,
+	element: BaseElement,
+	isElement: NodeMatch<Node>
+): number {
+	return [
+		...Editor.nodes(editor, {
+			at: [[0], findPath(element)],
+			match: isElement
+		})
+	].length;
 }
 
 export function findDocumentOrShadowRoot(editor: ISvelteEditor): Document | ShadowRoot {

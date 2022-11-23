@@ -11,16 +11,17 @@
 	let url: string;
 	let entering = false;
 
-	$: onMouseDown = () => {
+	$: valid = url ? isUrl(url) : false;
+	function onMouseDown() {
 		entering = true;
-	};
-	$: onEnter = () => {
-		if (isUrl(url)) {
+	}
+	function onEnter() {
+		if (valid) {
 			insertImage(editor, url);
 			url = '';
 			entering = false;
 		}
-	};
+	}
 </script>
 
 <Button {onMouseDown}>
@@ -32,7 +33,7 @@
 		<div class="url">
 			<input type="text" bind:value={url} />
 			<div class="button">
-				<Button active={!isUrl(url)} onMouseDown={onEnter}><MdCheck /></Button>
+				<Button active={!valid} onMouseDown={onEnter}><MdCheck /></Button>
 			</div>
 		</div>
 	</div>

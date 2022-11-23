@@ -105,7 +105,6 @@
 	export let dir: 'rtl' | 'ltr' | undefined = undefined;
 
 	const editor = getEditor();
-	const readOnly = getReadOnlyContext();
 
 	createContext(ELEMENT_CONTEXT_KEY, CodeEditorElement);
 	createContext(LEAF_CONTEXT_KEY, CodeEditorLeaf);
@@ -206,12 +205,12 @@
 >
 	<div
 		class="language-select"
-		class:hidden={$readOnly}
+		class:hidden={!contenteditable}
 		contenteditable={false}
 		on:mousedown|stopPropagation
 		on:touchstart|stopPropagation
 	>
-		<select value={element.language} on:change={onSelect} contenteditable={false}>
+		<select value={element.language} on:change={onSelect}>
 			{#each languageNames as [id, language]}
 				<option value={id}>{language}</option>
 			{/each}

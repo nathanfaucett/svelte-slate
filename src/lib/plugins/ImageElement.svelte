@@ -23,7 +23,7 @@
 		try {
 			url = new URL(string);
 			return url.protocol === 'http:' || url.protocol === 'https:';
-		} finally {
+		} catch (error) {
 			return false;
 		}
 	}
@@ -36,9 +36,8 @@
 		editor: T,
 		options: ImagesOptions = {}
 	): T {
-		const { insertData, isVoid, hasOwnContext } = editor;
+		const { insertData, hasOwnContext } = editor;
 
-		editor.isVoid = (element) => (isImageElement(element as IBaseElement) ? true : isVoid(element));
 		editor.hasOwnContext = (element) =>
 			isImageElement(element as IBaseElement) ? false : hasOwnContext(element);
 
@@ -79,7 +78,7 @@
 	import { Editor, Transforms } from 'slate';
 	import { getEditor, getFocusedContext, getReadOnlyContext } from '../components/Slate.svelte';
 	import { getSelectedContext } from '../components/ChildElement.svelte';
-	import { findKey, findPath } from '../utils';
+	import { findKey, findPath, getElementNumber } from '../utils';
 	import { DragGesture } from '@use-gesture/vanilla';
 	import type { EventTypes, Handler } from '@use-gesture/core/types';
 	import { clamp } from './utils';
@@ -97,12 +96,15 @@
 	const focusedContext = getFocusedContext();
 	const readOnlyContext = getReadOnlyContext();
 
-	$: readOnly = $readOnlyContext;
-	$: selected = readOnly ? false : $selectedContext && $focusedContext;
+	$: selected = $readOnlyContext ? false : $selectedContext && $focusedContext;
 	$: path = findPath(element);
 	$: key = findKey(element);
+	$: index = getElementNumber(editor, element, isImageElement as any);
 	$: percent = element.width || 1;
 
+	function onClick() {
+		Transforms.select(editor, path);
+	}
 	function onRemove() {
 		Transforms.removeNodes(editor, { at: path });
 	}
@@ -218,20 +220,10 @@
 	data-slate-inline={isInline}
 	data-slate-void={isVoid}
 	{dir}
-	contenteditable={false}
+	{contenteditable}
 >
-	<div class="image" class:selected>
-		{#if readOnly}
-			<img
-				src={element.url}
-				style="width:{percent * 100}%"
-				alt={element.label}
-				title={element.label}
-			/>
-			{#if !element.hideLabel && element.label}
-				<p class:hidden={!readOnly}>{element.label}</p>
-			{/if}
-		{:else}
+	<div class="image" class:selected contenteditable={false} on:mousedown={onClick}>
+		{#if contenteditable}
 			<div>
 				<div class="image-editor">
 					<img
@@ -265,6 +257,16 @@
 					on:input={onLabelChange}
 				/>
 			</div>
+		{:else}
+			<img
+				src={element.url}
+				style="width:{percent * 100}%"
+				alt={element.label}
+				title={element.label}
+			/>
+			{#if !element.hideLabel && element.label}
+				<p>{element.label} {index}</p>
+			{/if}
 		{/if}
 	</div>
 	<slot />

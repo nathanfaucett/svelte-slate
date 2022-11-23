@@ -33,9 +33,9 @@
 </script>
 
 <script lang="ts">
-	import { getEditor } from '../components/Slate.svelte';
+	import { getEditor, getReadOnlyContext } from '../components/Slate.svelte';
 	import { findPath } from '../utils';
-	import { Editor, Transforms, Range, Element as SlateElement, Point } from 'slate';
+	import { Editor, Transforms, Element as SlateElement } from 'slate';
 	import { isBlockActive } from './utils';
 
 	export let element: ICheckListItemElement;
@@ -48,13 +48,15 @@
 	const editor = getEditor();
 
 	function onChange(event: Event) {
-		Transforms.setNodes(
-			editor,
-			{
-				checked: (event.target as HTMLInputElement).checked
-			} as any,
-			{ at: findPath(element) }
-		);
+		if (contenteditable) {
+			Transforms.setNodes(
+				editor,
+				{
+					checked: (event.target as HTMLInputElement).checked
+				} as any,
+				{ at: findPath(element) }
+			);
+		}
 	}
 </script>
 
@@ -68,7 +70,12 @@
 	{contenteditable}
 >
 	<span class="checkbox" contenteditable={false}>
-		<input type="checkbox" checked={element.checked} on:change={onChange} />
+		<input
+			type="checkbox"
+			checked={element.checked}
+			disabled={!contenteditable}
+			on:change={onChange}
+		/>
 	</span>
 	<span class="content" class:checked={element.checked} {contenteditable}>
 		<slot />
