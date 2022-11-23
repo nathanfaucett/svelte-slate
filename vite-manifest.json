@@ -236,12 +236,12 @@
     "src": "node_modules/katex/dist/fonts/KaTeX_Typewriter-Regular.ttf"
   },
   "node_modules/@sveltejs/kit/src/runtime/client/start.js": {
-    "file": "internal/immutable/start-9aceb4e5.js",
+    "file": "internal/immutable/start-c321ef5d.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/client/start.js",
     "isEntry": true,
     "imports": [
-      "_index-eb8adeeb.js",
-      "_singletons-e26c07b4.js",
+      "_index-27964770.js",
+      "_singletons-644c9b2b.js",
       "_preload-helper-176e53da.js",
       "_paths-846459bd.js"
     ],
@@ -255,66 +255,66 @@
     ]
   },
   "src/routes/+layout.svelte": {
-    "file": "internal/immutable/components/pages/_layout.svelte-2092bd2e.js",
+    "file": "internal/immutable/components/pages/_layout.svelte-43c343ba.js",
     "src": "src/routes/+layout.svelte",
     "isEntry": true,
     "imports": [
-      "_index-eb8adeeb.js",
+      "_index-27964770.js",
       "_paths-846459bd.js",
-      "_IconBase-24462ee2.js"
+      "_IconBase-523a3c98.js"
     ],
     "css": [
       "internal/immutable/assets/_layout-a2111cc4.css"
     ]
   },
   "node_modules/@sveltejs/kit/src/runtime/components/error.svelte": {
-    "file": "internal/immutable/components/error.svelte-74551a71.js",
+    "file": "internal/immutable/components/error.svelte-9228dec0.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/components/error.svelte",
     "isEntry": true,
     "imports": [
-      "_index-eb8adeeb.js",
-      "_singletons-e26c07b4.js"
+      "_index-27964770.js",
+      "_singletons-644c9b2b.js"
     ]
   },
   "src/routes/+page.svelte": {
-    "file": "internal/immutable/components/pages/_page.svelte-30842811.js",
+    "file": "internal/immutable/components/pages/_page.svelte-7a388703.js",
     "src": "src/routes/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index-eb8adeeb.js",
+      "_index-27964770.js",
       "_paths-846459bd.js"
     ]
   },
   "src/routes/default/+page.svelte": {
-    "file": "internal/immutable/components/pages/default/_page.svelte-f20f0c35.js",
+    "file": "internal/immutable/components/pages/default/_page.svelte-b6aed1c8.js",
     "src": "src/routes/default/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index-eb8adeeb.js",
-      "_Editable-02db584f.js"
+      "_index-27964770.js",
+      "_Editable-71a6d317.js"
     ]
   },
   "src/routes/huge-document/+page.svelte": {
-    "file": "internal/immutable/components/pages/huge-document/_page.svelte-37dd18b8.js",
+    "file": "internal/immutable/components/pages/huge-document/_page.svelte-f428e4d1.js",
     "src": "src/routes/huge-document/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index-eb8adeeb.js",
-      "_Editable-02db584f.js",
-      "_HoveringToolbar-362ff56c.js"
+      "_index-27964770.js",
+      "_Editable-71a6d317.js",
+      "_HoveringToolbar-76e39d6d.js"
     ],
     "css": [
       "internal/immutable/assets/_page-4ad228cf.css"
     ]
   },
   "src/routes/plugins/+page.svelte": {
-    "file": "internal/immutable/components/pages/plugins/_page.svelte-159a70ec.js",
+    "file": "internal/immutable/components/pages/plugins/_page.svelte-234c425b.js",
     "src": "src/routes/plugins/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index-eb8adeeb.js",
-      "_Editable-02db584f.js",
-      "_HoveringToolbar-362ff56c.js"
+      "_index-27964770.js",
+      "_Editable-71a6d317.js",
+      "_HoveringToolbar-76e39d6d.js"
     ],
     "css": [
       "internal/immutable/assets/_page-4ad228cf.css"
@@ -328,32 +328,32 @@
       "__layout-c2405b24.js"
     ]
   },
-  "_singletons-e26c07b4.js": {
-    "file": "internal/immutable/chunks/singletons-e26c07b4.js",
+  "_singletons-644c9b2b.js": {
+    "file": "internal/immutable/chunks/singletons-644c9b2b.js",
     "imports": [
-      "_index-cda69208.js",
+      "_index-9d2f9813.js",
       "_paths-846459bd.js"
     ]
   },
   "_paths-846459bd.js": {
     "file": "internal/immutable/chunks/paths-846459bd.js"
   },
-  "_index-eb8adeeb.js": {
-    "file": "internal/immutable/chunks/index-eb8adeeb.js"
+  "_index-27964770.js": {
+    "file": "internal/immutable/chunks/index-27964770.js"
   },
-  "_index-cda69208.js": {
-    "file": "internal/immutable/chunks/index-cda69208.js",
+  "_index-9d2f9813.js": {
+    "file": "internal/immutable/chunks/index-9d2f9813.js",
     "imports": [
-      "_index-eb8adeeb.js"
+      "_index-27964770.js"
     ]
   },
   "_preload-helper-176e53da.js": {
     "file": "internal/immutable/chunks/preload-helper-176e53da.js"
   },
-  "_IconBase-24462ee2.js": {
-    "file": "internal/immutable/chunks/IconBase-24462ee2.js",
+  "_IconBase-523a3c98.js": {
+    "file": "internal/immutable/chunks/IconBase-523a3c98.js",
     "imports": [
-      "_index-eb8adeeb.js"
+      "_index-27964770.js"
     ],
     "css": [
       "internal/immutable/assets/IconBase-d93538e2.css"
@@ -362,22 +362,22 @@
   "__layout-c2405b24.js": {
     "file": "internal/immutable/chunks/_layout-c2405b24.js"
   },
-  "_Editable-02db584f.js": {
-    "file": "internal/immutable/chunks/Editable-02db584f.js",
+  "_Editable-71a6d317.js": {
+    "file": "internal/immutable/chunks/Editable-71a6d317.js",
     "imports": [
-      "_index-eb8adeeb.js",
-      "_index-cda69208.js"
+      "_index-27964770.js",
+      "_index-9d2f9813.js"
     ],
     "css": [
       "internal/immutable/assets/Editable-4e0c96a4.css"
     ]
   },
-  "_HoveringToolbar-362ff56c.js": {
-    "file": "internal/immutable/chunks/HoveringToolbar-362ff56c.js",
+  "_HoveringToolbar-76e39d6d.js": {
+    "file": "internal/immutable/chunks/HoveringToolbar-76e39d6d.js",
     "imports": [
-      "_index-eb8adeeb.js",
-      "_Editable-02db584f.js",
-      "_IconBase-24462ee2.js",
+      "_index-27964770.js",
+      "_Editable-71a6d317.js",
+      "_IconBase-523a3c98.js",
       "_preload-helper-176e53da.js"
     ],
     "dynamicImports": [
@@ -680,7 +680,7 @@
       "node_modules/prismjs/components/prism-zig.min.js"
     ],
     "css": [
-      "internal/immutable/assets/HoveringToolbar-bf6db2c2.css"
+      "internal/immutable/assets/HoveringToolbar-ee2ec248.css"
     ],
     "assets": [
       "internal/immutable/assets/KaTeX_AMS-Regular-0cdd387c.woff2",
@@ -745,7 +745,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/0.js": {
-    "file": "internal/immutable/chunks/0-ed357196.js",
+    "file": "internal/immutable/chunks/0-8ab8a1a3.js",
     "src": ".svelte-kit/generated/nodes/0.js",
     "isDynamicEntry": true,
     "imports": [
@@ -754,7 +754,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/1.js": {
-    "file": "internal/immutable/chunks/1-eaf17760.js",
+    "file": "internal/immutable/chunks/1-cb51d73d.js",
     "src": ".svelte-kit/generated/nodes/1.js",
     "isDynamicEntry": true,
     "imports": [
@@ -762,7 +762,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/2.js": {
-    "file": "internal/immutable/chunks/2-19be5c48.js",
+    "file": "internal/immutable/chunks/2-64dd6db7.js",
     "src": ".svelte-kit/generated/nodes/2.js",
     "isDynamicEntry": true,
     "imports": [
@@ -770,7 +770,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/3.js": {
-    "file": "internal/immutable/chunks/3-33978515.js",
+    "file": "internal/immutable/chunks/3-ee6d3a47.js",
     "src": ".svelte-kit/generated/nodes/3.js",
     "isDynamicEntry": true,
     "imports": [
@@ -778,7 +778,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/4.js": {
-    "file": "internal/immutable/chunks/4-3594a964.js",
+    "file": "internal/immutable/chunks/4-1e241d39.js",
     "src": ".svelte-kit/generated/nodes/4.js",
     "isDynamicEntry": true,
     "imports": [
@@ -786,7 +786,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/5.js": {
-    "file": "internal/immutable/chunks/5-7fcc523a.js",
+    "file": "internal/immutable/chunks/5-7ffad06e.js",
     "src": ".svelte-kit/generated/nodes/5.js",
     "isDynamicEntry": true,
     "imports": [
@@ -2295,7 +2295,7 @@
     "src": "src/routes/plugins/+page.css"
   },
   "HoveringToolbar.css": {
-    "file": "internal/immutable/assets/HoveringToolbar-bf6db2c2.css",
+    "file": "internal/immutable/assets/HoveringToolbar-ee2ec248.css",
     "src": "HoveringToolbar.css"
   }
 }
