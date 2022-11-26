@@ -39,7 +39,7 @@ using the plugin imports can result in mutiple instances of svelte witch can cau
 ```typescript
 export default defineConfig({
 	optimizeDeps: {
-		include: ['svelte-slate']
+		exclude: ['svelte-slate']
 	}
 });
 ```
