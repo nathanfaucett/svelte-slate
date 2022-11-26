@@ -11,6 +11,7 @@
 		url: string;
 		label?: string;
 		hideLabel?: boolean;
+		hideId?: boolean;
 		width?: number;
 	}
 
@@ -111,8 +112,11 @@
 	function onLabelChange(e: Event & { currentTarget: HTMLInputElement }) {
 		Transforms.setNodes(editor, { label: e.currentTarget.value } as any, { at: path });
 	}
-	function onShowLabelChange(e: Event & { currentTarget: HTMLInputElement }) {
+	function onHideLabelChange(e: Event & { currentTarget: HTMLInputElement }) {
 		Transforms.setNodes(editor, { hideLabel: e.currentTarget.checked } as any, { at: path });
+	}
+	function onHideIdChange(e: Event & { currentTarget: HTMLInputElement }) {
+		Transforms.setNodes(editor, { hideId: e.currentTarget.checked } as any, { at: path });
 	}
 
 	let topElement: HTMLElement;
@@ -242,21 +246,6 @@
 					<button on:mousedown={onRemove}>&times;</button>
 				</div>
 			</div>
-			<div>
-				<label for="hide-label-{key}">Hide Label?</label>
-				<input
-					type="checkbox"
-					name="hide-label-{key}"
-					checked={element.hideLabel || false}
-					on:change={onShowLabelChange}
-				/>
-				<input
-					type="text"
-					placeholder="Label"
-					value={element.label || ''}
-					on:input={onLabelChange}
-				/>
-			</div>
 		{:else}
 			<img
 				src={element.url}
@@ -264,12 +253,32 @@
 				alt={element.label}
 				title={element.label}
 			/>
-			{#if !element.hideLabel && element.label}
-				<p>{element.label} {index}</p>
-			{/if}
 		{/if}
 	</div>
 	<slot />
+	{#if contenteditable}
+		<div contenteditable={false}>
+			<label for="hide-label-{key}">Hide Label?</label>
+			<input
+				type="checkbox"
+				name="hide-label-{key}"
+				checked={element.hideLabel || false}
+				on:change={onHideLabelChange}
+			/>
+			<label for="hide-id-{key}">Hide Id?</label>
+			<input
+				type="checkbox"
+				name="hide-id-{key}"
+				checked={element.hideId || false}
+				on:change={onHideIdChange}
+			/>
+			<input type="text" placeholder="Label" value={element.label || ''} on:input={onLabelChange} />
+		</div>
+	{:else if !element.hideLabel && element.label}
+		<p>
+			{element.label}{#if !element.hideId}{index}{/if}
+		</p>
+	{/if}
 </div>
 
 <style>

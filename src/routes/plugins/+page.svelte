@@ -74,7 +74,7 @@
 		},
 		{
 			type: 'image',
-			url: 'https://source.unsplash.com/kFrdX5IeQzI',
+			url: 'https://st.depositphotos.com/2935381/4189/i/450/depositphotos_41897159-stock-photo-example-concept.jpg',
 			children: [{ text: '' }]
 		},
 		{
