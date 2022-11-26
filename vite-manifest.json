@@ -203,13 +203,13 @@
     "file": "internal/immutable/assets/KaTeX_SansSerif-Bold-1ece03f7.ttf",
     "src": "node_modules/katex/dist/fonts/KaTeX_SansSerif-Bold.ttf"
   },
-  "node_modules/katex/dist/fonts/KaTeX_SansSerif-Italic.ttf": {
-    "file": "internal/immutable/assets/KaTeX_SansSerif-Italic-3931dd81.ttf",
-    "src": "node_modules/katex/dist/fonts/KaTeX_SansSerif-Italic.ttf"
-  },
   "node_modules/katex/dist/fonts/KaTeX_SansSerif-Regular.ttf": {
     "file": "internal/immutable/assets/KaTeX_SansSerif-Regular-f36ea897.ttf",
     "src": "node_modules/katex/dist/fonts/KaTeX_SansSerif-Regular.ttf"
+  },
+  "node_modules/katex/dist/fonts/KaTeX_SansSerif-Italic.ttf": {
+    "file": "internal/immutable/assets/KaTeX_SansSerif-Italic-3931dd81.ttf",
+    "src": "node_modules/katex/dist/fonts/KaTeX_SansSerif-Italic.ttf"
   },
   "node_modules/katex/dist/fonts/KaTeX_Script-Regular.ttf": {
     "file": "internal/immutable/assets/KaTeX_Script-Regular-1c67f068.ttf",
