@@ -12,7 +12,6 @@
 		label?: string;
 		hideLabel?: boolean;
 		hideId?: boolean;
-		width?: number;
 	}
 
 	export function isImageElement(element: IBaseElement): element is IImageElement {
@@ -37,10 +36,21 @@
 		editor: T,
 		options: ImagesOptions = {}
 	): T {
-		const { insertData, hasOwnContext } = editor;
+		const { insertData, insertBreak } = editor;
 
-		editor.hasOwnContext = (element) =>
-			isImageElement(element as IBaseElement) ? false : hasOwnContext(element);
+		editor.insertBreak = () => {
+			const [match] = Editor.nodes(editor, {
+				match: isImageElement as any
+			});
+			if (!match) {
+				insertBreak();
+			} else {
+				Transforms.insertNodes(editor, { type: PARAGRAPH_TYPE, children: [{ text: '' }] } as any, {
+					at: editor.selection as any,
+					select: true
+				});
+			}
+		};
 
 		editor.insertData = (data) => {
 			const text = data.getData('text/plain');
@@ -79,10 +89,11 @@
 	import { Editor, Transforms } from 'slate';
 	import { getEditor, getFocusedContext, getReadOnlyContext } from '../components/Slate.svelte';
 	import { getSelectedContext } from '../components/ChildElement.svelte';
-	import { findKey, findPath, getElementNumber } from '../utils';
-	import { DragGesture } from '@use-gesture/vanilla';
-	import type { EventTypes, Handler } from '@use-gesture/core/types';
-	import { clamp } from './utils';
+	import { findKey, findPath, getElementIndex } from '../utils';
+	import MdDelete from 'svelte-icons/md/MdDelete.svelte';
+	import MdEdit from 'svelte-icons/md/MdEdit.svelte';
+	import Modal from './Modal.svelte';
+	import { PARAGRAPH_TYPE } from './ParagraphElement.svelte';
 
 	export let element: IImageElement;
 	export let isInline: boolean;
@@ -100,11 +111,17 @@
 	$: selected = $readOnlyContext ? false : $selectedContext && $focusedContext;
 	$: path = findPath(element);
 	$: key = findKey(element);
-	$: index = getElementNumber(editor, element, isImageElement as any);
-	$: percent = element.width || 1;
+	$: index = getElementIndex(editor, element, isImageElement as any);
 
 	function onClick() {
 		Transforms.select(editor, path);
+	}
+	let editing = false;
+	function onEdit() {
+		editing = true;
+	}
+	function onDone() {
+		editing = false;
 	}
 	function onRemove() {
 		Transforms.removeNodes(editor, { at: path });
@@ -118,107 +135,12 @@
 	function onHideIdChange(e: Event & { currentTarget: HTMLInputElement }) {
 		Transforms.setNodes(editor, { hideId: e.currentTarget.checked } as any, { at: path });
 	}
-
-	let topElement: HTMLElement;
-	let rightElement: HTMLElement;
-	let bottomElement: HTMLElement;
-	let leftElement: HTMLElement;
-	let imageElement: HTMLImageElement;
-
-	let aspect: number;
-	let startWidth: number;
-	let startHeight: number;
-	let width: number;
-
-	const onTopDrag: Handler<'drag', EventTypes['drag']> = (state) => {
-		state.event.stopPropagation();
-		if (!selected) {
-			return;
-		}
-		if (state.first) {
-			aspect = imageElement.offsetWidth / imageElement.offsetHeight;
-			startHeight = (imageElement.offsetWidth * percent) / aspect;
-			width = imageElement.offsetWidth;
-		}
-		percent = clamp(((startHeight - state.movement[1]) * aspect) / width, 0.5, 1);
-	};
-	const onRightDrag: Handler<'drag', EventTypes['drag']> = (state) => {
-		state.event.stopPropagation();
-		if (!selected) {
-			return;
-		}
-		if (state.first) {
-			startWidth = imageElement.offsetWidth * percent;
-			width = imageElement.offsetWidth;
-		}
-		percent = clamp((startWidth + state.movement[0]) / width, 0.5, 1);
-	};
-	const onBottomDrag: Handler<'drag', EventTypes['drag']> = (state) => {
-		state.event.stopPropagation();
-		if (!selected) {
-			return;
-		}
-		if (state.first) {
-			aspect = imageElement.offsetWidth / imageElement.offsetHeight;
-			startHeight = (imageElement.offsetWidth * percent) / aspect;
-			width = imageElement.offsetWidth;
-		}
-		percent = clamp(((startHeight + state.movement[1]) * aspect) / width, 0.5, 1);
-	};
-	const onLeftDrag: Handler<'drag', EventTypes['drag']> = (state) => {
-		state.event.stopPropagation();
-		if (!selected) {
-			return;
-		}
-		if (state.first) {
-			startWidth = imageElement.offsetWidth * percent;
-			width = imageElement.offsetWidth;
-		}
-		percent = clamp((startWidth - state.movement[0]) / width, 0.5, 1);
-	};
-
-	let prevPercent: number;
-	$: if (prevPercent !== percent) {
-		prevPercent = percent;
-		Transforms.setNodes(editor, { width: percent } as any, { at: findPath(element) });
-	}
-
-	let prevImageElement: HTMLImageElement;
-	let top: DragGesture;
-	let right: DragGesture;
-	let bottom: DragGesture;
-	let left: DragGesture;
-	$: if (imageElement !== prevImageElement) {
-		prevImageElement = imageElement;
-		if (top) {
-			top.destroy();
-		}
-		if (right) {
-			right.destroy();
-		}
-		if (bottom) {
-			bottom.destroy();
-		}
-		if (left) {
-			left.destroy();
-		}
-		top = new DragGesture(topElement, onTopDrag, {
-			axis: 'y'
-		});
-		right = new DragGesture(rightElement, onRightDrag, {
-			axis: 'x'
-		});
-		bottom = new DragGesture(bottomElement, onBottomDrag, {
-			axis: 'y'
-		});
-		left = new DragGesture(leftElement, onLeftDrag, {
-			axis: 'x'
-		});
-	}
 </script>
 
 <div
-	class="container"
+	class="image-element"
+	class:image-selectable={contenteditable}
+	class:image-selected={selected}
 	bind:this={ref}
 	data-slate-node="element"
 	data-slate-inline={isInline}
@@ -226,148 +148,114 @@
 	{dir}
 	{contenteditable}
 >
-	<div class="image" class:selected contenteditable={false} on:mousedown={onClick}>
-		{#if contenteditable}
-			<div>
-				<div class="image-editor">
-					<img
-						bind:this={imageElement}
-						src={element.url}
-						style="width:{percent * 100}%"
-						alt={element.label}
-						title={element.label}
-					/>
-					<div class="image-top" bind:this={topElement} />
-					<div class="image-right" bind:this={rightElement} />
-					<div class="image-bottom" bind:this={bottomElement} />
-					<div class="image-left" bind:this={leftElement} />
-				</div>
-				<div class="delete">
-					<button on:mousedown={onRemove}>&times;</button>
-				</div>
-			</div>
-		{:else}
-			<img
-				src={element.url}
-				style="width:{percent * 100}%"
-				alt={element.label}
-				title={element.label}
-			/>
-		{/if}
-	</div>
-	<slot />
-	{#if contenteditable}
-		<div contenteditable={false}>
-			<label for="hide-label-{key}">Hide Label?</label>
-			<input
-				type="checkbox"
-				name="hide-label-{key}"
-				checked={element.hideLabel || false}
-				on:change={onHideLabelChange}
-			/>
-			<label for="hide-id-{key}">Hide Id?</label>
-			<input
-				type="checkbox"
-				name="hide-id-{key}"
-				checked={element.hideId || false}
-				on:change={onHideIdChange}
-			/>
-			<input type="text" placeholder="Label" value={element.label || ''} on:input={onLabelChange} />
+	<div class="image-value" contenteditable={false} on:mousedown={onClick} on:touchstart={onClick}>
+		<img src={element.url} alt={element.label} title={element.label} />
+		<div class="image-edit">
+			<button on:mousedown={onEdit} on:touchstart={onEdit}><MdEdit /></button>
+			<button on:mousedown={onRemove} on:touchstart={onRemove}><MdDelete /></button>
 		</div>
-	{:else if !element.hideLabel && element.label}
-		<p>
-			{element.label}{#if !element.hideId}{index}{/if}
-		</p>
-	{/if}
+	</div>
+	<div class="image-meta">
+		<div class="image-meta-content">
+			{#if !element.hideLabel && element.label}
+				<div class="image-label" contenteditable={false}>
+					<span class="image-label-value">{element.label}</span>{#if !element.hideId}<span
+							class="image-id">{index}</span
+						>{/if}
+				</div>
+			{/if}
+			<div class="image-description">
+				<slot />
+			</div>
+		</div>
+	</div>
 </div>
 
+<Modal bind:open={editing}>
+	<form on:submit|preventDefault={onDone}>
+		<label for="hide-label-{key}">Hide Label?</label>
+		<input
+			type="checkbox"
+			name="hide-label-{key}"
+			checked={element.hideLabel || false}
+			on:change={onHideLabelChange}
+		/>
+		<label for="hide-id-{key}">Hide Id?</label>
+		<input
+			type="checkbox"
+			name="hide-id-{key}"
+			checked={element.hideId || false}
+			on:change={onHideIdChange}
+		/>
+		<input type="text" placeholder="Label" value={element.label || ''} on:input={onLabelChange} />
+	</form>
+</Modal>
+
 <style>
-	.hidden {
-		display: none;
-	}
-	.container {
+	.image-element {
 		position: relative;
 		margin: 0;
 	}
-
-	.image {
-		text-align: center;
+	.image-selectable {
+		cursor: pointer;
 	}
-	.image,
-	.image-editor {
-		position: relative;
-		line-height: 0;
-		user-select: none;
+	.image-selectable:hover {
+		box-shadow: 0 0 0 1px black;
 	}
-	.image-editor {
-		display: inline-block;
-	}
-	.image-top,
-	.image-right,
-	.image-bottom,
-	.image-left {
-		position: absolute;
-		z-index: 1;
-	}
-	.image.selected .image-top,
-	.image.selected .image-bottom {
-		cursor: ns-resize;
-	}
-	.image-top,
-	.image-bottom {
-		left: 0;
-		width: 100%;
-		height: 8px;
-	}
-	.image-top {
-		top: -4px;
-	}
-	.image-bottom {
-		bottom: -4px;
-	}
-	.image.selected .image-left,
-	.image.selected .image-right {
-		cursor: ew-resize;
-	}
-	.image-left,
-	.image-right {
-		top: 0;
-		width: 8px;
-		height: 100%;
-	}
-	.image-left {
-		left: -4px;
-	}
-	.image-right {
-		right: -4px;
-	}
-
-	img {
-		display: inline-block;
-		max-width: 100%;
-	}
-	.image.selected img {
+	.image-selected {
 		box-shadow: 0 0 0 1px black;
 	}
 
-	.delete {
+	.image-value {
+		display: block;
+		position: relative;
+		text-align: center;
+	}
+	img {
+		max-width: 100%;
+	}
+
+	.image-edit {
 		display: none;
 		position: absolute;
-		top: 0.5rem;
-		right: 0.5rem;
+		top: -1.75rem;
+		left: 50%;
+		transform: translate(-50%, 0);
+		background-color: white;
 	}
-	.image.selected .delete {
-		display: inline;
+	.image-selected .image-edit {
+		display: block;
 	}
-	.delete button {
+
+	.image-meta {
+		display: flex;
+		justify-content: center;
+	}
+	.image-meta-content {
+		display: flex;
+		flex-direction: row;
+	}
+	.image-label {
+		padding-right: 0.5rem;
+		flex-shrink: 1;
+	}
+	.image-description {
+		cursor: text;
+		flex-grow: 1;
+		min-width: 1rem;
+	}
+	.image-id {
+		margin-left: 0.5rem;
+	}
+
+	button {
+		display: inline-block;
 		cursor: pointer;
 		border: 1px solid black;
+		margin: 0;
 		padding: 0;
 		width: 1.5rem;
 		height: 1.5rem;
-		color: black;
-		font-size: 1.5rem;
-		line-height: 1.5rem;
 		background-color: white;
 	}
 </style>

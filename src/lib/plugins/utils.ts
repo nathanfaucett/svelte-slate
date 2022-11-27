@@ -72,7 +72,3 @@ export function setSelection(node: Node) {
 	range.selectNodeContents(node);
 	selection.addRange(range);
 }
-
-export function clamp(num: number, min: number, max: number) {
-	return Math.min(Math.max(num, min), max);
-}

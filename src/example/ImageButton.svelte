@@ -3,8 +3,8 @@
 	import MdImage from 'svelte-icons/md/MdImage.svelte';
 	import MdCheck from 'svelte-icons/md/MdCheck.svelte';
 	import Button from './Button.svelte';
-	import Modal from './Modal.svelte';
 	import { insertImage, isUrl } from '$lib/plugins/ImageElement.svelte';
+	import Modal from '$lib/plugins/Modal.svelte';
 
 	const editor = getEditor();
 

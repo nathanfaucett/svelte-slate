@@ -92,7 +92,7 @@ export function findPath(node: Node): Path {
 	throw new Error(`Unable to find the path for Slate node: ${JSON.stringify(node)}`);
 }
 
-export function getElementNumber(
+export function getElementIndex(
 	editor: ISvelteEditor,
 	element: BaseElement,
 	isElement: NodeMatch<Node>

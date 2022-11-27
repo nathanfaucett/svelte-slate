@@ -217,11 +217,11 @@
 	}
 
 	.math-edit {
-		width: 5.25rem;
 		display: none;
 		position: absolute;
 		top: -1.75rem;
-		left: calc(50% - 2.6rem);
+		left: 50%;
+		transform: translate(-50%, 0);
 		background-color: white;
 	}
 	.math-edit.math-selected {
