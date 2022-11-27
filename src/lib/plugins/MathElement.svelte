@@ -173,9 +173,9 @@
 	>
 		<span bind:this={mathElement} />
 		<div class="math-edit" bind:this={mathEditElement} class:math-selected={selected}>
-			<button on:mousedown={onEdit} on:touchstart={onEdit}><MdEdit /></button>
-			<button on:mousedown={onCopy} on:touchstart={onCopy}><MdContentCopy /></button>
-			<button on:mousedown={onDelete} on:touchstart={onDelete}><MdDelete /></button>
+			<button type="button" on:mousedown={onEdit} on:touchstart={onEdit}><MdEdit /></button>
+			<button type="button" on:mousedown={onCopy} on:touchstart={onCopy}><MdContentCopy /></button>
+			<button type="button" on:mousedown={onDelete} on:touchstart={onDelete}><MdDelete /></button>
 		</div>
 	</div>
 	<slot />

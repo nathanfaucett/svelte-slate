@@ -32,7 +32,7 @@
 	<div class="body">
 		<div class="url">
 			<input type="text" bind:value={url} />
-			<div class="button">
+			<div class="button" type="button">
 				<Button active={!valid} onMouseDown={onEnter}><MdCheck /></Button>
 			</div>
 		</div>

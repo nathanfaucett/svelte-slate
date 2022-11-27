@@ -63,10 +63,10 @@
 					<textarea bind:this={textareaElement} bind:value={math} />
 				</div>
 				<div class="math-editor-buttons">
-					<button class:active={!math} on:click={onDoneInternal}>
+					<button type="button" class:active={!math} on:click={onDoneInternal}>
 						{#if isNew}Insert{:else}Update{/if}
 					</button>
-					<button class:active={!inline} on:click={onInlineChange}>
+					<button type="button" class:active={!inline} on:click={onInlineChange}>
 						{#if inline}Block{:else}Inline{/if}
 					</button>
 				</div>

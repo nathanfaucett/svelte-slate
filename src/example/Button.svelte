@@ -5,7 +5,7 @@
 	export let onMouseDown: (event: MouseEvent) => void = () => undefined;
 </script>
 
-<button class:active on:mousedown={onMouseDown}>
+<button type="button" class:active on:mousedown={onMouseDown}>
 	<div>
 		<slot />
 	</div>

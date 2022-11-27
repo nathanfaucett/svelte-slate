@@ -151,8 +151,8 @@
 	<div class="image-value" contenteditable={false} on:mousedown={onClick} on:touchstart={onClick}>
 		<img src={element.url} alt={element.label} title={element.label} />
 		<div class="image-edit">
-			<button on:mousedown={onEdit} on:touchstart={onEdit}><MdEdit /></button>
-			<button on:mousedown={onRemove} on:touchstart={onRemove}><MdDelete /></button>
+			<button type="button" on:mousedown={onEdit} on:touchstart={onEdit}><MdEdit /></button>
+			<button type="button" on:mousedown={onRemove} on:touchstart={onRemove}><MdDelete /></button>
 		</div>
 	</div>
 	<div class="image-meta">
