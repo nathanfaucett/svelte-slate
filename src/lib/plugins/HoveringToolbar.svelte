@@ -49,7 +49,6 @@
 
 	export let container: HTMLElement | undefined = undefined;
 	export let threshold = 500;
-	export let open = false;
 
 	const editorContext = getEditorContext();
 	const selectionContext = getSelectionContext();
@@ -61,6 +60,7 @@
 	$: readOnly = $readOnlyContext;
 
 	let ref: HTMLElement;
+	let open: number | false = false;
 	$: if (ref) {
 		if (
 			!selection ||
@@ -81,7 +81,7 @@
 				match: (e) => !editor.hasOwnContext(e as IBaseElement)
 			});
 			if (!match) {
-				open = true;
+				open = Date.now();
 			}
 		}
 	}

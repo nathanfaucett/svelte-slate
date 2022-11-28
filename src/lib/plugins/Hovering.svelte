@@ -44,7 +44,7 @@
 
 	export let container: HTMLElement | undefined = undefined;
 	export let ref: HTMLElement | undefined = undefined;
-	export let open = false;
+	export let open: number | false = false;
 	export let retires = 2;
 
 	$: if (container === undefined && typeof document !== 'undefined') {
