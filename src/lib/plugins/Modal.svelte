@@ -1,7 +1,7 @@
 <svelte:options immutable />
 
 <script lang="ts">
-	import Portal from 'svelte-portal/src/Portal.svelte';
+	import { portal } from 'svelte-portal/src/Portal.svelte';
 
 	export let open = false;
 	export let onClose: () => void = () => undefined;
@@ -12,12 +12,12 @@
 	}
 </script>
 
-<Portal>
+<div use:portal>
 	<div class="background" class:open on:click={onCloseInternal} />
 	<div class="modal" class:open>
 		<slot />
 	</div>
-</Portal>
+</div>
 
 <style>
 	.background {

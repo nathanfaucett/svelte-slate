@@ -40,7 +40,7 @@
 </script>
 
 <script lang="ts">
-	import Portal from 'svelte-portal/src/Portal.svelte';
+	import { portal } from 'svelte-portal/src/Portal.svelte';
 
 	export let container: HTMLElement | undefined = undefined;
 	export let ref: HTMLElement | undefined = undefined;
@@ -59,11 +59,9 @@
 	}
 </script>
 
-<Portal target={container}>
-	<div bind:this={ref} class="hovering-menu" contenteditable={false}>
-		<slot />
-	</div>
-</Portal>
+<div bind:this={ref} class="hovering-menu" contenteditable={false} use:portal={container}>
+	<slot />
+</div>
 
 <style>
 	.hovering-menu {
