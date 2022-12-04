@@ -13,6 +13,14 @@
 			return;
 		}
 		const domRange = domSelection.getRangeAt(0);
+		if (domRange.startContainer === container || domRange.endContainer === container) {
+			if (retires > 0) {
+				setTimeout(() => {
+					repositionElement(ref, container, retires - 1);
+				}, 0);
+			}
+			return;
+		}
 		const rect = domRange.getBoundingClientRect();
 		const viewRect = container.getBoundingClientRect();
 		let x = rect.left - viewRect.left - (ref.offsetWidth - rect.width) / 2;
@@ -47,8 +55,8 @@
 	export let open: number | false = false;
 	export let retires = 2;
 
-	$: if (container === undefined && typeof document !== 'undefined') {
-		container = document.body;
+	$: if (container === undefined && ref) {
+		container = ref.ownerDocument.body;
 	}
 	$: if (ref) {
 		if (open) {
