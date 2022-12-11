@@ -235,15 +235,1548 @@
     "file": "internal/immutable/assets/KaTeX_Typewriter-Regular-f01f3e87.ttf",
     "src": "node_modules/katex/dist/fonts/KaTeX_Typewriter-Regular.ttf"
   },
+  "IconBase.css": {
+    "file": "internal/immutable/assets/IconBase-d93538e2.css",
+    "src": "IconBase.css"
+  },
+  "Editable.css": {
+    "file": "internal/immutable/assets/Editable-4e0c96a4.css",
+    "src": "Editable.css"
+  },
+  "src/routes/+layout.css": {
+    "file": "internal/immutable/assets/_layout-a2111cc4.css",
+    "src": "src/routes/+layout.css"
+  },
+  "HoveringToolbar.css": {
+    "file": "internal/immutable/assets/HoveringToolbar-15aeedb2.css",
+    "src": "HoveringToolbar.css"
+  },
+  "src/routes/huge-document/+page.css": {
+    "file": "internal/immutable/assets/_page-4ad228cf.css",
+    "src": "src/routes/huge-document/+page.css"
+  },
+  "_index-0a7d73c5.js": {
+    "file": "internal/immutable/chunks/index-0a7d73c5.js",
+    "imports": [
+      "_index-03c6fbe9.js"
+    ]
+  },
+  "_preload-helper-41c905a7.js": {
+    "file": "internal/immutable/chunks/preload-helper-41c905a7.js"
+  },
+  "__layout-da46b06b.js": {
+    "file": "internal/immutable/chunks/_layout-da46b06b.js"
+  },
+  "node_modules/@sveltejs/kit/src/runtime/components/error.svelte": {
+    "file": "internal/immutable/components/error.svelte-a73e1752.js",
+    "src": "node_modules/@sveltejs/kit/src/runtime/components/error.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-03c6fbe9.js",
+      "_singletons-981622f6.js"
+    ]
+  },
+  "node_modules/prismjs/components/prism-antlr4.min.js": {
+    "file": "internal/immutable/chunks/prism-antlr4.min-0aaa9c02.js",
+    "src": "node_modules/prismjs/components/prism-antlr4.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-al.min.js": {
+    "file": "internal/immutable/chunks/prism-al.min-b41e0340.js",
+    "src": "node_modules/prismjs/components/prism-al.min.js",
+    "isDynamicEntry": true
+  },
+  "src/routes/+page.svelte": {
+    "file": "internal/immutable/components/pages/_page.svelte-f8c4c9c5.js",
+    "src": "src/routes/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-03c6fbe9.js",
+      "_paths-b4419565.js"
+    ]
+  },
+  "src/routes/default/+page.svelte": {
+    "file": "internal/immutable/components/pages/default/_page.svelte-29726988.js",
+    "src": "src/routes/default/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-03c6fbe9.js",
+      "_Editable-eb2b4071.js"
+    ]
+  },
+  "_paths-b4419565.js": {
+    "file": "internal/immutable/chunks/paths-b4419565.js"
+  },
+  ".svelte-kit/generated/nodes/1.js": {
+    "file": "internal/immutable/chunks/1-99ed1910.js",
+    "src": ".svelte-kit/generated/nodes/1.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "node_modules/@sveltejs/kit/src/runtime/components/error.svelte"
+    ]
+  },
+  ".svelte-kit/generated/nodes/3.js": {
+    "file": "internal/immutable/chunks/3-f86aa140.js",
+    "src": ".svelte-kit/generated/nodes/3.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/routes/default/+page.svelte"
+    ]
+  },
+  "_index-03c6fbe9.js": {
+    "file": "internal/immutable/chunks/index-03c6fbe9.js"
+  },
+  ".svelte-kit/generated/nodes/2.js": {
+    "file": "internal/immutable/chunks/2-e761f538.js",
+    "src": ".svelte-kit/generated/nodes/2.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/routes/+page.svelte"
+    ]
+  },
+  "node_modules/prismjs/components/prism-abap.min.js": {
+    "file": "internal/immutable/chunks/prism-abap.min-7dc4f019.js",
+    "src": "node_modules/prismjs/components/prism-abap.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-markup.min.js": {
+    "file": "internal/immutable/chunks/prism-markup.min-38620e6f.js",
+    "src": "node_modules/prismjs/components/prism-markup.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-css.min.js": {
+    "file": "internal/immutable/chunks/prism-css.min-5b587055.js",
+    "src": "node_modules/prismjs/components/prism-css.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-clike.min.js": {
+    "file": "internal/immutable/chunks/prism-clike.min-8fbab5ee.js",
+    "src": "node_modules/prismjs/components/prism-clike.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-javascript.min.js": {
+    "file": "internal/immutable/chunks/prism-javascript.min-aaf6ec1f.js",
+    "src": "node_modules/prismjs/components/prism-javascript.min.js",
+    "isDynamicEntry": true
+  },
+  ".svelte-kit/generated/nodes/0.js": {
+    "file": "internal/immutable/chunks/0-86b18c23.js",
+    "src": ".svelte-kit/generated/nodes/0.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "__layout-da46b06b.js",
+      "src/routes/+layout.svelte"
+    ]
+  },
+  "node_modules/prismjs/components/prism-abnf.min.js": {
+    "file": "internal/immutable/chunks/prism-abnf.min-28566e4e.js",
+    "src": "node_modules/prismjs/components/prism-abnf.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-ada.min.js": {
+    "file": "internal/immutable/chunks/prism-ada.min-94f3c0cf.js",
+    "src": "node_modules/prismjs/components/prism-ada.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-agda.min.js": {
+    "file": "internal/immutable/chunks/prism-agda.min-fff6ea53.js",
+    "src": "node_modules/prismjs/components/prism-agda.min.js",
+    "isDynamicEntry": true
+  },
+  ".svelte-kit/generated/nodes/5.js": {
+    "file": "internal/immutable/chunks/5-25294411.js",
+    "src": ".svelte-kit/generated/nodes/5.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/routes/plugins/+page.svelte"
+    ]
+  },
+  "node_modules/prismjs/components/prism-apacheconf.min.js": {
+    "file": "internal/immutable/chunks/prism-apacheconf.min-c051495d.js",
+    "src": "node_modules/prismjs/components/prism-apacheconf.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-applescript.min.js": {
+    "file": "internal/immutable/chunks/prism-applescript.min-bc8f69c3.js",
+    "src": "node_modules/prismjs/components/prism-applescript.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-aql.min.js": {
+    "file": "internal/immutable/chunks/prism-aql.min-3207cf66.js",
+    "src": "node_modules/prismjs/components/prism-aql.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-c.min.js": {
+    "file": "internal/immutable/chunks/prism-c.min-d150219b.js",
+    "src": "node_modules/prismjs/components/prism-c.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-cpp.min.js": {
+    "file": "internal/immutable/chunks/prism-cpp.min-240ddd70.js",
+    "src": "node_modules/prismjs/components/prism-cpp.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-arduino.min.js": {
+    "file": "internal/immutable/chunks/prism-arduino.min-c54584f0.js",
+    "src": "node_modules/prismjs/components/prism-arduino.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-arff.min.js": {
+    "file": "internal/immutable/chunks/prism-arff.min-f1c4f2b8.js",
+    "src": "node_modules/prismjs/components/prism-arff.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-ejs.min.js": {
+    "file": "internal/immutable/chunks/prism-ejs.min-eed1f1e9.js",
+    "src": "node_modules/prismjs/components/prism-ejs.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-armasm.min.js": {
+    "file": "internal/immutable/chunks/prism-armasm.min-aed367cb.js",
+    "src": "node_modules/prismjs/components/prism-armasm.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-arturo.min.js": {
+    "file": "internal/immutable/chunks/prism-arturo.min-55b4df9e.js",
+    "src": "node_modules/prismjs/components/prism-arturo.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-asciidoc.min.js": {
+    "file": "internal/immutable/chunks/prism-asciidoc.min-59ae743c.js",
+    "src": "node_modules/prismjs/components/prism-asciidoc.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-csharp.min.js": {
+    "file": "internal/immutable/chunks/prism-csharp.min-255d8d19.js",
+    "src": "node_modules/prismjs/components/prism-csharp.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-aspnet.min.js": {
+    "file": "internal/immutable/chunks/prism-aspnet.min-c053ac33.js",
+    "src": "node_modules/prismjs/components/prism-aspnet.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-asm6502.min.js": {
+    "file": "internal/immutable/chunks/prism-asm6502.min-dc46ed68.js",
+    "src": "node_modules/prismjs/components/prism-asm6502.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-asmatmel.min.js": {
+    "file": "internal/immutable/chunks/prism-asmatmel.min-39032097.js",
+    "src": "node_modules/prismjs/components/prism-asmatmel.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-autohotkey.min.js": {
+    "file": "internal/immutable/chunks/prism-autohotkey.min-559fa23f.js",
+    "src": "node_modules/prismjs/components/prism-autohotkey.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-avisynth.min.js": {
+    "file": "internal/immutable/chunks/prism-avisynth.min-7924549b.js",
+    "src": "node_modules/prismjs/components/prism-avisynth.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-avro-idl.min.js": {
+    "file": "internal/immutable/chunks/prism-avro-idl.min-8474f831.js",
+    "src": "node_modules/prismjs/components/prism-avro-idl.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-awk.min.js": {
+    "file": "internal/immutable/chunks/prism-awk.min-b1b5e6a8.js",
+    "src": "node_modules/prismjs/components/prism-awk.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-bash.min.js": {
+    "file": "internal/immutable/chunks/prism-bash.min-7a4bf85d.js",
+    "src": "node_modules/prismjs/components/prism-bash.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-basic.min.js": {
+    "file": "internal/immutable/chunks/prism-basic.min-264ad5e9.js",
+    "src": "node_modules/prismjs/components/prism-basic.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-bbcode.min.js": {
+    "file": "internal/immutable/chunks/prism-bbcode.min-c2a79204.js",
+    "src": "node_modules/prismjs/components/prism-bbcode.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-bicep.min.js": {
+    "file": "internal/immutable/chunks/prism-bicep.min-e3f8b4b2.js",
+    "src": "node_modules/prismjs/components/prism-bicep.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-birb.min.js": {
+    "file": "internal/immutable/chunks/prism-birb.min-c4b55eaf.js",
+    "src": "node_modules/prismjs/components/prism-birb.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-bison.min.js": {
+    "file": "internal/immutable/chunks/prism-bison.min-2ddd9ef0.js",
+    "src": "node_modules/prismjs/components/prism-bison.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-bnf.min.js": {
+    "file": "internal/immutable/chunks/prism-bnf.min-fac5abd0.js",
+    "src": "node_modules/prismjs/components/prism-bnf.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-bqn.min.js": {
+    "file": "internal/immutable/chunks/prism-bqn.min-012a79b2.js",
+    "src": "node_modules/prismjs/components/prism-bqn.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-brainfuck.min.js": {
+    "file": "internal/immutable/chunks/prism-brainfuck.min-e77ff791.js",
+    "src": "node_modules/prismjs/components/prism-brainfuck.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-brightscript.min.js": {
+    "file": "internal/immutable/chunks/prism-brightscript.min-c10fb057.js",
+    "src": "node_modules/prismjs/components/prism-brightscript.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-bro.min.js": {
+    "file": "internal/immutable/chunks/prism-bro.min-986af178.js",
+    "src": "node_modules/prismjs/components/prism-bro.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-bsl.min.js": {
+    "file": "internal/immutable/chunks/prism-bsl.min-560df0a1.js",
+    "src": "node_modules/prismjs/components/prism-bsl.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-cfscript.min.js": {
+    "file": "internal/immutable/chunks/prism-cfscript.min-97efc12b.js",
+    "src": "node_modules/prismjs/components/prism-cfscript.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-chaiscript.min.js": {
+    "file": "internal/immutable/chunks/prism-chaiscript.min-62b8c3e4.js",
+    "src": "node_modules/prismjs/components/prism-chaiscript.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-cil.min.js": {
+    "file": "internal/immutable/chunks/prism-cil.min-7d709656.js",
+    "src": "node_modules/prismjs/components/prism-cil.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-cilkc.min.js": {
+    "file": "internal/immutable/chunks/prism-cilkc.min-49d310a0.js",
+    "src": "node_modules/prismjs/components/prism-cilkc.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-mizar.min.js": {
+    "file": "internal/immutable/chunks/prism-mizar.min-accc5061.js",
+    "src": "node_modules/prismjs/components/prism-mizar.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-cilkcpp.min.js": {
+    "file": "internal/immutable/chunks/prism-cilkcpp.min-f973c94b.js",
+    "src": "node_modules/prismjs/components/prism-cilkcpp.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-clojure.min.js": {
+    "file": "internal/immutable/chunks/prism-clojure.min-67d3027d.js",
+    "src": "node_modules/prismjs/components/prism-clojure.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-mongodb.min.js": {
+    "file": "internal/immutable/chunks/prism-mongodb.min-88a55b1d.js",
+    "src": "node_modules/prismjs/components/prism-mongodb.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-monkey.min.js": {
+    "file": "internal/immutable/chunks/prism-monkey.min-0c07b982.js",
+    "src": "node_modules/prismjs/components/prism-monkey.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-cobol.min.js": {
+    "file": "internal/immutable/chunks/prism-cobol.min-7e0c42e4.js",
+    "src": "node_modules/prismjs/components/prism-cobol.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-moonscript.min.js": {
+    "file": "internal/immutable/chunks/prism-moonscript.min-adf5e479.js",
+    "src": "node_modules/prismjs/components/prism-moonscript.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-coffeescript.min.js": {
+    "file": "internal/immutable/chunks/prism-coffeescript.min-256d0beb.js",
+    "src": "node_modules/prismjs/components/prism-coffeescript.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-n1ql.min.js": {
+    "file": "internal/immutable/chunks/prism-n1ql.min-295e7c69.js",
+    "src": "node_modules/prismjs/components/prism-n1ql.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-n4js.min.js": {
+    "file": "internal/immutable/chunks/prism-n4js.min-ba8f8112.js",
+    "src": "node_modules/prismjs/components/prism-n4js.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-sqf.min.js": {
+    "file": "internal/immutable/chunks/prism-sqf.min-1563c20f.js",
+    "src": "node_modules/prismjs/components/prism-sqf.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-nand2tetris-hdl.min.js": {
+    "file": "internal/immutable/chunks/prism-nand2tetris-hdl.min-f63e6f3e.js",
+    "src": "node_modules/prismjs/components/prism-nand2tetris-hdl.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-concurnas.min.js": {
+    "file": "internal/immutable/chunks/prism-concurnas.min-9c0b0fed.js",
+    "src": "node_modules/prismjs/components/prism-concurnas.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-naniscript.min.js": {
+    "file": "internal/immutable/chunks/prism-naniscript.min-ab69a4e4.js",
+    "src": "node_modules/prismjs/components/prism-naniscript.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-csp.min.js": {
+    "file": "internal/immutable/chunks/prism-csp.min-9c72d5ce.js",
+    "src": "node_modules/prismjs/components/prism-csp.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-nasm.min.js": {
+    "file": "internal/immutable/chunks/prism-nasm.min-dc47c6c9.js",
+    "src": "node_modules/prismjs/components/prism-nasm.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-neon.min.js": {
+    "file": "internal/immutable/chunks/prism-neon.min-a98894bc.js",
+    "src": "node_modules/prismjs/components/prism-neon.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-nginx.min.js": {
+    "file": "internal/immutable/chunks/prism-nginx.min-d97ac549.js",
+    "src": "node_modules/prismjs/components/prism-nginx.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-cooklang.min.js": {
+    "file": "internal/immutable/chunks/prism-cooklang.min-b15734e6.js",
+    "src": "node_modules/prismjs/components/prism-cooklang.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-nim.min.js": {
+    "file": "internal/immutable/chunks/prism-nim.min-c84cbe16.js",
+    "src": "node_modules/prismjs/components/prism-nim.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-coq.min.js": {
+    "file": "internal/immutable/chunks/prism-coq.min-f6a1036d.js",
+    "src": "node_modules/prismjs/components/prism-coq.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-nix.min.js": {
+    "file": "internal/immutable/chunks/prism-nix.min-e6794e96.js",
+    "src": "node_modules/prismjs/components/prism-nix.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-ruby.min.js": {
+    "file": "internal/immutable/chunks/prism-ruby.min-896d8aeb.js",
+    "src": "node_modules/prismjs/components/prism-ruby.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-nsis.min.js": {
+    "file": "internal/immutable/chunks/prism-nsis.min-333b3f0c.js",
+    "src": "node_modules/prismjs/components/prism-nsis.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-crystal.min.js": {
+    "file": "internal/immutable/chunks/prism-crystal.min-63600172.js",
+    "src": "node_modules/prismjs/components/prism-crystal.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-objectivec.min.js": {
+    "file": "internal/immutable/chunks/prism-objectivec.min-563ef242.js",
+    "src": "node_modules/prismjs/components/prism-objectivec.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-eiffel.min.js": {
+    "file": "internal/immutable/chunks/prism-eiffel.min-af1bee8c.js",
+    "src": "node_modules/prismjs/components/prism-eiffel.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-csv.min.js": {
+    "file": "internal/immutable/chunks/prism-csv.min-210293af.js",
+    "src": "node_modules/prismjs/components/prism-csv.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-ocaml.min.js": {
+    "file": "internal/immutable/chunks/prism-ocaml.min-7a2b88fa.js",
+    "src": "node_modules/prismjs/components/prism-ocaml.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-d.min.js": {
+    "file": "internal/immutable/chunks/prism-d.min-24d4897a.js",
+    "src": "node_modules/prismjs/components/prism-d.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-odin.min.js": {
+    "file": "internal/immutable/chunks/prism-odin.min-18ee2bc0.js",
+    "src": "node_modules/prismjs/components/prism-odin.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-dart.min.js": {
+    "file": "internal/immutable/chunks/prism-dart.min-9fb0c507.js",
+    "src": "node_modules/prismjs/components/prism-dart.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-opencl.min.js": {
+    "file": "internal/immutable/chunks/prism-opencl.min-f2c6c143.js",
+    "src": "node_modules/prismjs/components/prism-opencl.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-dataweave.min.js": {
+    "file": "internal/immutable/chunks/prism-dataweave.min-42c5a8f8.js",
+    "src": "node_modules/prismjs/components/prism-dataweave.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-openqasm.min.js": {
+    "file": "internal/immutable/chunks/prism-openqasm.min-20e2d5bf.js",
+    "src": "node_modules/prismjs/components/prism-openqasm.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-dax.min.js": {
+    "file": "internal/immutable/chunks/prism-dax.min-5e8b8877.js",
+    "src": "node_modules/prismjs/components/prism-dax.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-oz.min.js": {
+    "file": "internal/immutable/chunks/prism-oz.min-ee088594.js",
+    "src": "node_modules/prismjs/components/prism-oz.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-dhall.min.js": {
+    "file": "internal/immutable/chunks/prism-dhall.min-cf5d2638.js",
+    "src": "node_modules/prismjs/components/prism-dhall.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-parigp.min.js": {
+    "file": "internal/immutable/chunks/prism-parigp.min-5c107d32.js",
+    "src": "node_modules/prismjs/components/prism-parigp.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-diff.min.js": {
+    "file": "internal/immutable/chunks/prism-diff.min-d5e9018e.js",
+    "src": "node_modules/prismjs/components/prism-diff.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-parser.min.js": {
+    "file": "internal/immutable/chunks/prism-parser.min-3c1fdb88.js",
+    "src": "node_modules/prismjs/components/prism-parser.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-phpdoc.min.js": {
+    "file": "internal/immutable/chunks/prism-phpdoc.min-e446c479.js",
+    "src": "node_modules/prismjs/components/prism-phpdoc.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-markup-templating.min.js": {
+    "file": "internal/immutable/chunks/prism-markup-templating.min-a551888e.js",
+    "src": "node_modules/prismjs/components/prism-markup-templating.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-php-extras.min.js": {
+    "file": "internal/immutable/chunks/prism-php-extras.min-094f717d.js",
+    "src": "node_modules/prismjs/components/prism-php-extras.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-dot.min.js": {
+    "file": "internal/immutable/chunks/prism-dot.min-81105912.js",
+    "src": "node_modules/prismjs/components/prism-dot.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-plant-uml.min.js": {
+    "file": "internal/immutable/chunks/prism-plant-uml.min-4e8740b8.js",
+    "src": "node_modules/prismjs/components/prism-plant-uml.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-ebnf.min.js": {
+    "file": "internal/immutable/chunks/prism-ebnf.min-62c76663.js",
+    "src": "node_modules/prismjs/components/prism-ebnf.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-powerquery.min.js": {
+    "file": "internal/immutable/chunks/prism-powerquery.min-dbf8a880.js",
+    "src": "node_modules/prismjs/components/prism-powerquery.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-editorconfig.min.js": {
+    "file": "internal/immutable/chunks/prism-editorconfig.min-107180fc.js",
+    "src": "node_modules/prismjs/components/prism-editorconfig.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-powershell.min.js": {
+    "file": "internal/immutable/chunks/prism-powershell.min-05f058bb.js",
+    "src": "node_modules/prismjs/components/prism-powershell.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-processing.min.js": {
+    "file": "internal/immutable/chunks/prism-processing.min-d9d1f5f1.js",
+    "src": "node_modules/prismjs/components/prism-processing.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-prolog.min.js": {
+    "file": "internal/immutable/chunks/prism-prolog.min-49e158e8.js",
+    "src": "node_modules/prismjs/components/prism-prolog.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-promql.min.js": {
+    "file": "internal/immutable/chunks/prism-promql.min-7a6639a6.js",
+    "src": "node_modules/prismjs/components/prism-promql.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-batch.min.js": {
+    "file": "internal/immutable/chunks/prism-batch.min-0dc3bedd.js",
+    "src": "node_modules/prismjs/components/prism-batch.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-properties.min.js": {
+    "file": "internal/immutable/chunks/prism-properties.min-5b2c6842.js",
+    "src": "node_modules/prismjs/components/prism-properties.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-bbj.min.js": {
+    "file": "internal/immutable/chunks/prism-bbj.min-214d000e.js",
+    "src": "node_modules/prismjs/components/prism-bbj.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-protobuf.min.js": {
+    "file": "internal/immutable/chunks/prism-protobuf.min-5a8a04ba.js",
+    "src": "node_modules/prismjs/components/prism-protobuf.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-pug.min.js": {
+    "file": "internal/immutable/chunks/prism-pug.min-827bd8c2.js",
+    "src": "node_modules/prismjs/components/prism-pug.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-sas.min.js": {
+    "file": "internal/immutable/chunks/prism-sas.min-4d9372a3.js",
+    "src": "node_modules/prismjs/components/prism-sas.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-puppet.min.js": {
+    "file": "internal/immutable/chunks/prism-puppet.min-dc99eb0d.js",
+    "src": "node_modules/prismjs/components/prism-puppet.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-pure.min.js": {
+    "file": "internal/immutable/chunks/prism-pure.min-037b3fcb.js",
+    "src": "node_modules/prismjs/components/prism-pure.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-css-extras.min.js": {
+    "file": "internal/immutable/chunks/prism-css-extras.min-615b53b5.js",
+    "src": "node_modules/prismjs/components/prism-css-extras.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-lua.min.js": {
+    "file": "internal/immutable/chunks/prism-lua.min-99c81616.js",
+    "src": "node_modules/prismjs/components/prism-lua.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-purebasic.min.js": {
+    "file": "internal/immutable/chunks/prism-purebasic.min-e7acd6f8.js",
+    "src": "node_modules/prismjs/components/prism-purebasic.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-purescript.min.js": {
+    "file": "internal/immutable/chunks/prism-purescript.min-b3406fc0.js",
+    "src": "node_modules/prismjs/components/prism-purescript.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-cue.min.js": {
+    "file": "internal/immutable/chunks/prism-cue.min-ed6cd75d.js",
+    "src": "node_modules/prismjs/components/prism-cue.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-python.min.js": {
+    "file": "internal/immutable/chunks/prism-python.min-595ebca8.js",
+    "src": "node_modules/prismjs/components/prism-python.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-lolcode.min.js": {
+    "file": "internal/immutable/chunks/prism-lolcode.min-450d37ed.js",
+    "src": "node_modules/prismjs/components/prism-lolcode.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-qsharp.min.js": {
+    "file": "internal/immutable/chunks/prism-qsharp.min-f7544211.js",
+    "src": "node_modules/prismjs/components/prism-qsharp.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-pascaligo.min.js": {
+    "file": "internal/immutable/chunks/prism-pascaligo.min-af670567.js",
+    "src": "node_modules/prismjs/components/prism-pascaligo.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-qml.min.js": {
+    "file": "internal/immutable/chunks/prism-qml.min-0027eb4f.js",
+    "src": "node_modules/prismjs/components/prism-qml.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-qore.min.js": {
+    "file": "internal/immutable/chunks/prism-qore.min-6c0f8f41.js",
+    "src": "node_modules/prismjs/components/prism-qore.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-r.min.js": {
+    "file": "internal/immutable/chunks/prism-r.min-a698a741.js",
+    "src": "node_modules/prismjs/components/prism-r.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-racket.min.js": {
+    "file": "internal/immutable/chunks/prism-racket.min-8b9daf39.js",
+    "src": "node_modules/prismjs/components/prism-racket.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-etlua.min.js": {
+    "file": "internal/immutable/chunks/prism-etlua.min-e3218dd7.js",
+    "src": "node_modules/prismjs/components/prism-etlua.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-cshtml.min.js": {
+    "file": "internal/immutable/chunks/prism-cshtml.min-68eddd31.js",
+    "src": "node_modules/prismjs/components/prism-cshtml.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-jsx.min.js": {
+    "file": "internal/immutable/chunks/prism-jsx.min-f4dbc333.js",
+    "src": "node_modules/prismjs/components/prism-jsx.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-psl.min.js": {
+    "file": "internal/immutable/chunks/prism-psl.min-a5a05576.js",
+    "src": "node_modules/prismjs/components/prism-psl.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-tsx.min.js": {
+    "file": "internal/immutable/chunks/prism-tsx.min-79139e37.js",
+    "src": "node_modules/prismjs/components/prism-tsx.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-reason.min.js": {
+    "file": "internal/immutable/chunks/prism-reason.min-821eb8a8.js",
+    "src": "node_modules/prismjs/components/prism-reason.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-factor.min.js": {
+    "file": "internal/immutable/chunks/prism-factor.min-a731bdbb.js",
+    "src": "node_modules/prismjs/components/prism-factor.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-regex.min.js": {
+    "file": "internal/immutable/chunks/prism-regex.min-6b088ff7.js",
+    "src": "node_modules/prismjs/components/prism-regex.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-flow.min.js": {
+    "file": "internal/immutable/chunks/prism-flow.min-f6893bee.js",
+    "src": "node_modules/prismjs/components/prism-flow.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-rego.min.js": {
+    "file": "internal/immutable/chunks/prism-rego.min-a9e373ae.js",
+    "src": "node_modules/prismjs/components/prism-rego.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-pcaxis.min.js": {
+    "file": "internal/immutable/chunks/prism-pcaxis.min-6618ef09.js",
+    "src": "node_modules/prismjs/components/prism-pcaxis.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-renpy.min.js": {
+    "file": "internal/immutable/chunks/prism-renpy.min-c060dce6.js",
+    "src": "node_modules/prismjs/components/prism-renpy.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-rescript.min.js": {
+    "file": "internal/immutable/chunks/prism-rescript.min-1e6bdf28.js",
+    "src": "node_modules/prismjs/components/prism-rescript.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-peoplecode.min.js": {
+    "file": "internal/immutable/chunks/prism-peoplecode.min-9c21f6f0.js",
+    "src": "node_modules/prismjs/components/prism-peoplecode.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-ftl.min.js": {
+    "file": "internal/immutable/chunks/prism-ftl.min-862af2a8.js",
+    "src": "node_modules/prismjs/components/prism-ftl.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-rest.min.js": {
+    "file": "internal/immutable/chunks/prism-rest.min-77be720c.js",
+    "src": "node_modules/prismjs/components/prism-rest.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-rip.min.js": {
+    "file": "internal/immutable/chunks/prism-rip.min-5774cc6b.js",
+    "src": "node_modules/prismjs/components/prism-rip.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-robotframework.min.js": {
+    "file": "internal/immutable/chunks/prism-robotframework.min-e04278f1.js",
+    "src": "node_modules/prismjs/components/prism-robotframework.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-rust.min.js": {
+    "file": "internal/immutable/chunks/prism-rust.min-a5dd9499.js",
+    "src": "node_modules/prismjs/components/prism-rust.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-sass.min.js": {
+    "file": "internal/immutable/chunks/prism-sass.min-4f0ad8e3.js",
+    "src": "node_modules/prismjs/components/prism-sass.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-json5.min.js": {
+    "file": "internal/immutable/chunks/prism-json5.min-2892e95f.js",
+    "src": "node_modules/prismjs/components/prism-json5.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-json.min.js": {
+    "file": "internal/immutable/chunks/prism-json.min-f83743f2.js",
+    "src": "node_modules/prismjs/components/prism-json.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-nevod.min.js": {
+    "file": "internal/immutable/chunks/prism-nevod.min-2aca0c2e.js",
+    "src": "node_modules/prismjs/components/prism-nevod.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-excel-formula.min.js": {
+    "file": "internal/immutable/chunks/prism-excel-formula.min-d59fffd1.js",
+    "src": "node_modules/prismjs/components/prism-excel-formula.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-plsql.min.js": {
+    "file": "internal/immutable/chunks/prism-plsql.min-ccd4f717.js",
+    "src": "node_modules/prismjs/components/prism-plsql.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-q.min.js": {
+    "file": "internal/immutable/chunks/prism-q.min-f816a7b1.js",
+    "src": "node_modules/prismjs/components/prism-q.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-roboconf.min.js": {
+    "file": "internal/immutable/chunks/prism-roboconf.min-e83688a8.js",
+    "src": "node_modules/prismjs/components/prism-roboconf.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-fsharp.min.js": {
+    "file": "internal/immutable/chunks/prism-fsharp.min-20e0616f.js",
+    "src": "node_modules/prismjs/components/prism-fsharp.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-false.min.js": {
+    "file": "internal/immutable/chunks/prism-false.min-82fd750a.js",
+    "src": "node_modules/prismjs/components/prism-false.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-firestore-security-rules.min.js": {
+    "file": "internal/immutable/chunks/prism-firestore-security-rules.min-8e0ba909.js",
+    "src": "node_modules/prismjs/components/prism-firestore-security-rules.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-typoscript.min.js": {
+    "file": "internal/immutable/chunks/prism-typoscript.min-3e7cee49.js",
+    "src": "node_modules/prismjs/components/prism-typoscript.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-fortran.min.js": {
+    "file": "internal/immutable/chunks/prism-fortran.min-b419edd0.js",
+    "src": "node_modules/prismjs/components/prism-fortran.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-autoit.min.js": {
+    "file": "internal/immutable/chunks/prism-autoit.min-7766c40b.js",
+    "src": "node_modules/prismjs/components/prism-autoit.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-cypher.min.js": {
+    "file": "internal/immutable/chunks/prism-cypher.min-df29e5f9.js",
+    "src": "node_modules/prismjs/components/prism-cypher.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-pascal.min.js": {
+    "file": "internal/immutable/chunks/prism-pascal.min-eeae3a8f.js",
+    "src": "node_modules/prismjs/components/prism-pascal.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-kusto.min.js": {
+    "file": "internal/immutable/chunks/prism-kusto.min-fe8a4690.js",
+    "src": "node_modules/prismjs/components/prism-kusto.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-django.min.js": {
+    "file": "internal/immutable/chunks/prism-django.min-5771a4a1.js",
+    "src": "node_modules/prismjs/components/prism-django.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-perl.min.js": {
+    "file": "internal/immutable/chunks/prism-perl.min-8638bb03.js",
+    "src": "node_modules/prismjs/components/prism-perl.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-scala.min.js": {
+    "file": "internal/immutable/chunks/prism-scala.min-597895a1.js",
+    "src": "node_modules/prismjs/components/prism-scala.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-shell-session.min.js": {
+    "file": "internal/immutable/chunks/prism-shell-session.min-02ac689d.js",
+    "src": "node_modules/prismjs/components/prism-shell-session.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-smali.min.js": {
+    "file": "internal/immutable/chunks/prism-smali.min-8743dc25.js",
+    "src": "node_modules/prismjs/components/prism-smali.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-smalltalk.min.js": {
+    "file": "internal/immutable/chunks/prism-smalltalk.min-0e9b0b0e.js",
+    "src": "node_modules/prismjs/components/prism-smalltalk.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-smarty.min.js": {
+    "file": "internal/immutable/chunks/prism-smarty.min-1635ea48.js",
+    "src": "node_modules/prismjs/components/prism-smarty.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-sml.min.js": {
+    "file": "internal/immutable/chunks/prism-sml.min-18caa923.js",
+    "src": "node_modules/prismjs/components/prism-sml.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-solidity.min.js": {
+    "file": "internal/immutable/chunks/prism-solidity.min-ee67cd0d.js",
+    "src": "node_modules/prismjs/components/prism-solidity.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-solution-file.min.js": {
+    "file": "internal/immutable/chunks/prism-solution-file.min-2d0cc1e3.js",
+    "src": "node_modules/prismjs/components/prism-solution-file.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-elixir.min.js": {
+    "file": "internal/immutable/chunks/prism-elixir.min-16e8471f.js",
+    "src": "node_modules/prismjs/components/prism-elixir.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-soy.min.js": {
+    "file": "internal/immutable/chunks/prism-soy.min-1a220c89.js",
+    "src": "node_modules/prismjs/components/prism-soy.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-turtle.min.js": {
+    "file": "internal/immutable/chunks/prism-turtle.min-a4c5c18f.js",
+    "src": "node_modules/prismjs/components/prism-turtle.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-splunk-spl.min.js": {
+    "file": "internal/immutable/chunks/prism-splunk-spl.min-4fe009c0.js",
+    "src": "node_modules/prismjs/components/prism-splunk-spl.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-squirrel.min.js": {
+    "file": "internal/immutable/chunks/prism-squirrel.min-2b5b70fb.js",
+    "src": "node_modules/prismjs/components/prism-squirrel.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-stan.min.js": {
+    "file": "internal/immutable/chunks/prism-stan.min-9f2ec7e1.js",
+    "src": "node_modules/prismjs/components/prism-stan.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-stata.min.js": {
+    "file": "internal/immutable/chunks/prism-stata.min-3d3aa3f3.js",
+    "src": "node_modules/prismjs/components/prism-stata.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-jsdoc.min.js": {
+    "file": "internal/immutable/chunks/prism-jsdoc.min-d83283f2.js",
+    "src": "node_modules/prismjs/components/prism-jsdoc.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-stylus.min.js": {
+    "file": "internal/immutable/chunks/prism-stylus.min-982c39d0.js",
+    "src": "node_modules/prismjs/components/prism-stylus.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-jsonp.min.js": {
+    "file": "internal/immutable/chunks/prism-jsonp.min-5eb831d4.js",
+    "src": "node_modules/prismjs/components/prism-jsonp.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-supercollider.min.js": {
+    "file": "internal/immutable/chunks/prism-supercollider.min-f955067c.js",
+    "src": "node_modules/prismjs/components/prism-supercollider.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-jsstacktrace.min.js": {
+    "file": "internal/immutable/chunks/prism-jsstacktrace.min-971f42ee.js",
+    "src": "node_modules/prismjs/components/prism-jsstacktrace.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-swift.min.js": {
+    "file": "internal/immutable/chunks/prism-swift.min-0af22f3f.js",
+    "src": "node_modules/prismjs/components/prism-swift.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-systemd.min.js": {
+    "file": "internal/immutable/chunks/prism-systemd.min-09979955.js",
+    "src": "node_modules/prismjs/components/prism-systemd.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-t4-templating.min.js": {
+    "file": "internal/immutable/chunks/prism-t4-templating.min-9c08466a.js",
+    "src": "node_modules/prismjs/components/prism-t4-templating.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-js-templates.min.js": {
+    "file": "internal/immutable/chunks/prism-js-templates.min-526d4802.js",
+    "src": "node_modules/prismjs/components/prism-js-templates.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-julia.min.js": {
+    "file": "internal/immutable/chunks/prism-julia.min-1510e7de.js",
+    "src": "node_modules/prismjs/components/prism-julia.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-t4-cs.min.js": {
+    "file": "internal/immutable/chunks/prism-t4-cs.min-7cd1754c.js",
+    "src": "node_modules/prismjs/components/prism-t4-cs.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-keepalived.min.js": {
+    "file": "internal/immutable/chunks/prism-keepalived.min-ccbe2340.js",
+    "src": "node_modules/prismjs/components/prism-keepalived.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-vbnet.min.js": {
+    "file": "internal/immutable/chunks/prism-vbnet.min-f05cd477.js",
+    "src": "node_modules/prismjs/components/prism-vbnet.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-keyman.min.js": {
+    "file": "internal/immutable/chunks/prism-keyman.min-827fbce1.js",
+    "src": "node_modules/prismjs/components/prism-keyman.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-t4-vb.min.js": {
+    "file": "internal/immutable/chunks/prism-t4-vb.min-1cbbedf7.js",
+    "src": "node_modules/prismjs/components/prism-t4-vb.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-kotlin.min.js": {
+    "file": "internal/immutable/chunks/prism-kotlin.min-a35875fe.js",
+    "src": "node_modules/prismjs/components/prism-kotlin.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-yaml.min.js": {
+    "file": "internal/immutable/chunks/prism-yaml.min-7ff49f07.js",
+    "src": "node_modules/prismjs/components/prism-yaml.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-kumir.min.js": {
+    "file": "internal/immutable/chunks/prism-kumir.min-f7a39b2e.js",
+    "src": "node_modules/prismjs/components/prism-kumir.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-tcl.min.js": {
+    "file": "internal/immutable/chunks/prism-tcl.min-c607451e.js",
+    "src": "node_modules/prismjs/components/prism-tcl.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-uorazor.min.js": {
+    "file": "internal/immutable/chunks/prism-uorazor.min-1ae15583.js",
+    "src": "node_modules/prismjs/components/prism-uorazor.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-tt2.min.js": {
+    "file": "internal/immutable/chunks/prism-tt2.min-178e626b.js",
+    "src": "node_modules/prismjs/components/prism-tt2.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-uri.min.js": {
+    "file": "internal/immutable/chunks/prism-uri.min-8d3d00fc.js",
+    "src": "node_modules/prismjs/components/prism-uri.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-textile.min.js": {
+    "file": "internal/immutable/chunks/prism-textile.min-6e777202.js",
+    "src": "node_modules/prismjs/components/prism-textile.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-vala.min.js": {
+    "file": "internal/immutable/chunks/prism-vala.min-157c56cd.js",
+    "src": "node_modules/prismjs/components/prism-vala.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-toml.min.js": {
+    "file": "internal/immutable/chunks/prism-toml.min-51ea4ea7.js",
+    "src": "node_modules/prismjs/components/prism-toml.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-tremor.min.js": {
+    "file": "internal/immutable/chunks/prism-tremor.min-23f99cd3.js",
+    "src": "node_modules/prismjs/components/prism-tremor.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-twig.min.js": {
+    "file": "internal/immutable/chunks/prism-twig.min-c57ae41b.js",
+    "src": "node_modules/prismjs/components/prism-twig.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-velocity.min.js": {
+    "file": "internal/immutable/chunks/prism-velocity.min-ab195635.js",
+    "src": "node_modules/prismjs/components/prism-velocity.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-verilog.min.js": {
+    "file": "internal/immutable/chunks/prism-verilog.min-050ff3a5.js",
+    "src": "node_modules/prismjs/components/prism-verilog.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-gml.min.js": {
+    "file": "internal/immutable/chunks/prism-gml.min-d021f7fc.js",
+    "src": "node_modules/prismjs/components/prism-gml.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-vhdl.min.js": {
+    "file": "internal/immutable/chunks/prism-vhdl.min-1c018d71.js",
+    "src": "node_modules/prismjs/components/prism-vhdl.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-gap.min.js": {
+    "file": "internal/immutable/chunks/prism-gap.min-84b55b24.js",
+    "src": "node_modules/prismjs/components/prism-gap.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-vim.min.js": {
+    "file": "internal/immutable/chunks/prism-vim.min-24c85ca3.js",
+    "src": "node_modules/prismjs/components/prism-vim.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-gcode.min.js": {
+    "file": "internal/immutable/chunks/prism-gcode.min-51b0db8a.js",
+    "src": "node_modules/prismjs/components/prism-gcode.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-gdscript.min.js": {
+    "file": "internal/immutable/chunks/prism-gdscript.min-c3e40b0e.js",
+    "src": "node_modules/prismjs/components/prism-gdscript.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-visual-basic.min.js": {
+    "file": "internal/immutable/chunks/prism-visual-basic.min-5e089f7d.js",
+    "src": "node_modules/prismjs/components/prism-visual-basic.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-warpscript.min.js": {
+    "file": "internal/immutable/chunks/prism-warpscript.min-afa66688.js",
+    "src": "node_modules/prismjs/components/prism-warpscript.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-gedcom.min.js": {
+    "file": "internal/immutable/chunks/prism-gedcom.min-add3003a.js",
+    "src": "node_modules/prismjs/components/prism-gedcom.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-wiki.min.js": {
+    "file": "internal/immutable/chunks/prism-wiki.min-cc6dcdf7.js",
+    "src": "node_modules/prismjs/components/prism-wiki.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-gettext.min.js": {
+    "file": "internal/immutable/chunks/prism-gettext.min-0899debf.js",
+    "src": "node_modules/prismjs/components/prism-gettext.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-wolfram.min.js": {
+    "file": "internal/immutable/chunks/prism-wolfram.min-64bc709a.js",
+    "src": "node_modules/prismjs/components/prism-wolfram.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-gherkin.min.js": {
+    "file": "internal/immutable/chunks/prism-gherkin.min-495e69b1.js",
+    "src": "node_modules/prismjs/components/prism-gherkin.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-wren.min.js": {
+    "file": "internal/immutable/chunks/prism-wren.min-b1abcf83.js",
+    "src": "node_modules/prismjs/components/prism-wren.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-git.min.js": {
+    "file": "internal/immutable/chunks/prism-git.min-c43ea8de.js",
+    "src": "node_modules/prismjs/components/prism-git.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-glsl.min.js": {
+    "file": "internal/immutable/chunks/prism-glsl.min-de968366.js",
+    "src": "node_modules/prismjs/components/prism-glsl.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-xeora.min.js": {
+    "file": "internal/immutable/chunks/prism-xeora.min-3618f27d.js",
+    "src": "node_modules/prismjs/components/prism-xeora.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-gn.min.js": {
+    "file": "internal/immutable/chunks/prism-gn.min-d075d0f0.js",
+    "src": "node_modules/prismjs/components/prism-gn.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-xml-doc.min.js": {
+    "file": "internal/immutable/chunks/prism-xml-doc.min-32852207.js",
+    "src": "node_modules/prismjs/components/prism-xml-doc.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-linker-script.min.js": {
+    "file": "internal/immutable/chunks/prism-linker-script.min-1789f6ed.js",
+    "src": "node_modules/prismjs/components/prism-linker-script.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-xojo.min.js": {
+    "file": "internal/immutable/chunks/prism-xojo.min-b583a2df.js",
+    "src": "node_modules/prismjs/components/prism-xojo.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-go.min.js": {
+    "file": "internal/immutable/chunks/prism-go.min-42f06840.js",
+    "src": "node_modules/prismjs/components/prism-go.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-go-module.min.js": {
+    "file": "internal/immutable/chunks/prism-go-module.min-329d754f.js",
+    "src": "node_modules/prismjs/components/prism-go-module.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-xquery.min.js": {
+    "file": "internal/immutable/chunks/prism-xquery.min-2bd92001.js",
+    "src": "node_modules/prismjs/components/prism-xquery.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-unrealscript.min.js": {
+    "file": "internal/immutable/chunks/prism-unrealscript.min-11452cab.js",
+    "src": "node_modules/prismjs/components/prism-unrealscript.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-erlang.min.js": {
+    "file": "internal/immutable/chunks/prism-erlang.min-3d64f0a5.js",
+    "src": "node_modules/prismjs/components/prism-erlang.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-sparql.min.js": {
+    "file": "internal/immutable/chunks/prism-sparql.min-bca3badb.js",
+    "src": "node_modules/prismjs/components/prism-sparql.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-iecst.min.js": {
+    "file": "internal/immutable/chunks/prism-iecst.min-35e598e4.js",
+    "src": "node_modules/prismjs/components/prism-iecst.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-zig.min.js": {
+    "file": "internal/immutable/chunks/prism-zig.min-389e1cec.js",
+    "src": "node_modules/prismjs/components/prism-zig.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-latex.min.js": {
+    "file": "internal/immutable/chunks/prism-latex.min-aecfd470.js",
+    "src": "node_modules/prismjs/components/prism-latex.min.js",
+    "isDynamicEntry": true
+  },
+  "src/routes/+layout.ts": {
+    "file": "internal/immutable/modules/pages/_layout.ts-9cbb603b.js",
+    "src": "src/routes/+layout.ts",
+    "isEntry": true,
+    "imports": [
+      "__layout-da46b06b.js"
+    ]
+  },
+  "_IconBase-284ed854.js": {
+    "file": "internal/immutable/chunks/IconBase-284ed854.js",
+    "imports": [
+      "_index-03c6fbe9.js"
+    ],
+    "css": [
+      "internal/immutable/assets/IconBase-d93538e2.css"
+    ]
+  },
+  "node_modules/prismjs/components/prism-php.min.js": {
+    "file": "internal/immutable/chunks/prism-php.min-644bb93e.js",
+    "src": "node_modules/prismjs/components/prism-php.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-js-extras.min.js": {
+    "file": "internal/immutable/chunks/prism-js-extras.min-c44a6073.js",
+    "src": "node_modules/prismjs/components/prism-js-extras.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-erb.min.js": {
+    "file": "internal/immutable/chunks/prism-erb.min-47da5230.js",
+    "src": "node_modules/prismjs/components/prism-erb.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-cmake.min.js": {
+    "file": "internal/immutable/chunks/prism-cmake.min-b94e863c.js",
+    "src": "node_modules/prismjs/components/prism-cmake.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-latte.min.js": {
+    "file": "internal/immutable/chunks/prism-latte.min-7e798db5.js",
+    "src": "node_modules/prismjs/components/prism-latte.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-less.min.js": {
+    "file": "internal/immutable/chunks/prism-less.min-6d023b7f.js",
+    "src": "node_modules/prismjs/components/prism-less.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-metafont.min.js": {
+    "file": "internal/immutable/chunks/prism-metafont.min-d275644b.js",
+    "src": "node_modules/prismjs/components/prism-metafont.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-scheme.min.js": {
+    "file": "internal/immutable/chunks/prism-scheme.min-6ececd9e.js",
+    "src": "node_modules/prismjs/components/prism-scheme.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-matlab.min.js": {
+    "file": "internal/immutable/chunks/prism-matlab.min-7694231c.js",
+    "src": "node_modules/prismjs/components/prism-matlab.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-lilypond.min.js": {
+    "file": "internal/immutable/chunks/prism-lilypond.min-a8052db5.js",
+    "src": "node_modules/prismjs/components/prism-lilypond.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-maxscript.min.js": {
+    "file": "internal/immutable/chunks/prism-maxscript.min-7d11540b.js",
+    "src": "node_modules/prismjs/components/prism-maxscript.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-liquid.min.js": {
+    "file": "internal/immutable/chunks/prism-liquid.min-f3987063.js",
+    "src": "node_modules/prismjs/components/prism-liquid.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-mel.min.js": {
+    "file": "internal/immutable/chunks/prism-mel.min-697ddbbe.js",
+    "src": "node_modules/prismjs/components/prism-mel.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-lisp.min.js": {
+    "file": "internal/immutable/chunks/prism-lisp.min-3d6d66d5.js",
+    "src": "node_modules/prismjs/components/prism-lisp.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-mermaid.min.js": {
+    "file": "internal/immutable/chunks/prism-mermaid.min-4e42836b.js",
+    "src": "node_modules/prismjs/components/prism-mermaid.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-livescript.min.js": {
+    "file": "internal/immutable/chunks/prism-livescript.min-309cbfcd.js",
+    "src": "node_modules/prismjs/components/prism-livescript.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-actionscript.min.js": {
+    "file": "internal/immutable/chunks/prism-actionscript.min-d73fc6b8.js",
+    "src": "node_modules/prismjs/components/prism-actionscript.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-log.min.js": {
+    "file": "internal/immutable/chunks/prism-log.min-31f7445d.js",
+    "src": "node_modules/prismjs/components/prism-log.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-scss.min.js": {
+    "file": "internal/immutable/chunks/prism-scss.min-8450ba75.js",
+    "src": "node_modules/prismjs/components/prism-scss.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-makefile.min.js": {
+    "file": "internal/immutable/chunks/prism-makefile.min-f6e8edb0.js",
+    "src": "node_modules/prismjs/components/prism-makefile.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-markdown.min.js": {
+    "file": "internal/immutable/chunks/prism-markdown.min-7e0f453b.js",
+    "src": "node_modules/prismjs/components/prism-markdown.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-mata.min.js": {
+    "file": "internal/immutable/chunks/prism-mata.min-bddbd4e1.js",
+    "src": "node_modules/prismjs/components/prism-mata.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-llvm.min.js": {
+    "file": "internal/immutable/chunks/prism-llvm.min-f4254de2.js",
+    "src": "node_modules/prismjs/components/prism-llvm.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-gradle.min.js": {
+    "file": "internal/immutable/chunks/prism-gradle.min-d894a868.js",
+    "src": "node_modules/prismjs/components/prism-gradle.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-magma.min.js": {
+    "file": "internal/immutable/chunks/prism-magma.min-e7fc4212.js",
+    "src": "node_modules/prismjs/components/prism-magma.min.js",
+    "isDynamicEntry": true
+  },
+  "_singletons-981622f6.js": {
+    "file": "internal/immutable/chunks/singletons-981622f6.js",
+    "imports": [
+      "_index-0a7d73c5.js",
+      "_paths-b4419565.js"
+    ]
+  },
+  "node_modules/prismjs/components/prism-elm.min.js": {
+    "file": "internal/immutable/chunks/prism-elm.min-5fb7f915.js",
+    "src": "node_modules/prismjs/components/prism-elm.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-graphql.min.js": {
+    "file": "internal/immutable/chunks/prism-graphql.min-5288909c.js",
+    "src": "node_modules/prismjs/components/prism-graphql.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-groovy.min.js": {
+    "file": "internal/immutable/chunks/prism-groovy.min-cca0680b.js",
+    "src": "node_modules/prismjs/components/prism-groovy.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-haml.min.js": {
+    "file": "internal/immutable/chunks/prism-haml.min-97b1a7c1.js",
+    "src": "node_modules/prismjs/components/prism-haml.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-v.min.js": {
+    "file": "internal/immutable/chunks/prism-v.min-9c7c3dfc.js",
+    "src": "node_modules/prismjs/components/prism-v.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-handlebars.min.js": {
+    "file": "internal/immutable/chunks/prism-handlebars.min-d151edad.js",
+    "src": "node_modules/prismjs/components/prism-handlebars.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-haxe.min.js": {
+    "file": "internal/immutable/chunks/prism-haxe.min-572945db.js",
+    "src": "node_modules/prismjs/components/prism-haxe.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-haskell.min.js": {
+    "file": "internal/immutable/chunks/prism-haskell.min-4010b5b5.js",
+    "src": "node_modules/prismjs/components/prism-haskell.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-hcl.min.js": {
+    "file": "internal/immutable/chunks/prism-hcl.min-5782377b.js",
+    "src": "node_modules/prismjs/components/prism-hcl.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-hlsl.min.js": {
+    "file": "internal/immutable/chunks/prism-hlsl.min-8ba06666.js",
+    "src": "node_modules/prismjs/components/prism-hlsl.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-hoon.min.js": {
+    "file": "internal/immutable/chunks/prism-hoon.min-0b097126.js",
+    "src": "node_modules/prismjs/components/prism-hoon.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-http.min.js": {
+    "file": "internal/immutable/chunks/prism-http.min-b3673f87.js",
+    "src": "node_modules/prismjs/components/prism-http.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-hpkp.min.js": {
+    "file": "internal/immutable/chunks/prism-hpkp.min-d5522a39.js",
+    "src": "node_modules/prismjs/components/prism-hpkp.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-hsts.min.js": {
+    "file": "internal/immutable/chunks/prism-hsts.min-81c1438f.js",
+    "src": "node_modules/prismjs/components/prism-hsts.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-ichigojam.min.js": {
+    "file": "internal/immutable/chunks/prism-ichigojam.min-c00794b9.js",
+    "src": "node_modules/prismjs/components/prism-ichigojam.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-wasm.min.js": {
+    "file": "internal/immutable/chunks/prism-wasm.min-9f535801.js",
+    "src": "node_modules/prismjs/components/prism-wasm.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-icon.min.js": {
+    "file": "internal/immutable/chunks/prism-icon.min-68518a46.js",
+    "src": "node_modules/prismjs/components/prism-icon.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-icu-message-format.min.js": {
+    "file": "internal/immutable/chunks/prism-icu-message-format.min-4630e9ee.js",
+    "src": "node_modules/prismjs/components/prism-icu-message-format.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-ignore.min.js": {
+    "file": "internal/immutable/chunks/prism-ignore.min-9495acac.js",
+    "src": "node_modules/prismjs/components/prism-ignore.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-idris.min.js": {
+    "file": "internal/immutable/chunks/prism-idris.min-d2ee4f57.js",
+    "src": "node_modules/prismjs/components/prism-idris.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-inform7.min.js": {
+    "file": "internal/immutable/chunks/prism-inform7.min-7627b9d2.js",
+    "src": "node_modules/prismjs/components/prism-inform7.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-ini.min.js": {
+    "file": "internal/immutable/chunks/prism-ini.min-03e5b2d3.js",
+    "src": "node_modules/prismjs/components/prism-ini.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-io.min.js": {
+    "file": "internal/immutable/chunks/prism-io.min-8555cb75.js",
+    "src": "node_modules/prismjs/components/prism-io.min.js",
+    "isDynamicEntry": true
+  },
+  ".svelte-kit/generated/nodes/4.js": {
+    "file": "internal/immutable/chunks/4-8d567c8c.js",
+    "src": ".svelte-kit/generated/nodes/4.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/routes/huge-document/+page.svelte"
+    ]
+  },
   "node_modules/@sveltejs/kit/src/runtime/client/start.js": {
-    "file": "internal/immutable/start-a0acb3a2.js",
+    "file": "internal/immutable/start-009ff87c.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/client/start.js",
     "isEntry": true,
     "imports": [
-      "_index-e4d04ee5.js",
-      "_singletons-8982c9a6.js",
-      "_preload-helper-245d08a1.js",
-      "_paths-846459bd.js"
+      "_index-03c6fbe9.js",
+      "_singletons-981622f6.js",
+      "_preload-helper-41c905a7.js",
+      "_paths-b4419565.js"
     ],
     "dynamicImports": [
       ".svelte-kit/generated/nodes/0.js",
@@ -254,139 +1787,162 @@
       ".svelte-kit/generated/nodes/5.js"
     ]
   },
+  "node_modules/prismjs/components/prism-web-idl.min.js": {
+    "file": "internal/immutable/chunks/prism-web-idl.min-ce832cc7.js",
+    "src": "node_modules/prismjs/components/prism-web-idl.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-wgsl.min.js": {
+    "file": "internal/immutable/chunks/prism-wgsl.min-c88d38e5.js",
+    "src": "node_modules/prismjs/components/prism-wgsl.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-yang.min.js": {
+    "file": "internal/immutable/chunks/prism-yang.min-e490d7da.js",
+    "src": "node_modules/prismjs/components/prism-yang.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-j.min.js": {
+    "file": "internal/immutable/chunks/prism-j.min-8f8092fb.js",
+    "src": "node_modules/prismjs/components/prism-j.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-java.min.js": {
+    "file": "internal/immutable/chunks/prism-java.min-0fa4f4ba.js",
+    "src": "node_modules/prismjs/components/prism-java.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-javadoclike.min.js": {
+    "file": "internal/immutable/chunks/prism-javadoclike.min-339dd820.js",
+    "src": "node_modules/prismjs/components/prism-javadoclike.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-javastacktrace.min.js": {
+    "file": "internal/immutable/chunks/prism-javastacktrace.min-9ed18d30.js",
+    "src": "node_modules/prismjs/components/prism-javastacktrace.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-javadoc.min.js": {
+    "file": "internal/immutable/chunks/prism-javadoc.min-c81c3a36.js",
+    "src": "node_modules/prismjs/components/prism-javadoc.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-jexl.min.js": {
+    "file": "internal/immutable/chunks/prism-jexl.min-d25ca74a.js",
+    "src": "node_modules/prismjs/components/prism-jexl.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-jolie.min.js": {
+    "file": "internal/immutable/chunks/prism-jolie.min-1d6664bd.js",
+    "src": "node_modules/prismjs/components/prism-jolie.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-jq.min.js": {
+    "file": "internal/immutable/chunks/prism-jq.min-41069fd0.js",
+    "src": "node_modules/prismjs/components/prism-jq.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-tap.min.js": {
+    "file": "internal/immutable/chunks/prism-tap.min-f71d479e.js",
+    "src": "node_modules/prismjs/components/prism-tap.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-typescript.min.js": {
+    "file": "internal/immutable/chunks/prism-typescript.min-b2afd5ca.js",
+    "src": "node_modules/prismjs/components/prism-typescript.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-sql.min.js": {
+    "file": "internal/immutable/chunks/prism-sql.min-0fc02e2f.js",
+    "src": "node_modules/prismjs/components/prism-sql.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-apex.min.js": {
+    "file": "internal/immutable/chunks/prism-apex.min-062d2b2e.js",
+    "src": "node_modules/prismjs/components/prism-apex.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-apl.min.js": {
+    "file": "internal/immutable/chunks/prism-apl.min-2bbc930f.js",
+    "src": "node_modules/prismjs/components/prism-apl.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-dns-zone-file.min.js": {
+    "file": "internal/immutable/chunks/prism-dns-zone-file.min-b219b9bc.js",
+    "src": "node_modules/prismjs/components/prism-dns-zone-file.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/prismjs/components/prism-docker.min.js": {
+    "file": "internal/immutable/chunks/prism-docker.min-080760f5.js",
+    "src": "node_modules/prismjs/components/prism-docker.min.js",
+    "isDynamicEntry": true
+  },
   "src/routes/+layout.svelte": {
-    "file": "internal/immutable/components/pages/_layout.svelte-4ea3e371.js",
+    "file": "internal/immutable/components/pages/_layout.svelte-9900cb4c.js",
     "src": "src/routes/+layout.svelte",
     "isEntry": true,
     "imports": [
-      "_index-e4d04ee5.js",
-      "_paths-846459bd.js",
-      "_IconBase-e77a36b0.js"
+      "_index-03c6fbe9.js",
+      "_paths-b4419565.js",
+      "_IconBase-284ed854.js"
     ],
     "css": [
       "internal/immutable/assets/_layout-a2111cc4.css"
     ]
   },
-  "node_modules/@sveltejs/kit/src/runtime/components/error.svelte": {
-    "file": "internal/immutable/components/error.svelte-3388b02b.js",
-    "src": "node_modules/@sveltejs/kit/src/runtime/components/error.svelte",
-    "isEntry": true,
+  "_Editable-eb2b4071.js": {
+    "file": "internal/immutable/chunks/Editable-eb2b4071.js",
     "imports": [
-      "_index-e4d04ee5.js",
-      "_singletons-8982c9a6.js"
-    ]
-  },
-  "src/routes/+page.svelte": {
-    "file": "internal/immutable/components/pages/_page.svelte-e914c926.js",
-    "src": "src/routes/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-e4d04ee5.js",
-      "_paths-846459bd.js"
-    ]
-  },
-  "src/routes/default/+page.svelte": {
-    "file": "internal/immutable/components/pages/default/_page.svelte-ccc0cca9.js",
-    "src": "src/routes/default/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-e4d04ee5.js",
-      "_Editable-3913b49a.js"
-    ]
-  },
-  "src/routes/huge-document/+page.svelte": {
-    "file": "internal/immutable/components/pages/huge-document/_page.svelte-fd438147.js",
-    "src": "src/routes/huge-document/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-e4d04ee5.js",
-      "_Editable-3913b49a.js",
-      "_HoveringToolbar-16dd6198.js"
-    ],
-    "css": [
-      "internal/immutable/assets/_page-4ad228cf.css"
-    ]
-  },
-  "src/routes/plugins/+page.svelte": {
-    "file": "internal/immutable/components/pages/plugins/_page.svelte-d34d0091.js",
-    "src": "src/routes/plugins/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-e4d04ee5.js",
-      "_Editable-3913b49a.js",
-      "_HoveringToolbar-16dd6198.js"
-    ],
-    "css": [
-      "internal/immutable/assets/_page-4ad228cf.css"
-    ]
-  },
-  "src/routes/+layout.ts": {
-    "file": "internal/immutable/modules/pages/_layout.ts-ccf77788.js",
-    "src": "src/routes/+layout.ts",
-    "isEntry": true,
-    "imports": [
-      "__layout-c2405b24.js"
-    ]
-  },
-  "_singletons-8982c9a6.js": {
-    "file": "internal/immutable/chunks/singletons-8982c9a6.js",
-    "imports": [
-      "_index-eb14cdad.js",
-      "_paths-846459bd.js"
-    ]
-  },
-  "_paths-846459bd.js": {
-    "file": "internal/immutable/chunks/paths-846459bd.js"
-  },
-  "_index-e4d04ee5.js": {
-    "file": "internal/immutable/chunks/index-e4d04ee5.js"
-  },
-  "_index-eb14cdad.js": {
-    "file": "internal/immutable/chunks/index-eb14cdad.js",
-    "imports": [
-      "_index-e4d04ee5.js"
-    ]
-  },
-  "_preload-helper-245d08a1.js": {
-    "file": "internal/immutable/chunks/preload-helper-245d08a1.js"
-  },
-  "_IconBase-e77a36b0.js": {
-    "file": "internal/immutable/chunks/IconBase-e77a36b0.js",
-    "imports": [
-      "_index-e4d04ee5.js"
-    ],
-    "css": [
-      "internal/immutable/assets/IconBase-d93538e2.css"
-    ]
-  },
-  "__layout-c2405b24.js": {
-    "file": "internal/immutable/chunks/_layout-c2405b24.js"
-  },
-  "_Editable-3913b49a.js": {
-    "file": "internal/immutable/chunks/Editable-3913b49a.js",
-    "imports": [
-      "_index-e4d04ee5.js",
-      "_index-eb14cdad.js"
+      "_index-03c6fbe9.js",
+      "_index-0a7d73c5.js"
     ],
     "css": [
       "internal/immutable/assets/Editable-4e0c96a4.css"
     ]
   },
-  "_HoveringToolbar-16dd6198.js": {
-    "file": "internal/immutable/chunks/HoveringToolbar-16dd6198.js",
+  "src/routes/plugins/+page.svelte": {
+    "file": "internal/immutable/components/pages/plugins/_page.svelte-6887cb7b.js",
+    "src": "src/routes/plugins/+page.svelte",
+    "isEntry": true,
     "imports": [
-      "_index-e4d04ee5.js",
-      "_Editable-3913b49a.js",
-      "_IconBase-e77a36b0.js",
-      "_preload-helper-245d08a1.js"
+      "_index-03c6fbe9.js",
+      "_Editable-eb2b4071.js",
+      "_HoveringToolbar-98f631e3.js"
+    ],
+    "css": [
+      "internal/immutable/assets/_page-4ad228cf.css"
+    ]
+  },
+  "src/routes/huge-document/+page.svelte": {
+    "file": "internal/immutable/components/pages/huge-document/_page.svelte-3deba07c.js",
+    "src": "src/routes/huge-document/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-03c6fbe9.js",
+      "_Editable-eb2b4071.js",
+      "_HoveringToolbar-98f631e3.js"
+    ],
+    "css": [
+      "internal/immutable/assets/_page-4ad228cf.css"
+    ]
+  },
+  "_HoveringToolbar-98f631e3.js": {
+    "file": "internal/immutable/chunks/HoveringToolbar-98f631e3.js",
+    "imports": [
+      "_index-03c6fbe9.js",
+      "_Editable-eb2b4071.js",
+      "_IconBase-284ed854.js",
+      "_preload-helper-41c905a7.js"
     ],
     "dynamicImports": [
       "node_modules/prismjs/components/prism-markup.min.js",
       "node_modules/prismjs/components/prism-css.min.js",
       "node_modules/prismjs/components/prism-clike.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
       "node_modules/prismjs/components/prism-javascript.min.js",
       "node_modules/prismjs/components/prism-abap.min.js",
       "node_modules/prismjs/components/prism-abnf.min.js",
+      "node_modules/prismjs/components/prism-javascript.min.js",
       "node_modules/prismjs/components/prism-actionscript.min.js",
       "node_modules/prismjs/components/prism-ada.min.js",
       "node_modules/prismjs/components/prism-agda.min.js",
@@ -394,17 +1950,25 @@
       "node_modules/prismjs/components/prism-antlr4.min.js",
       "node_modules/prismjs/components/prism-apacheconf.min.js",
       "node_modules/prismjs/components/prism-sql.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
+      "node_modules/prismjs/components/prism-sql.min.js",
       "node_modules/prismjs/components/prism-apex.min.js",
       "node_modules/prismjs/components/prism-apl.min.js",
       "node_modules/prismjs/components/prism-applescript.min.js",
       "node_modules/prismjs/components/prism-aql.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
       "node_modules/prismjs/components/prism-c.min.js",
+      "node_modules/prismjs/components/prism-c.min.js",
+      "node_modules/prismjs/components/prism-cpp.min.js",
       "node_modules/prismjs/components/prism-cpp.min.js",
       "node_modules/prismjs/components/prism-arduino.min.js",
       "node_modules/prismjs/components/prism-arff.min.js",
       "node_modules/prismjs/components/prism-armasm.min.js",
       "node_modules/prismjs/components/prism-arturo.min.js",
       "node_modules/prismjs/components/prism-asciidoc.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
+      "node_modules/prismjs/components/prism-csharp.min.js",
+      "node_modules/prismjs/components/prism-markup.min.js",
       "node_modules/prismjs/components/prism-csharp.min.js",
       "node_modules/prismjs/components/prism-aspnet.min.js",
       "node_modules/prismjs/components/prism-asm6502.min.js",
@@ -420,7 +1984,9 @@
       "node_modules/prismjs/components/prism-bbcode.min.js",
       "node_modules/prismjs/components/prism-bbj.min.js",
       "node_modules/prismjs/components/prism-bicep.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
       "node_modules/prismjs/components/prism-birb.min.js",
+      "node_modules/prismjs/components/prism-c.min.js",
       "node_modules/prismjs/components/prism-bison.min.js",
       "node_modules/prismjs/components/prism-bnf.min.js",
       "node_modules/prismjs/components/prism-bqn.min.js",
@@ -428,31 +1994,44 @@
       "node_modules/prismjs/components/prism-brightscript.min.js",
       "node_modules/prismjs/components/prism-bro.min.js",
       "node_modules/prismjs/components/prism-bsl.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
       "node_modules/prismjs/components/prism-cfscript.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
+      "node_modules/prismjs/components/prism-cpp.min.js",
       "node_modules/prismjs/components/prism-chaiscript.min.js",
       "node_modules/prismjs/components/prism-cil.min.js",
+      "node_modules/prismjs/components/prism-c.min.js",
       "node_modules/prismjs/components/prism-cilkc.min.js",
+      "node_modules/prismjs/components/prism-cpp.min.js",
       "node_modules/prismjs/components/prism-cilkcpp.min.js",
       "node_modules/prismjs/components/prism-clojure.min.js",
       "node_modules/prismjs/components/prism-cmake.min.js",
       "node_modules/prismjs/components/prism-cobol.min.js",
+      "node_modules/prismjs/components/prism-javascript.min.js",
       "node_modules/prismjs/components/prism-coffeescript.min.js",
       "node_modules/prismjs/components/prism-concurnas.min.js",
       "node_modules/prismjs/components/prism-csp.min.js",
       "node_modules/prismjs/components/prism-cooklang.min.js",
       "node_modules/prismjs/components/prism-coq.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
+      "node_modules/prismjs/components/prism-ruby.min.js",
       "node_modules/prismjs/components/prism-ruby.min.js",
       "node_modules/prismjs/components/prism-crystal.min.js",
+      "node_modules/prismjs/components/prism-css.min.js",
       "node_modules/prismjs/components/prism-css-extras.min.js",
       "node_modules/prismjs/components/prism-csv.min.js",
       "node_modules/prismjs/components/prism-cue.min.js",
       "node_modules/prismjs/components/prism-cypher.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
       "node_modules/prismjs/components/prism-d.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
       "node_modules/prismjs/components/prism-dart.min.js",
       "node_modules/prismjs/components/prism-dataweave.min.js",
       "node_modules/prismjs/components/prism-dax.min.js",
       "node_modules/prismjs/components/prism-dhall.min.js",
       "node_modules/prismjs/components/prism-diff.min.js",
+      "node_modules/prismjs/components/prism-markup.min.js",
+      "node_modules/prismjs/components/prism-markup-templating.min.js",
       "node_modules/prismjs/components/prism-markup-templating.min.js",
       "node_modules/prismjs/components/prism-django.min.js",
       "node_modules/prismjs/components/prism-dns-zone-file.min.js",
@@ -461,21 +2040,32 @@
       "node_modules/prismjs/components/prism-ebnf.min.js",
       "node_modules/prismjs/components/prism-editorconfig.min.js",
       "node_modules/prismjs/components/prism-eiffel.min.js",
+      "node_modules/prismjs/components/prism-javascript.min.js",
+      "node_modules/prismjs/components/prism-markup-templating.min.js",
       "node_modules/prismjs/components/prism-ejs.min.js",
       "node_modules/prismjs/components/prism-elixir.min.js",
       "node_modules/prismjs/components/prism-elm.min.js",
       "node_modules/prismjs/components/prism-lua.min.js",
+      "node_modules/prismjs/components/prism-lua.min.js",
+      "node_modules/prismjs/components/prism-markup-templating.min.js",
       "node_modules/prismjs/components/prism-etlua.min.js",
+      "node_modules/prismjs/components/prism-ruby.min.js",
+      "node_modules/prismjs/components/prism-markup-templating.min.js",
       "node_modules/prismjs/components/prism-erb.min.js",
       "node_modules/prismjs/components/prism-erlang.min.js",
       "node_modules/prismjs/components/prism-excel-formula.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
       "node_modules/prismjs/components/prism-fsharp.min.js",
       "node_modules/prismjs/components/prism-factor.min.js",
       "node_modules/prismjs/components/prism-false.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
       "node_modules/prismjs/components/prism-firestore-security-rules.min.js",
+      "node_modules/prismjs/components/prism-javascript.min.js",
       "node_modules/prismjs/components/prism-flow.min.js",
       "node_modules/prismjs/components/prism-fortran.min.js",
+      "node_modules/prismjs/components/prism-markup-templating.min.js",
       "node_modules/prismjs/components/prism-ftl.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
       "node_modules/prismjs/components/prism-gml.min.js",
       "node_modules/prismjs/components/prism-gap.min.js",
       "node_modules/prismjs/components/prism-gcode.min.js",
@@ -484,19 +2074,27 @@
       "node_modules/prismjs/components/prism-gettext.min.js",
       "node_modules/prismjs/components/prism-gherkin.min.js",
       "node_modules/prismjs/components/prism-git.min.js",
+      "node_modules/prismjs/components/prism-c.min.js",
       "node_modules/prismjs/components/prism-glsl.min.js",
       "node_modules/prismjs/components/prism-gn.min.js",
       "node_modules/prismjs/components/prism-linker-script.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
       "node_modules/prismjs/components/prism-go.min.js",
       "node_modules/prismjs/components/prism-go-module.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
       "node_modules/prismjs/components/prism-gradle.min.js",
       "node_modules/prismjs/components/prism-graphql.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
       "node_modules/prismjs/components/prism-groovy.min.js",
+      "node_modules/prismjs/components/prism-ruby.min.js",
       "node_modules/prismjs/components/prism-haml.min.js",
+      "node_modules/prismjs/components/prism-markup-templating.min.js",
       "node_modules/prismjs/components/prism-handlebars.min.js",
       "node_modules/prismjs/components/prism-haskell.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
       "node_modules/prismjs/components/prism-haxe.min.js",
       "node_modules/prismjs/components/prism-hcl.min.js",
+      "node_modules/prismjs/components/prism-c.min.js",
       "node_modules/prismjs/components/prism-hlsl.min.js",
       "node_modules/prismjs/components/prism-hoon.min.js",
       "node_modules/prismjs/components/prism-http.min.js",
@@ -505,39 +2103,61 @@
       "node_modules/prismjs/components/prism-ichigojam.min.js",
       "node_modules/prismjs/components/prism-icon.min.js",
       "node_modules/prismjs/components/prism-icu-message-format.min.js",
+      "node_modules/prismjs/components/prism-haskell.min.js",
       "node_modules/prismjs/components/prism-idris.min.js",
       "node_modules/prismjs/components/prism-ignore.min.js",
       "node_modules/prismjs/components/prism-inform7.min.js",
       "node_modules/prismjs/components/prism-ini.min.js",
       "node_modules/prismjs/components/prism-io.min.js",
       "node_modules/prismjs/components/prism-j.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
+      "node_modules/prismjs/components/prism-java.min.js",
+      "node_modules/prismjs/components/prism-javadoclike.min.js",
+      "node_modules/prismjs/components/prism-markup.min.js",
       "node_modules/prismjs/components/prism-java.min.js",
       "node_modules/prismjs/components/prism-javadoclike.min.js",
       "node_modules/prismjs/components/prism-javadoc.min.js",
       "node_modules/prismjs/components/prism-javastacktrace.min.js",
       "node_modules/prismjs/components/prism-jexl.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
       "node_modules/prismjs/components/prism-jolie.min.js",
       "node_modules/prismjs/components/prism-jq.min.js",
+      "node_modules/prismjs/components/prism-javascript.min.js",
+      "node_modules/prismjs/components/prism-typescript.min.js",
+      "node_modules/prismjs/components/prism-javascript.min.js",
+      "node_modules/prismjs/components/prism-javadoclike.min.js",
       "node_modules/prismjs/components/prism-typescript.min.js",
       "node_modules/prismjs/components/prism-jsdoc.min.js",
+      "node_modules/prismjs/components/prism-javascript.min.js",
       "node_modules/prismjs/components/prism-js-extras.min.js",
       "node_modules/prismjs/components/prism-json.min.js",
+      "node_modules/prismjs/components/prism-json.min.js",
       "node_modules/prismjs/components/prism-json5.min.js",
+      "node_modules/prismjs/components/prism-json.min.js",
       "node_modules/prismjs/components/prism-jsonp.min.js",
       "node_modules/prismjs/components/prism-jsstacktrace.min.js",
+      "node_modules/prismjs/components/prism-javascript.min.js",
       "node_modules/prismjs/components/prism-js-templates.min.js",
       "node_modules/prismjs/components/prism-julia.min.js",
       "node_modules/prismjs/components/prism-keepalived.min.js",
       "node_modules/prismjs/components/prism-keyman.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
       "node_modules/prismjs/components/prism-kotlin.min.js",
       "node_modules/prismjs/components/prism-kumir.min.js",
       "node_modules/prismjs/components/prism-kusto.min.js",
       "node_modules/prismjs/components/prism-latex.min.js",
+      "node_modules/prismjs/components/prism-markup-templating.min.js",
+      "node_modules/prismjs/components/prism-php.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
+      "node_modules/prismjs/components/prism-markup-templating.min.js",
       "node_modules/prismjs/components/prism-php.min.js",
       "node_modules/prismjs/components/prism-latte.min.js",
+      "node_modules/prismjs/components/prism-css.min.js",
       "node_modules/prismjs/components/prism-less.min.js",
       "node_modules/prismjs/components/prism-scheme.min.js",
+      "node_modules/prismjs/components/prism-scheme.min.js",
       "node_modules/prismjs/components/prism-lilypond.min.js",
+      "node_modules/prismjs/components/prism-markup-templating.min.js",
       "node_modules/prismjs/components/prism-liquid.min.js",
       "node_modules/prismjs/components/prism-lisp.min.js",
       "node_modules/prismjs/components/prism-livescript.min.js",
@@ -546,6 +2166,7 @@
       "node_modules/prismjs/components/prism-lolcode.min.js",
       "node_modules/prismjs/components/prism-magma.min.js",
       "node_modules/prismjs/components/prism-makefile.min.js",
+      "node_modules/prismjs/components/prism-markup.min.js",
       "node_modules/prismjs/components/prism-markdown.min.js",
       "node_modules/prismjs/components/prism-mata.min.js",
       "node_modules/prismjs/components/prism-matlab.min.js",
@@ -554,10 +2175,12 @@
       "node_modules/prismjs/components/prism-mermaid.min.js",
       "node_modules/prismjs/components/prism-metafont.min.js",
       "node_modules/prismjs/components/prism-mizar.min.js",
+      "node_modules/prismjs/components/prism-javascript.min.js",
       "node_modules/prismjs/components/prism-mongodb.min.js",
       "node_modules/prismjs/components/prism-monkey.min.js",
       "node_modules/prismjs/components/prism-moonscript.min.js",
       "node_modules/prismjs/components/prism-n1ql.min.js",
+      "node_modules/prismjs/components/prism-javascript.min.js",
       "node_modules/prismjs/components/prism-n4js.min.js",
       "node_modules/prismjs/components/prism-nand2tetris-hdl.min.js",
       "node_modules/prismjs/components/prism-naniscript.min.js",
@@ -568,13 +2191,16 @@
       "node_modules/prismjs/components/prism-nim.min.js",
       "node_modules/prismjs/components/prism-nix.min.js",
       "node_modules/prismjs/components/prism-nsis.min.js",
+      "node_modules/prismjs/components/prism-c.min.js",
       "node_modules/prismjs/components/prism-objectivec.min.js",
       "node_modules/prismjs/components/prism-ocaml.min.js",
       "node_modules/prismjs/components/prism-odin.min.js",
+      "node_modules/prismjs/components/prism-c.min.js",
       "node_modules/prismjs/components/prism-opencl.min.js",
       "node_modules/prismjs/components/prism-openqasm.min.js",
       "node_modules/prismjs/components/prism-oz.min.js",
       "node_modules/prismjs/components/prism-parigp.min.js",
+      "node_modules/prismjs/components/prism-markup.min.js",
       "node_modules/prismjs/components/prism-parser.min.js",
       "node_modules/prismjs/components/prism-pascal.min.js",
       "node_modules/prismjs/components/prism-pascaligo.min.js",
@@ -582,32 +2208,53 @@
       "node_modules/prismjs/components/prism-pcaxis.min.js",
       "node_modules/prismjs/components/prism-peoplecode.min.js",
       "node_modules/prismjs/components/prism-perl.min.js",
+      "node_modules/prismjs/components/prism-php.min.js",
+      "node_modules/prismjs/components/prism-javadoclike.min.js",
       "node_modules/prismjs/components/prism-phpdoc.min.js",
+      "node_modules/prismjs/components/prism-php.min.js",
       "node_modules/prismjs/components/prism-php-extras.min.js",
       "node_modules/prismjs/components/prism-plant-uml.min.js",
+      "node_modules/prismjs/components/prism-sql.min.js",
       "node_modules/prismjs/components/prism-plsql.min.js",
       "node_modules/prismjs/components/prism-powerquery.min.js",
       "node_modules/prismjs/components/prism-powershell.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
       "node_modules/prismjs/components/prism-processing.min.js",
       "node_modules/prismjs/components/prism-prolog.min.js",
       "node_modules/prismjs/components/prism-promql.min.js",
       "node_modules/prismjs/components/prism-properties.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
       "node_modules/prismjs/components/prism-protobuf.min.js",
+      "node_modules/prismjs/components/prism-markup.min.js",
+      "node_modules/prismjs/components/prism-javascript.min.js",
       "node_modules/prismjs/components/prism-pug.min.js",
       "node_modules/prismjs/components/prism-puppet.min.js",
       "node_modules/prismjs/components/prism-pure.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
       "node_modules/prismjs/components/prism-purebasic.min.js",
+      "node_modules/prismjs/components/prism-haskell.min.js",
       "node_modules/prismjs/components/prism-purescript.min.js",
       "node_modules/prismjs/components/prism-python.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
       "node_modules/prismjs/components/prism-qsharp.min.js",
       "node_modules/prismjs/components/prism-q.min.js",
+      "node_modules/prismjs/components/prism-javascript.min.js",
       "node_modules/prismjs/components/prism-qml.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
       "node_modules/prismjs/components/prism-qore.min.js",
       "node_modules/prismjs/components/prism-r.min.js",
+      "node_modules/prismjs/components/prism-scheme.min.js",
       "node_modules/prismjs/components/prism-racket.min.js",
+      "node_modules/prismjs/components/prism-markup.min.js",
+      "node_modules/prismjs/components/prism-csharp.min.js",
       "node_modules/prismjs/components/prism-cshtml.min.js",
+      "node_modules/prismjs/components/prism-markup.min.js",
+      "node_modules/prismjs/components/prism-javascript.min.js",
       "node_modules/prismjs/components/prism-jsx.min.js",
+      "node_modules/prismjs/components/prism-jsx.min.js",
+      "node_modules/prismjs/components/prism-typescript.min.js",
       "node_modules/prismjs/components/prism-tsx.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
       "node_modules/prismjs/components/prism-reason.min.js",
       "node_modules/prismjs/components/prism-regex.min.js",
       "node_modules/prismjs/components/prism-rego.min.js",
@@ -619,23 +2266,36 @@
       "node_modules/prismjs/components/prism-robotframework.min.js",
       "node_modules/prismjs/components/prism-rust.min.js",
       "node_modules/prismjs/components/prism-sas.min.js",
+      "node_modules/prismjs/components/prism-css.min.js",
       "node_modules/prismjs/components/prism-sass.min.js",
+      "node_modules/prismjs/components/prism-css.min.js",
       "node_modules/prismjs/components/prism-scss.min.js",
+      "node_modules/prismjs/components/prism-java.min.js",
       "node_modules/prismjs/components/prism-scala.min.js",
+      "node_modules/prismjs/components/prism-bash.min.js",
       "node_modules/prismjs/components/prism-shell-session.min.js",
       "node_modules/prismjs/components/prism-smali.min.js",
       "node_modules/prismjs/components/prism-smalltalk.min.js",
+      "node_modules/prismjs/components/prism-markup-templating.min.js",
       "node_modules/prismjs/components/prism-smarty.min.js",
       "node_modules/prismjs/components/prism-sml.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
       "node_modules/prismjs/components/prism-solidity.min.js",
       "node_modules/prismjs/components/prism-solution-file.min.js",
+      "node_modules/prismjs/components/prism-markup-templating.min.js",
       "node_modules/prismjs/components/prism-soy.min.js",
+      "node_modules/prismjs/components/prism-turtle.min.js",
       "node_modules/prismjs/components/prism-turtle.min.js",
       "node_modules/prismjs/components/prism-sparql.min.js",
       "node_modules/prismjs/components/prism-splunk-spl.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
       "node_modules/prismjs/components/prism-sqf.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
       "node_modules/prismjs/components/prism-squirrel.min.js",
       "node_modules/prismjs/components/prism-stan.min.js",
+      "node_modules/prismjs/components/prism-mata.min.js",
+      "node_modules/prismjs/components/prism-java.min.js",
+      "node_modules/prismjs/components/prism-python.min.js",
       "node_modules/prismjs/components/prism-stata.min.js",
       "node_modules/prismjs/components/prism-iecst.min.js",
       "node_modules/prismjs/components/prism-stylus.min.js",
@@ -643,23 +2303,36 @@
       "node_modules/prismjs/components/prism-swift.min.js",
       "node_modules/prismjs/components/prism-systemd.min.js",
       "node_modules/prismjs/components/prism-t4-templating.min.js",
+      "node_modules/prismjs/components/prism-t4-templating.min.js",
+      "node_modules/prismjs/components/prism-csharp.min.js",
       "node_modules/prismjs/components/prism-t4-cs.min.js",
+      "node_modules/prismjs/components/prism-basic.min.js",
+      "node_modules/prismjs/components/prism-vbnet.min.js",
+      "node_modules/prismjs/components/prism-t4-templating.min.js",
       "node_modules/prismjs/components/prism-vbnet.min.js",
       "node_modules/prismjs/components/prism-t4-vb.min.js",
       "node_modules/prismjs/components/prism-yaml.min.js",
+      "node_modules/prismjs/components/prism-yaml.min.js",
       "node_modules/prismjs/components/prism-tap.min.js",
       "node_modules/prismjs/components/prism-tcl.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
+      "node_modules/prismjs/components/prism-markup-templating.min.js",
       "node_modules/prismjs/components/prism-tt2.min.js",
+      "node_modules/prismjs/components/prism-markup.min.js",
       "node_modules/prismjs/components/prism-textile.min.js",
       "node_modules/prismjs/components/prism-toml.min.js",
       "node_modules/prismjs/components/prism-tremor.min.js",
+      "node_modules/prismjs/components/prism-markup-templating.min.js",
       "node_modules/prismjs/components/prism-twig.min.js",
       "node_modules/prismjs/components/prism-typoscript.min.js",
       "node_modules/prismjs/components/prism-unrealscript.min.js",
       "node_modules/prismjs/components/prism-uorazor.min.js",
       "node_modules/prismjs/components/prism-uri.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
       "node_modules/prismjs/components/prism-v.min.js",
+      "node_modules/prismjs/components/prism-clike.min.js",
       "node_modules/prismjs/components/prism-vala.min.js",
+      "node_modules/prismjs/components/prism-markup.min.js",
       "node_modules/prismjs/components/prism-velocity.min.js",
       "node_modules/prismjs/components/prism-verilog.min.js",
       "node_modules/prismjs/components/prism-vhdl.min.js",
@@ -669,18 +2342,22 @@
       "node_modules/prismjs/components/prism-wasm.min.js",
       "node_modules/prismjs/components/prism-web-idl.min.js",
       "node_modules/prismjs/components/prism-wgsl.min.js",
+      "node_modules/prismjs/components/prism-markup.min.js",
       "node_modules/prismjs/components/prism-wiki.min.js",
       "node_modules/prismjs/components/prism-wolfram.min.js",
       "node_modules/prismjs/components/prism-wren.min.js",
+      "node_modules/prismjs/components/prism-markup.min.js",
       "node_modules/prismjs/components/prism-xeora.min.js",
+      "node_modules/prismjs/components/prism-markup.min.js",
       "node_modules/prismjs/components/prism-xml-doc.min.js",
       "node_modules/prismjs/components/prism-xojo.min.js",
+      "node_modules/prismjs/components/prism-markup.min.js",
       "node_modules/prismjs/components/prism-xquery.min.js",
       "node_modules/prismjs/components/prism-yang.min.js",
       "node_modules/prismjs/components/prism-zig.min.js"
     ],
     "css": [
-      "internal/immutable/assets/HoveringToolbar-29a5f069.css"
+      "internal/immutable/assets/HoveringToolbar-15aeedb2.css"
     ],
     "assets": [
       "internal/immutable/assets/KaTeX_AMS-Regular-0cdd387c.woff2",
@@ -744,1558 +2421,8 @@
       "internal/immutable/assets/KaTeX_Typewriter-Regular-f01f3e87.ttf"
     ]
   },
-  ".svelte-kit/generated/nodes/0.js": {
-    "file": "internal/immutable/chunks/0-1d78a82a.js",
-    "src": ".svelte-kit/generated/nodes/0.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "__layout-c2405b24.js",
-      "src/routes/+layout.svelte"
-    ]
-  },
-  ".svelte-kit/generated/nodes/1.js": {
-    "file": "internal/immutable/chunks/1-32cfd0fa.js",
-    "src": ".svelte-kit/generated/nodes/1.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "node_modules/@sveltejs/kit/src/runtime/components/error.svelte"
-    ]
-  },
-  ".svelte-kit/generated/nodes/2.js": {
-    "file": "internal/immutable/chunks/2-e59fddc1.js",
-    "src": ".svelte-kit/generated/nodes/2.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "src/routes/+page.svelte"
-    ]
-  },
-  ".svelte-kit/generated/nodes/3.js": {
-    "file": "internal/immutable/chunks/3-875a3ba6.js",
-    "src": ".svelte-kit/generated/nodes/3.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "src/routes/default/+page.svelte"
-    ]
-  },
-  ".svelte-kit/generated/nodes/4.js": {
-    "file": "internal/immutable/chunks/4-8999ae32.js",
-    "src": ".svelte-kit/generated/nodes/4.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "src/routes/huge-document/+page.svelte"
-    ]
-  },
-  ".svelte-kit/generated/nodes/5.js": {
-    "file": "internal/immutable/chunks/5-f369cc2c.js",
-    "src": ".svelte-kit/generated/nodes/5.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "src/routes/plugins/+page.svelte"
-    ]
-  },
-  "node_modules/prismjs/components/prism-markup.min.js": {
-    "file": "internal/immutable/chunks/prism-markup.min-292d1f5b.js",
-    "src": "node_modules/prismjs/components/prism-markup.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-css.min.js": {
-    "file": "internal/immutable/chunks/prism-css.min-8e7bd339.js",
-    "src": "node_modules/prismjs/components/prism-css.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-clike.min.js": {
-    "file": "internal/immutable/chunks/prism-clike.min-3b544c49.js",
-    "src": "node_modules/prismjs/components/prism-clike.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-javascript.min.js": {
-    "file": "internal/immutable/chunks/prism-javascript.min-8886ef0c.js",
-    "src": "node_modules/prismjs/components/prism-javascript.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-abap.min.js": {
-    "file": "internal/immutable/chunks/prism-abap.min-ffba0124.js",
-    "src": "node_modules/prismjs/components/prism-abap.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-abnf.min.js": {
-    "file": "internal/immutable/chunks/prism-abnf.min-948991ed.js",
-    "src": "node_modules/prismjs/components/prism-abnf.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-actionscript.min.js": {
-    "file": "internal/immutable/chunks/prism-actionscript.min-ca9237ff.js",
-    "src": "node_modules/prismjs/components/prism-actionscript.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-ada.min.js": {
-    "file": "internal/immutable/chunks/prism-ada.min-a5e6f37d.js",
-    "src": "node_modules/prismjs/components/prism-ada.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-agda.min.js": {
-    "file": "internal/immutable/chunks/prism-agda.min-a6288da1.js",
-    "src": "node_modules/prismjs/components/prism-agda.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-al.min.js": {
-    "file": "internal/immutable/chunks/prism-al.min-a5c48ce1.js",
-    "src": "node_modules/prismjs/components/prism-al.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-antlr4.min.js": {
-    "file": "internal/immutable/chunks/prism-antlr4.min-53784663.js",
-    "src": "node_modules/prismjs/components/prism-antlr4.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-apacheconf.min.js": {
-    "file": "internal/immutable/chunks/prism-apacheconf.min-c0641a5c.js",
-    "src": "node_modules/prismjs/components/prism-apacheconf.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-sql.min.js": {
-    "file": "internal/immutable/chunks/prism-sql.min-4dad2873.js",
-    "src": "node_modules/prismjs/components/prism-sql.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-apex.min.js": {
-    "file": "internal/immutable/chunks/prism-apex.min-5bc276da.js",
-    "src": "node_modules/prismjs/components/prism-apex.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-apl.min.js": {
-    "file": "internal/immutable/chunks/prism-apl.min-0263252b.js",
-    "src": "node_modules/prismjs/components/prism-apl.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-applescript.min.js": {
-    "file": "internal/immutable/chunks/prism-applescript.min-d6745602.js",
-    "src": "node_modules/prismjs/components/prism-applescript.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-aql.min.js": {
-    "file": "internal/immutable/chunks/prism-aql.min-5ce08af9.js",
-    "src": "node_modules/prismjs/components/prism-aql.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-c.min.js": {
-    "file": "internal/immutable/chunks/prism-c.min-2686f92b.js",
-    "src": "node_modules/prismjs/components/prism-c.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-cpp.min.js": {
-    "file": "internal/immutable/chunks/prism-cpp.min-682033dd.js",
-    "src": "node_modules/prismjs/components/prism-cpp.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-arduino.min.js": {
-    "file": "internal/immutable/chunks/prism-arduino.min-2a9f09fc.js",
-    "src": "node_modules/prismjs/components/prism-arduino.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-arff.min.js": {
-    "file": "internal/immutable/chunks/prism-arff.min-86925f22.js",
-    "src": "node_modules/prismjs/components/prism-arff.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-armasm.min.js": {
-    "file": "internal/immutable/chunks/prism-armasm.min-874c9819.js",
-    "src": "node_modules/prismjs/components/prism-armasm.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-arturo.min.js": {
-    "file": "internal/immutable/chunks/prism-arturo.min-1236f36c.js",
-    "src": "node_modules/prismjs/components/prism-arturo.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-asciidoc.min.js": {
-    "file": "internal/immutable/chunks/prism-asciidoc.min-d44f351e.js",
-    "src": "node_modules/prismjs/components/prism-asciidoc.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-csharp.min.js": {
-    "file": "internal/immutable/chunks/prism-csharp.min-cf1b6b48.js",
-    "src": "node_modules/prismjs/components/prism-csharp.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-aspnet.min.js": {
-    "file": "internal/immutable/chunks/prism-aspnet.min-acdb3451.js",
-    "src": "node_modules/prismjs/components/prism-aspnet.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-asm6502.min.js": {
-    "file": "internal/immutable/chunks/prism-asm6502.min-2be918ea.js",
-    "src": "node_modules/prismjs/components/prism-asm6502.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-asmatmel.min.js": {
-    "file": "internal/immutable/chunks/prism-asmatmel.min-33fdd8f9.js",
-    "src": "node_modules/prismjs/components/prism-asmatmel.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-autohotkey.min.js": {
-    "file": "internal/immutable/chunks/prism-autohotkey.min-88f99af6.js",
-    "src": "node_modules/prismjs/components/prism-autohotkey.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-autoit.min.js": {
-    "file": "internal/immutable/chunks/prism-autoit.min-597a6eed.js",
-    "src": "node_modules/prismjs/components/prism-autoit.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-avisynth.min.js": {
-    "file": "internal/immutable/chunks/prism-avisynth.min-8508bc2a.js",
-    "src": "node_modules/prismjs/components/prism-avisynth.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-avro-idl.min.js": {
-    "file": "internal/immutable/chunks/prism-avro-idl.min-798d74d2.js",
-    "src": "node_modules/prismjs/components/prism-avro-idl.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-awk.min.js": {
-    "file": "internal/immutable/chunks/prism-awk.min-e82d1802.js",
-    "src": "node_modules/prismjs/components/prism-awk.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-bash.min.js": {
-    "file": "internal/immutable/chunks/prism-bash.min-fc9ef1c7.js",
-    "src": "node_modules/prismjs/components/prism-bash.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-basic.min.js": {
-    "file": "internal/immutable/chunks/prism-basic.min-83626d04.js",
-    "src": "node_modules/prismjs/components/prism-basic.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-batch.min.js": {
-    "file": "internal/immutable/chunks/prism-batch.min-fc27d39d.js",
-    "src": "node_modules/prismjs/components/prism-batch.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-bbcode.min.js": {
-    "file": "internal/immutable/chunks/prism-bbcode.min-b73bbe9d.js",
-    "src": "node_modules/prismjs/components/prism-bbcode.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-bbj.min.js": {
-    "file": "internal/immutable/chunks/prism-bbj.min-987eff17.js",
-    "src": "node_modules/prismjs/components/prism-bbj.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-bicep.min.js": {
-    "file": "internal/immutable/chunks/prism-bicep.min-0a0041ac.js",
-    "src": "node_modules/prismjs/components/prism-bicep.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-birb.min.js": {
-    "file": "internal/immutable/chunks/prism-birb.min-9b99a6ae.js",
-    "src": "node_modules/prismjs/components/prism-birb.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-bison.min.js": {
-    "file": "internal/immutable/chunks/prism-bison.min-23853f47.js",
-    "src": "node_modules/prismjs/components/prism-bison.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-bnf.min.js": {
-    "file": "internal/immutable/chunks/prism-bnf.min-fa15a4c8.js",
-    "src": "node_modules/prismjs/components/prism-bnf.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-bqn.min.js": {
-    "file": "internal/immutable/chunks/prism-bqn.min-a4d3abb9.js",
-    "src": "node_modules/prismjs/components/prism-bqn.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-brainfuck.min.js": {
-    "file": "internal/immutable/chunks/prism-brainfuck.min-65e6a6d1.js",
-    "src": "node_modules/prismjs/components/prism-brainfuck.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-brightscript.min.js": {
-    "file": "internal/immutable/chunks/prism-brightscript.min-187593b7.js",
-    "src": "node_modules/prismjs/components/prism-brightscript.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-bro.min.js": {
-    "file": "internal/immutable/chunks/prism-bro.min-9678bbcf.js",
-    "src": "node_modules/prismjs/components/prism-bro.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-bsl.min.js": {
-    "file": "internal/immutable/chunks/prism-bsl.min-1dd78930.js",
-    "src": "node_modules/prismjs/components/prism-bsl.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-cfscript.min.js": {
-    "file": "internal/immutable/chunks/prism-cfscript.min-bcfc5c1b.js",
-    "src": "node_modules/prismjs/components/prism-cfscript.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-chaiscript.min.js": {
-    "file": "internal/immutable/chunks/prism-chaiscript.min-9a2ed411.js",
-    "src": "node_modules/prismjs/components/prism-chaiscript.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-cil.min.js": {
-    "file": "internal/immutable/chunks/prism-cil.min-9cd2c767.js",
-    "src": "node_modules/prismjs/components/prism-cil.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-cilkc.min.js": {
-    "file": "internal/immutable/chunks/prism-cilkc.min-c867de0a.js",
-    "src": "node_modules/prismjs/components/prism-cilkc.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-cilkcpp.min.js": {
-    "file": "internal/immutable/chunks/prism-cilkcpp.min-2be4cb75.js",
-    "src": "node_modules/prismjs/components/prism-cilkcpp.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-clojure.min.js": {
-    "file": "internal/immutable/chunks/prism-clojure.min-86bb6ac3.js",
-    "src": "node_modules/prismjs/components/prism-clojure.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-cmake.min.js": {
-    "file": "internal/immutable/chunks/prism-cmake.min-bdc4a71b.js",
-    "src": "node_modules/prismjs/components/prism-cmake.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-cobol.min.js": {
-    "file": "internal/immutable/chunks/prism-cobol.min-25b75a11.js",
-    "src": "node_modules/prismjs/components/prism-cobol.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-coffeescript.min.js": {
-    "file": "internal/immutable/chunks/prism-coffeescript.min-408721df.js",
-    "src": "node_modules/prismjs/components/prism-coffeescript.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-concurnas.min.js": {
-    "file": "internal/immutable/chunks/prism-concurnas.min-7af0c173.js",
-    "src": "node_modules/prismjs/components/prism-concurnas.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-csp.min.js": {
-    "file": "internal/immutable/chunks/prism-csp.min-75bcab66.js",
-    "src": "node_modules/prismjs/components/prism-csp.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-cooklang.min.js": {
-    "file": "internal/immutable/chunks/prism-cooklang.min-eb48f21f.js",
-    "src": "node_modules/prismjs/components/prism-cooklang.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-coq.min.js": {
-    "file": "internal/immutable/chunks/prism-coq.min-b84cbd51.js",
-    "src": "node_modules/prismjs/components/prism-coq.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-ruby.min.js": {
-    "file": "internal/immutable/chunks/prism-ruby.min-eb6c0e2f.js",
-    "src": "node_modules/prismjs/components/prism-ruby.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-crystal.min.js": {
-    "file": "internal/immutable/chunks/prism-crystal.min-eb7bd7f4.js",
-    "src": "node_modules/prismjs/components/prism-crystal.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-css-extras.min.js": {
-    "file": "internal/immutable/chunks/prism-css-extras.min-115c2f5f.js",
-    "src": "node_modules/prismjs/components/prism-css-extras.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-csv.min.js": {
-    "file": "internal/immutable/chunks/prism-csv.min-c77c3fbe.js",
-    "src": "node_modules/prismjs/components/prism-csv.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-cue.min.js": {
-    "file": "internal/immutable/chunks/prism-cue.min-92704e01.js",
-    "src": "node_modules/prismjs/components/prism-cue.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-cypher.min.js": {
-    "file": "internal/immutable/chunks/prism-cypher.min-68793aa5.js",
-    "src": "node_modules/prismjs/components/prism-cypher.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-d.min.js": {
-    "file": "internal/immutable/chunks/prism-d.min-e230f93e.js",
-    "src": "node_modules/prismjs/components/prism-d.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-dart.min.js": {
-    "file": "internal/immutable/chunks/prism-dart.min-53543652.js",
-    "src": "node_modules/prismjs/components/prism-dart.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-dataweave.min.js": {
-    "file": "internal/immutable/chunks/prism-dataweave.min-0eba4e9f.js",
-    "src": "node_modules/prismjs/components/prism-dataweave.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-dax.min.js": {
-    "file": "internal/immutable/chunks/prism-dax.min-c49c4cde.js",
-    "src": "node_modules/prismjs/components/prism-dax.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-dhall.min.js": {
-    "file": "internal/immutable/chunks/prism-dhall.min-ebf56dd7.js",
-    "src": "node_modules/prismjs/components/prism-dhall.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-diff.min.js": {
-    "file": "internal/immutable/chunks/prism-diff.min-9b38a8fb.js",
-    "src": "node_modules/prismjs/components/prism-diff.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-markup-templating.min.js": {
-    "file": "internal/immutable/chunks/prism-markup-templating.min-f42944ac.js",
-    "src": "node_modules/prismjs/components/prism-markup-templating.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-django.min.js": {
-    "file": "internal/immutable/chunks/prism-django.min-3ddf264f.js",
-    "src": "node_modules/prismjs/components/prism-django.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-dns-zone-file.min.js": {
-    "file": "internal/immutable/chunks/prism-dns-zone-file.min-15c893bb.js",
-    "src": "node_modules/prismjs/components/prism-dns-zone-file.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-docker.min.js": {
-    "file": "internal/immutable/chunks/prism-docker.min-cbf1dbc2.js",
-    "src": "node_modules/prismjs/components/prism-docker.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-dot.min.js": {
-    "file": "internal/immutable/chunks/prism-dot.min-f5102aec.js",
-    "src": "node_modules/prismjs/components/prism-dot.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-ebnf.min.js": {
-    "file": "internal/immutable/chunks/prism-ebnf.min-1b3c17cc.js",
-    "src": "node_modules/prismjs/components/prism-ebnf.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-editorconfig.min.js": {
-    "file": "internal/immutable/chunks/prism-editorconfig.min-b5818a43.js",
-    "src": "node_modules/prismjs/components/prism-editorconfig.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-eiffel.min.js": {
-    "file": "internal/immutable/chunks/prism-eiffel.min-76dbf080.js",
-    "src": "node_modules/prismjs/components/prism-eiffel.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-ejs.min.js": {
-    "file": "internal/immutable/chunks/prism-ejs.min-8aeda8d5.js",
-    "src": "node_modules/prismjs/components/prism-ejs.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-elixir.min.js": {
-    "file": "internal/immutable/chunks/prism-elixir.min-1a969704.js",
-    "src": "node_modules/prismjs/components/prism-elixir.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-elm.min.js": {
-    "file": "internal/immutable/chunks/prism-elm.min-fa89a6b3.js",
-    "src": "node_modules/prismjs/components/prism-elm.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-lua.min.js": {
-    "file": "internal/immutable/chunks/prism-lua.min-6e43e2d7.js",
-    "src": "node_modules/prismjs/components/prism-lua.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-etlua.min.js": {
-    "file": "internal/immutable/chunks/prism-etlua.min-daf2e03f.js",
-    "src": "node_modules/prismjs/components/prism-etlua.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-erb.min.js": {
-    "file": "internal/immutable/chunks/prism-erb.min-56d77a00.js",
-    "src": "node_modules/prismjs/components/prism-erb.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-erlang.min.js": {
-    "file": "internal/immutable/chunks/prism-erlang.min-53ee1cb6.js",
-    "src": "node_modules/prismjs/components/prism-erlang.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-excel-formula.min.js": {
-    "file": "internal/immutable/chunks/prism-excel-formula.min-489a0a64.js",
-    "src": "node_modules/prismjs/components/prism-excel-formula.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-fsharp.min.js": {
-    "file": "internal/immutable/chunks/prism-fsharp.min-89075088.js",
-    "src": "node_modules/prismjs/components/prism-fsharp.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-factor.min.js": {
-    "file": "internal/immutable/chunks/prism-factor.min-3c31517e.js",
-    "src": "node_modules/prismjs/components/prism-factor.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-false.min.js": {
-    "file": "internal/immutable/chunks/prism-false.min-6a899cc2.js",
-    "src": "node_modules/prismjs/components/prism-false.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-firestore-security-rules.min.js": {
-    "file": "internal/immutable/chunks/prism-firestore-security-rules.min-d1ba474f.js",
-    "src": "node_modules/prismjs/components/prism-firestore-security-rules.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-flow.min.js": {
-    "file": "internal/immutable/chunks/prism-flow.min-2acae590.js",
-    "src": "node_modules/prismjs/components/prism-flow.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-fortran.min.js": {
-    "file": "internal/immutable/chunks/prism-fortran.min-b2d67016.js",
-    "src": "node_modules/prismjs/components/prism-fortran.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-ftl.min.js": {
-    "file": "internal/immutable/chunks/prism-ftl.min-ab19ec04.js",
-    "src": "node_modules/prismjs/components/prism-ftl.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-gml.min.js": {
-    "file": "internal/immutable/chunks/prism-gml.min-d8e02c43.js",
-    "src": "node_modules/prismjs/components/prism-gml.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-gap.min.js": {
-    "file": "internal/immutable/chunks/prism-gap.min-c3131722.js",
-    "src": "node_modules/prismjs/components/prism-gap.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-gcode.min.js": {
-    "file": "internal/immutable/chunks/prism-gcode.min-9e1499da.js",
-    "src": "node_modules/prismjs/components/prism-gcode.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-gdscript.min.js": {
-    "file": "internal/immutable/chunks/prism-gdscript.min-7a7794e0.js",
-    "src": "node_modules/prismjs/components/prism-gdscript.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-gedcom.min.js": {
-    "file": "internal/immutable/chunks/prism-gedcom.min-25454b27.js",
-    "src": "node_modules/prismjs/components/prism-gedcom.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-gettext.min.js": {
-    "file": "internal/immutable/chunks/prism-gettext.min-45de6870.js",
-    "src": "node_modules/prismjs/components/prism-gettext.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-gherkin.min.js": {
-    "file": "internal/immutable/chunks/prism-gherkin.min-937f20e7.js",
-    "src": "node_modules/prismjs/components/prism-gherkin.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-git.min.js": {
-    "file": "internal/immutable/chunks/prism-git.min-81391a19.js",
-    "src": "node_modules/prismjs/components/prism-git.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-glsl.min.js": {
-    "file": "internal/immutable/chunks/prism-glsl.min-2ce1542e.js",
-    "src": "node_modules/prismjs/components/prism-glsl.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-gn.min.js": {
-    "file": "internal/immutable/chunks/prism-gn.min-b28b4fa5.js",
-    "src": "node_modules/prismjs/components/prism-gn.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-linker-script.min.js": {
-    "file": "internal/immutable/chunks/prism-linker-script.min-51bd5d1e.js",
-    "src": "node_modules/prismjs/components/prism-linker-script.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-go.min.js": {
-    "file": "internal/immutable/chunks/prism-go.min-547f9e54.js",
-    "src": "node_modules/prismjs/components/prism-go.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-go-module.min.js": {
-    "file": "internal/immutable/chunks/prism-go-module.min-84549b37.js",
-    "src": "node_modules/prismjs/components/prism-go-module.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-gradle.min.js": {
-    "file": "internal/immutable/chunks/prism-gradle.min-e1b7f25d.js",
-    "src": "node_modules/prismjs/components/prism-gradle.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-graphql.min.js": {
-    "file": "internal/immutable/chunks/prism-graphql.min-eb40c7c7.js",
-    "src": "node_modules/prismjs/components/prism-graphql.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-groovy.min.js": {
-    "file": "internal/immutable/chunks/prism-groovy.min-916a52a1.js",
-    "src": "node_modules/prismjs/components/prism-groovy.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-haml.min.js": {
-    "file": "internal/immutable/chunks/prism-haml.min-d953a329.js",
-    "src": "node_modules/prismjs/components/prism-haml.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-handlebars.min.js": {
-    "file": "internal/immutable/chunks/prism-handlebars.min-a6dd80ea.js",
-    "src": "node_modules/prismjs/components/prism-handlebars.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-haskell.min.js": {
-    "file": "internal/immutable/chunks/prism-haskell.min-01343ac6.js",
-    "src": "node_modules/prismjs/components/prism-haskell.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-haxe.min.js": {
-    "file": "internal/immutable/chunks/prism-haxe.min-103d18b0.js",
-    "src": "node_modules/prismjs/components/prism-haxe.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-hcl.min.js": {
-    "file": "internal/immutable/chunks/prism-hcl.min-5d68087d.js",
-    "src": "node_modules/prismjs/components/prism-hcl.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-hlsl.min.js": {
-    "file": "internal/immutable/chunks/prism-hlsl.min-cfd3f7a4.js",
-    "src": "node_modules/prismjs/components/prism-hlsl.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-hoon.min.js": {
-    "file": "internal/immutable/chunks/prism-hoon.min-fb13859d.js",
-    "src": "node_modules/prismjs/components/prism-hoon.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-http.min.js": {
-    "file": "internal/immutable/chunks/prism-http.min-e86fc1fc.js",
-    "src": "node_modules/prismjs/components/prism-http.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-hpkp.min.js": {
-    "file": "internal/immutable/chunks/prism-hpkp.min-e9fe2eb8.js",
-    "src": "node_modules/prismjs/components/prism-hpkp.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-hsts.min.js": {
-    "file": "internal/immutable/chunks/prism-hsts.min-92ebd227.js",
-    "src": "node_modules/prismjs/components/prism-hsts.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-ichigojam.min.js": {
-    "file": "internal/immutable/chunks/prism-ichigojam.min-974b5d45.js",
-    "src": "node_modules/prismjs/components/prism-ichigojam.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-icon.min.js": {
-    "file": "internal/immutable/chunks/prism-icon.min-5bf043c0.js",
-    "src": "node_modules/prismjs/components/prism-icon.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-icu-message-format.min.js": {
-    "file": "internal/immutable/chunks/prism-icu-message-format.min-dccdc995.js",
-    "src": "node_modules/prismjs/components/prism-icu-message-format.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-idris.min.js": {
-    "file": "internal/immutable/chunks/prism-idris.min-4e69791f.js",
-    "src": "node_modules/prismjs/components/prism-idris.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-ignore.min.js": {
-    "file": "internal/immutable/chunks/prism-ignore.min-1717232d.js",
-    "src": "node_modules/prismjs/components/prism-ignore.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-inform7.min.js": {
-    "file": "internal/immutable/chunks/prism-inform7.min-cad3d7e1.js",
-    "src": "node_modules/prismjs/components/prism-inform7.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-ini.min.js": {
-    "file": "internal/immutable/chunks/prism-ini.min-33b4b5f1.js",
-    "src": "node_modules/prismjs/components/prism-ini.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-io.min.js": {
-    "file": "internal/immutable/chunks/prism-io.min-45a992ff.js",
-    "src": "node_modules/prismjs/components/prism-io.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-j.min.js": {
-    "file": "internal/immutable/chunks/prism-j.min-99d9e251.js",
-    "src": "node_modules/prismjs/components/prism-j.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-java.min.js": {
-    "file": "internal/immutable/chunks/prism-java.min-d8c6af77.js",
-    "src": "node_modules/prismjs/components/prism-java.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-javadoclike.min.js": {
-    "file": "internal/immutable/chunks/prism-javadoclike.min-22871c3c.js",
-    "src": "node_modules/prismjs/components/prism-javadoclike.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-javadoc.min.js": {
-    "file": "internal/immutable/chunks/prism-javadoc.min-9dbbcfa0.js",
-    "src": "node_modules/prismjs/components/prism-javadoc.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-javastacktrace.min.js": {
-    "file": "internal/immutable/chunks/prism-javastacktrace.min-5d680682.js",
-    "src": "node_modules/prismjs/components/prism-javastacktrace.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-jexl.min.js": {
-    "file": "internal/immutable/chunks/prism-jexl.min-1f4495ca.js",
-    "src": "node_modules/prismjs/components/prism-jexl.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-jolie.min.js": {
-    "file": "internal/immutable/chunks/prism-jolie.min-6e2bd8b0.js",
-    "src": "node_modules/prismjs/components/prism-jolie.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-jq.min.js": {
-    "file": "internal/immutable/chunks/prism-jq.min-d9959831.js",
-    "src": "node_modules/prismjs/components/prism-jq.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-typescript.min.js": {
-    "file": "internal/immutable/chunks/prism-typescript.min-6dff13e3.js",
-    "src": "node_modules/prismjs/components/prism-typescript.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-jsdoc.min.js": {
-    "file": "internal/immutable/chunks/prism-jsdoc.min-22c7f090.js",
-    "src": "node_modules/prismjs/components/prism-jsdoc.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-js-extras.min.js": {
-    "file": "internal/immutable/chunks/prism-js-extras.min-192305cc.js",
-    "src": "node_modules/prismjs/components/prism-js-extras.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-json.min.js": {
-    "file": "internal/immutable/chunks/prism-json.min-0a8d59bb.js",
-    "src": "node_modules/prismjs/components/prism-json.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-json5.min.js": {
-    "file": "internal/immutable/chunks/prism-json5.min-7270ce9a.js",
-    "src": "node_modules/prismjs/components/prism-json5.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-jsonp.min.js": {
-    "file": "internal/immutable/chunks/prism-jsonp.min-e5e896bb.js",
-    "src": "node_modules/prismjs/components/prism-jsonp.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-jsstacktrace.min.js": {
-    "file": "internal/immutable/chunks/prism-jsstacktrace.min-b83fe270.js",
-    "src": "node_modules/prismjs/components/prism-jsstacktrace.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-js-templates.min.js": {
-    "file": "internal/immutable/chunks/prism-js-templates.min-d9a50e53.js",
-    "src": "node_modules/prismjs/components/prism-js-templates.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-julia.min.js": {
-    "file": "internal/immutable/chunks/prism-julia.min-668d3978.js",
-    "src": "node_modules/prismjs/components/prism-julia.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-keepalived.min.js": {
-    "file": "internal/immutable/chunks/prism-keepalived.min-dbf7a74d.js",
-    "src": "node_modules/prismjs/components/prism-keepalived.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-keyman.min.js": {
-    "file": "internal/immutable/chunks/prism-keyman.min-cf4d8b12.js",
-    "src": "node_modules/prismjs/components/prism-keyman.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-kotlin.min.js": {
-    "file": "internal/immutable/chunks/prism-kotlin.min-dc025570.js",
-    "src": "node_modules/prismjs/components/prism-kotlin.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-kumir.min.js": {
-    "file": "internal/immutable/chunks/prism-kumir.min-bfddf79c.js",
-    "src": "node_modules/prismjs/components/prism-kumir.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-kusto.min.js": {
-    "file": "internal/immutable/chunks/prism-kusto.min-4796abda.js",
-    "src": "node_modules/prismjs/components/prism-kusto.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-latex.min.js": {
-    "file": "internal/immutable/chunks/prism-latex.min-8fa96d1e.js",
-    "src": "node_modules/prismjs/components/prism-latex.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-php.min.js": {
-    "file": "internal/immutable/chunks/prism-php.min-5326688c.js",
-    "src": "node_modules/prismjs/components/prism-php.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-latte.min.js": {
-    "file": "internal/immutable/chunks/prism-latte.min-8df9bcb5.js",
-    "src": "node_modules/prismjs/components/prism-latte.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-less.min.js": {
-    "file": "internal/immutable/chunks/prism-less.min-e06efdba.js",
-    "src": "node_modules/prismjs/components/prism-less.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-scheme.min.js": {
-    "file": "internal/immutable/chunks/prism-scheme.min-7cd155f9.js",
-    "src": "node_modules/prismjs/components/prism-scheme.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-lilypond.min.js": {
-    "file": "internal/immutable/chunks/prism-lilypond.min-475e9d54.js",
-    "src": "node_modules/prismjs/components/prism-lilypond.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-liquid.min.js": {
-    "file": "internal/immutable/chunks/prism-liquid.min-9715a9e2.js",
-    "src": "node_modules/prismjs/components/prism-liquid.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-lisp.min.js": {
-    "file": "internal/immutable/chunks/prism-lisp.min-35254343.js",
-    "src": "node_modules/prismjs/components/prism-lisp.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-livescript.min.js": {
-    "file": "internal/immutable/chunks/prism-livescript.min-b1ea58db.js",
-    "src": "node_modules/prismjs/components/prism-livescript.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-llvm.min.js": {
-    "file": "internal/immutable/chunks/prism-llvm.min-e7823794.js",
-    "src": "node_modules/prismjs/components/prism-llvm.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-log.min.js": {
-    "file": "internal/immutable/chunks/prism-log.min-fe2035a0.js",
-    "src": "node_modules/prismjs/components/prism-log.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-lolcode.min.js": {
-    "file": "internal/immutable/chunks/prism-lolcode.min-e6a47349.js",
-    "src": "node_modules/prismjs/components/prism-lolcode.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-magma.min.js": {
-    "file": "internal/immutable/chunks/prism-magma.min-67836a80.js",
-    "src": "node_modules/prismjs/components/prism-magma.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-makefile.min.js": {
-    "file": "internal/immutable/chunks/prism-makefile.min-a60aef0a.js",
-    "src": "node_modules/prismjs/components/prism-makefile.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-markdown.min.js": {
-    "file": "internal/immutable/chunks/prism-markdown.min-a051c081.js",
-    "src": "node_modules/prismjs/components/prism-markdown.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-mata.min.js": {
-    "file": "internal/immutable/chunks/prism-mata.min-4098aa64.js",
-    "src": "node_modules/prismjs/components/prism-mata.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-matlab.min.js": {
-    "file": "internal/immutable/chunks/prism-matlab.min-8cd12d6a.js",
-    "src": "node_modules/prismjs/components/prism-matlab.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-maxscript.min.js": {
-    "file": "internal/immutable/chunks/prism-maxscript.min-815b34cb.js",
-    "src": "node_modules/prismjs/components/prism-maxscript.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-mel.min.js": {
-    "file": "internal/immutable/chunks/prism-mel.min-8607c5d8.js",
-    "src": "node_modules/prismjs/components/prism-mel.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-mermaid.min.js": {
-    "file": "internal/immutable/chunks/prism-mermaid.min-f69815f9.js",
-    "src": "node_modules/prismjs/components/prism-mermaid.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-metafont.min.js": {
-    "file": "internal/immutable/chunks/prism-metafont.min-ac443f4f.js",
-    "src": "node_modules/prismjs/components/prism-metafont.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-mizar.min.js": {
-    "file": "internal/immutable/chunks/prism-mizar.min-014eff73.js",
-    "src": "node_modules/prismjs/components/prism-mizar.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-mongodb.min.js": {
-    "file": "internal/immutable/chunks/prism-mongodb.min-ab13b0e0.js",
-    "src": "node_modules/prismjs/components/prism-mongodb.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-monkey.min.js": {
-    "file": "internal/immutable/chunks/prism-monkey.min-f9fdaf14.js",
-    "src": "node_modules/prismjs/components/prism-monkey.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-moonscript.min.js": {
-    "file": "internal/immutable/chunks/prism-moonscript.min-bcaac89f.js",
-    "src": "node_modules/prismjs/components/prism-moonscript.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-n1ql.min.js": {
-    "file": "internal/immutable/chunks/prism-n1ql.min-7f1eaaaf.js",
-    "src": "node_modules/prismjs/components/prism-n1ql.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-n4js.min.js": {
-    "file": "internal/immutable/chunks/prism-n4js.min-4536fc1e.js",
-    "src": "node_modules/prismjs/components/prism-n4js.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-nand2tetris-hdl.min.js": {
-    "file": "internal/immutable/chunks/prism-nand2tetris-hdl.min-78e82e12.js",
-    "src": "node_modules/prismjs/components/prism-nand2tetris-hdl.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-naniscript.min.js": {
-    "file": "internal/immutable/chunks/prism-naniscript.min-f6290f38.js",
-    "src": "node_modules/prismjs/components/prism-naniscript.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-nasm.min.js": {
-    "file": "internal/immutable/chunks/prism-nasm.min-aead342c.js",
-    "src": "node_modules/prismjs/components/prism-nasm.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-neon.min.js": {
-    "file": "internal/immutable/chunks/prism-neon.min-db24dc16.js",
-    "src": "node_modules/prismjs/components/prism-neon.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-nevod.min.js": {
-    "file": "internal/immutable/chunks/prism-nevod.min-a993d541.js",
-    "src": "node_modules/prismjs/components/prism-nevod.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-nginx.min.js": {
-    "file": "internal/immutable/chunks/prism-nginx.min-9e6db121.js",
-    "src": "node_modules/prismjs/components/prism-nginx.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-nim.min.js": {
-    "file": "internal/immutable/chunks/prism-nim.min-4c2fba75.js",
-    "src": "node_modules/prismjs/components/prism-nim.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-nix.min.js": {
-    "file": "internal/immutable/chunks/prism-nix.min-48138a8e.js",
-    "src": "node_modules/prismjs/components/prism-nix.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-nsis.min.js": {
-    "file": "internal/immutable/chunks/prism-nsis.min-e7c0f3f2.js",
-    "src": "node_modules/prismjs/components/prism-nsis.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-objectivec.min.js": {
-    "file": "internal/immutable/chunks/prism-objectivec.min-2280033f.js",
-    "src": "node_modules/prismjs/components/prism-objectivec.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-ocaml.min.js": {
-    "file": "internal/immutable/chunks/prism-ocaml.min-f9ace59b.js",
-    "src": "node_modules/prismjs/components/prism-ocaml.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-odin.min.js": {
-    "file": "internal/immutable/chunks/prism-odin.min-b2621bb8.js",
-    "src": "node_modules/prismjs/components/prism-odin.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-opencl.min.js": {
-    "file": "internal/immutable/chunks/prism-opencl.min-8e5dc5fc.js",
-    "src": "node_modules/prismjs/components/prism-opencl.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-openqasm.min.js": {
-    "file": "internal/immutable/chunks/prism-openqasm.min-031a1116.js",
-    "src": "node_modules/prismjs/components/prism-openqasm.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-oz.min.js": {
-    "file": "internal/immutable/chunks/prism-oz.min-174cca9d.js",
-    "src": "node_modules/prismjs/components/prism-oz.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-parigp.min.js": {
-    "file": "internal/immutable/chunks/prism-parigp.min-6d76e653.js",
-    "src": "node_modules/prismjs/components/prism-parigp.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-parser.min.js": {
-    "file": "internal/immutable/chunks/prism-parser.min-80911034.js",
-    "src": "node_modules/prismjs/components/prism-parser.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-pascal.min.js": {
-    "file": "internal/immutable/chunks/prism-pascal.min-1f5ace63.js",
-    "src": "node_modules/prismjs/components/prism-pascal.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-pascaligo.min.js": {
-    "file": "internal/immutable/chunks/prism-pascaligo.min-23e99650.js",
-    "src": "node_modules/prismjs/components/prism-pascaligo.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-psl.min.js": {
-    "file": "internal/immutable/chunks/prism-psl.min-abc91636.js",
-    "src": "node_modules/prismjs/components/prism-psl.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-pcaxis.min.js": {
-    "file": "internal/immutable/chunks/prism-pcaxis.min-bdb6ca0b.js",
-    "src": "node_modules/prismjs/components/prism-pcaxis.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-peoplecode.min.js": {
-    "file": "internal/immutable/chunks/prism-peoplecode.min-d2ee071a.js",
-    "src": "node_modules/prismjs/components/prism-peoplecode.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-perl.min.js": {
-    "file": "internal/immutable/chunks/prism-perl.min-1c6bdd75.js",
-    "src": "node_modules/prismjs/components/prism-perl.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-phpdoc.min.js": {
-    "file": "internal/immutable/chunks/prism-phpdoc.min-d51dc89d.js",
-    "src": "node_modules/prismjs/components/prism-phpdoc.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-php-extras.min.js": {
-    "file": "internal/immutable/chunks/prism-php-extras.min-49b9b36c.js",
-    "src": "node_modules/prismjs/components/prism-php-extras.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-plant-uml.min.js": {
-    "file": "internal/immutable/chunks/prism-plant-uml.min-9aa0a949.js",
-    "src": "node_modules/prismjs/components/prism-plant-uml.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-plsql.min.js": {
-    "file": "internal/immutable/chunks/prism-plsql.min-a5779ba4.js",
-    "src": "node_modules/prismjs/components/prism-plsql.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-powerquery.min.js": {
-    "file": "internal/immutable/chunks/prism-powerquery.min-0d82b810.js",
-    "src": "node_modules/prismjs/components/prism-powerquery.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-powershell.min.js": {
-    "file": "internal/immutable/chunks/prism-powershell.min-1510eadb.js",
-    "src": "node_modules/prismjs/components/prism-powershell.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-processing.min.js": {
-    "file": "internal/immutable/chunks/prism-processing.min-78e5fa6b.js",
-    "src": "node_modules/prismjs/components/prism-processing.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-prolog.min.js": {
-    "file": "internal/immutable/chunks/prism-prolog.min-093253bf.js",
-    "src": "node_modules/prismjs/components/prism-prolog.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-promql.min.js": {
-    "file": "internal/immutable/chunks/prism-promql.min-67051aa8.js",
-    "src": "node_modules/prismjs/components/prism-promql.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-properties.min.js": {
-    "file": "internal/immutable/chunks/prism-properties.min-f0375f0c.js",
-    "src": "node_modules/prismjs/components/prism-properties.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-protobuf.min.js": {
-    "file": "internal/immutable/chunks/prism-protobuf.min-da45b988.js",
-    "src": "node_modules/prismjs/components/prism-protobuf.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-pug.min.js": {
-    "file": "internal/immutable/chunks/prism-pug.min-23ce215c.js",
-    "src": "node_modules/prismjs/components/prism-pug.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-puppet.min.js": {
-    "file": "internal/immutable/chunks/prism-puppet.min-e61d9da7.js",
-    "src": "node_modules/prismjs/components/prism-puppet.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-pure.min.js": {
-    "file": "internal/immutable/chunks/prism-pure.min-ce30b903.js",
-    "src": "node_modules/prismjs/components/prism-pure.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-purebasic.min.js": {
-    "file": "internal/immutable/chunks/prism-purebasic.min-bbd0905a.js",
-    "src": "node_modules/prismjs/components/prism-purebasic.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-purescript.min.js": {
-    "file": "internal/immutable/chunks/prism-purescript.min-c5c36408.js",
-    "src": "node_modules/prismjs/components/prism-purescript.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-python.min.js": {
-    "file": "internal/immutable/chunks/prism-python.min-1fcfe966.js",
-    "src": "node_modules/prismjs/components/prism-python.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-qsharp.min.js": {
-    "file": "internal/immutable/chunks/prism-qsharp.min-b46e27f4.js",
-    "src": "node_modules/prismjs/components/prism-qsharp.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-q.min.js": {
-    "file": "internal/immutable/chunks/prism-q.min-2c6d21fd.js",
-    "src": "node_modules/prismjs/components/prism-q.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-qml.min.js": {
-    "file": "internal/immutable/chunks/prism-qml.min-5a665cb5.js",
-    "src": "node_modules/prismjs/components/prism-qml.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-qore.min.js": {
-    "file": "internal/immutable/chunks/prism-qore.min-2e9e837c.js",
-    "src": "node_modules/prismjs/components/prism-qore.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-r.min.js": {
-    "file": "internal/immutable/chunks/prism-r.min-841288ee.js",
-    "src": "node_modules/prismjs/components/prism-r.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-racket.min.js": {
-    "file": "internal/immutable/chunks/prism-racket.min-d9d7d935.js",
-    "src": "node_modules/prismjs/components/prism-racket.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-cshtml.min.js": {
-    "file": "internal/immutable/chunks/prism-cshtml.min-1c010e01.js",
-    "src": "node_modules/prismjs/components/prism-cshtml.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-jsx.min.js": {
-    "file": "internal/immutable/chunks/prism-jsx.min-def8d085.js",
-    "src": "node_modules/prismjs/components/prism-jsx.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-tsx.min.js": {
-    "file": "internal/immutable/chunks/prism-tsx.min-a8d11131.js",
-    "src": "node_modules/prismjs/components/prism-tsx.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-reason.min.js": {
-    "file": "internal/immutable/chunks/prism-reason.min-456e41aa.js",
-    "src": "node_modules/prismjs/components/prism-reason.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-regex.min.js": {
-    "file": "internal/immutable/chunks/prism-regex.min-7d7c6be4.js",
-    "src": "node_modules/prismjs/components/prism-regex.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-rego.min.js": {
-    "file": "internal/immutable/chunks/prism-rego.min-65326368.js",
-    "src": "node_modules/prismjs/components/prism-rego.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-renpy.min.js": {
-    "file": "internal/immutable/chunks/prism-renpy.min-ce14b211.js",
-    "src": "node_modules/prismjs/components/prism-renpy.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-rescript.min.js": {
-    "file": "internal/immutable/chunks/prism-rescript.min-38fa34a7.js",
-    "src": "node_modules/prismjs/components/prism-rescript.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-rest.min.js": {
-    "file": "internal/immutable/chunks/prism-rest.min-cc7966a2.js",
-    "src": "node_modules/prismjs/components/prism-rest.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-rip.min.js": {
-    "file": "internal/immutable/chunks/prism-rip.min-5dcfd5c6.js",
-    "src": "node_modules/prismjs/components/prism-rip.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-roboconf.min.js": {
-    "file": "internal/immutable/chunks/prism-roboconf.min-56714463.js",
-    "src": "node_modules/prismjs/components/prism-roboconf.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-robotframework.min.js": {
-    "file": "internal/immutable/chunks/prism-robotframework.min-ceb03ac9.js",
-    "src": "node_modules/prismjs/components/prism-robotframework.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-rust.min.js": {
-    "file": "internal/immutable/chunks/prism-rust.min-1047f1da.js",
-    "src": "node_modules/prismjs/components/prism-rust.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-sas.min.js": {
-    "file": "internal/immutable/chunks/prism-sas.min-5a7c6120.js",
-    "src": "node_modules/prismjs/components/prism-sas.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-sass.min.js": {
-    "file": "internal/immutable/chunks/prism-sass.min-0817ca41.js",
-    "src": "node_modules/prismjs/components/prism-sass.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-scss.min.js": {
-    "file": "internal/immutable/chunks/prism-scss.min-59e69b2c.js",
-    "src": "node_modules/prismjs/components/prism-scss.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-scala.min.js": {
-    "file": "internal/immutable/chunks/prism-scala.min-eebff375.js",
-    "src": "node_modules/prismjs/components/prism-scala.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-shell-session.min.js": {
-    "file": "internal/immutable/chunks/prism-shell-session.min-783818aa.js",
-    "src": "node_modules/prismjs/components/prism-shell-session.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-smali.min.js": {
-    "file": "internal/immutable/chunks/prism-smali.min-1a7c0c25.js",
-    "src": "node_modules/prismjs/components/prism-smali.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-smalltalk.min.js": {
-    "file": "internal/immutable/chunks/prism-smalltalk.min-5b2336e1.js",
-    "src": "node_modules/prismjs/components/prism-smalltalk.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-smarty.min.js": {
-    "file": "internal/immutable/chunks/prism-smarty.min-a1e61c2e.js",
-    "src": "node_modules/prismjs/components/prism-smarty.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-sml.min.js": {
-    "file": "internal/immutable/chunks/prism-sml.min-3df763d0.js",
-    "src": "node_modules/prismjs/components/prism-sml.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-solidity.min.js": {
-    "file": "internal/immutable/chunks/prism-solidity.min-e33625dc.js",
-    "src": "node_modules/prismjs/components/prism-solidity.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-solution-file.min.js": {
-    "file": "internal/immutable/chunks/prism-solution-file.min-8216b3a0.js",
-    "src": "node_modules/prismjs/components/prism-solution-file.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-soy.min.js": {
-    "file": "internal/immutable/chunks/prism-soy.min-b83d2e3f.js",
-    "src": "node_modules/prismjs/components/prism-soy.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-turtle.min.js": {
-    "file": "internal/immutable/chunks/prism-turtle.min-e6c3ae90.js",
-    "src": "node_modules/prismjs/components/prism-turtle.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-sparql.min.js": {
-    "file": "internal/immutable/chunks/prism-sparql.min-fe223a74.js",
-    "src": "node_modules/prismjs/components/prism-sparql.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-splunk-spl.min.js": {
-    "file": "internal/immutable/chunks/prism-splunk-spl.min-90c35ead.js",
-    "src": "node_modules/prismjs/components/prism-splunk-spl.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-sqf.min.js": {
-    "file": "internal/immutable/chunks/prism-sqf.min-613cd025.js",
-    "src": "node_modules/prismjs/components/prism-sqf.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-squirrel.min.js": {
-    "file": "internal/immutable/chunks/prism-squirrel.min-e55eaa87.js",
-    "src": "node_modules/prismjs/components/prism-squirrel.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-stan.min.js": {
-    "file": "internal/immutable/chunks/prism-stan.min-fcdcf644.js",
-    "src": "node_modules/prismjs/components/prism-stan.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-stata.min.js": {
-    "file": "internal/immutable/chunks/prism-stata.min-01491c6a.js",
-    "src": "node_modules/prismjs/components/prism-stata.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-iecst.min.js": {
-    "file": "internal/immutable/chunks/prism-iecst.min-b0301e4e.js",
-    "src": "node_modules/prismjs/components/prism-iecst.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-stylus.min.js": {
-    "file": "internal/immutable/chunks/prism-stylus.min-22aca993.js",
-    "src": "node_modules/prismjs/components/prism-stylus.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-supercollider.min.js": {
-    "file": "internal/immutable/chunks/prism-supercollider.min-96f1ed45.js",
-    "src": "node_modules/prismjs/components/prism-supercollider.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-swift.min.js": {
-    "file": "internal/immutable/chunks/prism-swift.min-a3e11fcd.js",
-    "src": "node_modules/prismjs/components/prism-swift.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-systemd.min.js": {
-    "file": "internal/immutable/chunks/prism-systemd.min-0ff970d6.js",
-    "src": "node_modules/prismjs/components/prism-systemd.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-t4-templating.min.js": {
-    "file": "internal/immutable/chunks/prism-t4-templating.min-da13abc7.js",
-    "src": "node_modules/prismjs/components/prism-t4-templating.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-t4-cs.min.js": {
-    "file": "internal/immutable/chunks/prism-t4-cs.min-55fc9ffa.js",
-    "src": "node_modules/prismjs/components/prism-t4-cs.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-vbnet.min.js": {
-    "file": "internal/immutable/chunks/prism-vbnet.min-81ee4760.js",
-    "src": "node_modules/prismjs/components/prism-vbnet.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-t4-vb.min.js": {
-    "file": "internal/immutable/chunks/prism-t4-vb.min-a07e5fe8.js",
-    "src": "node_modules/prismjs/components/prism-t4-vb.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-yaml.min.js": {
-    "file": "internal/immutable/chunks/prism-yaml.min-e55cabbe.js",
-    "src": "node_modules/prismjs/components/prism-yaml.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-tap.min.js": {
-    "file": "internal/immutable/chunks/prism-tap.min-1c8e8e5d.js",
-    "src": "node_modules/prismjs/components/prism-tap.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-tcl.min.js": {
-    "file": "internal/immutable/chunks/prism-tcl.min-95c008fb.js",
-    "src": "node_modules/prismjs/components/prism-tcl.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-tt2.min.js": {
-    "file": "internal/immutable/chunks/prism-tt2.min-9ed7f8a5.js",
-    "src": "node_modules/prismjs/components/prism-tt2.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-textile.min.js": {
-    "file": "internal/immutable/chunks/prism-textile.min-4548dd5c.js",
-    "src": "node_modules/prismjs/components/prism-textile.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-toml.min.js": {
-    "file": "internal/immutable/chunks/prism-toml.min-cec0575e.js",
-    "src": "node_modules/prismjs/components/prism-toml.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-tremor.min.js": {
-    "file": "internal/immutable/chunks/prism-tremor.min-3d032b6a.js",
-    "src": "node_modules/prismjs/components/prism-tremor.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-twig.min.js": {
-    "file": "internal/immutable/chunks/prism-twig.min-e512056a.js",
-    "src": "node_modules/prismjs/components/prism-twig.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-typoscript.min.js": {
-    "file": "internal/immutable/chunks/prism-typoscript.min-26ff0e14.js",
-    "src": "node_modules/prismjs/components/prism-typoscript.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-unrealscript.min.js": {
-    "file": "internal/immutable/chunks/prism-unrealscript.min-3d77d89f.js",
-    "src": "node_modules/prismjs/components/prism-unrealscript.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-uorazor.min.js": {
-    "file": "internal/immutable/chunks/prism-uorazor.min-882dc427.js",
-    "src": "node_modules/prismjs/components/prism-uorazor.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-uri.min.js": {
-    "file": "internal/immutable/chunks/prism-uri.min-ba11fa0f.js",
-    "src": "node_modules/prismjs/components/prism-uri.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-v.min.js": {
-    "file": "internal/immutable/chunks/prism-v.min-c277c55a.js",
-    "src": "node_modules/prismjs/components/prism-v.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-vala.min.js": {
-    "file": "internal/immutable/chunks/prism-vala.min-1f659022.js",
-    "src": "node_modules/prismjs/components/prism-vala.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-velocity.min.js": {
-    "file": "internal/immutable/chunks/prism-velocity.min-1e2b60cc.js",
-    "src": "node_modules/prismjs/components/prism-velocity.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-verilog.min.js": {
-    "file": "internal/immutable/chunks/prism-verilog.min-66221596.js",
-    "src": "node_modules/prismjs/components/prism-verilog.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-vhdl.min.js": {
-    "file": "internal/immutable/chunks/prism-vhdl.min-639561e3.js",
-    "src": "node_modules/prismjs/components/prism-vhdl.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-vim.min.js": {
-    "file": "internal/immutable/chunks/prism-vim.min-9253538b.js",
-    "src": "node_modules/prismjs/components/prism-vim.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-visual-basic.min.js": {
-    "file": "internal/immutable/chunks/prism-visual-basic.min-e9a35cfb.js",
-    "src": "node_modules/prismjs/components/prism-visual-basic.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-warpscript.min.js": {
-    "file": "internal/immutable/chunks/prism-warpscript.min-14ab8360.js",
-    "src": "node_modules/prismjs/components/prism-warpscript.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-wasm.min.js": {
-    "file": "internal/immutable/chunks/prism-wasm.min-8004a488.js",
-    "src": "node_modules/prismjs/components/prism-wasm.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-web-idl.min.js": {
-    "file": "internal/immutable/chunks/prism-web-idl.min-3dbce8ac.js",
-    "src": "node_modules/prismjs/components/prism-web-idl.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-wgsl.min.js": {
-    "file": "internal/immutable/chunks/prism-wgsl.min-a978c8ea.js",
-    "src": "node_modules/prismjs/components/prism-wgsl.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-wiki.min.js": {
-    "file": "internal/immutable/chunks/prism-wiki.min-f33518f4.js",
-    "src": "node_modules/prismjs/components/prism-wiki.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-wolfram.min.js": {
-    "file": "internal/immutable/chunks/prism-wolfram.min-ac5f1843.js",
-    "src": "node_modules/prismjs/components/prism-wolfram.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-wren.min.js": {
-    "file": "internal/immutable/chunks/prism-wren.min-6693c88c.js",
-    "src": "node_modules/prismjs/components/prism-wren.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-xeora.min.js": {
-    "file": "internal/immutable/chunks/prism-xeora.min-7ed6c214.js",
-    "src": "node_modules/prismjs/components/prism-xeora.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-xml-doc.min.js": {
-    "file": "internal/immutable/chunks/prism-xml-doc.min-fe3e9a75.js",
-    "src": "node_modules/prismjs/components/prism-xml-doc.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-xojo.min.js": {
-    "file": "internal/immutable/chunks/prism-xojo.min-c83ad168.js",
-    "src": "node_modules/prismjs/components/prism-xojo.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-xquery.min.js": {
-    "file": "internal/immutable/chunks/prism-xquery.min-933a0a41.js",
-    "src": "node_modules/prismjs/components/prism-xquery.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-yang.min.js": {
-    "file": "internal/immutable/chunks/prism-yang.min-38c046cf.js",
-    "src": "node_modules/prismjs/components/prism-yang.min.js",
-    "isDynamicEntry": true
-  },
-  "node_modules/prismjs/components/prism-zig.min.js": {
-    "file": "internal/immutable/chunks/prism-zig.min-9bffd6db.js",
-    "src": "node_modules/prismjs/components/prism-zig.min.js",
-    "isDynamicEntry": true
-  },
-  "src/routes/+layout.css": {
-    "file": "internal/immutable/assets/_layout-a2111cc4.css",
-    "src": "src/routes/+layout.css"
-  },
-  "IconBase.css": {
-    "file": "internal/immutable/assets/IconBase-d93538e2.css",
-    "src": "IconBase.css"
-  },
-  "Editable.css": {
-    "file": "internal/immutable/assets/Editable-4e0c96a4.css",
-    "src": "Editable.css"
-  },
   "src/routes/plugins/+page.css": {
     "file": "internal/immutable/assets/_page-4ad228cf.css",
-    "src": "src/routes/plugins/+page.css"
-  },
-  "HoveringToolbar.css": {
-    "file": "internal/immutable/assets/HoveringToolbar-29a5f069.css",
-    "src": "HoveringToolbar.css"
+    "src": "src/routes/huge-document/+page.css"
   }
 }
