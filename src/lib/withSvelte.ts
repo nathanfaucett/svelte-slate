@@ -25,7 +25,6 @@ export function withSvelte<T extends Editor>(editor: T): T & ISvelteEditor {
 		if (unit !== 'line') {
 			return deleteBackward(unit);
 		}
-
 		if (editor.selection && Range.isCollapsed(editor.selection)) {
 			const parentBlockEntry = Editor.above(editor, {
 				match: (n) => Editor.isBlock(editor, n),

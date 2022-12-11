@@ -15,13 +15,43 @@
 	): element is INumberedListItemElement {
 		return element.type === NUMBERED_LIST_TYPE;
 	}
+
+	export function withNumberedListItem<T extends ISvelteEditor = ISvelteEditor>(editor: T): T {
+		const { deleteBackward } = editor;
+
+		editor.deleteBackward = (unit) => {
+			if (editor.selection && Range.isCollapsed(editor.selection)) {
+				const [match] = Array.from(
+					Editor.nodes(editor, {
+						match: (n) => isNumberedListItemElement(n as any) && Editor.isEmpty(editor, n as any),
+						at: editor.selection
+					})
+				);
+				if (match) {
+					const [_node, path] = match;
+					Transforms.setNodes<SlateElement>(
+						editor,
+						{
+							type: PARAGRAPH_TYPE
+						} as any,
+						{ at: path }
+					);
+					return;
+				}
+			}
+			deleteBackward(unit);
+		};
+
+		return editor;
+	}
 </script>
 
 <script lang="ts">
-	import { Editor, Transforms } from 'slate';
+	import { Editor, Range, Transforms, type Element as SlateElement } from 'slate';
 	import { addEventListener, getEditor } from '$lib/components/Slate.svelte';
 	import type { IListItemElement } from './ListItemElement.svelte';
 	import { PARAGRAPH_TYPE } from './ParagraphElement.svelte';
+	import type { ISvelteEditor } from '$lib/withSvelte';
 
 	// svelte-ignore unused-export-let
 	export let element: INumberedListItemElement;

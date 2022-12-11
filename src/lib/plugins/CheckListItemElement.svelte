@@ -14,15 +14,41 @@
 		return element.type === CHECK_LIST_ITEM_TYPE;
 	}
 
+	export function withCheckListItem<T extends ISvelteEditor = ISvelteEditor>(editor: T): T {
+		const { deleteBackward } = editor;
+
+		editor.deleteBackward = (unit) => {
+			if (editor.selection && Range.isCollapsed(editor.selection)) {
+				const [match] = Array.from(
+					Editor.nodes(editor, {
+						match: (n) => isCheckListItemElement(n as any) && Editor.isEmpty(editor, n as any),
+						at: editor.selection
+					})
+				);
+				if (match) {
+					const [_node, path] = match;
+					Transforms.setNodes<SlateElement>(
+						editor,
+						{
+							type: PARAGRAPH_TYPE
+						} as any,
+						{ at: path }
+					);
+					return;
+				}
+			}
+			deleteBackward(unit);
+		};
+
+		return editor;
+	}
+
 	export function insertCheckListItem(editor: Editor) {
 		const isActive = isBlockActive(editor, CHECK_LIST_ITEM_TYPE);
 
 		if (isActive) {
 			Transforms.unwrapNodes(editor, {
-				match: (n) =>
-					!Editor.isEditor(n) &&
-					SlateElement.isElement(n) &&
-					(n as IElement).type === CHECK_LIST_ITEM_TYPE,
+				match: isCheckListItemElement as any,
 				split: true
 			});
 		} else {
@@ -33,10 +59,12 @@
 </script>
 
 <script lang="ts">
-	import { getEditor, getReadOnlyContext } from '../components/Slate.svelte';
+	import { getEditor } from '../components/Slate.svelte';
 	import { findPath } from '../utils';
-	import { Editor, Transforms, Element as SlateElement } from 'slate';
+	import { Editor, Transforms, Element as SlateElement, Range } from 'slate';
 	import { isBlockActive } from './utils';
+	import type { ISvelteEditor } from '$lib/withSvelte';
+	import { PARAGRAPH_TYPE } from './ParagraphElement.svelte';
 
 	export let element: ICheckListItemElement;
 	export let isInline: boolean;

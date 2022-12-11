@@ -1,7 +1,9 @@
 import { Editor, Transforms, Element as SlateElement } from 'slate';
 import { BULLETED_LIST_TYPE } from './BulletedListElement.svelte';
 import type { IElement } from './Element.svelte';
+import { LIST_ITEM_TYPE } from './ListItemElement.svelte';
 import { NUMBERED_LIST_TYPE } from './NumberedListElement.svelte';
+import { PARAGRAPH_TYPE } from './ParagraphElement.svelte';
 
 export function isMarkActive(editor: Editor, format: string): boolean {
 	if (!editor.selection) {
@@ -52,7 +54,7 @@ export function toggleBlock(editor: Editor, format: string) {
 		split: true
 	});
 	const newProperties = {
-		type: isActive ? 'paragraph' : isList ? 'list-item' : format
+		type: isActive ? PARAGRAPH_TYPE : isList ? LIST_ITEM_TYPE : format
 	};
 	Transforms.setNodes<SlateElement>(editor, newProperties as any);
 

@@ -89,12 +89,7 @@
 	import CodeEditorElement from './CodeEditorElement.svelte';
 	import CodeEditorLeaf from './CodeEditorLeaf.svelte';
 	import { ELEMENT_CONTEXT_KEY, LEAF_CONTEXT_KEY } from '../components/Editable.svelte';
-	import {
-		addEventListener,
-		DECORATE_CONTEXT_KEY,
-		getEditor,
-		getReadOnlyContext
-	} from '../components/Slate.svelte';
+	import { addEventListener, DECORATE_CONTEXT_KEY, getEditor } from '../components/Slate.svelte';
 	import { PARAGRAPH_TYPE } from './ParagraphElement.svelte';
 
 	export let element: ICodeElement;
