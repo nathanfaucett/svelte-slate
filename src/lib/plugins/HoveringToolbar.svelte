@@ -75,7 +75,7 @@
 	}
 
 	function checkCanOpen() {
-		if (!readOnly) {
+		if (!readOnly && editor.selection) {
 			const [match] = Editor.nodes(editor, {
 				at: Editor.unhangRange(editor, editor.selection as BaseRange),
 				match: (e) => !editor.hasOwnContext(e as IBaseElement)
