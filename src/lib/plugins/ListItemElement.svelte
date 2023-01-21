@@ -33,7 +33,9 @@
 					const [parent, parentPath] = Editor.parent(editor, listItemPath);
 					if (parent.children[parent.children.length - 1] === listItem) {
 						parentPath[parentPath.length - 1] += 1;
-						deleteBackward(unit);
+						Transforms.removeNodes(editor, {
+							at: listItemPath
+						});
 						Transforms.insertNodes(
 							editor,
 							{
