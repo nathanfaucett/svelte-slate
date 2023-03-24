@@ -141,7 +141,13 @@
 	function onChange() {
 		selection = editor.selection;
 		value = editor.children;
-		dispatch('value', value);
+
+    const isValueChange = editor.operations.some(op => 'set_selection' !== op.type);
+
+    if (isValueChange) {
+		  dispatch('value', value);
+    }
+
 		dispatch('selection', selection);
 	}
 	EDITOR_TO_ON_CHANGE.set(editor, onChange);
