@@ -5,24 +5,33 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" href="/svelte-slate/favicon.png" />
 		<meta http-equiv="content-security-policy" content="">
-		<link rel="modulepreload" href="/svelte-slate/internal/immutable/start-c1757305.js">
-		<link rel="modulepreload" href="/svelte-slate/internal/immutable/chunks/index-d4e06215.js">
-		<link rel="modulepreload" href="/svelte-slate/internal/immutable/chunks/singletons-f6daa87a.js">
-		<link rel="modulepreload" href="/svelte-slate/internal/immutable/chunks/index-dff7d052.js">
-		<link rel="modulepreload" href="/svelte-slate/internal/immutable/chunks/shared-23917130.js">
-		<link rel="modulepreload" href="/svelte-slate/internal/immutable/chunks/preload-helper-41c905a7.js">
+		<link rel="modulepreload" href="/svelte-slate/internal/immutable/entry/start.2ea065df.js">
+		<link rel="modulepreload" href="/svelte-slate/internal/immutable/chunks/index.50b3d361.js">
+		<link rel="modulepreload" href="/svelte-slate/internal/immutable/chunks/singletons.75858f70.js">
+		<link rel="modulepreload" href="/svelte-slate/internal/immutable/chunks/index.385c12ff.js">
+		<link rel="modulepreload" href="/svelte-slate/internal/immutable/chunks/paths.6cee89a5.js">
+		<link rel="modulepreload" href="/svelte-slate/internal/immutable/entry/app.9c2a977f.js">
+		<link rel="modulepreload" href="/svelte-slate/internal/immutable/chunks/preload-helper.41c905a7.js">
 	</head>
 	<body>
 		<div id="app">
-		<script type="module" data-sveltekit-hydrate="45h">
-			import { start } from "/svelte-slate/internal/immutable/start-c1757305.js";
+			<script>
+				{
+					__sveltekit_1orqcu5 = {
+						env: {},
+						assets: "/svelte-slate",
+						base: "/svelte-slate",
+						element: document.currentScript.parentElement
+					};
 
-			start({
-				env: {},
-				paths: {"assets":"/svelte-slate","base":"/svelte-slate"},
-				target: document.querySelector('[data-sveltekit-hydrate="45h"]').parentNode,
-				version: "1679621366625"
-			});
-		</script></div>
+					Promise.all([
+						import("/svelte-slate/internal/immutable/entry/start.2ea065df.js"),
+						import("/svelte-slate/internal/immutable/entry/app.9c2a977f.js")
+					]).then(([kit, app]) => {
+						kit.start(app, __sveltekit_1orqcu5.element);
+					});
+				}
+			</script>
+		</div>
 	</body>
 </html>
