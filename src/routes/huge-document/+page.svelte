@@ -1,3 +1,5 @@
+<svelte:options immutable />
+
 <script lang="ts" context="module">
 	import type { IText } from '$lib/plugins/Leaf.svelte';
 	import type { IElement } from '$lib/plugins/Element.svelte';

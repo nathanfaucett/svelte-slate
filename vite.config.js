@@ -17,7 +17,7 @@ const config = {
 	},
 	resolve: {
 		alias: {
-			'svelte-slate': path.resolve('src/lib')
+			'svelte-slate': path.resolve('./src/lib')
 		}
 	},
 	plugins: [sveltekit()]

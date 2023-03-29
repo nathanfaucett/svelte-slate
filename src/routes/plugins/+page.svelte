@@ -1,3 +1,5 @@
+<svelte:options immutable />
+
 <script lang="ts" context="module">
 	const HOTKEYS = {
 		'mod+b': 'bold',
