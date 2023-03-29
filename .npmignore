@@ -1,0 +1,14 @@
+/svelte-kit
+/.vscode
+/node_modules
+/scripts
+/src
+/static
+/eslintignore
+/eslintrc.cjs
+/.npmrc
+/.nvmrc
+/.prettierignore
+/svelte.config.js
+/tsconfig.json
+/vite.config.js

@@ -1,7 +1,7 @@
 {
 	"name": "svelte-slate",
 	"description": "slate svelte view layer",
-	"version": "0.1.78",
+	"version": "0.1.80",
 	"license": "(MIT OR Apache-2.0)",
 	"type": "module",
 	"author": "Nathan Faucett",
@@ -17,6 +17,16 @@
 		"text",
 		"rich"
 	],
+	"svelte": "./dist/index.js",
+	"files": [
+		"dist"
+	],
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"svelte": "./dist/index.js"
+		}
+	},
 	"scripts": {
 		"svelte-kit": "svelte-kit",
 		"vite": "vite",
@@ -25,16 +35,15 @@
 		"preview": "vite preview",
 		"clean": "rm -rf node_modules/.vite .svelte-kit package build",
 		"package": "svelte-package",
-		"publish": "npm run package && cd package && npm publish --access public",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-static": "1",
+		"@sveltejs/adapter-static": "2",
 		"@sveltejs/kit": "1",
-		"@sveltejs/package": "1",
+		"@sveltejs/package": "2",
 		"@types/katex": "0",
 		"@types/prismjs": "1",
 		"@typescript-eslint/eslint-plugin": "5",
@@ -50,13 +59,13 @@
 		"slate": "0",
 		"slate-history": "0",
 		"svelte": "3",
-		"svelte-check": "2",
+		"svelte-check": "3",
 		"svelte-icons": "2",
 		"svelte-portal": "2",
 		"svelte-preprocess": "5",
 		"svelte2tsx": "0",
 		"tslib": "2",
-		"typescript": "4",
+		"typescript": "5",
 		"vite": "4"
 	},
 	"peerDependencies": {
