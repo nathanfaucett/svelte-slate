@@ -1,3 +1,4 @@
+/.github
 /svelte-kit
 /.vscode
 /node_modules
@@ -9,6 +10,7 @@
 /.npmrc
 /.nvmrc
 /.prettierignore
+/.prettierrc
 /svelte.config.js
 /tsconfig.json
 /vite.config.js
