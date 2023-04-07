@@ -1,7 +1,7 @@
 {
 	"name": "svelte-slate",
 	"description": "slate svelte view layer",
-	"version": "0.1.79",
+	"version": "0.1.80",
 	"license": "(MIT OR Apache-2.0)",
 	"type": "module",
 	"author": "Nathan Faucett",
@@ -34,7 +34,7 @@
 		"build": "vite build",
 		"preview": "vite preview",
 		"clean": "rm -rf node_modules/.vite .svelte-kit package build",
-		"package": "svelte-package",
+		"prepublishOnly": "svelte-package",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check . && eslint .",
