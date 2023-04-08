@@ -52,7 +52,8 @@
 
 	export let container: HTMLElement | undefined = undefined;
 	export let ref: HTMLElement | undefined = undefined;
-	export let open: number | false = false;
+	export let open = false;
+	export let key = Date.now();
 	export let retires = 2;
 
 	$: if (container === undefined && ref) {

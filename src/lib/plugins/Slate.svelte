@@ -1,7 +1,7 @@
 <svelte:options immutable />
 
 <script lang="ts" context="module">
-	export const PLUGINS_CONTEXT_KEY = createContextKey<IPluginsContext>();
+	const PLUGINS_CONTEXT_KEY = createContextKey<IPluginsContext>();
 
 	export function getPluginsContext() {
 		return getFromContext(PLUGINS_CONTEXT_KEY);

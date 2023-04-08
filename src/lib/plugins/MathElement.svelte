@@ -34,7 +34,9 @@
 			if (!editor.selection || !Range.isCollapsed(editor.selection)) {
 				insertBreak();
 			} else {
-				if (Editor.isVoid(editor, Node.get(editor, Path.parent(editor.selection.anchor.path)))) {
+				if (
+					Editor.isVoid(editor, Node.get(editor, Path.parent(editor.selection.anchor.path)) as any)
+				) {
 					Editor.insertNode(editor, {
 						type: PARAGRAPH_TYPE,
 						children: [{ text: '' }]

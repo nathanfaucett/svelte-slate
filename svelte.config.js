@@ -1,5 +1,6 @@
 import adapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
+import { resolve } from 'node:path';
 
 const tagsRegex1 = /(>)[\s]*([<{])/g;
 const tagsRegex2 = /({[/:][a-z]+})[\s]*([<{])/g;
@@ -27,6 +28,11 @@ const config = {
 		appDir: 'internal',
 		paths: {
 			base: process.env.USE_BASE_PATH ? '/svelte-slate' : ''
+		},
+		resolve: {
+			alias: {
+				'svelte-slate': './src/lib'
+			}
 		}
 	}
 };

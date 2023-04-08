@@ -3,7 +3,7 @@
 <script lang="ts" context="module">
 	import type { Token, Grammar } from 'prismjs';
 	import { languages } from './prismjs';
-	import type { IBaseElement, IElement } from './Element.svelte';
+	import type { IBaseElement } from './Element.svelte';
 	import { createContext, createContextKey, findPath, getFromContext, isReadOnly } from '../utils';
 	import type { ISvelteEditor } from '$lib/withSvelte';
 

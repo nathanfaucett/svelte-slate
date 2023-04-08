@@ -1,7 +1,7 @@
 <svelte:options immutable />
 
 <script lang="ts" context="module">
-	export function addLongPress(node: HTMLElement, threshold = 500, callback: () => void) {
+	function addLongPress(node: HTMLElement, threshold = 500, callback: () => void) {
 		let timeoutId: ReturnType<typeof setTimeout> | null = null;
 
 		function onDown() {
@@ -49,6 +49,9 @@
 
 	export let container: HTMLElement | undefined = undefined;
 	export let threshold = 500;
+	export let open = false;
+
+	let key = Date.now();
 
 	const editorContext = getEditorContext();
 	const selectionContext = getSelectionContext();
@@ -60,7 +63,6 @@
 	$: readOnly = $readOnlyContext;
 
 	let ref: HTMLElement;
-	let open: number | false = false;
 	$: if (ref) {
 		if (
 			!selection ||
@@ -81,7 +83,8 @@
 				match: (e) => !editor.hasOwnContext(e as IBaseElement)
 			});
 			if (!match) {
-				open = Date.now();
+				open = true;
+				key = Date.now();
 			}
 		}
 	}
@@ -96,6 +99,6 @@
 	}
 </script>
 
-<Hovering bind:open bind:ref {container}>
+<Hovering bind:open bind:ref {key} {container}>
 	<slot />
 </Hovering>

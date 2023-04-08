@@ -19,7 +19,7 @@
 	export let spellcheck = true;
 	export let autocorrect: string = 'true';
 	export let autocapitalize: string = 'true';
-	export let onKeyDown: svelteHTML.KeyboardEventHandler<HTMLElement> = () => undefined;
+	export let onKeyDown: svelte.JSX.KeyboardEventHandler<HTMLElement> = () => undefined;
 </script>
 
 <Editable

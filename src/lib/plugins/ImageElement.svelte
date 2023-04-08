@@ -28,13 +28,13 @@
 		}
 	}
 
-	export type ImagesOptions = {
+	export type IImagesOptions = {
 		allowPaste?: boolean;
 	};
 
 	export function withImages<T extends ISvelteEditor = ISvelteEditor>(
 		editor: T,
-		options: ImagesOptions = {}
+		options: IImagesOptions = {}
 	): T {
 		const { insertData, insertBreak } = editor;
 

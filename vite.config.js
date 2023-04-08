@@ -15,11 +15,6 @@ const config = {
 	define: {
 		PACKAGE_JSON: JSON.stringify(pkg)
 	},
-	resolve: {
-		alias: {
-			'svelte-slate': path.resolve('./src/lib')
-		}
-	},
 	plugins: [sveltekit()]
 };
 
