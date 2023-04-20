@@ -360,13 +360,26 @@ export function toSlatePoint<T extends boolean>(
 ): T extends true ? Point | null : Point {
 	const { exactMatch, suppressThrow } = options;
 	const [nearestNode, nearestOffset] = exactMatch ? domPoint : normalizeDOMPoint(domPoint);
-	const parentNode = nearestNode.parentNode as DOMElement;
+	// Handle blockquotes and other elements whose direct parent is the editor itself.
+	const nearestNodeIsDOMElement =
+		nearestNode instanceof DOMElement && nearestNode.getAttribute('data-slate-node') === 'element';
+	const parentNode = nearestNodeIsDOMElement ? nearestNode : nearestNode.parentNode as DOMElement;
 	let textNode: DOMElement | null = null;
 	let offset = 0;
 
 	if (parentNode) {
-		const voidNode = parentNode.closest('[data-slate-void="true"]');
-		let leafNode = parentNode.closest('[data-slate-leaf]');
+		// Sometimes the selected node is the wrapping element, sometimes it is the leaf contents.
+		let voidNode, leafNode;
+		if (parentNode.getAttribute('data-slate-node') === 'element') {
+			leafNode = parentNode.querySelector('[data-slate-leaf]');
+			if (parentNode.getAttribute('data-slate-void')) {
+				voidNode = parentNode;
+			}
+		} else {
+			leafNode = parentNode.closest('[data-slate-leaf]');
+			voidNode = parentNode.closest('[data-slate-void="true"]');
+		}
+
 		let domNode: DOMElement | null = null;
 
 		if (leafNode) {
