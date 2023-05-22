@@ -36,7 +36,11 @@
 		editor: T,
 		options: IImagesOptions = {}
 	): T {
-		const { insertData, insertBreak } = editor;
+		const { insertData, insertBreak, isVoid } = editor;
+
+		editor.isVoid = element => {
+			return element.type === 'image' ? true : isVoid(element)
+		}
 
 		editor.insertBreak = () => {
 			const [match] = Editor.nodes(editor, {
