@@ -29,10 +29,8 @@ const config = {
 		paths: {
 			base: process.env.USE_BASE_PATH ? '/svelte-slate' : ''
 		},
-		resolve: {
-			alias: {
-				'svelte-slate': './src/lib'
-			}
+		alias: {
+			'svelte-slate': './src/lib'
 		}
 	}
 };
