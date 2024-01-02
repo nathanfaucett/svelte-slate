@@ -15,9 +15,9 @@ jobs:
         with:
           node-version: 19.x
 
-      - run: npm install -g npm@9
-      - run: npm ci
-      - run: npm run build
+      - run: npm install -g pnpm@8
+      - run: pnpm install
+      - run: pnpm run build
 
       - uses: peaceiris/actions-gh-pages@v3
         with:
