@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Location } from 'slate';
-	import { addEventListener, getEditorContext, getFocusedContext } from 'svelte-slate';
-	import { isHotkey } from 'svelte-slate';
+	import { addEventListener, getEditorContext, getFocusedContext } from '$lib';
+	import { isHotkey } from '$lib';
 	import Button from './Button.svelte';
 	import MdFunctions from 'svelte-icons/md/MdFunctions.svelte';
 	import { isBlockActive } from '$lib/plugins/utils';

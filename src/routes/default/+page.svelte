@@ -1,7 +1,7 @@
 <svelte:options immutable />
 
 <script lang="ts">
-	import { withSvelte } from 'svelte-slate';
+	import { withSvelte } from '$lib';
 	import { createEditor } from 'slate';
 	import { withHistory } from 'slate-history';
 	import Editable from '$lib/plugins/Editable.svelte';

@@ -5,12 +5,6 @@ const pkg = JSON.parse(fs.readFileSync(new URL('package.json', import.meta.url),
 
 /** @type {import('vite').UserConfig} */
 const config = {
-	server: {
-		port: 3000
-	},
-	preview: {
-		port: 3000
-	},
 	define: {
 		PACKAGE_JSON: JSON.stringify(pkg)
 	},

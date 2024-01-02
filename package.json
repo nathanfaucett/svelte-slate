@@ -1,7 +1,7 @@
 {
 	"name": "svelte-slate",
 	"description": "slate svelte view layer",
-	"version": "0.1.82",
+	"version": "0.1.83",
 	"license": "(MIT OR Apache-2.0)",
 	"type": "module",
 	"author": "Nathan Faucett",
@@ -51,24 +51,25 @@
 		"postinstall": "svelte-kit sync"
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-static": "2",
-		"@sveltejs/kit": "1",
+		"@sveltejs/adapter-static": "3",
+		"@sveltejs/kit": "2",
 		"@sveltejs/package": "2",
 		"@types/katex": "0",
+		"@types/node": "^20.10.6",
 		"@types/prismjs": "1",
-		"@typescript-eslint/eslint-plugin": "5",
-		"@typescript-eslint/parser": "5",
+		"@typescript-eslint/eslint-plugin": "6",
+		"@typescript-eslint/parser": "6",
 		"eslint": "8",
-		"eslint-config-prettier": "8",
+		"eslint-config-prettier": "9",
 		"eslint-plugin-svelte3": "4",
 		"katex": "0",
 		"lorem-ipsum": "2",
-		"prettier": "2",
-		"prettier-plugin-svelte": "2",
+		"prettier": "3",
+		"prettier-plugin-svelte": "3",
 		"prismjs": "1",
 		"slate": "0",
 		"slate-history": "0",
-		"svelte": "3",
+		"svelte": "4",
 		"svelte-check": "3",
 		"svelte-icons": "2",
 		"svelte-portal": "2",
@@ -76,20 +77,20 @@
 		"svelte2tsx": "0",
 		"tslib": "2",
 		"typescript": "5",
-		"vite": "4"
+		"vite": "5"
 	},
 	"peerDependencies": {
 		"katex": "0",
 		"prismjs": "1",
 		"slate": "0",
-		"svelte": "3",
+		"svelte": ">=3",
 		"svelte-icons": "2",
 		"tslib": "2"
 	},
 	"dependencies": {
 		"@aicacia/debounce": "0",
-		"@svelte-put/clickoutside": "1",
-		"fast-equals": "4",
+		"@svelte-put/clickoutside": "3",
+		"fast-equals": "5",
 		"scroll-into-view-if-needed": "3"
 	}
 }

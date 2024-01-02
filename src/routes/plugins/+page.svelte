@@ -10,7 +10,7 @@
 </script>
 
 <script lang="ts">
-	import { isHotkey, withSvelte } from 'svelte-slate';
+	import { isHotkey, withSvelte } from '$lib';
 	import { createEditor } from 'slate';
 	import { withHistory } from 'slate-history';
 	import ImageButton from '../../example/ImageButton.svelte';

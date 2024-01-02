@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getEditorContext } from 'svelte-slate';
+	import { getEditorContext } from '$lib';
 	import FaTable from 'svelte-icons/fa/FaTable.svelte';
 	import Button from './Button.svelte';
 	import { insertTable } from '$lib/plugins/TableElement.svelte';
