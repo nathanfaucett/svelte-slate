@@ -4,8 +4,8 @@
 	import { withSvelte } from '$lib';
 	import { createEditor } from 'slate';
 	import { withHistory } from 'slate-history';
-	import Editable from '$lib/plugins/Editable.svelte';
-	import Slate from '$lib/plugins/Slate.svelte';
+	import Editable from '$lib/components/Editable.svelte';
+	import Slate from '$lib/components/Slate.svelte';
 
 	const editor = withHistory(withSvelte(createEditor()));
 	let value = [

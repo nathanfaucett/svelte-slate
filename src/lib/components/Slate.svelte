@@ -7,6 +7,7 @@
 	import { getFromContext, createContextKey, isSelectionEqual, createContext } from '../utils';
 	import { onMount, createEventDispatcher } from 'svelte';
 	import { EDITOR_TO_ON_CHANGE } from '../weakMaps';
+	import type { EventHandler, KeyboardEventHandler, MouseEventHandler } from 'svelte/elements';
 
 	export const EDITOR_CONTEXT_KEY = createContextKey<ISvelteEditor>();
 	export const READ_ONLY_CONTEXT_KEY = createContextKey<boolean>();
@@ -18,34 +19,32 @@
 	export const CONTAINER_CONTEXT_KEY = createContextKey<HTMLDivElement | undefined>();
 
 	export type IEvents = {
-		onBeforeInput: svelte.JSX.EventHandler<InputEvent, HTMLElement>[];
-		onKeyDown: svelte.JSX.KeyboardEventHandler<HTMLElement>[];
-		onKeyUp: svelte.JSX.KeyboardEventHandler<HTMLElement>[];
-		onKeyPress: svelte.JSX.KeyboardEventHandler<HTMLElement>[];
-		onInput: svelte.JSX.EventHandler<InputEvent, HTMLElement>[];
-		onFocus: svelte.JSX.EventHandler<FocusEvent, HTMLElement>[];
-		onBlur: svelte.JSX.EventHandler<FocusEvent, HTMLElement>[];
-		onClick: svelte.JSX.MouseEventHandler<HTMLElement>[];
-		onCompositionEnd: svelte.JSX.EventHandler<CompositionEvent, HTMLElement>[];
-		onCompositionUpdate: svelte.JSX.EventHandler<CompositionEvent, HTMLElement>[];
-		onCompositionStart: svelte.JSX.EventHandler<CompositionEvent, HTMLElement>[];
-		onPaste: svelte.JSX.EventHandler<ClipboardEvent, HTMLElement>[];
-		onCopy: svelte.JSX.EventHandler<ClipboardEvent, HTMLElement>[];
-		onCut: svelte.JSX.EventHandler<ClipboardEvent, HTMLElement>[];
-		onDragOver: svelte.JSX.EventHandler<DragEvent, HTMLElement>[];
-		onDragStart: svelte.JSX.EventHandler<DragEvent, HTMLElement>[];
-		onDrop: svelte.JSX.EventHandler<DragEvent, HTMLElement>[];
-		onDragEnd: svelte.JSX.EventHandler<DragEvent, HTMLElement>[];
+		onBeforeInput: EventHandler<InputEvent, HTMLElement>[];
+		onKeyDown: KeyboardEventHandler<HTMLElement>[];
+		onKeyUp: KeyboardEventHandler<HTMLElement>[];
+		onKeyPress: KeyboardEventHandler<HTMLElement>[];
+		onInput: EventHandler<InputEvent, HTMLElement>[];
+		onFocus: EventHandler<FocusEvent, HTMLElement>[];
+		onBlur: EventHandler<FocusEvent, HTMLElement>[];
+		onClick: MouseEventHandler<HTMLElement>[];
+		onCompositionEnd: EventHandler<CompositionEvent, HTMLElement>[];
+		onCompositionUpdate: EventHandler<CompositionEvent, HTMLElement>[];
+		onCompositionStart: EventHandler<CompositionEvent, HTMLElement>[];
+		onPaste: EventHandler<ClipboardEvent, HTMLElement>[];
+		onCopy: EventHandler<ClipboardEvent, HTMLElement>[];
+		onCut: EventHandler<ClipboardEvent, HTMLElement>[];
+		onDragOver: EventHandler<DragEvent, HTMLElement>[];
+		onDragStart: EventHandler<DragEvent, HTMLElement>[];
+		onDrop: EventHandler<DragEvent, HTMLElement>[];
+		onDragEnd: EventHandler<DragEvent, HTMLElement>[];
 	};
-	export type IEventType<K extends keyof IEvents> = IEvents[K] extends svelte.JSX.EventHandler<
-		infer E
-	>[]
+	export type IEventType<K extends keyof IEvents> = IEvents[K] extends EventHandler<infer E>[]
 		? E
 		: Event;
 
 	export function addEventListener<K extends keyof IEvents>(
 		name: K,
-		handler: svelte.JSX.EventHandler<IEventType<K>, HTMLElement>,
+		handler: EventHandler<IEventType<K>, HTMLElement>,
 		onRemove?: () => void
 	) {
 		const eventsContext = getEventsContext();

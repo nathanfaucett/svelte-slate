@@ -10,7 +10,9 @@ declare namespace App {
 }
 
 declare global {
-	const PACKAGE_JSON: typeof import('../package.json');
+	const __VERSION__: string;
+	const __DESCRIPTION__: string;
+	const __KEYWORDS__: string[];
 }
 
 declare namespace svelte.JSX {

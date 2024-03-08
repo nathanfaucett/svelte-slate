@@ -1,11 +1,11 @@
 <svelte:options immutable />
 
 <script lang="ts" context="module">
-	export interface ILeafProps extends svelte.JSX.HTMLAttributes<HTMLElement> {
+	export interface ILeafProps extends HTMLAttributes<HTMLElement> {
 		leaf: SlateText;
 	}
 
-	export interface IPlaceholderProps extends svelte.JSX.HTMLAttributes<HTMLElement> {
+	export interface IPlaceholderProps extends HTMLAttributes<HTMLElement> {
 		clientHeight?: number;
 	}
 </script>
@@ -18,6 +18,7 @@
 	import String from './String.svelte';
 	import { getFromContext } from '../utils';
 	import { LEAF_CONTEXT_KEY, PLACEHOLDER_CONTEXT_KEY } from './Editable.svelte';
+	import type { HTMLAttributes } from 'svelte/elements';
 
 	export let isLast: boolean;
 	export let leaf: SlateText & { placeholder?: string };

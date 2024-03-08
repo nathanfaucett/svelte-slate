@@ -5,7 +5,8 @@
 		Element as SlateElement,
 		Path,
 		Range,
-		Transforms
+		Transforms,
+		type BaseElement
 	} from 'slate';
 	import { afterUpdate } from 'svelte';
 	import { onMount, tick } from 'svelte';
@@ -16,7 +17,7 @@
 	import DefaultElement from './DefaultElement.svelte';
 	import DefaultLeaf from './DefaultLeaf.svelte';
 	import DefaultPlaceholder from './DefaultPlaceholder.svelte';
-	import { getEditor, getEventsContext, getValueContext, handleEvent } from './Slate.svelte';
+	import { getEditor, getEventsContext, handleEvent } from './Slate.svelte';
 	import {
 		defaultDecorate,
 		getDecorateContext,
@@ -68,6 +69,7 @@
 	import type { ILeafProps, IPlaceholderProps } from './InternalLeaf.svelte';
 	import { getContainerContext } from './Slate.svelte';
 	import { isHotkey } from '$lib/isHotkey';
+	import type { KeyboardEventHandler } from 'svelte/elements';
 
 	export const ELEMENT_CONTEXT_KEY = createContextKey<ISvelteComponent<IElementProps>>();
 	export const LEAF_CONTEXT_KEY = createContextKey<ISvelteComponent<ILeafProps>>();
@@ -103,8 +105,7 @@
 		if (IS_READ_ONLY.get(editor)) {
 			return false;
 		} else {
-			const slateNode = hasTarget(editor, target) && toSlateNode(target);
-			return Editor.isVoid(editor, slateNode);
+			return hasTarget(editor, target) && Editor.isVoid(editor, toSlateNode(target) as BaseElement);
 		}
 	}
 
@@ -132,7 +133,7 @@
 	export let spellcheck = true;
 	export let autocorrect: string = 'true';
 	export let autocapitalize: string = 'true';
-	export let onKeyDown: svelteHTML.KeyboardEventHandler<HTMLElement> = () => undefined;
+	export let onKeyDown: KeyboardEventHandler<HTMLElement> = () => undefined;
 
 	const containerContext = getContainerContext();
 	$: containerContext.set(ref);
@@ -391,7 +392,7 @@
 
 				const inline = Editor.above(editor, {
 					at: editor.selection.anchor,
-					match: (n) => Editor.isInline(editor, n),
+					match: (n) => Editor.isInline(editor, n as BaseElement),
 					mode: 'highest'
 				});
 				if (inline) {
@@ -844,7 +845,7 @@
 					return;
 				}
 				const inline = Editor.above(editor, {
-					match: (n) => Editor.isInline(editor, n),
+					match: (n) => Editor.isInline(editor, n as BaseElement),
 					mode: 'highest'
 				});
 				if (inline) {
@@ -922,7 +923,7 @@
 		if (hasTarget(editor, event.target)) {
 			const node = toSlateNode(event.target);
 
-			if (Editor.isVoid(editor, node)) {
+			if (Editor.isVoid(editor, node as BaseElement)) {
 				event.preventDefault();
 			}
 
@@ -935,7 +936,8 @@
 			const node = toSlateNode(event.target);
 			const path = findPath(node);
 			const voidMatch =
-				Editor.isVoid(editor, node) || Editor.void(editor, { at: path, voids: true });
+				Editor.isVoid(editor, node as BaseElement) ||
+				Editor.void(editor, { at: path, voids: true });
 
 			if (voidMatch) {
 				const range = Editor.range(editor, path);

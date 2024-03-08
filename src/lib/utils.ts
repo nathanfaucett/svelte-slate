@@ -307,9 +307,9 @@ export function findEventRange(editor: ISvelteEditor, event: any): Range {
 	const node = toSlateNode(event.target);
 	const path = findPath(node);
 
-	if (Editor.isVoid(editor, node)) {
+	if (Editor.isVoid(editor, node as BaseElement)) {
 		const rect = target.getBoundingClientRect();
-		const isPrev = editor.isInline(node)
+		const isPrev = editor.isInline(node as BaseElement)
 			? x - rect.left < rect.left + rect.width - x
 			: y - rect.top < rect.top + rect.height - y;
 

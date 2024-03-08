@@ -1,4 +1,4 @@
-import type { BaseEditor, Element } from 'slate';
+import type { BaseEditor, BaseElement, Element } from 'slate';
 import { Editor, Node, Path, type Operation, Transforms, Range } from 'slate';
 import type { Key } from './Key';
 import { EDITOR_TO_KEY_TO_ELEMENT, EDITOR_TO_ON_CHANGE, NODE_TO_KEY } from './weakMaps';
@@ -27,7 +27,7 @@ export function withSvelte<T extends Editor>(editor: T): T & ISvelteEditor {
 		}
 		if (editor.selection && Range.isCollapsed(editor.selection)) {
 			const parentBlockEntry = Editor.above(editor, {
-				match: (n) => Editor.isBlock(editor, n),
+				match: (n) => Editor.isBlock(editor, n as BaseElement),
 				at: editor.selection
 			});
 

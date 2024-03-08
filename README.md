@@ -21,7 +21,6 @@ tries to mimic the react api from [slate-react](https://github.com/ianstormtaylo
 	const editor = withSvelte(createEditor());
 	let value = [
 		{
-			type: 'paragraph',
 			children: [{ text: 'This is editable ' }]
 		}
 	];
@@ -46,4 +45,4 @@ export default defineConfig({
 
 ## Custom Rendering
 
-Default components for elements, leafs, and placeholders are provider but can easily be overridden see [Element.svelte](src/lib/plugins/Element.svelte) and [Leaf.svelte](src/lib/plugins/Leaf.svelte) and then can be used in the editable component like `<Editable {Element} {Leaf} />`
+Default components for elements, leafs, and placeholders are provided but can easily be overridden and then can be used in the editable component like `<Editable {Element} {Leaf} />`

@@ -2,7 +2,7 @@
 
 <script lang="ts" context="module">
 	export interface IElementProps<T extends SlateElement = SlateElement>
-		extends svelte.JSX.HTMLAttributes<HTMLElement> {
+		extends HTMLAttributes<HTMLElement> {
 		ref?: HTMLElement;
 		element: T;
 		isVoid: boolean;
@@ -10,11 +10,8 @@
 		dir?: 'rtl' | 'ltr';
 	}
 
-	export type IElementType<T extends IElementProps = IElementProps> = T extends IElementProps<
-		infer T
-	>
-		? T
-		: never;
+	export type IElementType<T extends IElementProps = IElementProps> =
+		T extends IElementProps<infer T> ? T : never;
 </script>
 
 <script lang="ts">
@@ -33,6 +30,7 @@
 	} from '../weakMaps';
 	import { getEditor, getReadOnlyContext } from './Slate.svelte';
 	import { ELEMENT_CONTEXT_KEY } from './Editable.svelte';
+	import type { HTMLAttributes } from 'svelte/elements';
 
 	export let element: SlateElement;
 	export let decorations: Range[];
